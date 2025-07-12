@@ -153,6 +153,59 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+    // Cargar colaboradores desde JSON
+    document.addEventListener('DOMContentLoaded', () => {
+        // Intentar cargar los colaboradores desde el JSON
+        async function cargarColaboradores() {
+            try {
+                const response = await fetch('data/colaboradores.json');
+                if (!response.ok) {
+                    throw new Error('No se pudo cargar el archivo de colaboradores');
+                }
+
+                const data = await response.json();
+                console.log('Colaboradores cargados:', data);
+                renderizarColaboradores(data);
+            } catch (error) {
+                console.error('Error al cargar colaboradores:', error);
+            }
+        }
+
+        function renderizarColaboradores(colaboradores) {
+            const container = document.getElementById('colaboradores-container');
+
+            // Eliminar las tarjetas de ejemplo
+            container.innerHTML = '';
+
+            colaboradores.forEach(colaborador => {
+                const card = document.createElement('div');
+                card.className = `colaborador-card ${colaborador.categoria}`;
+                card.setAttribute('data-categoria', colaborador.categoria);
+
+                // Usar imagen por defecto si no hay una específica
+                const imagenUrl = colaborador.imagen ? 
+                    `assets/colaboradores/${colaborador.imagen}` : 
+                    'https://via.placeholder.com/300x300?text=Colaborador';
+
+                card.innerHTML = `
+                    <div class="colaborador-image">
+                        <img src="${imagenUrl}" alt="${colaborador.nombre}" onerror="this.src='https://via.placeholder.com/300x300?text=VRTon'">
+                    </div>
+                    <div class="colaborador-info">
+                        <h3>${colaborador.nombre}</h3>
+                        <p class="colaborador-rol">${colaborador.categoria}</p>
+                        <p>${colaborador.descripcion || 'Miembro del equipo VRTon'}</p>
+                    </div>
+                `;
+
+                container.appendChild(card);
+            });
+        }
+
+        cargarColaboradores();
+    });
+    </script>
     <script src="colaboradores-fix.js"></script>
 </body>
 </html>
