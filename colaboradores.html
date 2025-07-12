@@ -6,6 +6,7 @@
     <meta name="description" content="Colaboradores de VRTon - Organización sin ánimo de lucro dedicada a la realidad virtual para causas sociales">
     <title>Colaboradores - VRTon</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles-colaboradores.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -33,20 +34,107 @@
 
             <!-- Categorías de Colaboradores -->
             <div class="colaboradores-categorias">
-                <div class="categoria-selector active" data-category="todos">Todos</div>
-                <div class="categoria-selector" data-category="Moderación">Moderación</div>
-                <div class="categoria-selector" data-category="AudioVisuales">AudioVisuales</div>
-                <div class="categoria-selector" data-category="2D">2D</div>
-                <div class="categoria-selector" data-category="3D">3D</div>
-                <div class="categoria-selector" data-category="Host">Host</div>
-                <div class="categoria-selector" data-category="MapMaking">MapMaking</div>
-                <div class="categoria-selector" data-category="Dj/Show">Dj/Show</div>
-                <div class="categoria-selector" data-category="Marketing">Marketing</div>
+                <div class="categoria-selector active" data-categoria="todos">Todos</div>
+                <div class="categoria-selector" data-categoria="Moderación">Moderación</div>
+                <div class="categoria-selector" data-categoria="AudioVisuales">AudioVisuales</div>
+                <div class="categoria-selector" data-categoria="2D">2D</div>
+                <div class="categoria-selector" data-categoria="3D">3D</div>
+                <div class="categoria-selector" data-categoria="Host">Host</div>
+                <div class="categoria-selector" data-categoria="MapMaking">MapMaking</div>
+                <div class="categoria-selector" data-categoria="Dj/Show">Dj/Show</div>
+                <div class="categoria-selector" data-categoria="Marketing">Marketing</div>
             </div>
 
             <!-- Contenedor de tarjetas de colaboradores -->
             <div id="colaboradores-container" class="colaboradores-grid">
-                <!-- Las tarjetas de colaboradores se cargarán dinámicamente desde JavaScript -->
+                <!-- Colaboradores estáticos (se mostrarán siempre) -->
+                <div class="colaborador-card Moderación" data-categoria="Moderación">
+                    <div class="colaborador-image">
+                        <img src="https://via.placeholder.com/300x300?text=Moderador" alt="Ejemplo Moderador">
+                    </div>
+                    <div class="colaborador-info">
+                        <h3>Ejemplo Moderador</h3>
+                        <p class="colaborador-rol">Moderación</p>
+                        <p>Responsable de mantener la comunidad segura y acogedora para todos.</p>
+                    </div>
+                </div>
+
+                <div class="colaborador-card AudioVisuales" data-categoria="AudioVisuales">
+                    <div class="colaborador-image">
+                        <img src="https://via.placeholder.com/300x300?text=AudioVisual" alt="Ejemplo AudioVisual">
+                    </div>
+                    <div class="colaborador-info">
+                        <h3>Ejemplo AudioVisual</h3>
+                        <p class="colaborador-rol">AudioVisuales</p>
+                        <p>Especialista en producción audiovisual para experiencias VR inmersivas.</p>
+                    </div>
+                </div>
+
+                <div class="colaborador-card 2D" data-categoria="2D">
+                    <div class="colaborador-image">
+                        <img src="https://via.placeholder.com/300x300?text=Artista+2D" alt="Ejemplo Artista 2D">
+                    </div>
+                    <div class="colaborador-info">
+                        <h3>Ejemplo Artista 2D</h3>
+                        <p class="colaborador-rol">2D</p>
+                        <p>Artista gráfico enfocado en diseño de interfaces y elementos visuales 2D.</p>
+                    </div>
+                </div>
+
+                <div class="colaborador-card 3D" data-categoria="3D">
+                    <div class="colaborador-image">
+                        <img src="https://via.placeholder.com/300x300?text=Modelador+3D" alt="Ejemplo Modelador 3D">
+                    </div>
+                    <div class="colaborador-info">
+                        <h3>Ejemplo Modelador 3D</h3>
+                        <p class="colaborador-rol">3D</p>
+                        <p>Creador de modelos y entornos 3D para nuestras experiencias de realidad virtual.</p>
+                    </div>
+                </div>
+
+                <div class="colaborador-card Host" data-categoria="Host">
+                    <div class="colaborador-image">
+                        <img src="https://via.placeholder.com/300x300?text=Host" alt="Ejemplo Host">
+                    </div>
+                    <div class="colaborador-info">
+                        <h3>Ejemplo Host</h3>
+                        <p class="colaborador-rol">Host</p>
+                        <p>Anfitrión de nuestros eventos virtuales y experiencias interactivas.</p>
+                    </div>
+                </div>
+
+                <div class="colaborador-card MapMaking" data-categoria="MapMaking">
+                    <div class="colaborador-image">
+                        <img src="https://via.placeholder.com/300x300?text=Map+Maker" alt="Ejemplo Map Maker">
+                    </div>
+                    <div class="colaborador-info">
+                        <h3>Ejemplo Map Maker</h3>
+                        <p class="colaborador-rol">MapMaking</p>
+                        <p>Diseñador de espacios virtuales y entornos interactivos.</p>
+                    </div>
+                </div>
+
+                <div class="colaborador-card Dj/Show" data-categoria="Dj/Show">
+                    <div class="colaborador-image">
+                        <img src="https://via.placeholder.com/300x300?text=DJ" alt="Ejemplo DJ">
+                    </div>
+                    <div class="colaborador-info">
+                        <h3>Ejemplo DJ</h3>
+                        <p class="colaborador-rol">Dj/Show</p>
+                        <p>Responsable de la música y efectos de sonido en nuestros eventos virtuales.</p>
+                    </div>
+                </div>
+
+                <div class="colaborador-card Marketing" data-categoria="Marketing">
+                    <div class="colaborador-image">
+                        <img src="https://via.placeholder.com/300x300?text=Marketing" alt="Ejemplo Marketing">
+                    </div>
+                    <div class="colaborador-info">
+                        <h3>Ejemplo Marketing</h3>
+                        <p class="colaborador-rol">Marketing</p>
+                        <p>Especialista en estrategias de difusión y comunicación de nuestros proyectos.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -65,5 +153,6 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="colaboradores-fix.js"></script>
 </body>
 </html>

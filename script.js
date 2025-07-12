@@ -15,8 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Animación suave para los enlaces de navegación
-    const navLinks = document.querySelectorAll('nav a');
+    // Animación suave para los enlaces de navegación internos
+    const navLinks = document.querySelectorAll('nav a[href^="#"]');
 
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
@@ -25,10 +25,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const targetId = this.getAttribute('href');
             const targetSection = document.querySelector(targetId);
 
-            window.scrollTo({
-                top: targetSection.offsetTop - 80,
-                behavior: 'smooth'
-            });
+            if (targetSection) {
+                window.scrollTo({
+                    top: targetSection.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
         });
     });
 
@@ -81,12 +83,14 @@ document.addEventListener('DOMContentLoaded', () => {
  */
 async function cargarColaboradores() {
     try {
+        console.log('Iniciando carga de colaboradores...');
         const response = await fetch('data/colaboradores.json');
         if (!response.ok) {
             throw new Error('No se pudo cargar el archivo de colaboradores');
         }
 
         const data = await response.json();
+        console.log('Colaboradores cargados:', data);
         renderizarColaboradores(data);
     } catch (error) {
         console.error('Error al cargar colaboradores:', error);
@@ -99,7 +103,16 @@ async function cargarColaboradores() {
  * @param {Array} colaboradores - Array de objetos con información de colaboradores
  */
 function renderizarColaboradores(colaboradores) {
+    // Verificar si ya hay colaboradores estáticos en el contenedor
     const container = document.getElementById('colaboradores-container');
+    const tieneColaboradoresEstaticos = container.querySelectorAll('.colaborador-card').length > 0;
+
+    // Si hay colaboradores estáticos, no modificamos el contenedor
+    if (tieneColaboradoresEstaticos) {
+        console.log('Se encontraron colaboradores estáticos, se omite la carga dinámica');
+        return;
+    }
+
     container.innerHTML = '';
 
     if (colaboradores.length === 0) {
@@ -145,7 +158,8 @@ function configurarFiltrosCategorias() {
             boton.classList.add('active');
 
             // Filtrar colaboradores
-            const categoriaSeleccionada = boton.getAttribute('data-category');
+            const categoriaSeleccionada = boton.getAttribute('data-categoria');
+            console.log('Categoría seleccionada:', categoriaSeleccionada);
             filtrarColaboradoresPorCategoria(categoriaSeleccionada);
         });
     });
@@ -156,15 +170,41 @@ function configurarFiltrosCategorias() {
  * @param {string} categoria - Categoría a filtrar ('todos' para mostrar todos)
  */
 function filtrarColaboradoresPorCategoria(categoria) {
+    console.log('Filtrando por categoría:', categoria);
     const tarjetas = document.querySelectorAll('.colaborador-card');
 
     tarjetas.forEach(tarjeta => {
-        if (categoria === 'todos' || tarjeta.getAttribute('data-categoria') === categoria) {
+        const categoriaTarjeta = tarjeta.getAttribute('data-categoria');
+        console.log('Tarjeta categoría:', categoriaTarjeta);
+
+        if (categoria === 'todos' || categoriaTarjeta === categoria) {
             tarjeta.style.display = 'block';
         } else {
             tarjeta.style.display = 'none';
         }
     });
+
+    // Mostrar mensaje si no hay resultados visibles
+    const tarjetasVisibles = document.querySelectorAll('.colaborador-card[style="display: block"]');
+    const contenedor = document.getElementById('colaboradores-container');
+
+    if (tarjetasVisibles.length === 0 && categoria !== 'todos') {
+        // Si no hay tarjetas visibles y no estamos mostrando todos
+        const mensajeNoResultados = document.querySelector('.no-results');
+
+        if (!mensajeNoResultados) {
+            const mensaje = document.createElement('p');
+            mensaje.className = 'no-results';
+            mensaje.textContent = 'No se encontraron colaboradores en esta categoría.';
+            contenedor.appendChild(mensaje);
+        }
+    } else {
+        // Si hay tarjetas visibles o estamos mostrando todos, eliminar mensaje
+        const mensajeNoResultados = document.querySelector('.no-results');
+        if (mensajeNoResultados) {
+            mensajeNoResultados.remove();
+        }
+    }
 }
 
 /**
