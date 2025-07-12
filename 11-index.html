@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VRTon - Organización sin ánimo de lucro dedicada a la realidad virtual para causas sociales">
+    <title>VRTon - Realidad Virtual para Causas Sociales</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Barra de navegación. -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="11-index.html"><img src="assets/logo.png" alt="VRTon Logo"></a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="11-index.html">Inicio</a></li>
+                    <li><a href="colaboradores.html">Colaboradores</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sección Hero con Video de Fondo -->
+    <section class="hero-video">
+        <video autoplay loop muted playsinline id="background-video">
+            <source src="assets/fondo.mp4" type="video/mp4">
+            Tu navegador no soporta el elemento de video.
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>VRTon</h1>
+                <h2>Transformando la realidad virtual en cambio social</h2>
+                <p>Somos una organización sin ánimo de lucro dedicada a utilizar la tecnología de realidad virtual para crear un impacto positivo en la sociedad.</p>
+                <a href="#" class="btn">Conoce más</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Nuestra Causa -->
+    <section class="causa" id="causa">
+        <div class="container">
+            <h2>Nuestra Causa</h2>
+            <div class="cause-content">
+                <div class="cause-text">
+                    <p>En VRTon creemos que la tecnología de realidad virtual tiene el potencial de transformar la manera en que abordamos los desafíos sociales. Trabajamos para desarrollar experiencias inmersivas que eduquen, inspiren y generen empatía.</p>
+                    <p>Nuestros proyectos se enfocan en:</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Educación inmersiva para comunidades vulnerables</li>
+                        <li><i class="fas fa-check-circle"></i> Experiencias de concientización sobre problemas sociales</li>
+                        <li><i class="fas fa-check-circle"></i> Terapias innovadoras basadas en realidad virtual</li>
+                        <li><i class="fas fa-check-circle"></i> Capacitación tecnológica para jóvenes</li>
+                    </ul>
+                </div>
+                <div class="cause-image">
+                    <img src="assets/vr-impact.jpg" alt="Impacto de la Realidad Virtual" onerror="this.src='https://via.placeholder.com/600x400?text=VR+Impact'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Proyectos -->
+    <section class="proyectos" id="proyectos">
+        <div class="container">
+            <h2>Nuestros Proyectos</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/project1.jpg" alt="Proyecto Educativo VR" onerror="this.src='https://via.placeholder.com/400x300?text=Proyecto+1'">
+                    </div>
+                    <div class="project-info">
+                        <h3>Educación VR</h3>
+                        <p>Llevamos aulas virtuales a zonas rurales donde los estudiantes pueden experimentar aprendizaje inmersivo.</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/project2.jpg" alt="Proyecto Terapia VR" onerror="this.src='https://via.placeholder.com/400x300?text=Proyecto+2'">
+                    </div>
+                    <div class="project-info">
+                        <h3>Terapia Inmersiva</h3>
+                        <p>Desarrollamos entornos virtuales terapéuticos para personas con trastornos de estrés y ansiedad.</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/project3.jpg" alt="Proyecto Conciencia Social" onerror="this.src='https://via.placeholder.com/400x300?text=Proyecto+3'">
+                    </div>
+                    <div class="project-info">
+                        <h3>Conciencia Social</h3>
+                        <p>Experiencias que permiten ponerse en el lugar de otros para fomentar la empatía y el entendimiento.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 VRTon - Todos los derechos reservados</p>
+            <div class="social-media">
+                <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon" aria-label="Discord"><i class="fab fa-discord"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+[
+    {
+        "nombre": "Ejemplo Moderador",
+        "categoria": "Moderación",
+        "descripcion": "Responsable de mantener la comunidad segura y acogedora para todos.",
+        "imagen": "moderador.jpg"
+    },
+    {
+        "nombre": "Ejemplo AudioVisual",
+        "categoria": "AudioVisuales",
+        "descripcion": "Especialista en producción audiovisual para experiencias VR inmersivas.",
+        "imagen": "audiovisual.jpg"
+    },
+    {
+        "nombre": "Ejemplo Artista 2D",
+        "categoria": "2D",
+        "descripcion": "Artista gráfico enfocado en diseño de interfaces y elementos visuales 2D.",
+        "imagen": "artista2d.jpg"
+    },
+    {
+        "nombre": "Ejemplo Modelador 3D",
+        "categoria": "3D",
+        "descripcion": "Creador de modelos y entornos 3D para nuestras experiencias de realidad virtual.",
+        "imagen": "modelador3d.jpg"
+    },
+    {
+        "nombre": "Ejemplo Host",
+        "categoria": "Host",
+        "descripcion": "Anfitrión de nuestros eventos virtuales y experiencias interactivas.",
+        "imagen": "host.jpg"
+    },
+    {
+        "nombre": "Ejemplo Map Maker",
+        "categoria": "MapMaking",
+        "descripcion": "Diseñador de espacios virtuales y entornos interactivos.",
+        "imagen": "mapmaker.jpg"
+    },
+    {
+        "nombre": "Ejemplo DJ",
+        "categoria": "Dj/Show",
+        "descripcion": "Responsable de la música y efectos de sonido en nuestros eventos virtuales.",
+        "imagen": "dj.jpg"
+    },
+    {
+        "nombre": "Ejemplo Marketing",
+        "categoria": "Marketing",
+        "descripcion": "Especialista en estrategias de difusión y comunicación de nuestros proyectos.",
+        "imagen": "marketing.jpg"
+    }
+]

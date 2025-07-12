@@ -62,7 +62,141 @@ document.addEventListener('DOMContentLoaded', () => {
         threshold: 0.3,
         rootMargin: '0px 0px -50px 0px'
     };
+// Script principal para el sitio web de VRTon
 
+// Esperar a que el DOM esté completamente cargado
+document.addEventListener('DOMContentLoaded', () => {
+    // Inicializar la carga de colaboradores si estamos en la página de colaboradores
+    if (document.querySelector('#colaboradores-container')) {
+        cargarColaboradores();
+        configurarFiltrosCategorias();
+    }
+
+    // Ajustar header al hacer scroll
+    configurarHeaderScroll();
+});
+
+/**
+ * Carga los colaboradores desde el archivo JSON y los muestra en la página
+ */
+async function cargarColaboradores() {
+    try {
+        const response = await fetch('data/colaboradores.json');
+        if (!response.ok) {
+            throw new Error('No se pudo cargar el archivo de colaboradores');
+        }
+
+        const data = await response.json();
+        renderizarColaboradores(data);
+    } catch (error) {
+        console.error('Error al cargar colaboradores:', error);
+        mostrarMensajeError();
+    }
+}
+
+/**
+ * Renderiza las tarjetas de colaboradores en el contenedor
+ * @param {Array} colaboradores - Array de objetos con información de colaboradores
+ */
+function renderizarColaboradores(colaboradores) {
+    const container = document.getElementById('colaboradores-container');
+    container.innerHTML = '';
+
+    if (colaboradores.length === 0) {
+        container.innerHTML = '<p class="no-results">No se encontraron colaboradores.</p>';
+        return;
+    }
+
+    colaboradores.forEach(colaborador => {
+        const card = document.createElement('div');
+        card.className = `colaborador-card ${colaborador.categoria}`;
+        card.setAttribute('data-categoria', colaborador.categoria);
+
+        // Usar imagen por defecto si no hay una específica
+        const imagenUrl = colaborador.imagen ? 
+            `assets/colaboradores/${colaborador.imagen}` : 
+            'https://via.placeholder.com/300x300?text=Colaborador';
+
+        card.innerHTML = `
+            <div class="colaborador-image">
+                <img src="${imagenUrl}" alt="${colaborador.nombre}" onerror="this.src='https://via.placeholder.com/300x300?text=VRTon'">
+            </div>
+            <div class="colaborador-info">
+                <h3>${colaborador.nombre}</h3>
+                <p class="colaborador-rol">${colaborador.categoria}</p>
+                <p>${colaborador.descripcion || 'Miembro del equipo VRTon'}</p>
+            </div>
+        `;
+
+        container.appendChild(card);
+    });
+}
+
+/**
+ * Configura los filtros de categorías para los colaboradores
+ */
+function configurarFiltrosCategorias() {
+    const botonesCategorias = document.querySelectorAll('.categoria-selector');
+
+    botonesCategorias.forEach(boton => {
+        boton.addEventListener('click', () => {
+            // Actualizar clases activas
+            botonesCategorias.forEach(b => b.classList.remove('active'));
+            boton.classList.add('active');
+
+            // Filtrar colaboradores
+            const categoriaSeleccionada = boton.getAttribute('data-category');
+            filtrarColaboradoresPorCategoria(categoriaSeleccionada);
+        });
+    });
+}
+
+/**
+ * Filtra las tarjetas de colaboradores según la categoría seleccionada
+ * @param {string} categoria - Categoría a filtrar ('todos' para mostrar todos)
+ */
+function filtrarColaboradoresPorCategoria(categoria) {
+    const tarjetas = document.querySelectorAll('.colaborador-card');
+
+    tarjetas.forEach(tarjeta => {
+        if (categoria === 'todos' || tarjeta.getAttribute('data-categoria') === categoria) {
+            tarjeta.style.display = 'block';
+        } else {
+            tarjeta.style.display = 'none';
+        }
+    });
+}
+
+/**
+ * Muestra un mensaje de error cuando no se pueden cargar los colaboradores
+ */
+function mostrarMensajeError() {
+    const container = document.getElementById('colaboradores-container');
+    container.innerHTML = `
+        <div class="error-message">
+            <i class="fas fa-exclamation-triangle"></i>
+            <p>No se pudieron cargar los colaboradores. Por favor, intenta de nuevo más tarde.</p>
+        </div>
+    `;
+}
+
+/**
+ * Configura el comportamiento del header al hacer scroll
+ */
+function configurarHeaderScroll() {
+    const header = document.querySelector('header');
+    const heroVideo = document.querySelector('.hero-video');
+
+    if (header) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    }
+}
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
