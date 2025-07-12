@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VRTon - Organización sin ánimo de lucro dedicada a la realidad virtual para causas sociales">
     <title>VRTon - Página en Construcción</title>
     <style>
         :root {
@@ -24,20 +25,21 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
             color: white;
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
-            overflow: hidden;
+            padding: 20px;
         }
 
         .construction-container {
-            max-width: 90%;
+            max-width: 800px;
             padding: 40px;
             background-color: rgba(255, 255, 255, 0.1);
             border-radius: 20px;
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px); /* Para Safari */
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
             position: relative;
         }
@@ -145,23 +147,12 @@
             animation-duration: 15s;
             animation-direction: reverse;
         }
-        .preview-section {
-            margin-top: 60px;
-        }
 
-        .preview-section h2 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
+        .footer-info {
+            margin-top: 40px;
+            font-size: 0.9rem;
+            opacity: 0.8;
         }
-
-        .preview-frame {
-            width: 100%;
-            border: none;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            height: 600px;
-        }
-
 
         @keyframes spin {
             0% {
@@ -203,10 +194,10 @@
         <p>¡Gracias por tu paciencia! Regresa pronto para descubrir cómo estamos transformando vidas a través de la tecnología.</p>
 
         <div class="social-icons">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
         </div>
 
         <div class="gear gear1">
@@ -216,10 +207,10 @@
         <div class="gear gear2">
             <i class="fas fa-cog"></i>
         </div>
+
+        <div class="footer-info">
+            <p>&copy; 2025 VRTon - Todos los derechos reservados</p>
+        </div>
     </div>
-    <section class="preview-section">
-        <h2>Vista previa del sitio</h2>
-        <iframe src="previsualizacion.html" class="preview-frame"></iframe>
-    </section>
-</body>
-</html>
+    </body>
+    </html>
