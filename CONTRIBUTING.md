@@ -1,0 +1,1 @@
+Aceptamos contribuciones para resolver errores o mejorar el rendimiento, si te gustaria aportar al diseño en si de la pagina unete a nuestro Equipo de Desarrollo a travez de nuestro servidor de discord.
