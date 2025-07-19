@@ -1,0 +1,23 @@
+# JetBrains IDEs
+.idea/
+
+# Node modules (if you use Node.js in the future)
+node_modules/
+
+# Environment variables
+.env
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
