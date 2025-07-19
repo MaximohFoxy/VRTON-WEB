@@ -1,9 +1,15 @@
 [
     {
-        "nombre": "Ejemplo Moderador",
+        "nombre": "Dantalion",
         "categoria": "Moderación",
         "descripcion": "Responsable de mantener la comunidad segura y acogedora para todos.",
-        "imagen": "moderador.jpg"
+        "imagen": "Dantalion.webp"
+    },
+    {
+        "nombre": "Valen",
+        "categoria": "Moderación",
+        "descripcion": "Responsable de mantener la comunidad segura y acogedora para todos.",
+        "imagen": "Valen.jpg"
     },
     {
         "nombre": "FoxyCTG21",
@@ -30,10 +36,10 @@
         "imagen": "host.jpg"
     },
     {
-        "nombre": "Ejemplo Map Maker",
+        "nombre": "3DMASTER",
         "categoria": "MapMaking",
         "descripcion": "Diseñador de espacios virtuales y entornos interactivos.",
-        "imagen": "mapmaker.jpg"
+        "imagen": "3DMASTER.webp"
     },
     {
         "nombre": "Ejemplo DJ",
