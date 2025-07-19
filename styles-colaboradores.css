@@ -41,8 +41,8 @@
 /* Estilos para la grid de colaboradores */
 .colaboradores-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
     margin-top: 40px;
 }
 
@@ -61,7 +61,7 @@
 }
 
 .colaborador-image {
-    height: 250px;
+    height: 180px;
     overflow: hidden;
 }
 
@@ -77,12 +77,12 @@
 }
 
 .colaborador-info {
-    padding: 20px;
+    padding: 15px;
 }
 
 .colaborador-info h3 {
     margin: 0 0 5px;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 
 .colaborador-rol {
@@ -116,11 +116,11 @@
 /* Responsive */
 @media (max-width: 768px) {
     .colaboradores-grid {
-        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
     }
 
     .colaborador-image {
-        height: 200px;
+        height: 150px;
     }
 
     .colaboradores-categorias {

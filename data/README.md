@@ -38,5 +38,6 @@ Este archivo contiene la información de todos los colaboradores que se muestran
 - MapMaking
 - Dj/Show
 - Marketing
+- Desarrollo
 
 Puedes añadir nuevas categorías según sea necesario, pero asegúrate de actualizar también el filtro en la página `colaboradores.html`.
