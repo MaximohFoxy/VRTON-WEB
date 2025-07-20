@@ -7,7 +7,7 @@
       "lideres": [
         {
           "nombre": "FoxyCTG21",
-          "foto": "foxyctg21.jpg",
+          "foto": "foxyctg21.webp",
           "rol": "Lead Web Developer",
           "descripcion": "",
           "social": {
@@ -20,7 +20,7 @@
       "miembros": [
         {
           "nombre": "ValenVRC",
-          "foto": "valenvrc.jpg",
+          "foto": "valenvrc.webp",
           "rol": "Backend Developer",
           "social": {
             "discord": "",
@@ -30,7 +30,7 @@
         },
         {
           "nombre": "PichuJeff",
-          "foto": "pichujef.png",
+          "foto": "pichujef.webp",
           "rol": "Frontend Developer",
           "social": {
             "discord": "",
@@ -47,7 +47,7 @@
       "lideres": [
         {
           "nombre": "FoxyCTG21",
-          "foto": "foxyctg21.jpg",
+          "foto": "foxyctg21.webp",
           "rol": "Lider de AudioVisuales",
           "descripcion": "",
           "social": {
@@ -60,7 +60,7 @@
       "miembros": [
         {
           "nombre": "Dantalion",
-          "foto": "dantalion.jpg",
+          "foto": "dantalion.webp",
           "rol": "Editor de Video",
           "social": {
             "discord": "https://discord.gg/kJudVebk",
@@ -70,7 +70,7 @@
         },
         {
           "nombre": "Lian Ro",
-          "foto": "lian.jpg",
+          "foto": "lian.webp",
           "rol": "Fotografa",
           "social": {
             "discord": "",
@@ -87,7 +87,7 @@
       "lideres": [
         {
           "nombre": "JeffryTheKiller",
-          "foto": "jeffry.jpg",
+          "foto": "jeffry.webp",
           "rol": "Directora Creativa",
           "descripcion": "",
           "social": {
@@ -106,7 +106,7 @@
       "lideres": [
         {
           "nombre": "Lian Ro",
-          "foto": "lian.jpg",
+          "foto": "lian.webp",
           "rol": "Lead Marketing & Community Manager",
           "social": {
             "discord": "",
@@ -116,7 +116,7 @@
         },
         {
           "nombre": "JamirDG",
-          "foto": "jamird.jpg",
+          "foto": "jamird.webp",
           "rol": "Lead Networking Logistics",
           "social": {
             "discord": "",
@@ -144,7 +144,7 @@
         },
         {
           "nombre": "3D Master",
-          "foto": "3D Master.jpg",
+          "foto": "3D Master.webp",
           "rol": "Second World Designer",
           "social": {
             "discord": "",
@@ -156,7 +156,7 @@
       "miembros": [
         {
           "nombre": "DannyLasagna",
-          "foto": "danny-lasagna.jpg",
+          "foto": "danny-lasagna.webp",
           "rol": "3D Modeler",
           "social": {
             "discord": "",
@@ -173,7 +173,7 @@
       "lideres": [
         {
           "nombre": "Zulay",
-          "foto": "zulay.jpg",
+          "foto": "zulay.webp",
           "rol": "Lead Host Logistics",
           "social": {
             "discord": "",
@@ -185,7 +185,7 @@
       "miembros": [
         {
           "nombre": "Dantalion",
-          "foto": "dantalion.jpg",
+          "foto": "dantalion.webp",
           "rol": "Host",
           "social": {
             "discord": "https://discord.gg/kJudVebk",
@@ -195,7 +195,7 @@
         },
         {
           "nombre": "DannyLasagna",
-          "foto": "danny-lasagna.jpg",
+          "foto": "danny-lasagna.webp",
           "rol": "Host",
           "social": {
             "discord": "",
@@ -205,7 +205,7 @@
         },
         {
           "nombre": "Lexter",
-          "foto": "lexter.jpg",
+          "foto": "lexter.webp",
           "rol": "Host",
           "social": {
             "discord": "",
@@ -215,7 +215,7 @@
         },
         {
           "nombre": "Ryu Aotsuki",
-          "foto": "ryu-aotsuki.jpg",
+          "foto": "ryu-aotsuki.webp",
           "rol": "Host",
           "social": {
             "discord": "",
