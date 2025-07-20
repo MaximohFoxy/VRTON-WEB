@@ -4,7 +4,6 @@ Allow: /
 # Páginas principales
 Allow: /11-index.html
 Allow: /colaboradores.html
-Allow: /contacto.html
 
 # Assets permitidos
 Allow: /assets/
