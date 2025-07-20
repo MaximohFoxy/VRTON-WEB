@@ -327,6 +327,7 @@ nav ul li a {
     position: relative;
     transition: var(--transition-normal);
     padding: 5px 0;
+    color: var(--text-color);
 }
 
 nav ul li a:after {

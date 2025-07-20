@@ -141,10 +141,15 @@ function markCurrentPage() {
     const navLinks = document.querySelectorAll('nav a');
     
     navLinks.forEach(link => {
-        const linkPath = new URL(link.href).pathname;
-        
         // Remover clases activas existentes
         link.classList.remove('active');
+        
+        // Saltear enlaces que son anchors (empiezan con #)
+        if (link.getAttribute('href').startsWith('#')) {
+            return;
+        }
+        
+        const linkPath = new URL(link.href).pathname;
         
         // Marcar como activo si coincide la ruta
         if (linkPath === currentPath || 
