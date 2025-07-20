@@ -15,14 +15,20 @@ document.addEventListener('DOMContentLoaded', () => {
     async function cargarEquipos() {
         try {
             // Notificar que hemos iniciado la carga del equipo
-            console.log('Iniciando carga de equipos...');
+            if (window.performanceMonitor) {
+                window.performanceMonitor.mark('teams-data-start');
+            }
             
             const response = await fetch('data/equipos.json');
             if (!response.ok) {
                 throw new Error('No se pudo cargar el archivo de equipos');
             }
             equiposData = await response.json();
-            console.log('Equipos cargados:', equiposData);
+            
+            if (window.performanceMonitor) {
+                window.performanceMonitor.mark('teams-data-loaded');
+            }
+            
             renderizarPagina();
         } catch (error) {
             console.error('Error al cargar equipos:', error);
@@ -38,8 +44,10 @@ document.addEventListener('DOMContentLoaded', () => {
         renderizarEquipos();
         configurarNavegacion();
         
-        // Ya notificamos al inicio, no necesitamos hacerlo aquí otra vez
-        console.log('Página de equipos renderizada completamente');
+        // Track rendering completion
+        if (window.performanceMonitor) {
+            window.performanceMonitor.mark('teams-rendered');
+        }
     }
 
     // Iconos para cada departamento
@@ -270,9 +278,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 </p>
             </div>
         `;
-        
-        // Ya notificamos al inicio, no necesitamos hacerlo aquí otra vez
-        console.log('Error mostrado en página de equipos');
     }
 
     // Animaciones de entrada progresiva

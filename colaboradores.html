@@ -39,6 +39,13 @@
     
     <!-- Preconnect -->
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://flagcdn.com" crossorigin>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="data/equipos.json" as="fetch" crossorigin>
+    <link rel="preload" href="includes/header.html" as="fetch">
+    <link rel="preload" href="includes/footer.html" as="fetch">
+    <link rel="preload" href="assets/logo.png" as="image">
     
     <title>Nuestro Equipo - Colaboradores VRTon | Profesionales en Realidad Virtual</title>
     
@@ -158,11 +165,26 @@
     <!-- Footer se carga automáticamente vía JavaScript -->
 
     <!-- Scripts -->
+    <script src="scripts/performance.js"></script>
     <script src="scripts/loading.js"></script>
-    <script src="unregister-sw.js"></script>
     <script src="scripts/components.js" defer></script>
     <script src="scripts/script.js" defer></script>
     <script src="scripts/menu.js" defer></script>
     <script src="scripts/equipos.js" defer></script>
+    
+    <!-- Service Worker para cache offline -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(function(registration) {
+                        console.log('✅ ServiceWorker registered');
+                    })
+                    .catch(function(err) {
+                        console.log('❌ ServiceWorker registration failed');
+                    });
+            });
+        }
+    </script>
 </body>
 </html>

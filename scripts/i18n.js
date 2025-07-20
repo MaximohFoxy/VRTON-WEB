@@ -66,33 +66,16 @@ class I18n {
     }
 
     updateContent() {
-        // Actualizar navegación
-        this.updateElement('[data-i18n="nav.inicio"]', 'nav.inicio');
-        this.updateElement('[data-i18n="nav.about"]', 'nav.about');
-        this.updateElement('[data-i18n="nav.faqs"]', 'nav.faqs');
-        this.updateElement('[data-i18n="nav.contacto"]', 'nav.contacto');
-        this.updateElement('[data-i18n="nav.colaboradores"]', 'nav.colaboradores');
-        
-        // Actualizar header
-        this.updateElement('[data-i18n="header.fundraising"]', 'header.fundraising');
-
-        // Actualizar hero
-        this.updateElement('[data-i18n="hero.title"]', 'hero.title');
-        this.updateElement('[data-i18n="hero.subtitle"]', 'hero.subtitle');
-        this.updateElement('[data-i18n="hero.description"]', 'hero.description');
-        this.updateElement('[data-i18n="hero.countdown"]', 'hero.countdown');
-        this.updateElement('[data-i18n="hero.button"]', 'hero.button');
-
-        // Actualizar contador
-        this.updateElement('[data-i18n="countdown.days"]', 'countdown.days');
-        this.updateElement('[data-i18n="countdown.hours"]', 'countdown.hours');
-        this.updateElement('[data-i18n="countdown.minutes"]', 'countdown.minutes');
-        this.updateElement('[data-i18n="countdown.seconds"]', 'countdown.seconds');
-
-        // Actualizar causa
-        this.updateElement('[data-i18n="causa.title"]', 'causa.title');
-        this.updateElement('[data-i18n="causa.description1"]', 'causa.description1');
-        this.updateElement('[data-i18n="causa.description2"]', 'causa.description2');
+        // Actualizar todos los elementos con data-i18n
+        document.querySelectorAll('[data-i18n]').forEach(element => {
+            const key = element.getAttribute('data-i18n');
+            if (key) {
+                const text = this.getText(key);
+                if (text !== key) { // Solo actualizar si encontramos la traducción
+                    element.textContent = text;
+                }
+            }
+        });
         
         // Actualizar lista de proyectos
         const projectsList = document.querySelector('[data-i18n-list="causa.projects"]');
@@ -105,16 +88,9 @@ class I18n {
             }
         }
 
-        // Actualizar FAQs
-        this.updateElement('[data-i18n="faqs.title"]', 'faqs.title');
-        this.updateFAQs();
-
-        // Actualizar contacto
-        this.updateElement('[data-i18n="contacto.title"]', 'contacto.title');
-        this.updateElement('[data-i18n="contacto.community"]', 'contacto.community');
-        this.updateElement('[data-i18n="contacto.description"]', 'contacto.description');
-        this.updateElement('[data-i18n="contacto.button"]', 'contacto.button');
-
+        // Generar FAQs dinámicamente
+        this.generateFAQs();
+        
         // Actualizar meta tags para SEO
         this.updateMetaTags();
     }
@@ -131,7 +107,7 @@ class I18n {
         }
     }
 
-    updateFAQs() {
+    generateFAQs() {
         const faqContainer = document.querySelector('.faq-container');
         if (faqContainer) {
             const faqs = this.getText('faqs.questions');

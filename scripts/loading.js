@@ -23,6 +23,7 @@ class LoadingManager {
         
         this.currentLang = localStorage.getItem('vrton-language') || 'es';
         this.translations = null; // Will be loaded from i18n
+        this.debug = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
         
         this.fallbackMessages = {
             es: {
@@ -84,7 +85,7 @@ class LoadingManager {
         const timeoutDuration = this.isTeamPage ? 4000 : 8000; // Faster timeout for team page
         setTimeout(() => {
             if (!this.isAllReady()) {
-                console.warn('Loading timeout reached, forcing completion');
+                if (this.debug) console.warn('Loading timeout reached, forcing completion');
                 this.completeLoading();
             }
         }, timeoutDuration);
@@ -163,7 +164,7 @@ class LoadingManager {
         if (this.isTeamPage) {
             setTimeout(() => {
                 if (!this.loadingStates.teams) {
-                    console.warn('Teams loading timeout reached, forcing completion');
+                    if (this.debug) console.warn('Teams loading timeout reached, forcing completion');
                     this.markReady('teams');
                 }
             }, 1500); // 1.5 seconds timeout for teams specifically
@@ -171,11 +172,11 @@ class LoadingManager {
     }
     
     markReady(component) {
-        console.log(`Loading: ${component} ready`);
+        if (this.debug) console.log(`Loading: ${component} ready`);
         this.loadingStates[component] = true;
         
         // Log current state for debugging
-        if (this.isTeamPage) {
+        if (this.isTeamPage && this.debug) {
             const readyComponents = Object.entries(this.loadingStates)
                 .filter(([key, value]) => value)
                 .map(([key]) => key);
@@ -284,7 +285,7 @@ class LoadingManager {
     
     // Public method to force completion (for debugging)
     forceComplete() {
-        console.log('Forcing loading completion...');
+        if (this.debug) console.log('Forcing loading completion...');
         this.completeLoading();
     }
 }
