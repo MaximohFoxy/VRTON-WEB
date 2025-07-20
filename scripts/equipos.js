@@ -41,6 +41,25 @@ document.addEventListener('DOMContentLoaded', () => {
         'eventos': 'fas fa-calendar-alt'
     };
 
+    // Función para manejar errores de imágenes con placeholder local
+    function handleImageError(img, nombre, isLeader = false) {
+        // Primero intentar con el placeholder local
+        if (!img.src.includes('placeholder.webp')) {
+            img.src = 'assets/colaboradores/placeholder.webp';
+            img.onerror = function() {
+                // Si el placeholder local falla, usar iniciales
+                const iniciales = nombre.split(' ').map(n => n[0]).join('');
+                const color = isLeader ? 'e30613' : 'fd5c63';
+                const size = isLeader ? '60x60' : '50x50';
+                this.src = `https://via.placeholder.com/${size}/${color}/ffffff?text=${encodeURIComponent(iniciales)}`;
+                this.onerror = null; // Evitar bucle infinito
+            };
+        }
+    }
+
+    // Hacer la función disponible globalmente
+    window.handleImageError = handleImageError;
+
     // Generar botones de redes sociales
     function generarBotonesSociales(social) {
         if (!social) return '';
@@ -141,7 +160,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="furality-leader-photo">
                     <img src="assets/colaboradores/${lider.foto}" 
                          alt="${lider.nombre}"
-                         onerror="this.src='https://via.placeholder.com/60x60/e30613/ffffff?text=${encodeURIComponent(iniciales)}'">
+                         onload="this.style.opacity='1'"
+                         onerror="handleImageError(this, '${lider.nombre}', true)">
                 </div>
                 <div class="furality-leader-info">
                     <div class="furality-leader-name">${lider.nombre}</div>
@@ -162,7 +182,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="furality-member-photo">
                     <img src="assets/colaboradores/${miembro.foto}" 
                          alt="${miembro.nombre}"
-                         onerror="this.src='https://via.placeholder.com/50x50/fd5c63/ffffff?text=${encodeURIComponent(iniciales)}'">
+                         onload="this.style.opacity='1'"
+                         onerror="handleImageError(this, '${miembro.nombre}', false)">
                 </div>
                 <div class="furality-member-info">
                     <div class="furality-member-name">${miembro.nombre}</div>

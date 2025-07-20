@@ -1,6 +1,44 @@
 {
   "equipos": [
     {
+      "id": "direccion",
+      "nombre": "Dirección",
+      "descripcion": "Equipo encargado de la toma de decisiones estratégicas, planificación y supervisión general de las operaciones de VRTon.",
+      "lideres": [],
+      "miembros": [
+        {
+          "nombre": "Dantalion",
+          "foto": "dantalion.webp",
+          "rol": "",
+          "social": {
+            "discord": "",
+            "twitter": "",
+            "instagram": ""
+          }
+        },
+        {
+          "nombre": "ValenVRC",
+          "foto": "valenvrc.webp",
+          "rol": "",
+          "social": {
+            "discord": "",
+            "twitter": "https://x.com/ValenVRC943",
+            "instagram": "https://www.instagram.com/valenn.vrc/"
+          }
+        },
+        {
+          "nombre": "3D Master",
+          "foto": "3dmaster.webp",
+          "rol": "",
+          "social": {
+            "discord": "",
+            "twitter": "",
+            "instagram": ""
+          }
+        }
+      ]
+    },
+    {
       "id": "desarrollo",
       "nombre": "Desarrollo",
       "descripcion": "Encargados de la creacion de webs, aplicaciones bots y demas herramientas utilizadas por VRTon.",
@@ -12,7 +50,7 @@
           "descripcion": "",
           "social": {
             "discord": "",
-            "twitter": "",
+            "twitter": "https://x.com/FoxyCTG",
             "instagram": ""
           }
         }
@@ -24,8 +62,8 @@
           "rol": "Backend Developer",
           "social": {
             "discord": "",
-            "twitter": "",
-            "instagram": ""
+            "twitter": "https://x.com/ValenVRC943",
+            "instagram": "https://www.instagram.com/valenn.vrc/"
           }
         },
         {
@@ -52,7 +90,7 @@
           "descripcion": "",
           "social": {
             "discord": "",
-            "twitter": "",
+            "twitter": "https://x.com/FoxyCTG",
             "instagram": ""
           }
         }
@@ -63,7 +101,7 @@
           "foto": "dantalion.webp",
           "rol": "Editor de Video",
           "social": {
-            "discord": "https://discord.gg/kJudVebk",
+            "discord": "",
             "twitter": "",
             "instagram": ""
           }
@@ -82,13 +120,32 @@
     },
     {
       "id": "diseno",
-      "nombre": "Diseño",
+      "nombre": "Diseño 2D",
       "descripcion": "Nuestro equipo creativo utiliza diseño 2D para crear interfaces, personajes, entornos y elementos visuales que comunican efectivamente nuestra misión social.",
       "lideres": [
         {
           "nombre": "JeffryTheKiller",
           "foto": "jeffrythekiller.webp",
           "rol": "Directora Creativa",
+          "descripcion": "",
+          "social": {
+            "discord": "",
+            "twitter": "",
+            "instagram": ""
+          }
+        }
+      ],
+      "miembros": []
+    },
+    {
+      "id": "3d",
+      "nombre": "Diseño 3D",
+      "descripcion": "Nuestro equipo creativo utiliza diseño 3D para crear modelos, personajes y entornos que comunican efectivamente nuestra misión social.",
+      "lideres": [
+        {
+          "nombre": "Nantrop",
+          "foto": "nantrop.webp",
+          "rol": "Lead 3D Artist",
           "descripcion": "",
           "social": {
             "discord": "",
@@ -116,7 +173,7 @@
         },
         {
           "nombre": "JamirDG",
-          "foto": "jamird.webp",
+          "foto": "jamirdg.webp",
           "rol": "Lead Networking Logistics",
           "social": {
             "discord": "",
@@ -138,13 +195,13 @@
           "rol": "Lead World Designer",
           "social": {
             "discord": "",
-            "twitter": "",
-            "instagram": ""
+            "twitter": "https://x.com/ValenVRC943",
+            "instagram": "https://www.instagram.com/valenn.vrc/"
           }
         },
         {
           "nombre": "3D Master",
-          "foto": "3D Master.webp",
+          "foto": "3dmaster.webp",
           "rol": "Second World Designer",
           "social": {
             "discord": "",
@@ -173,7 +230,7 @@
       "lideres": [
         {
           "nombre": "Zulay",
-          "foto": "zulay.webp",
+          "foto": "placeholder.webp",
           "rol": "Lead Host Logistics",
           "social": {
             "discord": "",
@@ -188,7 +245,7 @@
           "foto": "dantalion.webp",
           "rol": "Host",
           "social": {
-            "discord": "https://discord.gg/kJudVebk",
+            "discord": "",
             "twitter": "",
             "instagram": ""
           }
@@ -225,7 +282,35 @@
         }
       ]
     },
+    {
+      "id": "dj",
+      "nombre": "DJs y Shows",
+      "descripcion": "Los artistas que traen la música y el espectáculo a nuestras experiencias virtuales. Este equipo se encarga de crear eventos musicales y shows en vivo que entretienen y conectan a nuestra comunidad.",
+      "lideres": [],
+      "miembros": [
         {
+          "nombre": "DannyLasagna",
+          "foto": "danny-lasagna.webp",
+          "rol": "DJ",
+          "social": {
+            "discord": "",
+            "twitter": "",
+            "instagram": ""
+          }
+        },
+        {
+          "nombre": "JamirDG",
+          "foto": "jamirdg.webp",
+          "rol": "DJ",
+          "social": {
+            "discord": "",
+            "twitter": "",
+            "instagram": ""
+          }
+        }
+      ]
+    },
+    {
       "id": "moderacion",
       "nombre": "Moderación",
       "descripcion": "Nuestro equipo de moderación se encarga de mantener un ambiente seguro, inclusivo y respetuoso en todas nuestras plataformas y experiencias VR. Son los guardianes de nuestra comunidad.",
@@ -248,9 +333,9 @@
           "foto": "valenvrc.webp",
           "rol": "Moderador InGame y Discord",
           "social": {
-            "discord": "https://discord.gg/kJudVebk",
-            "twitter": "",
-            "instagram": ""
+            "discord": "",
+            "twitter": "https://x.com/ValenVRC943",
+            "instagram": "https://www.instagram.com/valenn.vrc/"
           }
         }
       ]
