@@ -195,27 +195,110 @@ function initializeLanguageSelector() {
 // Función para marcar la página actual en la navegación
 function markCurrentPage() {
     const currentPath = window.location.pathname;
+    const currentHash = window.location.hash;
     const navLinks = document.querySelectorAll('nav a');
-    
+
     navLinks.forEach(link => {
         // Remover clases activas existentes
         link.classList.remove('active');
-        
-        // Saltear enlaces que son anchors (empiezan con #)
-        if (link.getAttribute('href').startsWith('#')) {
-            return;
-        }
-        
-        const linkPath = new URL(link.href).pathname;
-        
-        // Marcar como activo si coincide la ruta
-        if (linkPath === currentPath || 
-            (currentPath === '/' && link.href.endsWith('/')) ||
-            (currentPath.includes('colaboradores') && link.href.includes('colaboradores'))) {
+
+        const linkHref = link.getAttribute('href');
+        const linkPath = linkHref.includes('#') ? linkHref.split('#')[0] : linkHref;
+        const linkHash = linkHref.includes('#') ? '#' + linkHref.split('#')[1] : '';
+
+        // Verificar si estamos en la página principal (index.html o /)
+        const isHomePage = currentPath === '/' || 
+                         currentPath === '/index.html' || 
+                         currentPath.endsWith('/index.html');
+
+        // Verificar si el enlace apunta a la página actual
+        const linkMatchesPage = linkPath === '' || 
+                              linkPath === 'index.html' || 
+                              new URL(link.href).pathname === currentPath;
+
+        // Marcar como activo basado en diferentes condiciones
+        if (
+            // Para la página colaboradores
+            (currentPath.includes('colaboradores') && linkHref.includes('colaboradores')) ||
+
+            // Para enlaces a secciones dentro de la misma página
+            (isHomePage && linkMatchesPage && linkHash && currentHash === linkHash) ||
+
+            // Para el enlace 'Inicio' cuando estamos en la página principal sin hash
+            (isHomePage && !currentHash && (linkHref === 'index.html' || linkHref === '/')) ||
+
+            // Para otras páginas específicas
+            (!isHomePage && !linkHref.includes('#') && linkMatchesPage)
+        ) {
             link.classList.add('active');
         }
     });
 }
+
+// Actualizar navegación al cambiar de sección mediante scroll
+document.addEventListener('DOMContentLoaded', function() {
+    // Actualizar navegación cuando cambia el hash (por ejemplo, al hacer clic en un enlace interno)
+    window.addEventListener('hashchange', function() {
+        markCurrentPage();
+    });
+
+    // Actualizar navegación al hacer scroll (para detectar qué sección está visible)
+    let isScrolling = false;
+    window.addEventListener('scroll', function() {
+        if (!isScrolling) {
+            isScrolling = true;
+            setTimeout(function() {
+                updateActiveNavOnScroll();
+                isScrolling = false;
+            }, 100);
+        }
+    });
+
+    function updateActiveNavOnScroll() {
+        // Solo ejecutar en la página principal
+        const currentPath = window.location.pathname;
+        const isHomePage = currentPath === '/' || 
+                         currentPath === '/index.html' || 
+                         currentPath.endsWith('/index.html');
+        if (!isHomePage) return;
+
+        // Obtener todas las secciones con ID
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('nav a');
+
+        // Determinar qué sección está actualmente visible
+        let currentSectionId = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 100;
+            const sectionHeight = section.offsetHeight;
+            if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                currentSectionId = section.id;
+            }
+        });
+
+        // Si estamos al principio de la página, considerar que estamos en 'inicio'
+        if (window.scrollY < 100) {
+            currentSectionId = '';
+        }
+
+        // Actualizar clase active en los enlaces
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+
+            const linkHref = link.getAttribute('href');
+
+            // Enlace de inicio
+            if ((currentSectionId === '' || window.scrollY < 100) && 
+                (linkHref === 'index.html' || linkHref === '/')) {
+                link.classList.add('active');
+            }
+            // Enlaces a secciones
+            else if (linkHref.includes('#' + currentSectionId)) {
+                link.classList.add('active');
+            }
+        });
+    }
+});
 
 // Exportar funciones para uso global si es necesario
 window.loadComponent = loadComponent;

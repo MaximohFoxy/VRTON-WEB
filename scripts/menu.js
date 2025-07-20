@@ -40,6 +40,14 @@ document.addEventListener('DOMContentLoaded', function() {
             const icon = menuToggle.querySelector('i');
             icon.classList.remove('fa-times');
             icon.classList.add('fa-bars');
+
+            // Actualizar enlaces activos después de un breve retraso
+            // para permitir la navegación a la sección
+            setTimeout(() => {
+                if (typeof markCurrentPage === 'function') {
+                    markCurrentPage();
+                }
+            }, 100);
         });
     });
 
