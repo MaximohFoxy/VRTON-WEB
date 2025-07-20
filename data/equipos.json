@@ -145,7 +145,7 @@
         {
           "nombre": "Nantrop",
           "foto": "nantrop.webp",
-          "rol": "Lead 3D Artist",
+          "rol": "Lead 3D Artist, Avatar Creator, Asset Creator",
           "descripcion": "",
           "social": {
             "discord": "",
@@ -154,7 +154,38 @@
           }
         }
       ],
-      "miembros": []
+      "miembros": [
+        {
+          "nombre": "PichuJeff",
+          "foto": "pichujef.webp",
+          "rol": "Asset Creator",
+          "social": {
+            "discord": "",
+            "twitter": "",
+            "instagram": ""
+          }
+        },
+        {
+          "nombre": "JeffryTheKiller",
+          "foto": "jeffrythekiller.webp",
+          "rol": "Avatar Creator",
+          "social": {
+            "discord": "",
+            "twitter": "",
+            "instagram": ""
+          }
+        },
+        {
+          "nombre": "Lexter",
+          "foto": "lexter.webp",
+          "rol": "Asset Creator",
+          "social": {
+            "discord": "",
+            "twitter": "",
+            "instagram": ""
+          }
+        }
+      ]
     },
     {
       "id": "marketing",
