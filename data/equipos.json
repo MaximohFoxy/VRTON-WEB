@@ -28,12 +28,12 @@
         },
         {
           "nombre": "3D Master",
-          "foto": "3dmaster.webp",
+          "foto": "master.webp",
           "rol": "",
           "social": {
             "discord": "",
             "twitter": "",
-            "instagram": ""
+            "instagram": "https://www.instagram.com/3dmasterreal/"
           }
         }
       ]
@@ -113,7 +113,7 @@
           "social": {
             "discord": "",
             "twitter": "",
-            "instagram": ""
+            "instagram": "https://www.instagram.com/lian.vr/"
           }
         }
       ]
@@ -145,16 +145,47 @@
         {
           "nombre": "Nantrop",
           "foto": "nantrop.webp",
-          "rol": "Lead 3D Artist",
+          "rol": "Lead 3D Artist, Avatar Creator, Asset Creator",
           "descripcion": "",
+          "social": {
+            "discord": "",
+            "twitter": "",
+            "instagram": "https://www.instagram.com/nantrop_onjy/"
+          }
+        }
+      ],
+      "miembros": [
+        {
+          "nombre": "PichuJeff",
+          "foto": "pichujef.webp",
+          "rol": "Asset Creator",
+          "social": {
+            "discord": "",
+            "twitter": "",
+            "instagram": ""
+          }
+        },
+        {
+          "nombre": "JeffryTheKiller",
+          "foto": "jeffrythekiller.webp",
+          "rol": "Avatar Creator",
+          "social": {
+            "discord": "",
+            "twitter": "",
+            "instagram": ""
+          }
+        },
+        {
+          "nombre": "Lexter",
+          "foto": "lexter.webp",
+          "rol": "Asset Creator",
           "social": {
             "discord": "",
             "twitter": "",
             "instagram": ""
           }
         }
-      ],
-      "miembros": []
+      ]
     },
     {
       "id": "marketing",
@@ -168,7 +199,7 @@
           "social": {
             "discord": "",
             "twitter": "",
-            "instagram": ""
+            "instagram": "https://www.instagram.com/lian.vr/"
           }
         },
         {
@@ -178,7 +209,7 @@
           "social": {
             "discord": "",
             "twitter": "",
-            "instagram": ""
+            "instagram": "https://www.instagram.com/jamirdg96/"
           }
         }
       ],
@@ -201,12 +232,12 @@
         },
         {
           "nombre": "3D Master",
-          "foto": "3dmaster.webp",
+          "foto": "master.webp",
           "rol": "Second World Designer",
           "social": {
             "discord": "",
             "twitter": "",
-            "instagram": ""
+            "instagram": "https://www.instagram.com/3dmasterreal/"
           }
         }
       ],
@@ -218,7 +249,7 @@
           "social": {
             "discord": "",
             "twitter": "",
-            "instagram": ""
+            "instagram": "https://www.instagram.com/danny.lasagna/"
           }
         }
       ]
@@ -257,7 +288,7 @@
           "social": {
             "discord": "",
             "twitter": "",
-            "instagram": ""
+            "instagram": "https://www.instagram.com/danny.lasagna/"
           }
         },
         {
@@ -295,7 +326,7 @@
           "social": {
             "discord": "",
             "twitter": "",
-            "instagram": ""
+            "instagram": "https://www.instagram.com/danny.lasagna/"
           }
         },
         {
@@ -305,7 +336,7 @@
           "social": {
             "discord": "",
             "twitter": "",
-            "instagram": ""
+            "instagram": "https://www.instagram.com/jamirdg96/"
           }
         }
       ]
@@ -314,19 +345,7 @@
       "id": "moderacion",
       "nombre": "Moderación",
       "descripcion": "Nuestro equipo de moderación se encarga de mantener un ambiente seguro, inclusivo y respetuoso en todas nuestras plataformas y experiencias VR. Son los guardianes de nuestra comunidad.",
-      "lideres": [
-        {
-          "nombre": "-",
-          "foto": "placeholder.webp",
-          "rol": "Líder de Moderación",
-          "descripcion": "",
-          "social": {
-            "discord": "",
-            "twitter": "",
-            "instagram": ""
-          }
-        }
-      ],
+      "lideres": [],
       "miembros": [
         {
           "nombre": "ValenVRC",
