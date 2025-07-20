@@ -178,31 +178,10 @@ const VRTon = {
         const container = document.getElementById('colaboradores-container');
         if (!container) return;
         
-        // Verificar si ya hay contenido estático
+        // Esta funcionalidad ha sido movida a equipos.js
+        // Mantener para compatibilidad si existe contenido estático
         if (container.querySelectorAll('.colaborador-card').length > 0) {
-            console.log('Colaboradores estáticos encontrados, omitiendo carga dinámica');
             this.initCategoryFilters();
-            return;
-        }
-        
-        try {
-            const response = await fetch('data/colaboradores.json');
-            if (!response.ok) {
-                throw new Error('Error al cargar colaboradores');
-            }
-            
-            const collaborators = await response.json();
-            this.renderCollaborators(collaborators);
-            this.initCategoryFilters();
-            
-        } catch (error) {
-            console.error('Error cargando colaboradores:', error);
-            container.innerHTML = `
-                <div class="error-message">
-                    <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
-                    <p>No se pudieron cargar los colaboradores. Por favor, intenta de nuevo más tarde.</p>
-                </div>
-            `;
         }
     },
     
@@ -324,9 +303,9 @@ const VRTon = {
     
     // Inicialización principal
     init: function() {
-        // Cargar colaboradores si estamos en esa página
-        if (document.querySelector('#colaboradores-container')) {
-            this.loadCollaborators();
+        // Marcar inicio de inicialización
+        if (window.PerformanceMonitor) {
+            window.PerformanceMonitor.mark('vrton-script-init-start');
         }
         
         // Inicializar todas las funcionalidades
@@ -335,6 +314,12 @@ const VRTon = {
         this.initScrollAnimations();
         this.initContactForm();
         this.initVideoOptimization();
+        
+        // Marcar fin de inicialización
+        if (window.PerformanceMonitor) {
+            window.PerformanceMonitor.mark('vrton-script-init-end');
+            window.PerformanceMonitor.measure('VRTon Script Initialization', 'vrton-script-init-start', 'vrton-script-init-end');
+        }
         
         console.log('VRTon script inicializado correctamente');
     }

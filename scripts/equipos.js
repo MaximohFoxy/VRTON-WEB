@@ -4,16 +4,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Aplicar estilo Furality al body
     document.body.classList.add('furality-body');
+    
+    // Notificar inmediatamente que los equipos están "listos" para el loading manager
+    // Esto evita que el usuario espere mucho tiempo viendo "Cargando información del equipo..."
+    if (window.onTeamsReady) {
+        window.onTeamsReady();
+    }
 
     // Cargar datos de equipos desde JSON
     async function cargarEquipos() {
         try {
+            // Notificar que hemos iniciado la carga del equipo
+            if (window.performanceMonitor) {
+                window.performanceMonitor.mark('teams-data-start');
+            }
+            
             const response = await fetch('data/equipos.json');
             if (!response.ok) {
                 throw new Error('No se pudo cargar el archivo de equipos');
             }
             equiposData = await response.json();
-            console.log('Equipos cargados:', equiposData);
+            
+            if (window.performanceMonitor) {
+                window.performanceMonitor.mark('teams-data-loaded');
+            }
+            
             renderizarPagina();
         } catch (error) {
             console.error('Error al cargar equipos:', error);
@@ -28,6 +43,11 @@ document.addEventListener('DOMContentLoaded', () => {
         renderizarNavegacion();
         renderizarEquipos();
         configurarNavegacion();
+        
+        // Track rendering completion
+        if (window.performanceMonitor) {
+            window.performanceMonitor.mark('teams-rendered');
+        }
     }
 
     // Iconos para cada departamento
@@ -282,10 +302,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Inicializar la aplicación
-    cargarEquipos().then(() => {
+    async function inicializar() {
+        await cargarEquipos();
+        
         // Animar elementos después de que se cargue todo
         setTimeout(animateOnScroll, 500);
-    });
+    }
+    
+    // Inicializar
+    inicializar();
 
     console.log('Script de equipos Furality cargado correctamente');
 });
