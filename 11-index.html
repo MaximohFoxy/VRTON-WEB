@@ -21,13 +21,66 @@
         .recaudacion-info i {
             margin-right: 5px;
         }
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
+        @media (max-width: 992px) {
+            header .container {
+                flex-wrap: wrap;
+                justify-content: space-between;
             }
             .recaudacion-info {
-                margin: 10px 0;
-                justify-content: center;
+                margin: 0 20px 0 auto;
+            }
+            .menu-toggle {
+                order: 3;
+            }
+            nav {
+                flex-basis: 100%;
+                order: 4;
+            }
+            #nav-menu {
+                width: 100%;
+            }
+            section:not(.hero-video) {
+                padding-top: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+                padding: 0 10px;
+            }
+            .recaudacion-info {
+                margin: 0 0 0 auto;
+                font-size: 0.9rem;
+                padding: 4px 10px;
+            }
+            .recaudacion-info p {
+                font-size: 0.9rem;
+            }
+            header {
+                height: auto;
+                min-height: 60px;
+            }
+            nav ul {
+                top: 60px;
+            }
+            section {
+                margin-top: 0;
+            }
+            section:not(.hero-video) {
+                padding-top: 80px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .recaudacion-info {
+                display: none;
+            }
+            header .container {
+                padding: 10px;
+            }
+            .menu-toggle {
+                margin-left: auto;
             }
         }
     </style>
@@ -42,8 +95,11 @@
             <div class="recaudacion-info">
                 <p><i class="fas fa-donate"></i> Recaudación año anterior: 1458$</p>
             </div>
+            <div class="menu-toggle" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
             <nav>
-                <ul>
+                <ul id="nav-menu">
                     <li><a href="11-index.html">Inicio</a></li>
                     <li><a href="colaboradores.html">Colaboradores</a></li>
                     <li><a href="#contacto">Contacto</a></li>
@@ -85,7 +141,7 @@
                     </ul>
                 </div>
                 <div class="cause-image">
-                    <img src="assets/vr-impact.jpg" alt="Impacto de la Realidad Virtual" onerror="this.src='https://via.placeholder.com/600x400?text=VR+Impact'">
+                    <img src="assets/comunidad.png" alt="Impacto de la Realidad Virtual" onerror="this.src='https://via.placeholder.com/600x400?text=VR+Impact'">
                 </div>
             </div>
         </div>
@@ -178,5 +234,6 @@
 
     <script src="script.js"></script>
     <script src="faq.js"></script>
+    <script src="menu.js"></script>
 </body>
 </html>

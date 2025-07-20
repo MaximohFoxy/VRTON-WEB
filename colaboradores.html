@@ -16,11 +16,14 @@
             <div class="logo">
                 <a href="11-index.html"><img src="assets/logo.png" alt="VRTon Logo"></a>
             </div>
+            <div class="menu-toggle" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
             <nav>
-                <ul>
+                <ul id="nav-menu">
                     <li><a href="11-index.html">Inicio</a></li>
                     <li><a href="colaboradores.html">Colaboradores</a></li>
-                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
                 </ul>
             </nav>
         </div>
@@ -155,6 +158,7 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="menu.js"></script>
     <script>
     // Cargar colaboradores desde JSON
     document.addEventListener('DOMContentLoaded', () => {

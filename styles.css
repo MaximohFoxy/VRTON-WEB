@@ -20,6 +20,12 @@
     box-sizing: border-box;
 }
 
+/* Asegurar que las imágenes y videos sean responsivos */
+img, video {
+    max-width: 100%;
+    height: auto;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -54,6 +60,7 @@ a {
 
 section {
     padding: 80px 0;
+    margin-top: var(--header-height);
 }
 
 /* Botones */
@@ -100,6 +107,7 @@ header .container {
     justify-content: space-between;
     align-items: center;
     height: 100%;
+    flex-wrap: wrap;
 }
 
 .logo {
@@ -152,6 +160,60 @@ nav ul li a:hover:after {
     width: 100%;
 }
 
+/* Menú hamburguesa para móviles */
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    color: var(--dark-color);
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    :root {
+        --header-height: 60px;
+    }
+
+    header {
+        height: auto;
+        min-height: var(--header-height);
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    nav {
+        width: 100%;
+        order: 3;
+    }
+
+    nav ul {
+        display: none;
+        position: absolute;
+        top: var(--header-height);
+        left: 0;
+        width: 100%;
+        background-color: white;
+        flex-direction: column;
+        text-align: center;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        padding: 20px 0;
+        z-index: 999;
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+
+    nav ul li {
+        margin: 15px 0;
+    }
+
+    header .container {
+        padding: 10px 20px;
+    }
+}
+
 /* Sección Hero con Video de Fondo */
 .hero-video {
     height: 100vh;
@@ -162,6 +224,7 @@ nav ul li a:hover:after {
     position: relative;
     overflow: hidden;
     padding-top: var(--header-height);
+    margin-top: 0; /* Anular el margin-top general para secciones */
 }
 
 #background-video {
@@ -203,6 +266,30 @@ nav ul li a:hover:after {
     font-size: 2.5rem;
     margin-bottom: 20px;
     font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+
+    .hero-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content h2 {
+        font-size: 1.5rem;
+    }
 }
 
 .hero-content p {
@@ -287,6 +374,23 @@ nav ul li a:hover:after {
     grid-template-columns: 1fr 1fr;
     gap: 50px;
     align-items: center;
+}
+
+@media (max-width: 992px) {
+    .cause-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .cause-image {
+        order: -1;
+        margin-bottom: 20px;
+    }
+
+    .cause-text ul li i {
+        font-size: 1.1rem;
+        min-width: 20px;
+    }
 }
 
 .cause-text p {
@@ -429,6 +533,24 @@ nav ul li a:hover:after {
     transform: rotate(180deg);
 }
 
+@media (max-width: 768px) {
+    .faq-question h3 {
+        font-size: 1rem;
+    }
+
+    .faq-question {
+        padding: 15px 20px;
+    }
+
+    .faq-answer {
+        padding: 0 20px;
+    }
+
+    .faq-item.active .faq-answer {
+        padding: 0 20px 15px;
+    }
+}
+
 .contact-info h3 {
     margin-bottom: 20px;
     color: var(--dark-color);
@@ -468,6 +590,30 @@ nav ul li a:hover:after {
 
 .discord-card:hover {
     transform: translateY(-10px);
+    }
+
+    /* Responsive para sección de Discord */
+    @media (max-width: 768px) {
+    .discord-card {
+        padding: 30px 20px;
+    }
+
+    .discord-icon {
+        font-size: 3rem;
+    }
+    }
+
+    /* Responsive para footer */
+    @media (max-width: 768px) {
+    footer .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    footer .social-media {
+        margin-top: 20px;
+    }
+    }
     box-shadow: 0 20px 40px rgba(88, 101, 242, 0.3);
 }
 
@@ -584,7 +730,8 @@ footer {
 
 /* Estilos para página de colaboradores */
 .page-section {
-    padding-top: calc(var(--header-height) + 40px);
+    padding-top: calc(var(--header-height) + 20px);
+    margin-top: 0;
     min-height: 80vh;
 }
 
@@ -665,6 +812,20 @@ footer {
     height: 100%;
     object-fit: cover;
     transition: var(--transition);
+}
+
+@media (max-width: 768px) {
+    .social-icon {
+        font-size: 1.3rem;
+        margin-left: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .social-icon {
+        font-size: 1.2rem;
+        margin-left: 12px;
+    }
 }
 
 .colaborador-card:hover .colaborador-image img {
@@ -754,27 +915,46 @@ footer {
 
 @media screen and (max-width: 768px) {
     header {
+        position: fixed;
         height: auto;
-        padding: 15px 0;
+        padding: 0;
     }
 
     header .container {
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+    }
+
+    .logo {
+        margin-right: auto;
+    }
+
+    .menu-toggle {
+        margin-left: 10px;
+        order: 2;
+    }
+
+    nav {
+        width: 100%;
+        order: 3;
     }
 
     nav ul {
-        margin-top: 15px;
+        margin-top: 0;
     }
 
     nav ul li {
-        margin: 0 15px;
+        margin: 10px 15px;
     }
 
     /* Hero con video */
     .hero-video {
         height: auto;
         min-height: 100vh;
-        padding-top: 120px;
+        padding-top: calc(var(--header-height) + 20px);
         padding-bottom: 60px;
     }
 
@@ -790,7 +970,7 @@ footer {
     .hero {
         height: auto;
         min-height: 100vh;
-        padding-top: 150px;
+        padding-top: calc(var(--header-height) + 20px);
         padding-bottom: 80px;
     }
 
