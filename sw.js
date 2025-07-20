@@ -200,7 +200,10 @@ async function cacheFirstWithBackgroundUpdate(request) {
             cache.put(request, response.clone());
         }
         return response;
-    }).catch(() => {}); // Ignorar errores de red en background
+    }).catch(error => {
+        // Ignorar errores de red en background porque no afectan la respuesta inmediata
+        console.error('Network update failed:', error);
+    });
     
     // Retornar cache inmediatamente si existe
     if (cachedResponse) {
