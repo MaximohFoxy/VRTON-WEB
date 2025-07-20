@@ -1,6 +1,44 @@
 {
   "equipos": [
     {
+      "id": "direccion",
+      "nombre": "Dirección",
+      "descripcion": "Equipo encargado de la toma de decisiones estratégicas, planificación y supervisión general de las operaciones de VRTon.",
+      "lideres": [],
+      "miembros": [
+        {
+          "nombre": "Dantalion",
+          "foto": "dantalion.webp",
+          "rol": "",
+          "social": {
+            "discord": "",
+            "twitter": "",
+            "instagram": ""
+          }
+        },
+        {
+          "nombre": "ValenVRC",
+          "foto": "valenvrc.webp",
+          "rol": "",
+          "social": {
+            "discord": "",
+            "twitter": "https://x.com/ValenVRC943",
+            "instagram": "https://www.instagram.com/valenn.vrc/"
+          }
+        },
+        {
+          "nombre": "3D Master",
+          "foto": "3dmaster.webp",
+          "rol": "",
+          "social": {
+            "discord": "",
+            "twitter": "",
+            "instagram": ""
+          }
+        }
+      ]
+    },
+    {
       "id": "desarrollo",
       "nombre": "Desarrollo",
       "descripcion": "Encargados de la creacion de webs, aplicaciones bots y demas herramientas utilizadas por VRTon.",
@@ -12,7 +50,7 @@
           "descripcion": "",
           "social": {
             "discord": "",
-            "twitter": "",
+            "twitter": "https://x.com/FoxyCTG",
             "instagram": ""
           }
         }
@@ -24,8 +62,8 @@
           "rol": "Backend Developer",
           "social": {
             "discord": "",
-            "twitter": "",
-            "instagram": ""
+            "twitter": "https://x.com/ValenVRC943",
+            "instagram": "https://www.instagram.com/valenn.vrc/"
           }
         },
         {
@@ -52,7 +90,7 @@
           "descripcion": "",
           "social": {
             "discord": "",
-            "twitter": "",
+            "twitter": "https://x.com/FoxyCTG",
             "instagram": ""
           }
         }
@@ -63,7 +101,7 @@
           "foto": "dantalion.webp",
           "rol": "Editor de Video",
           "social": {
-            "discord": "https://discord.gg/kJudVebk",
+            "discord": "",
             "twitter": "",
             "instagram": ""
           }
@@ -157,8 +195,8 @@
           "rol": "Lead World Designer",
           "social": {
             "discord": "",
-            "twitter": "",
-            "instagram": ""
+            "twitter": "https://x.com/ValenVRC943",
+            "instagram": "https://www.instagram.com/valenn.vrc/"
           }
         },
         {
@@ -207,7 +245,7 @@
           "foto": "dantalion.webp",
           "rol": "Host",
           "social": {
-            "discord": "https://discord.gg/kJudVebk",
+            "discord": "",
             "twitter": "",
             "instagram": ""
           }
@@ -245,6 +283,34 @@
       ]
     },
     {
+      "id": "dj",
+      "nombre": "DJs y Shows",
+      "descripcion": "Los artistas que traen la música y el espectáculo a nuestras experiencias virtuales. Este equipo se encarga de crear eventos musicales y shows en vivo que entretienen y conectan a nuestra comunidad.",
+      "lideres": [],
+      "miembros": [
+        {
+          "nombre": "DannyLasagna",
+          "foto": "danny-lasagna.webp",
+          "rol": "DJ",
+          "social": {
+            "discord": "",
+            "twitter": "",
+            "instagram": ""
+          }
+        },
+        {
+          "nombre": "JamirDG",
+          "foto": "jamirdg.webp",
+          "rol": "DJ",
+          "social": {
+            "discord": "",
+            "twitter": "",
+            "instagram": ""
+          }
+        }
+      ]
+    },
+    {
       "id": "moderacion",
       "nombre": "Moderación",
       "descripcion": "Nuestro equipo de moderación se encarga de mantener un ambiente seguro, inclusivo y respetuoso en todas nuestras plataformas y experiencias VR. Son los guardianes de nuestra comunidad.",
@@ -267,9 +333,9 @@
           "foto": "valenvrc.webp",
           "rol": "Moderador InGame y Discord",
           "social": {
-            "discord": "https://discord.gg/kJudVebk",
-            "twitter": "",
-            "instagram": ""
+            "discord": "",
+            "twitter": "https://x.com/ValenVRC943",
+            "instagram": "https://www.instagram.com/valenn.vrc/"
           }
         }
       ]
