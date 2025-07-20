@@ -81,12 +81,13 @@ class LoadingManager {
         this.startLoadingAnimation();
         
         // Fallback timeout to prevent infinite loading
+        const timeoutDuration = this.isTeamPage ? 4000 : 8000; // Faster timeout for team page
         setTimeout(() => {
             if (!this.isAllReady()) {
                 console.warn('Loading timeout reached, forcing completion');
                 this.completeLoading();
             }
-        }, 8000); // 8 seconds max loading time
+        }, timeoutDuration);
     }
     
     setupVideoLoading() {
@@ -157,11 +158,29 @@ class LoadingManager {
         if (!this.isTeamPage) {
             setTimeout(() => this.markReady('teams'), 100);
         }
+        
+        // Add a faster timeout specifically for teams loading
+        if (this.isTeamPage) {
+            setTimeout(() => {
+                if (!this.loadingStates.teams) {
+                    console.warn('Teams loading timeout reached, forcing completion');
+                    this.markReady('teams');
+                }
+            }, 1500); // 1.5 seconds timeout for teams specifically
+        }
     }
     
     markReady(component) {
         console.log(`Loading: ${component} ready`);
         this.loadingStates[component] = true;
+        
+        // Log current state for debugging
+        if (this.isTeamPage) {
+            const readyComponents = Object.entries(this.loadingStates)
+                .filter(([key, value]) => value)
+                .map(([key]) => key);
+            console.log(`Team page - Ready components: ${readyComponents.join(', ')}`);
+        }
         
         if (this.isAllReady()) {
             this.completeLoading();
@@ -229,11 +248,15 @@ class LoadingManager {
             if (currentStage < stages.length && !this.isAllReady()) {
                 this.updateLoadingText(stages[currentStage]);
                 currentStage++;
-                setTimeout(updateStage, 800);
+                // Faster timing for team page
+                const delay = this.isTeamPage ? 400 : 800;
+                setTimeout(updateStage, delay);
             }
         };
         
-        setTimeout(updateStage, 500);
+        // Faster initial delay for team page
+        const initialDelay = this.isTeamPage ? 200 : 500;
+        setTimeout(updateStage, initialDelay);
     }
     
     completeLoading() {
