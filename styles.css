@@ -348,6 +348,34 @@ nav ul li a:hover:after {
     width: 100%;
 }
 
+/* Información de recaudación en header */
+.recaudacion-info {
+    background-color: var(--success-color);
+    color: var(--white);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    font-size: var(--font-size-small);
+    transition: var(--transition-normal);
+}
+
+.recaudacion-info:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-light);
+}
+
+.recaudacion-info i {
+    margin-right: 5px;
+}
+
+.recaudacion-info p {
+    margin: 0;
+    font-size: inherit;
+}
+
 /* Menú hamburguesa */
 .menu-toggle {
     display: none;
@@ -1048,18 +1076,28 @@ footer p {
         margin-right: auto;
     }
     
+    .recaudacion-info {
+        margin: 0 0 0 auto;
+        font-size: 0.8rem;
+        padding: 4px 10px;
+        order: 1;
+    }
+    
     .menu-toggle {
         display: block;
         margin-left: 10px;
         order: 2;
     }
     
+    .recaudacion-info {
+        margin: 0 20px 0 auto;
+        order: 1;
+    }
+
     nav {
         width: 100%;
         order: 3;
-    }
-    
-    nav ul {
+    }    nav ul {
         display: none;
         position: absolute;
         top: var(--header-height);
@@ -1224,6 +1262,10 @@ footer p {
         width: 35px;
         height: 35px;
         font-size: 1rem;
+    }
+    
+    .recaudacion-info {
+        display: none;
     }
 }
 

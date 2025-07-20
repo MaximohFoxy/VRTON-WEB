@@ -1,297 +1,348 @@
-// Esperar a que el DOM esté completamente cargado
-document.addEventListener('DOMContentLoaded', () => {
-    // Referencias a elementos DOM
-    const header = document.querySelector('header');
-    const contactForm = document.getElementById('contact-form');
+// Script principal optimizado para VRTon
+'use strict';
 
-    // Cambiar el estilo del header al hacer scroll
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 100) {
-            header.style.background = 'rgba(255, 255, 255, 0.98)';
-            header.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
-        } else {
-            header.style.background = 'rgba(255, 255, 255, 0.95)';
-            header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-        }
-    });
-
-    // Animación suave para los enlaces de navegación internos
-    const navLinks = document.querySelectorAll('nav a[href^="#"]');
-
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-
-            if (targetSection) {
-                window.scrollTo({
-                    top: targetSection.offsetTop - 80,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-
-    // Gestión del formulario de contacto
-    if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            // Obtener los valores del formulario
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-
-            // Validación básica
-            if (!name || !email || !message) {
-                alert('Por favor, completa todos los campos del formulario.');
-                return;
-            }
-
-            // Aquí normalmente enviarías los datos a un servidor
-            // Como es un ejemplo, simplemente mostramos un mensaje de éxito
-            alert(`¡Gracias ${name}! Tu mensaje ha sido enviado correctamente. Te contactaremos pronto.`);
-
-            // Reiniciar el formulario
-            contactForm.reset();
-        });
-    }
-
-    // Animación de aparición para las tarjetas de proyectos
-    const observerOptions = {
-        threshold: 0.3,
-        rootMargin: '0px 0px -50px 0px'
-    };
-// Script principal para el sitio web de VRTon
-
-// Esperar a que el DOM esté completamente cargado
-document.addEventListener('DOMContentLoaded', () => {
-    // Inicializar la carga de colaboradores si estamos en la página de colaboradores
-    if (document.querySelector('#colaboradores-container')) {
-        cargarColaboradores();
-        configurarFiltrosCategorias();
-    }
-
-    // Ajustar header al hacer scroll
-    configurarHeaderScroll();
-});
-
-/**
- * Carga los colaboradores desde el archivo JSON y los muestra en la página
- */
-async function cargarColaboradores() {
-    try {
-        console.log('Iniciando carga de colaboradores...');
-        const response = await fetch('data/colaboradores.json');
-        if (!response.ok) {
-            throw new Error('No se pudo cargar el archivo de colaboradores');
-        }
-
-        const data = await response.json();
-        console.log('Colaboradores cargados:', data);
-        renderizarColaboradores(data);
-    } catch (error) {
-        console.error('Error al cargar colaboradores:', error);
-        mostrarMensajeError();
-    }
-}
-
-/**
- * Renderiza las tarjetas de colaboradores en el contenedor
- * @param {Array} colaboradores - Array de objetos con información de colaboradores
- */
-function renderizarColaboradores(colaboradores) {
-    // Verificar si ya hay colaboradores estáticos en el contenedor
-    const container = document.getElementById('colaboradores-container');
-    const tieneColaboradoresEstaticos = container.querySelectorAll('.colaborador-card').length > 0;
-
-    // Si hay colaboradores estáticos, no modificamos el contenedor
-    if (tieneColaboradoresEstaticos) {
-        console.log('Se encontraron colaboradores estáticos, se omite la carga dinámica');
-        return;
-    }
-
-    container.innerHTML = '';
-
-    if (colaboradores.length === 0) {
-        container.innerHTML = '<p class="no-results">No se encontraron colaboradores.</p>';
-        return;
-    }
-
-    colaboradores.forEach(colaborador => {
-        const card = document.createElement('div');
-        card.className = `colaborador-card ${colaborador.categoria}`;
-        card.setAttribute('data-categoria', colaborador.categoria);
-
-        // Usar imagen por defecto si no hay una específica
-        const imagenUrl = colaborador.imagen ? 
-            `assets/colaboradores/${colaborador.imagen}` : 
-            'https://via.placeholder.com/300x300?text=Colaborador';
-
-        card.innerHTML = `
-            <div class="colaborador-image">
-                <img src="${imagenUrl}" alt="${colaborador.nombre}" onerror="this.src='https://via.placeholder.com/300x300?text=VRTon'">
-            </div>
-            <div class="colaborador-info">
-                <h3>${colaborador.nombre}</h3>
-                <p class="colaborador-rol">${colaborador.categoria}</p>
-                <p>${colaborador.descripcion || 'Miembro del equipo VRTon'}</p>
-            </div>
-        `;
-
-        container.appendChild(card);
-    });
-}
-
-/**
- * Configura los filtros de categorías para los colaboradores
- */
-function configurarFiltrosCategorias() {
-    const botonesCategorias = document.querySelectorAll('.categoria-selector');
-
-    botonesCategorias.forEach(boton => {
-        boton.addEventListener('click', () => {
-            // Actualizar clases activas
-            botonesCategorias.forEach(b => b.classList.remove('active'));
-            boton.classList.add('active');
-
-            // Filtrar colaboradores
-            const categoriaSeleccionada = boton.getAttribute('data-categoria');
-            console.log('Categoría seleccionada:', categoriaSeleccionada);
-            filtrarColaboradoresPorCategoria(categoriaSeleccionada);
-        });
-    });
-}
-
-/**
- * Filtra las tarjetas de colaboradores según la categoría seleccionada
- * @param {string} categoria - Categoría a filtrar ('todos' para mostrar todos)
- */
-function filtrarColaboradoresPorCategoria(categoria) {
-    console.log('Filtrando por categoría:', categoria);
-    const tarjetas = document.querySelectorAll('.colaborador-card');
-
-    tarjetas.forEach(tarjeta => {
-        const categoriaTarjeta = tarjeta.getAttribute('data-categoria');
-        console.log('Tarjeta categoría:', categoriaTarjeta);
-
-        if (categoria === 'todos' || categoriaTarjeta === categoria) {
-            tarjeta.style.display = 'block';
-        } else {
-            tarjeta.style.display = 'none';
-        }
-    });
-
-    // Mostrar mensaje si no hay resultados visibles
-    const tarjetasVisibles = document.querySelectorAll('.colaborador-card[style="display: block"]');
-    const contenedor = document.getElementById('colaboradores-container');
-
-    if (tarjetasVisibles.length === 0 && categoria !== 'todos') {
-        // Si no hay tarjetas visibles y no estamos mostrando todos
-        const mensajeNoResultados = document.querySelector('.no-results');
-
-        if (!mensajeNoResultados) {
-            const mensaje = document.createElement('p');
-            mensaje.className = 'no-results';
-            mensaje.textContent = 'No se encontraron colaboradores en esta categoría.';
-            contenedor.appendChild(mensaje);
-        }
-    } else {
-        // Si hay tarjetas visibles o estamos mostrando todos, eliminar mensaje
-        const mensajeNoResultados = document.querySelector('.no-results');
-        if (mensajeNoResultados) {
-            mensajeNoResultados.remove();
-        }
-    }
-}
-
-/**
- * Muestra un mensaje de error cuando no se pueden cargar los colaboradores
- */
-function mostrarMensajeError() {
-    const container = document.getElementById('colaboradores-container');
-    container.innerHTML = `
-        <div class="error-message">
-            <i class="fas fa-exclamation-triangle"></i>
-            <p>No se pudieron cargar los colaboradores. Por favor, intenta de nuevo más tarde.</p>
-        </div>
-    `;
-}
-
-/**
- * Configura el comportamiento del header al hacer scroll
- */
-function configurarHeaderScroll() {
-    const header = document.querySelector('header');
-    const heroVideo = document.querySelector('.hero-video');
-
-    if (header) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-    }
-}
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-
-    // Observar tarjetas de proyectos para animarlas
-    const projectCards = document.querySelectorAll('.project-card');
-    projectCards.forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(30px)';
-        card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-        observer.observe(card);
-    });
-// Script para manejar la funcionalidad de preguntas frecuentes
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('Inicializando sistema de FAQs...');
-
-    // Obtener todos los elementos de preguntas
-    const faqItems = document.querySelectorAll('.faq-item');
-    console.log('FAQs encontradas:', faqItems.length);
-
-    // Añadir evento de clic a cada pregunta
-    faqItems.forEach(item => {
-        const question = item.querySelector('.faq-question');
-
-        question.addEventListener('click', function() {
-            // Alternar la clase 'active' en el elemento de pregunta actual
-            const isActive = item.classList.contains('active');
-            console.log('Clic en FAQ:', question.textContent.trim(), 'Estado actual:', isActive ? 'activo' : 'inactivo');
-
-            // Cerrar otras preguntas abiertas (comportamiento de acordeón)
-            faqItems.forEach(otherItem => {
-                if (otherItem !== item && otherItem.classList.contains('active')) {
-                    otherItem.classList.remove('active');
+// Configuración y utilidades principales
+const VRTon = {
+    config: {
+        headerScrollThreshold: 100,
+        headerOffset: 80,
+        debounceDelay: 100
+    },
+    
+    // Utilidad para debounce
+    debounce: function(func, delay) {
+        let timeoutId;
+        return function (...args) {
+            clearTimeout(timeoutId);
+            timeoutId = setTimeout(() => func.apply(this, args), delay);
+        };
+    },
+    
+    // Gestión del header con scroll
+    initHeaderScroll: function() {
+        const header = document.querySelector('header');
+        if (!header) return;
+        
+        const handleScroll = this.debounce(() => {
+            const scrolled = window.pageYOffset > this.config.headerScrollThreshold;
+            header.classList.toggle('scrolled', scrolled);
+        }, this.config.debounceDelay);
+        
+        window.addEventListener('scroll', handleScroll, { passive: true });
+    },
+    
+    // Navegación suave
+    initSmoothScrolling: function() {
+        const navLinks = document.querySelectorAll('nav a[href^="#"], .btn[href^="#"]');
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                const targetId = link.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    e.preventDefault();
+                    
+                    const targetPosition = targetSection.offsetTop - this.config.headerOffset;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Actualizar URL sin recargar
+                    if (history.pushState) {
+                        history.pushState(null, null, targetId);
+                    }
                 }
             });
-
-            // Alternar estado del ítem actual
-            item.classList.toggle('active');
         });
-    });
-
-    console.log('Sistema de FAQs inicializado correctamente');
-});
-    // Clase para elementos visibles (usada por el observer)
-    document.head.insertAdjacentHTML('beforeend', `
-        <style>
-            .visible {
-                opacity: 1 !important;
-                transform: translateY(0) !important;
+    },
+    
+    // Animaciones de entrada para elementos
+    initScrollAnimations: function() {
+        if (!('IntersectionObserver' in window)) return;
+        
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in-up');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        // Observar elementos para animar
+        const elementsToAnimate = document.querySelectorAll('.card, .project-card, .colaborador-card, .faq-item');
+        elementsToAnimate.forEach(element => {
+            observer.observe(element);
+        });
+    },
+    
+    // Gestión del formulario de contacto
+    initContactForm: function() {
+        const contactForm = document.getElementById('contact-form');
+        if (!contactForm) return;
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData(contactForm);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const message = formData.get('message');
+            
+            // Validación básica
+            if (!name || !email || !message) {
+                this.showNotification('Por favor, completa todos los campos del formulario.', 'warning');
+                return;
             }
-        </style>
-    `);
-});
+            
+            if (!this.isValidEmail(email)) {
+                this.showNotification('Por favor, introduce un email válido.', 'warning');
+                return;
+            }
+            
+            // Simular envío
+            this.showNotification(`¡Gracias ${name}! Tu mensaje ha sido enviado correctamente.`, 'success');
+            contactForm.reset();
+        });
+    },
+    
+    // Validación de email
+    isValidEmail: function(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    },
+    
+    // Sistema de notificaciones
+    showNotification: function(message, type = 'info') {
+        // Crear elemento de notificación
+        const notification = document.createElement('div');
+        notification.className = `notification notification-${type}`;
+        notification.textContent = message;
+        
+        // Estilos inline para la notificación
+        Object.assign(notification.style, {
+            position: 'fixed',
+            top: '20px',
+            right: '20px',
+            padding: '15px 20px',
+            borderRadius: '5px',
+            color: 'white',
+            fontWeight: '600',
+            zIndex: '10000',
+            opacity: '0',
+            transform: 'translateX(100%)',
+            transition: 'all 0.3s ease'
+        });
+        
+        // Colores según tipo
+        const colors = {
+            success: '#27ae60',
+            warning: '#f39c12',
+            error: '#e74c3c',
+            info: '#3498db'
+        };
+        
+        notification.style.backgroundColor = colors[type] || colors.info;
+        
+        // Agregar al DOM
+        document.body.appendChild(notification);
+        
+        // Animar entrada
+        setTimeout(() => {
+            notification.style.opacity = '1';
+            notification.style.transform = 'translateX(0)';
+        }, 100);
+        
+        // Remover después de 4 segundos
+        setTimeout(() => {
+            notification.style.opacity = '0';
+            notification.style.transform = 'translateX(100%)';
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.parentNode.removeChild(notification);
+                }
+            }, 300);
+        }, 4000);
+    },
+    
+    // Carga de colaboradores (para página de colaboradores)
+    loadCollaborators: async function() {
+        const container = document.getElementById('colaboradores-container');
+        if (!container) return;
+        
+        // Verificar si ya hay contenido estático
+        if (container.querySelectorAll('.colaborador-card').length > 0) {
+            console.log('Colaboradores estáticos encontrados, omitiendo carga dinámica');
+            this.initCategoryFilters();
+            return;
+        }
+        
+        try {
+            const response = await fetch('data/colaboradores.json');
+            if (!response.ok) {
+                throw new Error('Error al cargar colaboradores');
+            }
+            
+            const collaborators = await response.json();
+            this.renderCollaborators(collaborators);
+            this.initCategoryFilters();
+            
+        } catch (error) {
+            console.error('Error cargando colaboradores:', error);
+            container.innerHTML = `
+                <div class="error-message">
+                    <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+                    <p>No se pudieron cargar los colaboradores. Por favor, intenta de nuevo más tarde.</p>
+                </div>
+            `;
+        }
+    },
+    
+    // Renderizar colaboradores
+    renderCollaborators: function(collaborators) {
+        const container = document.getElementById('colaboradores-container');
+        
+        if (collaborators.length === 0) {
+            container.innerHTML = '<p class="no-results">No se encontraron colaboradores.</p>';
+            return;
+        }
+        
+        container.innerHTML = '';
+        
+        collaborators.forEach(collaborator => {
+            const card = document.createElement('div');
+            card.className = `colaborador-card ${collaborator.categoria}`;
+            card.setAttribute('data-categoria', collaborator.categoria);
+            
+            const imageUrl = collaborator.imagen ? 
+                `assets/colaboradores/${collaborator.imagen}` : 
+                'https://via.placeholder.com/300x300/e30613/ffffff?text=VRTon';
+            
+            card.innerHTML = `
+                <div class="colaborador-image">
+                    <img src="${imageUrl}" 
+                         alt="${collaborator.nombre}" 
+                         loading="lazy"
+                         onerror="this.src='https://via.placeholder.com/300x300/e30613/ffffff?text=VRTon'">
+                </div>
+                <div class="colaborador-info">
+                    <h3>${collaborator.nombre}</h3>
+                    <p class="colaborador-rol">${collaborator.categoria}</p>
+                    <p>${collaborator.descripcion || 'Miembro del equipo VRTon'}</p>
+                </div>
+            `;
+            
+            container.appendChild(card);
+        });
+    },
+    
+    // Filtros de categorías
+    initCategoryFilters: function() {
+        const categoryButtons = document.querySelectorAll('.categoria-selector');
+        
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Actualizar botón activo
+                categoryButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                // Filtrar colaboradores
+                const selectedCategory = button.getAttribute('data-categoria');
+                this.filterCollaboratorsByCategory(selectedCategory);
+            });
+        });
+    },
+    
+    // Filtrar colaboradores por categoría
+    filterCollaboratorsByCategory: function(category) {
+        const cards = document.querySelectorAll('.colaborador-card');
+        let visibleCount = 0;
+        
+        cards.forEach(card => {
+            const cardCategory = card.getAttribute('data-categoria');
+            
+            if (category === 'todos' || cardCategory === category) {
+                card.style.display = 'block';
+                visibleCount++;
+            } else {
+                card.style.display = 'none';
+            }
+        });
+        
+        // Gestionar mensaje de "no resultados"
+        const container = document.getElementById('colaboradores-container');
+        let noResultsMsg = container.querySelector('.no-results');
+        
+        if (visibleCount === 0 && category !== 'todos') {
+            if (!noResultsMsg) {
+                noResultsMsg = document.createElement('p');
+                noResultsMsg.className = 'no-results';
+                noResultsMsg.textContent = 'No se encontraron colaboradores en esta categoría.';
+                container.appendChild(noResultsMsg);
+            }
+        } else if (noResultsMsg) {
+            noResultsMsg.remove();
+        }
+    },
+    
+    // Optimización de video
+    initVideoOptimization: function() {
+        const video = document.getElementById('background-video');
+        if (!video) return;
+        
+        // Pausar video cuando no esté visible
+        if ('IntersectionObserver' in window) {
+            const videoObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        video.play().catch(e => console.log('Error playing video:', e));
+                    } else {
+                        video.pause();
+                    }
+                });
+            });
+            
+            videoObserver.observe(video);
+        }
+        
+        // Reducir calidad en conexiones lentas
+        if ('connection' in navigator) {
+            const connection = navigator.connection;
+            if (connection.effectiveType === 'slow-2g' || connection.effectiveType === '2g') {
+                video.style.display = 'none';
+            }
+        }
+    },
+    
+    // Inicialización principal
+    init: function() {
+        // Cargar colaboradores si estamos en esa página
+        if (document.querySelector('#colaboradores-container')) {
+            this.loadCollaborators();
+        }
+        
+        // Inicializar todas las funcionalidades
+        this.initHeaderScroll();
+        this.initSmoothScrolling();
+        this.initScrollAnimations();
+        this.initContactForm();
+        this.initVideoOptimization();
+        
+        console.log('VRTon script inicializado correctamente');
+    }
+};
+
+// Inicializar cuando el DOM esté listo
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => VRTon.init());
+} else {
+    VRTon.init();
+}

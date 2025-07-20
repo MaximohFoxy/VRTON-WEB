@@ -1,0 +1,29 @@
+User-agent: *
+Allow: /
+
+# Páginas principales
+Allow: /11-index.html
+Allow: /colaboradores.html
+Allow: /contacto.html
+
+# Assets permitidos
+Allow: /assets/
+Allow: /styles.css
+Allow: /*.js
+
+# Archivos especiales
+Allow: /sitemap.xml
+Allow: /robots.txt
+
+# Bloquear archivos temporales y de configuración
+Disallow: /*.tmp
+Disallow: /.*
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /.idea/
+
+# Sitemap
+Sitemap: https://vrton.org/sitemap.xml
+
+# Tiempo de rastreo (solicitar 1 segundo entre requests)
+Crawl-delay: 1
