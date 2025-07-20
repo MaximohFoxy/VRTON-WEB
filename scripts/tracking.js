@@ -5,7 +5,7 @@
     'use strict';
     
     // Configuración de Google Analytics 4 (reemplazar con tu ID real)
-    const GA_MEASUREMENT_ID = 'G-XXXXXXXXXX'; // Reemplazar con tu ID real
+    const GA_MEASUREMENT_ID = 'G-Q00YDM4HGB'; // Reemplazar con tu ID real
     
     // Función para cargar Google Analytics
     function loadGoogleAnalytics() {

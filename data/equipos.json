@@ -1,0 +1,259 @@
+{
+  "equipos": [
+    {
+      "id": "desarrollo",
+      "nombre": "Desarrollo",
+      "descripcion": "Encargados de la creacion de webs, aplicaciones bots y demas herramientas utilizadas por VRTon.",
+      "lideres": [
+        {
+          "nombre": "FoxyCTG21",
+          "foto": "foxyctg21.webp",
+          "rol": "Lead Web Developer",
+          "descripcion": "",
+          "social": {
+            "discord": "",
+            "twitter": "",
+            "instagram": ""
+          }
+        }
+      ],
+      "miembros": [
+        {
+          "nombre": "ValenVRC",
+          "foto": "valenvrc.webp",
+          "rol": "Backend Developer",
+          "social": {
+            "discord": "",
+            "twitter": "",
+            "instagram": ""
+          }
+        },
+        {
+          "nombre": "PichuJeff",
+          "foto": "pichujef.webp",
+          "rol": "Frontend Developer",
+          "social": {
+            "discord": "",
+            "twitter": "",
+            "instagram": ""
+          }
+        }
+      ]
+    },
+    {
+      "id": "audiovisuales",
+      "nombre": "AudioVisuales",
+      "descripcion": "Fotografos, Videografos y creadores de contenido que dan vida a nuestras visiones mediante efectos visuales, audio espacial y producciones multimedia.",
+      "lideres": [
+        {
+          "nombre": "FoxyCTG21",
+          "foto": "foxyctg21.webp",
+          "rol": "Lider de AudioVisuales",
+          "descripcion": "",
+          "social": {
+            "discord": "",
+            "twitter": "",
+            "instagram": ""
+          }
+        }
+      ],
+      "miembros": [
+        {
+          "nombre": "Dantalion",
+          "foto": "dantalion.webp",
+          "rol": "Editor de Video",
+          "social": {
+            "discord": "https://discord.gg/kJudVebk",
+            "twitter": "",
+            "instagram": ""
+          }
+        },
+        {
+          "nombre": "Lian Ro",
+          "foto": "lian.webp",
+          "rol": "Fotografa",
+          "social": {
+            "discord": "",
+            "twitter": "",
+            "instagram": ""
+          }
+        }
+      ]
+    },
+    {
+      "id": "diseno",
+      "nombre": "Diseño",
+      "descripcion": "Nuestro equipo creativo utiliza diseño 2D para crear interfaces, personajes, entornos y elementos visuales que comunican efectivamente nuestra misión social.",
+      "lideres": [
+        {
+          "nombre": "JeffryTheKiller",
+          "foto": "jeffrythekiller.webp",
+          "rol": "Directora Creativa",
+          "descripcion": "",
+          "social": {
+            "discord": "",
+            "twitter": "",
+            "instagram": ""
+          }
+        }
+      ],
+      "miembros": []
+    },
+    {
+      "id": "marketing",
+      "nombre": "Marketing y Comunicación",
+      "descripcion": "El equipo encargado de difundir nuestra misión, gestionar nuestras redes sociales y crear estrategias de comunicación que amplíen el impacto de nuestros proyectos sociales.",
+      "lideres": [
+        {
+          "nombre": "Lian Ro",
+          "foto": "lian.webp",
+          "rol": "Lead Marketing & Community Manager",
+          "social": {
+            "discord": "",
+            "twitter": "https://x.com/vrtonof",
+            "instagram": "https://www.instagram.com/vrtonof/"
+          }
+        },
+        {
+          "nombre": "JamirDG",
+          "foto": "jamird.webp",
+          "rol": "Lead Networking Logistics",
+          "social": {
+            "discord": "",
+            "twitter": "",
+            "instagram": ""
+          }
+        }
+      ],
+      "miembros": []
+    },
+    {
+      "id": "mapmaking",
+      "nombre": "Map Making",
+      "descripcion": "Los creadores de nuestros mundos virtuales. Este equipo se encarga de diseñar y construir mapas y entornos en plataformas VR, creando experiencias inmersivas para nuestras causas sociales.",
+      "lideres": [
+        {
+          "nombre": "ValenVRC",
+          "foto": "valenvrc.webp",
+          "rol": "Lead World Designer",
+          "social": {
+            "discord": "",
+            "twitter": "",
+            "instagram": ""
+          }
+        },
+        {
+          "nombre": "3D Master",
+          "foto": "3D Master.webp",
+          "rol": "Second World Designer",
+          "social": {
+            "discord": "",
+            "twitter": "",
+            "instagram": ""
+          }
+        }
+      ],
+      "miembros": [
+        {
+          "nombre": "DannyLasagna",
+          "foto": "danny-lasagna.webp",
+          "rol": "3D Modeler",
+          "social": {
+            "discord": "",
+            "twitter": "",
+            "instagram": ""
+          }
+        }
+      ]
+    },
+    {
+      "id": "eventos",
+      "nombre": "Host y Actividades",
+      "descripcion": "Los arquitectos de nuestras experiencias virtuales. Este equipo diseña, organiza y ejecuta eventos, shows y experiencias interactivas que conectan a nuestra comunidad.",
+      "lideres": [
+        {
+          "nombre": "Zulay",
+          "foto": "zulay.webp",
+          "rol": "Lead Host Logistics",
+          "social": {
+            "discord": "",
+            "twitter": "",
+            "instagram": ""
+          }
+        }
+      ],
+      "miembros": [
+        {
+          "nombre": "Dantalion",
+          "foto": "dantalion.webp",
+          "rol": "Host",
+          "social": {
+            "discord": "https://discord.gg/kJudVebk",
+            "twitter": "",
+            "instagram": ""
+          }
+        },
+        {
+          "nombre": "DannyLasagna",
+          "foto": "danny-lasagna.webp",
+          "rol": "Host",
+          "social": {
+            "discord": "",
+            "twitter": "",
+            "instagram": ""
+          }
+        },
+        {
+          "nombre": "Lexter",
+          "foto": "lexter.webp",
+          "rol": "Host",
+          "social": {
+            "discord": "",
+            "twitter": "",
+            "instagram": ""
+          }
+        },
+        {
+          "nombre": "Ryu Aotsuki",
+          "foto": "ryu-aotsuki.webp",
+          "rol": "Host",
+          "social": {
+            "discord": "",
+            "twitter": "",
+            "instagram": ""
+          }
+        }
+      ]
+    },
+        {
+      "id": "moderacion",
+      "nombre": "Moderación",
+      "descripcion": "Nuestro equipo de moderación se encarga de mantener un ambiente seguro, inclusivo y respetuoso en todas nuestras plataformas y experiencias VR. Son los guardianes de nuestra comunidad.",
+      "lideres": [
+        {
+          "nombre": "-",
+          "foto": "placeholder.webp",
+          "rol": "Líder de Moderación",
+          "descripcion": "",
+          "social": {
+            "discord": "",
+            "twitter": "",
+            "instagram": ""
+          }
+        }
+      ],
+      "miembros": [
+        {
+          "nombre": "ValenVRC",
+          "foto": "valenvrc.webp",
+          "rol": "Moderador InGame y Discord",
+          "social": {
+            "discord": "https://discord.gg/kJudVebk",
+            "twitter": "",
+            "instagram": ""
+          }
+        }
+      ]
+    }
+  ]
+}

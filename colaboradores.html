@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <!-- Cache Control - Disable all browser caching -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    
     <!-- SEO Meta Tags -->
     <meta name="description" content="Conoce al increíble equipo de VRTon: profesionales especializados en moderación, desarrollo, diseño 2D/3D, audiovisuales, marketing y más. Únete a nuestra comunidad de realidad virtual para causas sociales.">
     <meta name="keywords" content="equipo VRTon, colaboradores VR, profesionales realidad virtual, moderadores, desarrolladores, diseñadores 3D, audiovisuales, marketing digital, community managers">
@@ -42,7 +47,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="all" crossorigin="anonymous" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==">
     
     <!-- Structured Data -->
-    <script type="application/ld+json">
+    <!-- <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Organization",
@@ -83,210 +88,47 @@
         ]
       }
     }
-    </script>
+    </script> -->
 </head>
 <body>
-    <!-- Barra de navegación -->
-    <header>
+    <!-- Header placeholder for Live Server - will be replaced by components.js -->
+    <header id="header-placeholder" style="display: none;"></header>
+    <!-- Header se carga automáticamente vía JavaScript -->
+
+    <!-- Hero Section estilo Furality -->
+    <section class="furality-hero">
         <div class="container">
-            <div class="logo">
-                <a href="/"><img src="assets/logo.png" alt="VRTon Logo"></a>
-            </div>
-            <div class="menu-toggle" id="menu-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
-            <nav>
-                <ul id="nav-menu">
-                    <li><a href="/">Inicio</a></li>
-                    <li><a href="colaboradores.html">Colaboradores</a></li>
-                    <li><a href="/#contacto">Contacto</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Sección de Colaboradores -->
-    <section class="colaboradores page-section">
-        <div class="container">
-            <h1>Nuestro Equipo</h1>
-            <p class="section-intro">Conoce a las personas increíbles que hacen posible VRTon. Nuestro equipo está formado por profesionales apasionados por la realidad virtual y el cambio social.</p>
-
-            <!-- Categorías de Colaboradores -->
-            <div class="colaboradores-categorias">
-                <div class="categoria-selector active" data-categoria="todos">Todos</div>
-                <div class="categoria-selector" data-categoria="Moderación">Moderación</div>
-                <div class="categoria-selector" data-categoria="AudioVisuales">AudioVisuales</div>
-                <div class="categoria-selector" data-categoria="Desarrollo">Desarrollo</div>
-                <div class="categoria-selector" data-categoria="2D">2D</div>
-                <div class="categoria-selector" data-categoria="3D">3D</div>
-                <div class="categoria-selector" data-categoria="Host">Host</div>
-                <div class="categoria-selector" data-categoria="MapMaking">MapMaking</div>
-                <div class="categoria-selector" data-categoria="Dj/Show">Dj/Show</div>
-                <div class="categoria-selector" data-categoria="Marketing">Marketing</div>
-            </div>
-
-            <!-- Contenedor de tarjetas de colaboradores -->
-            <div id="colaboradores-container" class="colaboradores-grid">
-                <!-- Colaboradores estáticos (se mostrarán siempre) -->
-                <div class="colaborador-card Moderación" data-categoria="Moderación">
-                    <div class="colaborador-image">
-                        <img src="https://via.placeholder.com/300x300?text=Moderador" alt="Ejemplo Moderador">
-                    </div>
-                    <div class="colaborador-info">
-                        <h3>Ejemplo Moderador</h3>
-                        <p class="colaborador-rol">Moderación</p>
-                        <p>Responsable de mantener la comunidad segura y acogedora para todos.</p>
-                    </div>
-                </div>
-
-                <div class="colaborador-card AudioVisuales" data-categoria="AudioVisuales">
-                    <div class="colaborador-image">
-                        <img src="https://via.placeholder.com/300x300?text=AudioVisual" alt="Ejemplo AudioVisual">
-                    </div>
-                    <div class="colaborador-info">
-                        <h3>Ejemplo AudioVisual</h3>
-                        <p class="colaborador-rol">AudioVisuales</p>
-                        <p>Especialista en producción audiovisual para experiencias VR inmersivas.</p>
-                    </div>
-                </div>
-
-                <div class="colaborador-card 2D" data-categoria="2D">
-                    <div class="colaborador-image">
-                        <img src="https://via.placeholder.com/300x300?text=Artista+2D" alt="Ejemplo Artista 2D">
-                    </div>
-                    <div class="colaborador-info">
-                        <h3>Ejemplo Artista 2D</h3>
-                        <p class="colaborador-rol">2D</p>
-                        <p>Artista gráfico enfocado en diseño de interfaces y elementos visuales 2D.</p>
-                    </div>
-                </div>
-
-                <div class="colaborador-card 3D" data-categoria="3D">
-                    <div class="colaborador-image">
-                        <img src="https://via.placeholder.com/300x300?text=Modelador+3D" alt="Ejemplo Modelador 3D">
-                    </div>
-                    <div class="colaborador-info">
-                        <h3>Ejemplo Modelador 3D</h3>
-                        <p class="colaborador-rol">3D</p>
-                        <p>Creador de modelos y entornos 3D para nuestras experiencias de realidad virtual.</p>
-                    </div>
-                </div>
-
-                <div class="colaborador-card Host" data-categoria="Host">
-                    <div class="colaborador-image">
-                        <img src="https://via.placeholder.com/300x300?text=Host" alt="Ejemplo Host">
-                    </div>
-                    <div class="colaborador-info">
-                        <h3>Ejemplo Host</h3>
-                        <p class="colaborador-rol">Host</p>
-                        <p>Anfitrión de nuestros eventos virtuales y experiencias interactivas.</p>
-                    </div>
-                </div>
-
-                <div class="colaborador-card MapMaking" data-categoria="MapMaking">
-                    <div class="colaborador-image">
-                        <img src="https://via.placeholder.com/300x300?text=Map+Maker" alt="Ejemplo Map Maker">
-                    </div>
-                    <div class="colaborador-info">
-                        <h3>Ejemplo Map Maker</h3>
-                        <p class="colaborador-rol">MapMaking</p>
-                        <p>Diseñador de espacios virtuales y entornos interactivos.</p>
-                    </div>
-                </div>
-
-                <div class="colaborador-card Dj/Show" data-categoria="Dj/Show">
-                    <div class="colaborador-image">
-                        <img src="https://via.placeholder.com/300x300?text=DJ" alt="Ejemplo DJ">
-                    </div>
-                    <div class="colaborador-info">
-                        <h3>Ejemplo DJ</h3>
-                        <p class="colaborador-rol">Dj/Show</p>
-                        <p>Responsable de la música y efectos de sonido en nuestros eventos virtuales.</p>
-                    </div>
-                </div>
-
-                <div class="colaborador-card Marketing" data-categoria="Marketing">
-                    <div class="colaborador-image">
-                        <img src="https://via.placeholder.com/300x300?text=Marketing" alt="Ejemplo Marketing">
-                    </div>
-                    <div class="colaborador-info">
-                        <h3>Ejemplo Marketing</h3>
-                        <p class="colaborador-rol">Marketing</p>
-                        <p>Especialista en estrategias de difusión y comunicación de nuestros proyectos.</p>
-                    </div>
-                </div>
-            </div>
+            <h1 style="font-size: 3rem; margin-bottom: 15px; font-weight: 700;">Nuestro Equipo</h1>
+            <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto; line-height: 1.5; opacity: 0.95;">
+                Conoce a las personas increíbles que hacen posible VRTon. Profesionales apasionados por la realidad virtual y el cambio social, unidos por una misión común.
+            </p>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 VRTon - Todos los derechos reservados</p>
-            <div class="social-media">
-                <a href="https://x.com/vrtonof" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="https://www.instagram.com/vrtonof/" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://discord.gg/kJudVebk" class="social-icon" aria-label="Discord"><i class="fab fa-discord"></i></a>
-                <a href="https://www.youtube.com/@VRTonOficial" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                <a href="https://www.tiktok.com/@vrtonoficial" class="social-icon" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+    
+    <!-- Navegación de Equipos estilo Furality -->
+    <nav class="furality-nav" id="team-navigation">
+        <!-- El contenido se genera dinámicamente -->
+    </nav>
+
+    <!-- Contenedor de Equipos estilo Furality -->
+    <main class="furality-container" id="teams-container">
+        <!-- Las secciones de equipos se generan dinámicamente -->
+        <div style="text-align: center; padding: 60px 20px;">
+            <div style="display: inline-block; padding: 20px;">
+                <i class="fas fa-spinner fa-spin" style="font-size: 2rem; color: var(--white); margin-bottom: 20px;"></i>
+                <p style="color: rgba(255,255,255,0.8); font-size: 1.1rem;">Cargando equipos...</p>
             </div>
         </div>
-    </footer>
+    </main>
 
-    <script src="scripts/script.js"></script>
-    <script src="scripts/menu.js"></script>
-    <script>
-    // Cargar colaboradores desde JSON
-    document.addEventListener('DOMContentLoaded', () => {
-        // Intentar cargar los colaboradores desde el JSON
-        async function cargarColaboradores() {
-            try {
-                const response = await fetch('data/colaboradores.json');
-                if (!response.ok) {
-                    throw new Error('No se pudo cargar el archivo de colaboradores');
-                }
+    <!-- Footer se carga automáticamente vía JavaScript -->
 
-                const data = await response.json();
-                console.log('Colaboradores cargados:', data);
-                renderizarColaboradores(data);
-            } catch (error) {
-                console.error('Error al cargar colaboradores:', error);
-            }
-        }
-
-        function renderizarColaboradores(colaboradores) {
-            const container = document.getElementById('colaboradores-container');
-
-            // Eliminar las tarjetas de ejemplo
-            container.innerHTML = '';
-
-            colaboradores.forEach(colaborador => {
-                const card = document.createElement('div');
-                card.className = `colaborador-card ${colaborador.categoria}`;
-                card.setAttribute('data-categoria', colaborador.categoria);
-
-                // Usar imagen por defecto si no hay una específica
-                const imagenUrl = colaborador.imagen ? 
-                    `assets/colaboradores/${colaborador.imagen}` : 
-                    'https://via.placeholder.com/300x300?text=Colaborador';
-
-                card.innerHTML = `
-                    <div class="colaborador-image">
-                        <img src="${imagenUrl}" alt="${colaborador.nombre}" onerror="this.src='https://via.placeholder.com/300x300?text=VRTon'">
-                    </div>
-                    <div class="colaborador-info">
-                        <h3>${colaborador.nombre}</h3>
-                        <p class="colaborador-rol">${colaborador.categoria}</p>
-                    </div>
-                `;
-
-                container.appendChild(card);
-            });
-        }
-
-        cargarColaboradores();
-    });
-    </script>
-    <script src="scripts/colaboradores-fix.js"></script>
+    <!-- Scripts -->
+    <script src="unregister-sw.js"></script>
+    <script src="scripts/components.js" defer></script>
+    <script src="scripts/script.js" defer></script>
+    <script src="scripts/menu.js" defer></script>
+    <script src="scripts/equipos.js" defer></script>
 </body>
 </html>
