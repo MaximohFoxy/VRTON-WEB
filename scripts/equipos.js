@@ -37,8 +37,36 @@ document.addEventListener('DOMContentLoaded', () => {
         'audiovisuales': 'fas fa-video',
         'diseno': 'fas fa-palette',
         'marketing': 'fas fa-bullhorn',
+        'mapmaking': 'fas fa-map',
         'eventos': 'fas fa-calendar-alt'
     };
+
+    // Generar botones de redes sociales
+    function generarBotonesSociales(social) {
+        if (!social) return '';
+        
+        const redes = [];
+        
+        if (social.discord && social.discord.trim() !== '') {
+            redes.push(`<a href="${social.discord}" class="furality-social-btn" title="Discord" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-discord"></i>
+            </a>`);
+        }
+        
+        if (social.twitter && social.twitter.trim() !== '') {
+            redes.push(`<a href="${social.twitter}" class="furality-social-btn" title="Twitter" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-twitter"></i>
+            </a>`);
+        }
+        
+        if (social.instagram && social.instagram.trim() !== '') {
+            redes.push(`<a href="${social.instagram}" class="furality-social-btn" title="Instagram" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-instagram"></i>
+            </a>`);
+        }
+        
+        return redes.join('');
+    }
 
     // Renderizar navegación estilo Furality
     function renderizarNavegacion() {
@@ -85,44 +113,45 @@ document.addEventListener('DOMContentLoaded', () => {
         section.className = 'furality-department';
         section.id = `team-${equipo.id}`;
 
-        // Generar iniciales para fallback de imágenes
-        const liderIniciales = equipo.lider.nombre.split(' ').map(n => n[0]).join('');
-
         section.innerHTML = `
             <h2 class="furality-dept-title">${equipo.nombre}</h2>
             
-            <!-- Líder del departamento -->
-            <div class="furality-leader">
-                <div class="furality-leader-photo">
-                    <img src="assets/colaboradores/${equipo.lider.foto}" 
-                         alt="${equipo.lider.nombre}"
-                         onerror="this.src='https://via.placeholder.com/60x60/e30613/ffffff?text=${encodeURIComponent(liderIniciales)}'">
-                </div>
-                <div class="furality-leader-info">
-                    <div class="furality-leader-name">${equipo.lider.nombre}</div>
-                    <div class="furality-leader-role">${equipo.lider.rol}</div>
-                </div>
-                <div class="furality-leader-social">
-                    <a href="#" class="furality-social-btn" title="Discord">
-                        <i class="fab fa-discord"></i>
-                    </a>
-                    <a href="#" class="furality-social-btn" title="Twitter">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="#" class="furality-social-btn" title="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                </div>
+            <!-- Descripción del departamento -->
+            <p class="furality-dept-description">${equipo.descripcion}</p>
+            
+            <!-- Líderes del departamento -->
+            <div class="furality-leaders">
+                ${equipo.lideres.map(lider => crearLiderFurality(lider)).join('')}
             </div>
 
             <!-- Miembros del equipo -->
-            <div class="furality-team-subtitle">${equipo.nombre} Team</div>
             <div class="furality-members">
                 ${equipo.miembros.map(miembro => crearMiembroFurality(miembro)).join('')}
             </div>
         `;
 
         return section;
+    }
+
+    // Crear líder estilo Furality
+    function crearLiderFurality(lider) {
+        const iniciales = lider.nombre.split(' ').map(n => n[0]).join('');
+        return `
+            <div class="furality-leader">
+                <div class="furality-leader-photo">
+                    <img src="assets/colaboradores/${lider.foto}" 
+                         alt="${lider.nombre}"
+                         onerror="this.src='https://via.placeholder.com/60x60/e30613/ffffff?text=${encodeURIComponent(iniciales)}'">
+                </div>
+                <div class="furality-leader-info">
+                    <div class="furality-leader-name">${lider.nombre}</div>
+                    <div class="furality-leader-role">${lider.rol}</div>
+                </div>
+                <div class="furality-leader-social">
+                    ${generarBotonesSociales(lider.social)}
+                </div>
+            </div>
+        `;
     }
 
     // Crear miembro estilo Furality
@@ -140,12 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="furality-member-role">${miembro.rol}</div>
                 </div>
                 <div class="furality-member-social">
-                    <a href="#" class="furality-social-btn" title="Discord">
-                        <i class="fab fa-discord"></i>
-                    </a>
-                    <a href="#" class="furality-social-btn" title="Twitter">
-                        <i class="fab fa-twitter"></i>
-                    </a>
+                    ${generarBotonesSociales(miembro.social)}
                 </div>
             </div>
         `;

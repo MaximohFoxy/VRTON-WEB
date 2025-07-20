@@ -91,29 +91,9 @@
     </script> -->
 </head>
 <body>
-    <!-- Barra de navegación -->
-    <header>
-        <div class="container">
-            <div class="logo">
-                <a href="/" aria-label="Ir a la página principal de VRTon">
-                    <img src="assets/logo.png" alt="Logo de VRTon - Organización de Realidad Virtual" width="50" height="50">
-                </a>
-            </div>
-            <div class="recaudacion-info" role="banner" aria-label="Información de recaudación">
-                <p><i class="fas fa-donate" aria-hidden="true"></i> Recaudación año anterior: 1.458€</p>
-            </div>
-            <div class="menu-toggle" id="menu-toggle" aria-label="Abrir menú de navegación" role="button" tabindex="0">
-                <i class="fas fa-bars" aria-hidden="true"></i>
-            </div>
-            <nav role="navigation" aria-label="Navegación principal">
-                <ul id="nav-menu">
-                    <li><a href="/">Inicio</a></li>
-                    <li><a href="colaboradores.html">Colaboradores</a></li>
-                    <li><a href="/#contacto">Contacto</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <!-- Header placeholder for Live Server - will be replaced by components.js -->
+    <header id="header-placeholder" style="display: none;"></header>
+    <!-- Header se carga automáticamente vía JavaScript -->
 
     <!-- Hero Section estilo Furality -->
     <section class="furality-hero">
@@ -142,52 +122,11 @@
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer role="contentinfo" aria-label="Información del sitio web">
-        <div class="container">
-            <p>&copy; 2025 VRTon - Todos los derechos reservados</p>
-            <div class="social-media" role="navigation" aria-label="Redes sociales">
-                <a href="https://x.com/vrtonof" 
-                   class="social-icon" 
-                   aria-label="Seguir a VRTon en Twitter/X"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    <i class="fab fa-twitter" aria-hidden="true"></i>
-                </a>
-                <a href="https://www.instagram.com/vrtonof/" 
-                   class="social-icon" 
-                   aria-label="Seguir a VRTon en Instagram"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    <i class="fab fa-instagram" aria-hidden="true"></i>
-                </a>
-                <a href="https://discord.gg/kJudVebk" 
-                   class="social-icon" 
-                   aria-label="Unirse al Discord de VRTon"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    <i class="fab fa-discord" aria-hidden="true"></i>
-                </a>
-                <a href="https://www.youtube.com/@VRTonOficial" 
-                   class="social-icon" 
-                   aria-label="Ver canal de YouTube de VRTon"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    <i class="fab fa-youtube" aria-hidden="true"></i>
-                </a>
-                <a href="https://www.tiktok.com/@vrtonoficial" 
-                   class="social-icon" 
-                   aria-label="Seguir a VRTon en TikTok"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    <i class="fab fa-tiktok" aria-hidden="true"></i>
-                </a>
-            </div>
-        </div>
-    </footer>
+    <!-- Footer se carga automáticamente vía JavaScript -->
 
     <!-- Scripts -->
     <script src="unregister-sw.js"></script>
+    <script src="scripts/components.js" defer></script>
     <script src="scripts/script.js" defer></script>
     <script src="scripts/menu.js" defer></script>
     <script src="scripts/equipos.js" defer></script>
