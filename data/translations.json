@@ -1,9 +1,23 @@
 {
   "es": {
+    "loading": {
+      "title": "Cargando VRTon",
+      "preparing": "Preparando experiencia inmersiva...",
+      "translations": "Cargando traducciones...",
+      "components": "Cargando componentes...",
+      "countdown": "Iniciando contador...",
+      "video": "Preparando video...",
+      "finalizing": "Finalizando carga...",
+      "loadingTeam": "Cargando Equipo",
+      "preparingTeam": "Preparando información del equipo...",
+      "teams": "Cargando información del equipo..."
+    },
     "nav": {
       "inicio": "Inicio",
-      "colaboradores": "Colaboradores",
-      "contacto": "Contacto"
+      "about": "Sobre Nosotros",
+      "faqs": "Preguntas Frecuentes",
+      "contacto": "Contacto",
+      "colaboradores": "Colaboradores"
     },
     "hero": {
       "title": "VRTon",
@@ -70,10 +84,24 @@
     }
   },
   "en": {
+    "loading": {
+      "title": "Loading VRTon",
+      "preparing": "Preparing immersive experience...",
+      "translations": "Loading translations...",
+      "components": "Loading components...",
+      "countdown": "Starting countdown...",
+      "video": "Preparing video...",
+      "finalizing": "Finalizing load...",
+      "loadingTeam": "Loading Team",
+      "preparingTeam": "Preparing team information...",
+      "teams": "Loading team information..."
+    },
     "nav": {
       "inicio": "Home",
-      "colaboradores": "Team",
-      "contacto": "Contact"
+      "about": "About Us",
+      "faqs": "FAQs",
+      "contacto": "Contact",
+      "colaboradores": "Team"
     },
     "hero": {
       "title": "VRTon",

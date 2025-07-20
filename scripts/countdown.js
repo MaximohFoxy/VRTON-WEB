@@ -94,6 +94,16 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
         if (document.getElementById('countdown-timer')) {
             window.countdownTimer = new CountdownTimer();
+            
+            // Notificar que el countdown está listo
+            if (window.onCountdownReady) {
+                window.onCountdownReady();
+            }
+        } else {
+            // Si no hay contador en esta página, marcar como listo igualmente
+            if (window.onCountdownReady) {
+                window.onCountdownReady();
+            }
         }
     }, 100);
 });

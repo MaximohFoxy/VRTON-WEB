@@ -84,6 +84,11 @@ document.addEventListener('DOMContentLoaded', async function() {
     
     // Reinicializar funcionalidades que puedan depender del header/footer
     initializeHeaderFooterComponents();
+    
+    // Notificar que los componentes están listos
+    if (window.onComponentsReady) {
+        window.onComponentsReady();
+    }
 });
 
 // Función para reinicializar componentes después de cargar header/footer

@@ -23,6 +23,10 @@ class I18n {
             console.log('i18n fully initialized with translations');
         } catch (error) {
             console.error('Error loading translations:', error);
+            // Still notify even on error to prevent infinite loading
+            if (window.onI18nReady) {
+                window.onI18nReady();
+            }
         }
     }
 
@@ -64,9 +68,11 @@ class I18n {
     updateContent() {
         // Actualizar navegación
         this.updateElement('[data-i18n="nav.inicio"]', 'nav.inicio');
-        this.updateElement('[data-i18n="nav.colaboradores"]', 'nav.colaboradores');
+        this.updateElement('[data-i18n="nav.about"]', 'nav.about');
+        this.updateElement('[data-i18n="nav.faqs"]', 'nav.faqs');
         this.updateElement('[data-i18n="nav.contacto"]', 'nav.contacto');
-
+        this.updateElement('[data-i18n="nav.colaboradores"]', 'nav.colaboradores');
+        
         // Actualizar header
         this.updateElement('[data-i18n="header.fundraising"]', 'header.fundraising');
 

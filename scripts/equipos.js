@@ -28,6 +28,11 @@ document.addEventListener('DOMContentLoaded', () => {
         renderizarNavegacion();
         renderizarEquipos();
         configurarNavegacion();
+        
+        // Notificar que la carga del equipo está completa
+        if (window.onTeamsReady) {
+            window.onTeamsReady();
+        }
     }
 
     // Iconos para cada departamento
@@ -258,6 +263,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 </p>
             </div>
         `;
+        
+        // Notificar que la carga está completa (aunque con error)
+        if (window.onTeamsReady) {
+            window.onTeamsReady();
+        }
     }
 
     // Animaciones de entrada progresiva

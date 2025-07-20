@@ -68,6 +68,20 @@
         .hero-video{height:100vh;position:relative;overflow:hidden;margin-top:0}
         #background-video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-2}
         .hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(227,6,19,0.8) 0%,rgba(253,92,99,0.8) 100%);z-index:-1}
+        
+        /* Loading Screen Styles */
+        .loading-screen{position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,var(--primary-color) 0%,var(--secondary-color) 100%);display:flex;flex-direction:column;justify-content:center;align-items:center;z-index:9999;transition:opacity 0.8s ease,visibility 0.8s ease}
+        .loading-screen.hidden{opacity:0;visibility:hidden}
+        .loading-logo{width:120px;height:120px;margin-bottom:30px;animation:pulse 2s infinite}
+        .loading-spinner{width:60px;height:60px;border:4px solid rgba(255,255,255,0.3);border-top:4px solid white;border-radius:50%;animation:spin 1s linear infinite;margin-bottom:20px}
+        .loading-text{color:white;font-size:18px;font-weight:500;margin-bottom:10px}
+        .loading-subtext{color:rgba(255,255,255,0.8);font-size:14px}
+        @keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+        @keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.05);opacity:0.8}}
+        
+        /* Hide main content while loading */
+        body.loading main,body.loading .hero-video{opacity:0;transition:opacity 0.5s ease}
+        body.loaded main,body.loaded .hero-video{opacity:1}
     </style>
     
     <!-- Stylesheets -->
@@ -106,7 +120,17 @@
     }
     </script>
 </head>
-<body>
+<body class="loading">
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loading-screen">
+        <div class="loading-logo">
+            <img src="assets/logo.png" alt="VRTon Logo" style="width: 100%; height: 100%; object-fit: contain;">
+        </div>
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Cargando VRTon</div>
+        <div class="loading-subtext">Preparando experiencia inmersiva...</div>
+    </div>
+
     <!-- Header placeholder for Live Server - will be replaced by components.js -->
     <header id="header-placeholder" style="display: none;"></header>
     <!-- Header se carga automáticamente vía JavaScript -->
@@ -208,6 +232,7 @@
     <!-- Footer se carga automáticamente vía JavaScript -->
 
     <!-- Scripts optimizados -->
+    <script src="scripts/loading.js"></script>
     <script src="scripts/i18n.js" defer></script>
     <script src="scripts/components.js" defer></script>
     <script src="scripts/countdown.js" defer></script>
