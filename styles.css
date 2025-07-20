@@ -513,6 +513,76 @@ nav ul li a.active:after {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
+/* Countdown Timer Styles */
+.countdown-container {
+    margin: 30px auto 40px;
+    text-align: center;
+    max-width: 600px;
+}
+
+.countdown-title {
+    font-size: 1.2rem;
+    color: var(--white);
+    margin-bottom: 20px;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.countdown-item {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--border-radius);
+    padding: 15px 10px;
+    min-width: 80px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.countdown-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 5px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.countdown-label {
+    display: block;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.event-completed {
+    background: var(--success-color);
+    color: var(--white);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.event-completed i {
+    font-size: 1.5rem;
+}
+
 /* Hero alternativo sin video */
 .hero {
     height: 100vh;
@@ -1236,6 +1306,30 @@ footer p {
     
     .discord-card h2 {
         font-size: 1.8rem;
+    }
+    
+    /* Countdown móvil */
+    .countdown-timer {
+        gap: 10px;
+        justify-content: center;
+    }
+    
+    .countdown-item {
+        min-width: 70px;
+        padding: 12px 8px;
+    }
+    
+    .countdown-number {
+        font-size: 2rem;
+    }
+    
+    .countdown-label {
+        font-size: 0.8rem;
+    }
+    
+    .countdown-title {
+        font-size: 1.1rem;
+        margin-bottom: 15px;
     }
     
     /* Footer móvil */
