@@ -82,7 +82,7 @@ class LoadingManager {
         this.startLoadingAnimation();
         
         // Fallback timeout to prevent infinite loading
-        const timeoutDuration = this.isTeamPage ? 4000 : 8000; // Faster timeout for team page
+        const timeoutDuration = this.isTeamPage ? LoadingManager.TEAM_PAGE_TIMEOUT : LoadingManager.DEFAULT_TIMEOUT; // Faster timeout for team page
         setTimeout(() => {
             if (!this.isAllReady()) {
                 if (this.debug) console.warn('Loading timeout reached, forcing completion');
