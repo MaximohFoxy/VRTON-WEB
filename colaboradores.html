@@ -16,11 +16,14 @@
             <div class="logo">
                 <a href="11-index.html"><img src="assets/logo.png" alt="VRTon Logo"></a>
             </div>
+            <div class="menu-toggle" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
             <nav>
-                <ul>
+                <ul id="nav-menu">
                     <li><a href="11-index.html">Inicio</a></li>
                     <li><a href="colaboradores.html">Colaboradores</a></li>
-                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
                 </ul>
             </nav>
         </div>
@@ -37,6 +40,7 @@
                 <div class="categoria-selector active" data-categoria="todos">Todos</div>
                 <div class="categoria-selector" data-categoria="Moderación">Moderación</div>
                 <div class="categoria-selector" data-categoria="AudioVisuales">AudioVisuales</div>
+                <div class="categoria-selector" data-categoria="Desarrollo">Desarrollo</div>
                 <div class="categoria-selector" data-categoria="2D">2D</div>
                 <div class="categoria-selector" data-categoria="3D">3D</div>
                 <div class="categoria-selector" data-categoria="Host">Host</div>
@@ -144,15 +148,17 @@
         <div class="container">
             <p>&copy; 2025 VRTon - Todos los derechos reservados</p>
             <div class="social-media">
-                <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="social-icon" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                <a href="https://x.com/vrtonof" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/vrtonof/" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://discord.gg/kJudVebk" class="social-icon" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                <a href="https://www.youtube.com/@VRTonOficial" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.tiktok.com/@vrtonoficial" class="social-icon" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
             </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
+    <script src="menu.js"></script>
     <script>
     // Cargar colaboradores desde JSON
     document.addEventListener('DOMContentLoaded', () => {
@@ -195,7 +201,6 @@
                     <div class="colaborador-info">
                         <h3>${colaborador.nombre}</h3>
                         <p class="colaborador-rol">${colaborador.categoria}</p>
-                        <p>${colaborador.descripcion || 'Miembro del equipo VRTon'}</p>
                     </div>
                 `;
 

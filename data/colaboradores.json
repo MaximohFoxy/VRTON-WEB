@@ -1,50 +1,62 @@
 [
     {
-        "nombre": "Ejemplo Moderador",
+        "nombre": "Dantalion",
         "categoria": "Moderación",
-        "descripcion": "Responsable de mantener la comunidad segura y acogedora para todos.",
-        "imagen": "moderador.jpg"
+        "imagen": "Dantalion.png"
+    },
+    {
+        "nombre": "Valen",
+        "categoria": "Moderación",
+        "imagen": "Valen.jpg"
+    },
+    {
+        "nombre": "3DMASTER",
+        "categoria": "Moderación",
+        "imagen": "3DMASTER.webp"
     },
     {
         "nombre": "FoxyCTG21",
         "categoria": "AudioVisuales",
-        "descripcion": "Encargado de la visualización del evento por los canales de difución en directo y pagina web.",
         "imagen": "FoxyCTG21.jpg"
     },
     {
-        "nombre": "Ejemplo Artista 2D",
-        "categoria": "2D",
-        "descripcion": "Artista gráfico enfocado en diseño de interfaces y elementos visuales 2D.",
-        "imagen": "artista2d.jpg"
-    },
-    {
-        "nombre": "Ejemplo Modelador 3D",
+        "nombre": "PichuJef",
         "categoria": "3D",
-        "descripcion": "Creador de modelos y entornos 3D para nuestras experiencias de realidad virtual.",
-        "imagen": "modelador3d.jpg"
+        "imagen": "pichujef.png"
     },
     {
-        "nombre": "Ejemplo Host",
-        "categoria": "Host",
-        "descripcion": "Anfitrión de nuestros eventos virtuales y experiencias interactivas.",
-        "imagen": "host.jpg"
+        "nombre": "Nantrop",
+        "categoria": "3D",
+        "imagen": "Nantrop.png"
     },
     {
-        "nombre": "Ejemplo Map Maker",
+        "nombre": "Jeffry",
+        "categoria": "3D",
+        "imagen": "thekiller.png"
+    },
+    {
+        "nombre": "Jeffry",
+        "categoria": "2D",
+        "imagen": "thekiller.png"
+    },
+    {
+        "nombre": "PichuJef",
+        "categoria": "Desarrollo",
+        "imagen": "pichujef.png"
+    },
+    {
+        "nombre": "FoxyCTG21",
+        "categoria": "Desarrollo",
+        "imagen": "FoxyCTG21.jpg"
+    },
+    {
+        "nombre": "3DMASTER",
         "categoria": "MapMaking",
-        "descripcion": "Diseñador de espacios virtuales y entornos interactivos.",
-        "imagen": "mapmaker.jpg"
+        "imagen": "3DMASTER.webp"
     },
     {
-        "nombre": "Ejemplo DJ",
-        "categoria": "Dj/Show",
-        "descripcion": "Responsable de la música y efectos de sonido en nuestros eventos virtuales.",
-        "imagen": "dj.jpg"
-    },
-    {
-        "nombre": "Ejemplo Marketing",
-        "categoria": "Marketing",
-        "descripcion": "Especialista en estrategias de difusión y comunicación de nuestros proyectos.",
-        "imagen": "marketing.jpg"
+        "nombre": "Nantrop",
+        "categoria": "MapMaking",
+        "imagen": "Nantrop.png"
     }
 ]

@@ -254,7 +254,37 @@ function configurarHeaderScroll() {
         card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
         observer.observe(card);
     });
+// Script para manejar la funcionalidad de preguntas frecuentes
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Inicializando sistema de FAQs...');
 
+    // Obtener todos los elementos de preguntas
+    const faqItems = document.querySelectorAll('.faq-item');
+    console.log('FAQs encontradas:', faqItems.length);
+
+    // Añadir evento de clic a cada pregunta
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+
+        question.addEventListener('click', function() {
+            // Alternar la clase 'active' en el elemento de pregunta actual
+            const isActive = item.classList.contains('active');
+            console.log('Clic en FAQ:', question.textContent.trim(), 'Estado actual:', isActive ? 'activo' : 'inactivo');
+
+            // Cerrar otras preguntas abiertas (comportamiento de acordeón)
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item && otherItem.classList.contains('active')) {
+                    otherItem.classList.remove('active');
+                }
+            });
+
+            // Alternar estado del ítem actual
+            item.classList.toggle('active');
+        });
+    });
+
+    console.log('Sistema de FAQs inicializado correctamente');
+});
     // Clase para elementos visibles (usada por el observer)
     document.head.insertAdjacentHTML('beforeend', `
         <style>

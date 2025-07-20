@@ -7,6 +7,83 @@
     <title>VRTon - Realidad Virtual para Causas Sociales</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .recaudacion-info {
+            background-color: #28a745;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+        .recaudacion-info i {
+            margin-right: 5px;
+        }
+        @media (max-width: 992px) {
+            header .container {
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+            .recaudacion-info {
+                margin: 0 20px 0 auto;
+            }
+            .menu-toggle {
+                order: 3;
+            }
+            nav {
+                flex-basis: 100%;
+                order: 4;
+            }
+            #nav-menu {
+                width: 100%;
+            }
+            section:not(.hero-video) {
+                padding-top: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+                padding: 0 10px;
+            }
+            .recaudacion-info {
+                margin: 0 0 0 auto;
+                font-size: 0.9rem;
+                padding: 4px 10px;
+            }
+            .recaudacion-info p {
+                font-size: 0.9rem;
+            }
+            header {
+                height: auto;
+                min-height: 60px;
+            }
+            nav ul {
+                top: 60px;
+            }
+            section {
+                margin-top: 0;
+            }
+            section:not(.hero-video) {
+                padding-top: 80px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .recaudacion-info {
+                display: none;
+            }
+            header .container {
+                padding: 10px;
+            }
+            .menu-toggle {
+                margin-left: auto;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Barra de navegación. -->
@@ -15,11 +92,17 @@
             <div class="logo">
                 <a href="11-index.html"><img src="assets/logo.png" alt="VRTon Logo"></a>
             </div>
+            <div class="recaudacion-info">
+                <p><i class="fas fa-donate"></i> Recaudación año anterior: 1458$</p>
+            </div>
+            <div class="menu-toggle" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
             <nav>
-                <ul>
+                <ul id="nav-menu">
                     <li><a href="11-index.html">Inicio</a></li>
                     <li><a href="colaboradores.html">Colaboradores</a></li>
-                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
                 </ul>
             </nav>
         </div>
@@ -58,45 +141,78 @@
                     </ul>
                 </div>
                 <div class="cause-image">
-                    <img src="assets/vr-impact.jpg" alt="Impacto de la Realidad Virtual" onerror="this.src='https://via.placeholder.com/600x400?text=VR+Impact'">
+                    <img src="assets/comunidad.png" alt="Impacto de la Realidad Virtual" onerror="this.src='https://via.placeholder.com/600x400?text=VR+Impact'">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Sección Proyectos -->
-    <section class="proyectos" id="proyectos">
+    <!-- Sección de FAQs -->
+    <section class="faqs" id="faqs">
         <div class="container">
-            <h2>Nuestros Proyectos</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="assets/project1.jpg" alt="Proyecto Educativo VR" onerror="this.src='https://via.placeholder.com/400x300?text=Proyecto+1'">
+            <h2 style="margin-top: 2rem; margin-bottom: 2rem;">FAQS</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>¿Qué es la Teletón y cuál es su principal objetivo?</h3>
+                        <i class="fas fa-chevron-down"></i>
                     </div>
-                    <div class="project-info">
-                        <h3>Educación VR</h3>
-                        <p>Llevamos aulas virtuales a zonas rurales donde los estudiantes pueden experimentar aprendizaje inmersivo.</p>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="assets/project2.jpg" alt="Proyecto Terapia VR" onerror="this.src='https://via.placeholder.com/400x300?text=Proyecto+2'">
-                    </div>
-                    <div class="project-info">
-                        <h3>Terapia Inmersiva</h3>
-                        <p>Desarrollamos entornos virtuales terapéuticos para personas con trastornos de estrés y ansiedad.</p>
+                    <div class="faq-answer">
+                        <p>La Teletón es un evento benéfico anual que busca recaudar fondos para la rehabilitación e inclusión de niños y jóvenes con discapacidad. Su principal objetivo es proporcionar servicios médicos, terapias y apoyo integral a través de sus centros de rehabilitación distribuidos por todo el país.</p>
                     </div>
                 </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>¿Cómo puedo colaborar con la Teletón más allá del evento anual?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Existen múltiples formas de colaborar durante todo el año: puedes ser donante recurrente, voluntario en los centros de rehabilitación, participar en eventos de recaudación, donar en especie materiales necesarios para los centros, o difundir la causa en tus redes sociales y comunidad.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>¿Cómo se utilizan los fondos recaudados en la Teletón?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Los fondos recaudados se destinan principalmente a: mantener y equipar los centros de rehabilitación, proporcionar tratamientos y terapias a miles de niños y jóvenes con discapacidad, investigación en rehabilitación, capacitación de personal especializado, y programas de inclusión social y educativa para los pacientes.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>¿Quiénes pueden recibir atención en los centros de rehabilitación de la Teletón?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Los centros de rehabilitación atienden principalmente a niños y jóvenes con discapacidad neuromusculoesquelética, como parálisis cerebral, lesiones medulares, amputaciones, malformaciones congénitas, y otras condiciones que requieren rehabilitación física. El ingreso se realiza mediante una valoración médica previa.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>¿Cómo implementa la Teletón tecnologías innovadoras como la realidad virtual en sus terapias?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>La Teletón integra tecnologías como la realidad virtual en sus programas de rehabilitación para crear experiencias terapéuticas inmersivas que motivan a los pacientes y mejoran su respuesta al tratamiento. Estas tecnologías permiten simular situaciones de la vida diaria en un entorno controlado, ayudando a desarrollar habilidades motoras, cognitivas y sociales de manera lúdica y efectiva.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="assets/project3.jpg" alt="Proyecto Conciencia Social" onerror="this.src='https://via.placeholder.com/400x300?text=Proyecto+3'">
-                    </div>
-                    <div class="project-info">
-                        <h3>Conciencia Social</h3>
-                        <p>Experiencias que permiten ponerse en el lugar de otros para fomentar la empatía y el entendimiento.</p>
-                    </div>
+    <!-- Sección de Contacto -->
+    <section class="contacto" id="contacto">
+        <div class="container">
+            <h2>Contacto</h2>
+            <div class="discord-container">
+                <div class="discord-card">
+                    <i class="fab fa-discord discord-icon"></i>
+                    <h3>Únete a nuestra comunidad</h3>
+                    <p>Somos una comunidad activa y en crecimiento. ¡Conéctate con nosotros a través de Discord!</p>
+                    <a href="https://discord.gg/gSCsPKTsVJ" class="btn discord-btn" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-discord"></i> Unirse a Discord
+                    </a>
                 </div>
             </div>
         </div>
@@ -107,14 +223,17 @@
         <div class="container">
             <p>&copy; 2025 VRTon - Todos los derechos reservados</p>
             <div class="social-media">
-                <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="social-icon" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                <a href="https://x.com/vrtonof" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/vrtonof/" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://discord.gg/kJudVebk" class="social-icon" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                <a href="https://www.youtube.com/@VRTonOficial" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.tiktok.com/@vrtonoficial" class="social-icon" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
             </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
+    <script src="faq.js"></script>
+    <script src="menu.js"></script>
 </body>
 </html>
