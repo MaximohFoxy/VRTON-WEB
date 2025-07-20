@@ -14,7 +14,7 @@
 
   <!-- Página principal (archivo específico) -->
   <url>
-    <loc>https://vrton.org/11-index.html</loc>
+    <loc>https://vrton.org/</loc>
     <lastmod>2025-01-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>

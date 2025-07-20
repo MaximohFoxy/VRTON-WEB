@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Páginas principales
-Allow: /11-index.html
+Allow: /
 Allow: /colaboradores.html
 
 # Assets permitidos

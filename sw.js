@@ -2,7 +2,6 @@
 const CACHE_NAME = 'vrton-v1.2.0';
 const urlsToCache = [
   '/',
-  '/11-index.html',
   '/colaboradores.html',
   '/styles.css',
   '/scripts/script.js',

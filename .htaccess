@@ -91,7 +91,7 @@ RewriteEngine On
 RewriteCond %{THE_REQUEST} /11-index\.html[\s?] [NC]
 RewriteRule ^11-index\.html$ / [R=301,L]
 
-# Servir 11-index.html para la raíz
+# Servir 11-index.html para la raíz (temporal hasta renombrar a index.html)
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^$ 11-index.html [L]
