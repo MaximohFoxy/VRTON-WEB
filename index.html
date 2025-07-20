@@ -121,10 +121,30 @@
         <div class="hero-overlay"></div>
         <div class="container">
             <div class="hero-content">
-                <h1 data-i18n="hero.title">VRTon</h1>
-                <h2 data-i18n="hero.subtitle">Transformando la realidad virtual en cambio social</h2>
-                <p data-i18n="hero.description">Somos una organización sin ánimo de lucro dedicada a utilizar la tecnología de realidad virtual para crear un impacto positivo en la sociedad.</p>
-                <a href="#causa" class="btn" aria-label="Conocer más sobre nuestra causa" data-i18n="hero.button">Conoce más</a>
+                <h1 data-i18n="hero.title"></h1>
+                <h2 data-i18n="hero.subtitle"></h2>
+                <div class="countdown-container">
+                    <div class="countdown-title" data-i18n="hero.countdown"></div>
+                    <div class="countdown-timer" id="countdown-timer">
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="days">0</span>
+                            <span class="countdown-label" data-i18n="countdown.days"></span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="hours">0</span>
+                            <span class="countdown-label" data-i18n="countdown.hours"></span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="minutes">0</span>
+                            <span class="countdown-label" data-i18n="countdown.minutes"></span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="seconds">0</span>
+                            <span class="countdown-label" data-i18n="countdown.seconds"></span>
+                        </div>
+                    </div>
+                </div>
+                <a href="#about" class="btn" aria-label="Conocer más sobre nuestra causa" data-i18n="hero.button"></a>
             </div>
         </div>
     </section>
@@ -132,16 +152,13 @@
     <!-- Sección Nuestra Causa -->
     <section class="causa" id="about">
         <div class="container">
-            <h2 data-i18n="causa.title">Nuestra Causa</h2>
+            <h2 data-i18n="causa.title"></h2>
             <div class="cause-content">
                 <div class="cause-text">
-                    <p data-i18n="causa.description1">En VRTon creemos que la tecnología de realidad virtual tiene el potencial de transformar la manera en que abordamos los desafíos sociales. Trabajamos para desarrollar experiencias inmersivas que eduquen, inspiren y generen empatía.</p>
-                    <p data-i18n="causa.description2">Nuestros proyectos se enfocan en:</p>
+                    <p data-i18n="causa.description1"></p>
+                    <p data-i18n="causa.description2"></p>
                     <ul data-i18n-list="causa.projects">
-                        <li><i class="fas fa-check-circle"></i> Educación inmersiva para comunidades vulnerables</li>
-                        <li><i class="fas fa-check-circle"></i> Experiencias de concientización sobre problemas sociales</li>
-                        <li><i class="fas fa-check-circle"></i> Terapias innovadoras basadas en realidad virtual</li>
-                        <li><i class="fas fa-check-circle"></i> Capacitación tecnológica para jóvenes</li>
+                        <!-- Project items will be loaded dynamically -->
                     </ul>
                 </div>
                 <div class="cause-image">
@@ -159,7 +176,7 @@
     <!-- Sección de FAQs -->
     <section class="faqs" id="faqs" aria-labelledby="faqs-title">
         <div class="container">
-            <h2 id="faqs-title" class="section-title" data-i18n="faqs.title">Preguntas Frecuentes</h2>
+            <h2 id="faqs-title" class="section-title" data-i18n="faqs.title"></h2>
             <div class="faq-container" role="region" aria-label="Preguntas frecuentes">
                 <!-- Las FAQs se cargan dinámicamente desde i18n.js -->
             </div>
@@ -193,6 +210,7 @@
     <!-- Scripts optimizados -->
     <script src="scripts/i18n.js" defer></script>
     <script src="scripts/components.js" defer></script>
+    <script src="scripts/countdown.js" defer></script>
     <script src="scripts/script.js" defer></script>
     <script src="scripts/faq.js" defer></script>
     <script src="scripts/menu.js" defer></script>

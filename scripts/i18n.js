@@ -3,6 +3,7 @@ class I18n {
     constructor() {
         this.currentLanguage = localStorage.getItem('vrton-language') || 'es';
         this.translations = {};
+        this.isInitialized = false;
         this.init();
     }
 
@@ -12,12 +13,24 @@ class I18n {
             this.translations = await response.json();
             this.updateContent();
             this.updateLanguageSelector();
+            
+            // Notificar que i18n está completamente inicializado
+            this.isInitialized = true;
+            if (window.onI18nReady) {
+                window.onI18nReady();
+            }
+            
+            console.log('i18n fully initialized with translations');
         } catch (error) {
             console.error('Error loading translations:', error);
         }
     }
 
     setLanguage(lang) {
+        console.log('setLanguage called with:', lang);
+        console.log('Available translations:', Object.keys(this.translations));
+        console.log('Is initialized:', this.isInitialized);
+        
         if (this.translations[lang]) {
             this.currentLanguage = lang;
             localStorage.setItem('vrton-language', lang);
@@ -26,6 +39,10 @@ class I18n {
             
             // Actualizar el atributo lang del documento
             document.documentElement.lang = lang === 'es' ? 'es' : 'en';
+            
+            console.log('Language successfully changed to:', lang);
+        } else {
+            console.error('Language not found in translations:', lang);
         }
     }
 
@@ -57,7 +74,14 @@ class I18n {
         this.updateElement('[data-i18n="hero.title"]', 'hero.title');
         this.updateElement('[data-i18n="hero.subtitle"]', 'hero.subtitle');
         this.updateElement('[data-i18n="hero.description"]', 'hero.description');
+        this.updateElement('[data-i18n="hero.countdown"]', 'hero.countdown');
         this.updateElement('[data-i18n="hero.button"]', 'hero.button');
+
+        // Actualizar contador
+        this.updateElement('[data-i18n="countdown.days"]', 'countdown.days');
+        this.updateElement('[data-i18n="countdown.hours"]', 'countdown.hours');
+        this.updateElement('[data-i18n="countdown.minutes"]', 'countdown.minutes');
+        this.updateElement('[data-i18n="countdown.seconds"]', 'countdown.seconds');
 
         // Actualizar causa
         this.updateElement('[data-i18n="causa.title"]', 'causa.title');
@@ -188,6 +212,9 @@ let i18n;
 
 document.addEventListener('DOMContentLoaded', () => {
     i18n = new I18n();
+    // Hacer disponible globalmente inmediatamente
+    window.i18n = i18n;
+    console.log('i18n initialized and exposed globally');
 });
 
 // Exportar para uso global

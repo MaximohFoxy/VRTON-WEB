@@ -145,8 +145,43 @@ function initializeLanguageSelector() {
     langButtons.forEach(button => {
         button.addEventListener('click', function() {
             const selectedLang = this.dataset.lang;
-            if (window.i18n) {
-                window.i18n.setLanguage(selectedLang);
+            console.log('Language button clicked:', selectedLang);
+            
+            // Función para cambiar idioma
+            const changeLanguage = () => {
+                if (window.i18n && window.i18n.isInitialized) {
+                    console.log('Changing language to:', selectedLang);
+                    window.i18n.setLanguage(selectedLang);
+                    return true;
+                }
+                return false;
+            };
+            
+            // Intentar cambiar idioma inmediatamente
+            if (!changeLanguage()) {
+                console.log('i18n not ready, waiting for initialization...');
+                
+                // Callback para cuando i18n esté listo
+                window.onI18nReady = () => {
+                    console.log('i18n ready callback triggered');
+                    changeLanguage();
+                    window.onI18nReady = null; // Limpiar callback
+                };
+                
+                // Fallback con polling si el callback no funciona
+                const checkI18n = setInterval(() => {
+                    if (changeLanguage()) {
+                        clearInterval(checkI18n);
+                        window.onI18nReady = null;
+                    }
+                }, 100);
+                
+                // Timeout después de 5 segundos
+                setTimeout(() => {
+                    clearInterval(checkI18n);
+                    window.onI18nReady = null;
+                    console.error('Failed to initialize i18n after 5 seconds');
+                }, 5000);
             }
         });
     });
