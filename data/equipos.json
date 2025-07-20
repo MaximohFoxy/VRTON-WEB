@@ -28,12 +28,12 @@
         },
         {
           "nombre": "3D Master",
-          "foto": "3dmaster.webp",
+          "foto": "master.webp",
           "rol": "",
           "social": {
             "discord": "",
             "twitter": "",
-            "instagram": ""
+            "instagram": "https://www.instagram.com/3dmasterreal/"
           }
         }
       ]
@@ -113,7 +113,7 @@
           "social": {
             "discord": "",
             "twitter": "",
-            "instagram": ""
+            "instagram": "https://www.instagram.com/lian.vr/"
           }
         }
       ]
@@ -150,7 +150,7 @@
           "social": {
             "discord": "",
             "twitter": "",
-            "instagram": ""
+            "instagram": "https://www.instagram.com/nantrop_onjy/"
           }
         }
       ],
@@ -199,7 +199,7 @@
           "social": {
             "discord": "",
             "twitter": "",
-            "instagram": ""
+            "instagram": "https://www.instagram.com/lian.vr/"
           }
         },
         {
@@ -209,7 +209,7 @@
           "social": {
             "discord": "",
             "twitter": "",
-            "instagram": ""
+            "instagram": "https://www.instagram.com/jamirdg96/"
           }
         }
       ],
@@ -232,12 +232,12 @@
         },
         {
           "nombre": "3D Master",
-          "foto": "3dmaster.webp",
+          "foto": "master.webp",
           "rol": "Second World Designer",
           "social": {
             "discord": "",
             "twitter": "",
-            "instagram": ""
+            "instagram": "https://www.instagram.com/3dmasterreal/"
           }
         }
       ],
@@ -249,7 +249,7 @@
           "social": {
             "discord": "",
             "twitter": "",
-            "instagram": ""
+            "instagram": "https://www.instagram.com/danny.lasagna/"
           }
         }
       ]
@@ -288,7 +288,7 @@
           "social": {
             "discord": "",
             "twitter": "",
-            "instagram": ""
+            "instagram": "https://www.instagram.com/danny.lasagna/"
           }
         },
         {
@@ -326,7 +326,7 @@
           "social": {
             "discord": "",
             "twitter": "",
-            "instagram": ""
+            "instagram": "https://www.instagram.com/danny.lasagna/"
           }
         },
         {
@@ -336,7 +336,7 @@
           "social": {
             "discord": "",
             "twitter": "",
-            "instagram": ""
+            "instagram": "https://www.instagram.com/jamirdg96/"
           }
         }
       ]
@@ -345,19 +345,7 @@
       "id": "moderacion",
       "nombre": "Moderación",
       "descripcion": "Nuestro equipo de moderación se encarga de mantener un ambiente seguro, inclusivo y respetuoso en todas nuestras plataformas y experiencias VR. Son los guardianes de nuestra comunidad.",
-      "lideres": [
-        {
-          "nombre": "-",
-          "foto": "placeholder.webp",
-          "rol": "Líder de Moderación",
-          "descripcion": "",
-          "social": {
-            "discord": "",
-            "twitter": "",
-            "instagram": ""
-          }
-        }
-      ],
+      "lideres": [],
       "miembros": [
         {
           "nombre": "ValenVRC",
