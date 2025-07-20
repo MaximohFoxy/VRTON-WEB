@@ -1,0 +1,182 @@
+{
+  "equipos": [
+    {
+      "id": "moderacion",
+      "nombre": "Moderación",
+      "descripcion": "Nuestro equipo de moderación se encarga de mantener un ambiente seguro, inclusivo y respetuoso en todas nuestras plataformas y experiencias VR. Son los guardianes de nuestra comunidad.",
+      "lider": {
+        "nombre": "-",
+        "foto": "placeholder.webp",
+        "rol": "Líder de Moderación",
+        "descripcion": ""
+      },
+      "miembros": [
+        {
+          "nombre": "ValenVRC",
+          "foto": "valenvrc.webp",
+          "rol": "Moderador InGame y Discord"
+        }
+      ]
+    },
+    {
+      "id": "desarrollo",
+      "nombre": "Desarrollo",
+      "descripcion": "El equipo de desarrollo es el corazón técnico de VRTon. Crean las aplicaciones, plataformas y herramientas que hacen posible nuestras experiencias de realidad virtual para el cambio social.",
+      "lider": {
+        "nombre": "Diego Fernández",
+        "foto": "diego-fernandez.jpg",
+        "rol": "Lead Developer",
+        "descripcion": "Ingeniero de software especializado en Unity y desarrollo VR con experiencia en proyectos de impacto social."
+      },
+      "miembros": [
+        {
+          "nombre": "Laura Sánchez",
+          "foto": "laura-sanchez.jpg",
+          "rol": "Desarrolladora Frontend"
+        },
+        {
+          "nombre": "Miguel Torres",
+          "foto": "miguel-torres.jpg",
+          "rol": "Desarrollador VR"
+        },
+        {
+          "nombre": "Elena Ruiz",
+          "foto": "elena-ruiz.jpg",
+          "rol": "Desarrolladora Backend"
+        },
+        {
+          "nombre": "Javier Moreno",
+          "foto": "javier-moreno.jpg",
+          "rol": "DevOps Engineer"
+        }
+      ]
+    },
+    {
+      "id": "audiovisuales",
+      "nombre": "AudioVisuales",
+      "descripcion": "Los especialistas en crear experiencias inmersivas a través del sonido y las imágenes. Este equipo da vida a nuestras visiones mediante efectos visuales, audio espacial y producciones multimedia.",
+      "lider": {
+        "nombre": "Sofía Castro",
+        "foto": "sofia-castro.jpg",
+        "rol": "Directora AudioVisual",
+        "descripcion": "Productora audiovisual con especialización en contenido inmersivo y tecnologías emergentes."
+      },
+      "miembros": [
+        {
+          "nombre": "Andrés Villa",
+          "foto": "andres-villa.jpg",
+          "rol": "Editor de Video"
+        },
+        {
+          "nombre": "Carmen Díaz",
+          "foto": "carmen-diaz.jpg",
+          "rol": "Diseñadora de Sonido"
+        },
+        {
+          "nombre": "Roberto Silva",
+          "foto": "roberto-silva.jpg",
+          "rol": "Motion Graphics"
+        }
+      ]
+    },
+    {
+      "id": "diseno",
+      "nombre": "Diseño",
+      "descripcion": "Nuestro equipo creativo combina diseño 2D y 3D para crear interfaces, personajes, entornos y elementos visuales que comunican efectivamente nuestra misión social.",
+      "lider": {
+        "nombre": "Isabella Herrera",
+        "foto": "isabella-herrera.jpg",
+        "rol": "Directora Creativa",
+        "descripcion": "Diseñadora gráfica y artista 3D especializada en experiencias de usuario para realidad virtual."
+      },
+      "miembros": [
+        {
+          "nombre": "Pablo Jiménez",
+          "foto": "pablo-jimenez.jpg",
+          "rol": "Artista 3D"
+        },
+        {
+          "nombre": "Natalia Vega",
+          "foto": "natalia-vega.jpg",
+          "rol": "Diseñadora UI/UX"
+        },
+        {
+          "nombre": "Fernando Campos",
+          "foto": "fernando-campos.jpg",
+          "rol": "Ilustrador 2D"
+        },
+        {
+          "nombre": "Valeria Mora",
+          "foto": "valeria-mora.jpg",
+          "rol": "Concept Artist"
+        },
+        {
+          "nombre": "Sebastián Ortega",
+          "foto": "sebastian-ortega.jpg",
+          "rol": "Modelador 3D"
+        }
+      ]
+    },
+    {
+      "id": "marketing",
+      "nombre": "Marketing y Comunicación",
+      "descripcion": "El equipo encargado de difundir nuestra misión, gestionar nuestras redes sociales y crear estrategias de comunicación que amplíen el impacto de nuestros proyectos sociales.",
+      "lider": {
+        "nombre": "Alejandra Peña",
+        "foto": "alejandra-pena.jpg",
+        "rol": "Directora de Marketing",
+        "descripcion": "Especialista en marketing digital y comunicación para organizaciones sin ánimo de lucro."
+      },
+      "miembros": [
+        {
+          "nombre": "Ricardo Mendoza",
+          "foto": "ricardo-mendoza.jpg",
+          "rol": "Community Manager"
+        },
+        {
+          "nombre": "Paola Aguilar",
+          "foto": "paola-aguilar.jpg",
+          "rol": "Content Creator"
+        },
+        {
+          "nombre": "Tomás Restrepo",
+          "foto": "tomas-restrepo.jpg",
+          "rol": "Social Media Manager"
+        }
+      ]
+    },
+    {
+      "id": "eventos",
+      "nombre": "Eventos y Experiencias",
+      "descripcion": "Los arquitectos de nuestras experiencias virtuales. Este equipo diseña, organiza y ejecuta eventos, shows y experiencias interactivas que conectan a nuestra comunidad.",
+      "lider": {
+        "nombre": "Gabriela León",
+        "foto": "gabriela-leon.jpg",
+        "rol": "Directora de Eventos",
+        "descripcion": "Especialista en producción de eventos virtuales y experiencias inmersivas para causas sociales."
+      },
+      "miembros": [
+        {
+          "nombre": "Óscar Ramírez",
+          "foto": "oscar-ramirez.jpg",
+          "rol": "Host Principal"
+        },
+        {
+          "nombre": "Lucía Vargas",
+          "foto": "lucia-vargas.jpg",
+          "rol": "DJ & Sound Designer"
+        },
+        {
+          "nombre": "Mateo Guerrero",
+          "foto": "mateo-guerrero.jpg",
+          "rol": "Map Maker"
+        },
+        {
+          "nombre": "Camila Rojas",
+          "foto": "camila-rojas.jpg",
+          "rol": "Event Coordinator"
+        }
+      ]
+    }
+  ]
+}
