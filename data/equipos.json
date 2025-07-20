@@ -82,13 +82,32 @@
     },
     {
       "id": "diseno",
-      "nombre": "Diseño",
+      "nombre": "Diseño 2D",
       "descripcion": "Nuestro equipo creativo utiliza diseño 2D para crear interfaces, personajes, entornos y elementos visuales que comunican efectivamente nuestra misión social.",
       "lideres": [
         {
           "nombre": "JeffryTheKiller",
           "foto": "jeffrythekiller.webp",
           "rol": "Directora Creativa",
+          "descripcion": "",
+          "social": {
+            "discord": "",
+            "twitter": "",
+            "instagram": ""
+          }
+        }
+      ],
+      "miembros": []
+    },
+    {
+      "id": "3d",
+      "nombre": "Diseño 3D",
+      "descripcion": "Nuestro equipo creativo utiliza diseño 3D para crear modelos, personajes y entornos que comunican efectivamente nuestra misión social.",
+      "lideres": [
+        {
+          "nombre": "Nantrop",
+          "foto": "nantrop.webp",
+          "rol": "Lead 3D Artist",
           "descripcion": "",
           "social": {
             "discord": "",
@@ -116,7 +135,7 @@
         },
         {
           "nombre": "JamirDG",
-          "foto": "jamird.webp",
+          "foto": "jamirdg.webp",
           "rol": "Lead Networking Logistics",
           "social": {
             "discord": "",
@@ -144,7 +163,7 @@
         },
         {
           "nombre": "3D Master",
-          "foto": "3D Master.webp",
+          "foto": "3dmaster.webp",
           "rol": "Second World Designer",
           "social": {
             "discord": "",
@@ -173,7 +192,7 @@
       "lideres": [
         {
           "nombre": "Zulay",
-          "foto": "zulay.webp",
+          "foto": "placeholder.webp",
           "rol": "Lead Host Logistics",
           "social": {
             "discord": "",
@@ -225,7 +244,7 @@
         }
       ]
     },
-        {
+    {
       "id": "moderacion",
       "nombre": "Moderación",
       "descripcion": "Nuestro equipo de moderación se encarga de mantener un ambiente seguro, inclusivo y respetuoso en todas nuestras plataformas y experiencias VR. Son los guardianes de nuestra comunidad.",
