@@ -1,0 +1,128 @@
+{
+  "es": {
+    "nav": {
+      "inicio": "Inicio",
+      "colaboradores": "Colaboradores",
+      "contacto": "Contacto"
+    },
+    "hero": {
+      "title": "VRTon",
+      "subtitle": "Transformando la realidad virtual en cambio social",
+      "description": "Somos una organización sin ánimo de lucro dedicada a utilizar la tecnología de realidad virtual para crear un impacto positivo en la sociedad.",
+      "button": "Conoce más"
+    },
+    "causa": {
+      "title": "Nuestra Causa",
+      "description1": "En VRTon creemos que la tecnología de realidad virtual tiene el potencial de transformar la manera en que abordamos los desafíos sociales. Trabajamos para desarrollar experiencias inmersivas que eduquen, inspiren y generen empatía.",
+      "description2": "Nuestros proyectos se enfocan en:",
+      "projects": [
+        "Educación inmersiva para comunidades vulnerables",
+        "Experiencias de concientización sobre problemas sociales",
+        "Terapias innovadoras basadas en realidad virtual",
+        "Capacitación tecnológica para jóvenes"
+      ]
+    },
+    "faqs": {
+      "title": "Preguntas Frecuentes",
+      "questions": [
+        {
+          "question": "¿Qué es la Teletón y cuál es su principal objetivo?",
+          "answer": "La Teletón es un evento benéfico anual que busca recaudar fondos para la rehabilitación e inclusión de niños y jóvenes con discapacidad. Su principal objetivo es proporcionar servicios médicos, terapias y apoyo integral a través de sus centros de rehabilitación distribuidos por todo el país."
+        },
+        {
+          "question": "¿Cómo puedo colaborar con la Teletón más allá del evento anual?",
+          "answer": "Existen múltiples formas de colaborar durante todo el año: puedes ser donante recurrente, voluntario en los centros de rehabilitación, participar en eventos de recaudación, donar en especie materiales necesarios para los centros, o difundir la causa en tus redes sociales y comunidad."
+        },
+        {
+          "question": "¿Cómo se utilizan los fondos recaudados en la Teletón?",
+          "answer": "Los fondos recaudados se destinan principalmente a: mantener y equipar los centros de rehabilitación, proporcionar tratamientos y terapias a miles de niños y jóvenes con discapacidad, investigación en rehabilitación, capacitación de personal especializado, y programas de inclusión social y educativa para los pacientes."
+        },
+        {
+          "question": "¿Quiénes pueden recibir atención en los centros de rehabilitación de la Teletón?",
+          "answer": "Los centros de rehabilitación atienden principalmente a niños y jóvenes con discapacidad neuromusculoesquelética, como parálisis cerebral, lesiones medulares, amputaciones, malformaciones congénitas, y otras condiciones que requieren rehabilitación física. El ingreso se realiza mediante una valoración médica previa."
+        },
+        {
+          "question": "¿Cómo implementa la Teletón tecnologías innovadoras como la realidad virtual en sus terapias?",
+          "answer": "La Teletón integra tecnologías como la realidad virtual en sus programas de rehabilitación para crear experiencias terapéuticas inmersivas que motivan a los pacientes y mejoran su respuesta al tratamiento. Estas tecnologías permiten simular situaciones de la vida diaria en un entorno controlado, ayudando a desarrollar habilidades motoras, cognitivas y sociales de manera lúdica y efectiva."
+        }
+      ]
+    },
+    "contacto": {
+      "title": "Contacto",
+      "community": "Únete a nuestra comunidad",
+      "description": "Somos una comunidad activa y en crecimiento. ¡Conéctate con nosotros a través de Discord!",
+      "button": "Unirse a Discord"
+    },
+    "footer": {
+      "description": "Transformando la realidad virtual en cambio social. Organización sin ánimo de lucro.",
+      "quickLinks": "Enlaces Rápidos",
+      "follow": "Síguenos"
+    },
+    "header": {
+      "fundraising": "Recaudación año anterior: 1.458€"
+    }
+  },
+  "en": {
+    "nav": {
+      "inicio": "Home",
+      "colaboradores": "Team",
+      "contacto": "Contact"
+    },
+    "hero": {
+      "title": "VRTon",
+      "subtitle": "Transforming virtual reality into social change",
+      "description": "We are a non-profit organization dedicated to using virtual reality technology to create a positive impact on society.",
+      "button": "Learn more"
+    },
+    "causa": {
+      "title": "Our Cause",
+      "description1": "At VRTon we believe that virtual reality technology has the potential to transform the way we address social challenges. We work to develop immersive experiences that educate, inspire and generate empathy.",
+      "description2": "Our projects focus on:",
+      "projects": [
+        "Immersive education for vulnerable communities",
+        "Awareness experiences about social problems",
+        "Innovative therapies based on virtual reality",
+        "Technology training for young people"
+      ]
+    },
+    "faqs": {
+      "title": "Frequently Asked Questions",
+      "questions": [
+        {
+          "question": "What is the Telethon and what is its main objective?",
+          "answer": "The Telethon is an annual charity event that seeks to raise funds for the rehabilitation and inclusion of children and young people with disabilities. Its main objective is to provide medical services, therapies and comprehensive support through its rehabilitation centers distributed throughout the country."
+        },
+        {
+          "question": "How can I collaborate with the Telethon beyond the annual event?",
+          "answer": "There are multiple ways to collaborate throughout the year: you can be a recurring donor, volunteer at rehabilitation centers, participate in fundraising events, donate materials needed for the centers, or spread the cause on your social networks and community."
+        },
+        {
+          "question": "How are the funds raised in the Telethon used?",
+          "answer": "The funds raised are mainly used for: maintaining and equipping rehabilitation centers, providing treatments and therapies to thousands of children and young people with disabilities, rehabilitation research, training specialized personnel, and social and educational inclusion programs for patients."
+        },
+        {
+          "question": "Who can receive care at Telethon rehabilitation centers?",
+          "answer": "Rehabilitation centers mainly serve children and young people with neuromusculoskeletal disabilities, such as cerebral palsy, spinal injuries, amputations, congenital malformations, and other conditions that require physical rehabilitation. Admission is carried out through a prior medical assessment."
+        },
+        {
+          "question": "How does the Telethon implement innovative technologies like virtual reality in its therapies?",
+          "answer": "The Telethon integrates technologies such as virtual reality into its rehabilitation programs to create immersive therapeutic experiences that motivate patients and improve their response to treatment. These technologies allow simulating real-life situations in a controlled environment, helping to develop motor, cognitive and social skills in a playful and effective way."
+        }
+      ]
+    },
+    "contacto": {
+      "title": "Contact",
+      "community": "Join our community",
+      "description": "We are an active and growing community. Connect with us through Discord!",
+      "button": "Join Discord"
+    },
+    "footer": {
+      "description": "Transforming virtual reality into social change. Non-profit organization.",
+      "quickLinks": "Quick Links",
+      "follow": "Follow Us"
+    },
+    "header": {
+      "fundraising": "Previous year fundraising: €1,458"
+    }
+  }
+}

@@ -131,8 +131,25 @@ function initializeHeaderFooterComponents() {
         });
     }
     
+    // Inicializar selector de idioma
+    initializeLanguageSelector();
+    
     // Marcar la página actual en la navegación
     markCurrentPage();
+}
+
+// Función para inicializar el selector de idioma
+function initializeLanguageSelector() {
+    const langButtons = document.querySelectorAll('.lang-btn');
+    
+    langButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const selectedLang = this.dataset.lang;
+            if (window.i18n) {
+                window.i18n.setLanguage(selectedLang);
+            }
+        });
+    });
 }
 
 // Función para marcar la página actual en la navegación
