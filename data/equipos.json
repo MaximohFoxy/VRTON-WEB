@@ -51,9 +51,9 @@
           "rol": "Lider de AudioVisuales",
           "descripcion": "",
           "social": {
-            "discord": "https://discord.gg/kJudVebk",
-            "twitter": "https://x.com/vrtonof",
-            "instagram": "https://www.instagram.com/vrtonof/"
+            "discord": "",
+            "twitter": "",
+            "instagram": ""
           }
         }
       ],
@@ -87,7 +87,7 @@
       "lideres": [
         {
           "nombre": "JeffryTheKiller",
-          "foto": "jeffry.webp",
+          "foto": "jeffrythekiller.webp",
           "rol": "Directora Creativa",
           "descripcion": "",
           "social": {
