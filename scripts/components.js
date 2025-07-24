@@ -93,6 +93,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
 // Función para reinicializar componentes después de cargar header/footer
 function initializeHeaderFooterComponents() {
+    
     // Reinicializar el menú móvil si existe
     const menuToggle = document.getElementById('menu-toggle');
     const navMenu = document.getElementById('nav-menu');
@@ -255,6 +256,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function updateActiveNavOnScroll() {
+        aux = 0;
         // Solo ejecutar en la página principal
         const currentPath = window.location.pathname;
         const isHomePage = currentPath === '/' || 
@@ -269,8 +271,9 @@ document.addEventListener('DOMContentLoaded', function() {
         // Determinar qué sección está actualmente visible
         let currentSectionId = '';
         sections.forEach(section => {
-            const sectionTop = section.offsetTop - 100;
+            const sectionTop = section.offsetTop - 150; //0
             const sectionHeight = section.offsetHeight;
+            aux= sectionTop + sectionHeight
             if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
                 currentSectionId = section.id;
             }
@@ -286,16 +289,16 @@ document.addEventListener('DOMContentLoaded', function() {
             link.classList.remove('active');
 
             const linkHref = link.getAttribute('href');
-
             // Enlace de inicio
             if ((currentSectionId === '' || window.scrollY < 100) && 
                 (linkHref === 'index.html' || linkHref === '/')) {
                 link.classList.add('active');
             }
             // Enlaces a secciones
-            else if (linkHref.includes('#' + currentSectionId)) {
+            else if (linkHref.includes('#' + currentSectionId) && currentSectionId != '') {
                 link.classList.add('active');
             }
+            //else link.classList.remove('active');
         });
     }
 });
