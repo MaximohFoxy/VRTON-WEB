@@ -911,8 +911,8 @@ nav ul li a.active:after {
     margin-bottom: 20px;
 }
 
-.discord-card h2 {
-    font-size: 2rem;
+.discord-card h3 {
+    font-size: 1.75rem;
     margin-bottom: 20px;
 }
 
@@ -963,7 +963,7 @@ nav ul li a.active:after {
 }
 
 .business-card h3 {
-    font-size: 2rem;
+    font-size: 1.75rem;
     margin-bottom: 20px;
 }
 
