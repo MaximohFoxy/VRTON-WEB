@@ -280,17 +280,17 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         // Si estamos al principio de la página, considerar que estamos en 'inicio'
-        if (window.scrollY < 100) {
+        if (window.scrollY < 150) {
             currentSectionId = '';
         }
-
         // Actualizar clase active en los enlaces
         navLinks.forEach(link => {
-            link.classList.remove('active');
+            if(!(currentSectionId == "" && window.scrollY > 800)) 
+                link.classList.remove('active');
 
             const linkHref = link.getAttribute('href');
             // Enlace de inicio
-            if ((currentSectionId === '' || window.scrollY < 100) && 
+            if (currentSectionId === '' && window.scrollY < 800 && 
                 (linkHref === 'index.html' || linkHref === '/')) {
                 link.classList.add('active');
             }
