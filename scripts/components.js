@@ -231,7 +231,7 @@ function markCurrentPage() {
             // Para otras páginas específicas
             (!isHomePage && !linkHref.includes('#') && linkMatchesPage)
         ) {
-            link.classList.add('active');
+           if(linkHref != 'index.html') link.classList.add('active');
         }
     });
 }
@@ -298,7 +298,6 @@ document.addEventListener('DOMContentLoaded', function() {
             else if (linkHref.includes('#' + currentSectionId) && currentSectionId != '') {
                 link.classList.add('active');
             }
-            //else link.classList.remove('active');
         });
     }
 });
