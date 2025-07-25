@@ -33,54 +33,89 @@
       "seconds": "Segundos"
     },
     "causa": {
-      "title": "Nuestra Causa",
+      "title": "Que es VRTon",
       "description1": "En VRTon creemos que la tecnología de realidad virtual tiene el potencial de transformar la manera en que abordamos los desafíos sociales. Trabajamos para desarrollar experiencias inmersivas que eduquen, inspiren y generen empatía.",
-      "description2": "Nuestros proyectos se enfocan en:",
-      "projects": [
-        "Educación inmersiva para comunidades vulnerables",
-        "Experiencias de concientización sobre problemas sociales",
-        "Terapias innovadoras basadas en realidad virtual",
-        "Capacitación tecnológica para jóvenes"
-      ]
+      "description2": "Realizamos una serie de eventos y actividades que buscan recaudar fondos para distintas causas benéficas.",
+      "projects": []
     },
     "faqs": {
       "title": "Preguntas Frecuentes",
       "questions": [
         {
-          "question": "¿Qué es la Teletón y cuál es su principal objetivo?",
-          "answer": "La Teletón es un evento benéfico anual que busca recaudar fondos para la rehabilitación e inclusión de niños y jóvenes con discapacidad. Su principal objetivo es proporcionar servicios médicos, terapias y apoyo integral a través de sus centros de rehabilitación distribuidos por todo el país."
+          "question": "¿Quien y como puede participar en la VRTon?",
+          "answer": "Todo aquella persona o comunidad que quiera ayudar a organizar la VRTon es bienvenida, siempre respetando el hecho de hacerlo sin fines de lucro o segundas intenciones. Si estas interesado en participar como voluntario dirijete a nuestro canal de discord."
         },
         {
-          "question": "¿Cómo puedo colaborar con la Teletón más allá del evento anual?",
-          "answer": "Existen múltiples formas de colaborar durante todo el año: puedes ser donante recurrente, voluntario en los centros de rehabilitación, participar en eventos de recaudación, donar en especie materiales necesarios para los centros, o difundir la causa en tus redes sociales y comunidad."
+          "question": "¿Para que seran los fondos recaudados este año? ¿Ques es la Teletón?",
+          "answer": "Por tercer año consecutivo estaremos juntando fondos para la <b>Teletón Chile</b>.<br>La Teletón es una campaña benéfica que se realiza en varios países con el objetivo de recaudar fondos para ayudar a personas con discapacidad, principalmente a través de centros de rehabilitación y programas de inclusión.<br>En Chile, la Teletón es un evento benéfico televisivo que se realiza anualmente desde 1978. Fue la primera teletón en Iberoamérica y su formato se ha replicado en otros países de la región. Mas informacion en <a href=\"https://www.teleton.cl/\">https://www.teleton.cl/</a>"
         },
         {
-          "question": "¿Cómo se utilizan los fondos recaudados en la Teletón?",
-          "answer": "Los fondos recaudados se destinan principalmente a: mantener y equipar los centros de rehabilitación, proporcionar tratamientos y terapias a miles de niños y jóvenes con discapacidad, investigación en rehabilitación, capacitación de personal especializado, y programas de inclusión social y educativa para los pacientes."
+          "question": "¿Esto es transparente? ¿A donde va el dinero?",
+          "answer": "Para maximizar la transparencia todas las donaciones se harán a travez de los medios oficiales de la Teleton, sin ningún tipo de intermediario de nuestra parte.<br>Por preguntas con respecto a la transparencia de la propia teleton dirigirse a: <a href=\"https://www.teleton.cl/preguntas-frecuentes-y-mitos-sobre-teleton/\">https://www.teleton.cl/preguntas-frecuentes-y-mitos-sobre-teleton/</a>"
         },
         {
-          "question": "¿Quiénes pueden recibir atención en los centros de rehabilitación de la Teletón?",
-          "answer": "Los centros de rehabilitación atienden principalmente a niños y jóvenes con discapacidad neuromusculoesquelética, como parálisis cerebral, lesiones medulares, amputaciones, malformaciones congénitas, y otras condiciones que requieren rehabilitación física. El ingreso se realiza mediante una valoración médica previa."
-        },
-        {
-          "question": "¿Cómo implementa la Teletón tecnologías innovadoras como la realidad virtual en sus terapias?",
-          "answer": "La Teletón integra tecnologías como la realidad virtual en sus programas de rehabilitación para crear experiencias terapéuticas inmersivas que motivan a los pacientes y mejoran su respuesta al tratamiento. Estas tecnologías permiten simular situaciones de la vida diaria en un entorno controlado, ayudando a desarrollar habilidades motoras, cognitivas y sociales de manera lúdica y efectiva."
+          "question": "¿Qué tipo de actividades habrá en la VRTon de este año?",
+          "answer": "Tenemos planeada una amplia gama de actividades dentro y fuera de VRChat, desde juegos y roleos hasta shows en vivo con musica y artistas! Se publicara un itinerario completo mas cercano a la fecha."
         }
       ]
     },
     "contacto": {
       "title": "Contacto",
       "community": "Únete a nuestra comunidad",
-      "description": "Somos una comunidad activa y en crecimiento. ¡Conéctate con nosotros a través de Discord!",
-      "button": "Unirse a Discord"
+      "description": "Interesado en participar, colaborar o simplemente saber más sobre VRTon? Únete a nuestro Discord y forma parte de nuestra comunidad.",
+      "button": "Unirse a Discord",
+      "business": {
+        "title": "¿Quieres colaborar con nosotros?",
+        "description": "Si representas una empresa o marca y te gustaría apoyar nuestra causa, ¡nos encantaría conocerte! Escríbenos y hablemos sobre cómo podemos trabajar juntos.",
+        "button": "Escríbenos"
+      }
     },
     "footer": {
       "description": "Transformando la realidad virtual en cambio social. Organización sin ánimo de lucro.",
       "quickLinks": "Enlaces Rápidos",
       "follow": "Síguenos"
     },
-    "header": {
-      "fundraising": "Recaudación año anterior: 1.458€"
+    "teams": {
+      "direccion": {
+        "name": "Dirección",
+        "description": "Equipo encargado de la toma de decisiones estratégicas, planificación y supervisión general de las operaciones de VRTon."
+      },
+      "desarrollo": {
+        "name": "Desarrollo",
+        "description": "Encargados de la creación de webs, aplicaciones, bots y demás herramientas utilizadas por VRTon."
+      },
+      "audiovisuales": {
+        "name": "AudioVisuales",
+        "description": "Fotógrafos, videógrafos y creadores de contenido que dan vida a nuestras visiones mediante efectos visuales, audio espacial y producciones multimedia."
+      },
+      "diseno": {
+        "name": "Diseño 2D",
+        "description": "Nuestro equipo creativo utiliza diseño 2D para crear interfaces, personajes, entornos y elementos visuales que comunican efectivamente nuestra misión social."
+      },
+      "3d": {
+        "name": "Diseño 3D",
+        "description": "Nuestro equipo creativo utiliza diseño 3D para crear modelos, personajes y entornos que comunican efectivamente nuestra misión social."
+      },
+      "marketing": {
+        "name": "Marketing y Comunicación",
+        "description": "El equipo encargado de difundir nuestra misión, gestionar nuestras redes sociales y crear estrategias de comunicación que amplíen el impacto de nuestros proyectos sociales."
+      },
+      "mapmaking": {
+        "name": "Map Making",
+        "description": "Los creadores de nuestros mundos virtuales. Este equipo se encarga de diseñar y construir mapas y entornos en plataformas VR, creando experiencias inmersivas para nuestras causas sociales."
+      },
+      "eventos": {
+        "name": "Host y Actividades",
+        "description": "Los arquitectos de nuestras experiencias virtuales. Este equipo diseña, organiza y ejecuta eventos, shows y experiencias interactivas que conectan a nuestra comunidad."
+      },
+      "dj": {
+        "name": "DJs y Shows",
+        "description": "Los artistas que traen la música y el espectáculo a nuestras experiencias virtuales. Este equipo se encarga de crear eventos musicales y shows en vivo que entretienen y conectan a nuestra comunidad."
+      },
+      "moderacion": {
+        "name": "Moderación",
+        "description": "Nuestro equipo de moderación se encarga de mantener un ambiente seguro, inclusivo y respetuoso en todas nuestras plataformas y experiencias VR. Son los guardianes de nuestra comunidad."
+      }
     }
   },
   "en": {
@@ -101,13 +136,13 @@
       "about": "About Us",
       "faqs": "FAQs",
       "contacto": "Contact",
-      "colaboradores": "Team"
+      "colaboradores": "Collaborators"
     },
     "hero": {
       "title": "VRTon",
       "subtitle": "Transforming virtual reality into social change",
       "description": "We are a non-profit organization dedicated to using virtual reality technology to create a positive impact on society.",
-      "countdown": "Next VRTon 2025 event:",
+      "countdown": "Next VRTon event 2025:",
       "button": "Learn more"
     },
     "countdown": {
@@ -117,54 +152,89 @@
       "seconds": "Seconds"
     },
     "causa": {
-      "title": "Our Cause",
-      "description1": "At VRTon we believe that virtual reality technology has the potential to transform the way we address social challenges. We work to develop immersive experiences that educate, inspire and generate empathy.",
-      "description2": "Our projects focus on:",
-      "projects": [
-        "Immersive education for vulnerable communities",
-        "Awareness experiences about social problems",
-        "Innovative therapies based on virtual reality",
-        "Technology training for young people"
-      ]
+      "title": "What is VRTon",
+      "description1": "At VRTon, we believe that virtual reality technology has the potential to transform the way we address social challenges. We work to develop immersive experiences that educate, inspire, and generate empathy.",
+      "description2": "",
+      "projects": []
     },
     "faqs": {
       "title": "Frequently Asked Questions",
       "questions": [
         {
-          "question": "What is the Telethon and what is its main objective?",
-          "answer": "The Telethon is an annual charity event that seeks to raise funds for the rehabilitation and inclusion of children and young people with disabilities. Its main objective is to provide medical services, therapies and comprehensive support through its rehabilitation centers distributed throughout the country."
+          "question": "Who and how can participate in VRTon?",
+          "answer": "Anyone or community that wants to help organize VRTon is welcome, as long as it is done without profit or ulterior motives. If you are interested in participating as a volunteer, head to our Discord channel."
         },
         {
-          "question": "How can I collaborate with the Telethon beyond the annual event?",
-          "answer": "There are multiple ways to collaborate throughout the year: you can be a recurring donor, volunteer at rehabilitation centers, participate in fundraising events, donate materials needed for the centers, or spread the cause on your social networks and community."
+          "question": "What will the funds raised this year be for? What is Teleton?",
+          "answer": "For the third consecutive year, we will be raising funds for <b>Teleton Chile</b>.<br>Teleton is a charity campaign held in several countries to raise funds to help people with disabilities, mainly through rehabilitation centers and inclusion programs.<br>In Chile, Teleton is an annual televised charity event held since 1978. It was the first telethon in Ibero-America, and its format has been replicated in other countries in the region. More information at <a href=\"https://www.teleton.cl/\">https://www.teleton.cl/</a>"
         },
         {
-          "question": "How are the funds raised in the Telethon used?",
-          "answer": "The funds raised are mainly used for: maintaining and equipping rehabilitation centers, providing treatments and therapies to thousands of children and young people with disabilities, rehabilitation research, training specialized personnel, and social and educational inclusion programs for patients."
+          "question": "Is this transparent? Where does the money go?",
+          "answer": "To maximize transparency, all donations will be made through Teleton's official channels, without any intermediaries on our part.<br>For questions regarding Teleton's own transparency, please refer to: <a href=\"https://www.teleton.cl/preguntas-frecuentes-y-mitos-sobre-teleton/\">https://www.teleton.cl/preguntas-frecuentes-y-mitos-sobre-teleton/</a>"
         },
         {
-          "question": "Who can receive care at Telethon rehabilitation centers?",
-          "answer": "Rehabilitation centers mainly serve children and young people with neuromusculoskeletal disabilities, such as cerebral palsy, spinal injuries, amputations, congenital malformations, and other conditions that require physical rehabilitation. Admission is carried out through a prior medical assessment."
-        },
-        {
-          "question": "How does the Telethon implement innovative technologies like virtual reality in its therapies?",
-          "answer": "The Telethon integrates technologies such as virtual reality into its rehabilitation programs to create immersive therapeutic experiences that motivate patients and improve their response to treatment. These technologies allow simulating real-life situations in a controlled environment, helping to develop motor, cognitive and social skills in a playful and effective way."
+          "question": "What kind of activities will there be at this year's VRTon?",
+          "answer": "We have planned a wide range of activities both inside and outside of VRChat, from games and role-playing to live shows with music and artists! A complete schedule will be published closer to the date."
         }
       ]
     },
     "contacto": {
       "title": "Contact",
       "community": "Join our community",
-      "description": "We are an active and growing community. Connect with us through Discord!",
-      "button": "Join Discord"
+      "description": "Interested in participating, collaborating, or just learning more about VRTon? Join our Discord and be part of our community.",
+      "button": "Join Discord",
+      "business": {
+        "title": "Want to collaborate with us?",
+        "description": "If you represent a company or brand and would like to support our cause, we'd love to meet you! Write to us and let's talk about how we can work together.",
+        "button": "Write to us"
+      }
     },
     "footer": {
       "description": "Transforming virtual reality into social change. Non-profit organization.",
       "quickLinks": "Quick Links",
-      "follow": "Follow Us"
+      "follow": "Follow us"
     },
-    "header": {
-      "fundraising": "Previous year fundraising: €1,458"
+    "teams": {
+      "direccion": {
+        "name": "Management",
+        "description": "Team responsible for strategic decision-making, planning, and general oversight of VRTon operations."
+      },
+      "desarrollo": {
+        "name": "Development",
+        "description": "Responsible for creating websites, applications, bots, and other tools used by VRTon."
+      },
+      "audiovisuales": {
+        "name": "Audiovisuals",
+        "description": "Photographers, videographers, and content creators who bring our visions to life through visual effects, spatial audio, and multimedia productions."
+      },
+      "diseno": {
+        "name": "2D Design",
+        "description": "Our creative team uses 2D design to create interfaces, characters, environments, and visual elements that effectively communicate our social mission."
+      },
+      "3d": {
+        "name": "3D Design",
+        "description": "Our creative team uses 3D design to create models, characters, and environments that effectively communicate our social mission."
+      },
+      "marketing": {
+        "name": "Marketing & Communication",
+        "description": "The team responsible for spreading our mission, managing our social networks, and creating communication strategies that amplify the impact of our social projects."
+      },
+      "mapmaking": {
+        "name": "Map Making",
+        "description": "The creators of our virtual worlds. This team is responsible for designing and building maps and environments on VR platforms, creating immersive experiences for our social causes."
+      },
+      "eventos": {
+        "name": "Host & Activities",
+        "description": "The architects of our virtual experiences. This team designs, organizes, and executes events, shows, and interactive experiences that connect our community."
+      },
+      "dj": {
+        "name": "DJs & Shows",
+        "description": "The artists who bring music and spectacle to our virtual experiences. This team is responsible for creating musical events and live shows that entertain and connect our community."
+      },
+      "moderacion": {
+        "name": "Moderation",
+        "description": "Our moderation team is responsible for maintaining a safe, inclusive, and respectful environment across all our platforms and VR experiences. They are the guardians of our community."
+      }
     }
   }
 }

@@ -884,7 +884,10 @@ nav ul li a.active:after {
 
 /* Discord específico */
 .discord-container {
-    max-width: 700px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    max-width: 1200px;
     margin: 40px auto;
 }
 
@@ -936,6 +939,59 @@ nav ul li a.active:after {
     background-color: #f8f9fa;
     transform: translateY(-3px);
     box-shadow: var(--shadow-medium);
+}
+
+/* Business Contact Card */
+.business-card {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: var(--white);
+    border-radius: var(--border-radius);
+    padding: 40px;
+    text-align: center;
+    box-shadow: var(--shadow-card);
+    transition: var(--transition-normal);
+}
+
+.business-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(227, 6, 19, 0.3);
+}
+
+.business-icon {
+    font-size: 5rem;
+    margin-bottom: 20px;
+}
+
+.business-card h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.business-card p {
+    font-size: var(--font-size-medium);
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.business-btn {
+    background-color: var(--white);
+    color: var(--primary-color);
+    padding: 12px 30px;
+    font-size: var(--font-size-medium);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: var(--border-radius-small);
+    transition: var(--transition-normal);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.business-btn:hover {
+    background-color: #f8f9fa;
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-medium);
+    color: var(--primary-color);
 }
 
 .future-contact-info {
@@ -1300,6 +1356,12 @@ footer p {
     }
     
     /* Discord móvil */
+    .discord-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin: 30px auto;
+    }
+    
     .discord-card {
         padding: 30px 20px;
     }
@@ -1309,6 +1371,19 @@ footer p {
     }
     
     .discord-card h2 {
+        font-size: 1.8rem;
+    }
+    
+    /* Business card móvil */
+    .business-card {
+        padding: 30px 20px;
+    }
+    
+    .business-icon {
+        font-size: 4rem;
+    }
+    
+    .business-card h3 {
         font-size: 1.8rem;
     }
     
