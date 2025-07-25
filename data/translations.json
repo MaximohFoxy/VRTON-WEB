@@ -74,6 +74,48 @@
       "description": "Transformando la realidad virtual en cambio social. Organización sin ánimo de lucro.",
       "quickLinks": "Enlaces Rápidos",
       "follow": "Síguenos"
+    },
+    "teams": {
+      "direccion": {
+        "name": "Dirección",
+        "description": "Equipo encargado de la toma de decisiones estratégicas, planificación y supervisión general de las operaciones de VRTon."
+      },
+      "desarrollo": {
+        "name": "Desarrollo",
+        "description": "Encargados de la creación de webs, aplicaciones, bots y demás herramientas utilizadas por VRTon."
+      },
+      "audiovisuales": {
+        "name": "AudioVisuales",
+        "description": "Fotógrafos, videógrafos y creadores de contenido que dan vida a nuestras visiones mediante efectos visuales, audio espacial y producciones multimedia."
+      },
+      "diseno": {
+        "name": "Diseño 2D",
+        "description": "Nuestro equipo creativo utiliza diseño 2D para crear interfaces, personajes, entornos y elementos visuales que comunican efectivamente nuestra misión social."
+      },
+      "3d": {
+        "name": "Diseño 3D",
+        "description": "Nuestro equipo creativo utiliza diseño 3D para crear modelos, personajes y entornos que comunican efectivamente nuestra misión social."
+      },
+      "marketing": {
+        "name": "Marketing y Comunicación",
+        "description": "El equipo encargado de difundir nuestra misión, gestionar nuestras redes sociales y crear estrategias de comunicación que amplíen el impacto de nuestros proyectos sociales."
+      },
+      "mapmaking": {
+        "name": "Map Making",
+        "description": "Los creadores de nuestros mundos virtuales. Este equipo se encarga de diseñar y construir mapas y entornos en plataformas VR, creando experiencias inmersivas para nuestras causas sociales."
+      },
+      "eventos": {
+        "name": "Host y Actividades",
+        "description": "Los arquitectos de nuestras experiencias virtuales. Este equipo diseña, organiza y ejecuta eventos, shows y experiencias interactivas que conectan a nuestra comunidad."
+      },
+      "dj": {
+        "name": "DJs y Shows",
+        "description": "Los artistas que traen la música y el espectáculo a nuestras experiencias virtuales. Este equipo se encarga de crear eventos musicales y shows en vivo que entretienen y conectan a nuestra comunidad."
+      },
+      "moderacion": {
+        "name": "Moderación",
+        "description": "Nuestro equipo de moderación se encarga de mantener un ambiente seguro, inclusivo y respetuoso en todas nuestras plataformas y experiencias VR. Son los guardianes de nuestra comunidad."
+      }
     }
   },
   "en": {
@@ -151,6 +193,48 @@
       "description": "Transforming virtual reality into social change. Non-profit organization.",
       "quickLinks": "Quick Links",
       "follow": "Follow us"
+    },
+    "teams": {
+      "direccion": {
+        "name": "Management",
+        "description": "Team responsible for strategic decision-making, planning, and general oversight of VRTon operations."
+      },
+      "desarrollo": {
+        "name": "Development",
+        "description": "Responsible for creating websites, applications, bots, and other tools used by VRTon."
+      },
+      "audiovisuales": {
+        "name": "Audiovisuals",
+        "description": "Photographers, videographers, and content creators who bring our visions to life through visual effects, spatial audio, and multimedia productions."
+      },
+      "diseno": {
+        "name": "2D Design",
+        "description": "Our creative team uses 2D design to create interfaces, characters, environments, and visual elements that effectively communicate our social mission."
+      },
+      "3d": {
+        "name": "3D Design",
+        "description": "Our creative team uses 3D design to create models, characters, and environments that effectively communicate our social mission."
+      },
+      "marketing": {
+        "name": "Marketing & Communication",
+        "description": "The team responsible for spreading our mission, managing our social networks, and creating communication strategies that amplify the impact of our social projects."
+      },
+      "mapmaking": {
+        "name": "Map Making",
+        "description": "The creators of our virtual worlds. This team is responsible for designing and building maps and environments on VR platforms, creating immersive experiences for our social causes."
+      },
+      "eventos": {
+        "name": "Host & Activities",
+        "description": "The architects of our virtual experiences. This team designs, organizes, and executes events, shows, and interactive experiences that connect our community."
+      },
+      "dj": {
+        "name": "DJs & Shows",
+        "description": "The artists who bring music and spectacle to our virtual experiences. This team is responsible for creating musical events and live shows that entertain and connect our community."
+      },
+      "moderacion": {
+        "name": "Moderation",
+        "description": "Our moderation team is responsible for maintaining a safe, inclusive, and respectful environment across all our platforms and VR experiences. They are the guardians of our community."
+      }
     }
   }
 }

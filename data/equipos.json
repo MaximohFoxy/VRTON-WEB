@@ -44,32 +44,32 @@
       "descripcion": "Encargados de la creacion de webs, aplicaciones bots y demas herramientas utilizadas por VRTon.",
       "lideres": [
         {
-          "nombre": "FoxyCTG21",
-          "foto": "foxyctg21.webp",
-          "rol": "Lead Web Developer",
-          "descripcion": "",
-          "social": {
-            "discord": "",
-            "twitter": "https://x.com/FoxyCTG",
-            "instagram": "https://www.instagram.com/foxyctg21"
-          }
-        }
-      ],
-      "miembros": [
-        {
           "nombre": "ValenVRC",
           "foto": "valenvrc.webp",
-          "rol": "Backend Developer",
+          "rol": "Development Lead, BackEnd Developer",
+          "descripcion": "",
           "social": {
             "discord": "",
             "twitter": "https://x.com/ValenVRC943",
             "instagram": "https://www.instagram.com/valenn.vrc/"
           }
+        }
+      ],
+      "miembros": [
+        {
+          "nombre": "FoxyCTG21",
+          "foto": "foxyctg21.webp",
+          "rol": "FullStack Developer",
+          "social": {
+            "discord": "",
+            "twitter": "https://x.com/FoxyCTG",
+            "instagram": "https://www.instagram.com/foxyctg21"
+          }
         },
         {
           "nombre": "PichuJeff",
           "foto": "pichujef.webp",
-          "rol": "Frontend Developer",
+          "rol": "FullStack Developer",
           "social": {
             "discord": "",
             "twitter": "",
@@ -122,20 +122,29 @@
       "id": "diseno",
       "nombre": "Diseño 2D",
       "descripcion": "Nuestro equipo creativo utiliza diseño 2D para crear interfaces, personajes, entornos y elementos visuales que comunican efectivamente nuestra misión social.",
-      "lideres": [
+      "lideres": [],
+      "miembros": [
         {
           "nombre": "JeffryTheKiller",
           "foto": "jeffrythekiller.webp",
-          "rol": "Directora Creativa",
-          "descripcion": "",
+          "rol": "Artista 2D",
+          "social": {
+            "discord": "",
+            "twitter": "",
+            "instagram": ""
+          }
+        },
+        {
+          "nombre": "DannyLasagna",
+          "foto": "danny-lasagna.webp",
+          "rol": "Diseñador Gráfico",
           "social": {
             "discord": "",
             "twitter": "",
             "instagram": ""
           }
         }
-      ],
-      "miembros": []
+      ]
     },
     {
       "id": "3d",
