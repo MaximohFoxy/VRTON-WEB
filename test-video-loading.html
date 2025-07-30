@@ -58,7 +58,7 @@
             const observer = new PerformanceObserver((list) => {
                 list.getEntries().forEach((entry) => {
                     if (entry.name.includes('fondo') || entry.name.includes('.mp4') || entry.name.includes('.webm')) {
-                        log(`Network request: ${entry.name.split('/').pop()} (${Math.round(entry.duration)}ms, ${Math.round(entry.transferSize/1024)}KB)`);
+                        log(`Network request: ${entry.name.split('/').pop()} (${Math.round(entry.duration)}ms, ${Math.round((entry.transferSize || 0)/1024)}KB)`);
                     }
                 });
             });
