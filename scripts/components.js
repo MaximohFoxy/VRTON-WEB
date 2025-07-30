@@ -231,7 +231,7 @@ function markCurrentPage() {
             // Para otras páginas específicas
             (!isHomePage && !linkHref.includes('#') && linkMatchesPage)
         ) {
-            if(linkHref != 'index.html') link.classList.add('active');
+           if(linkHref != 'index.html') link.classList.add('active');
         }
     });
 }
@@ -283,7 +283,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (window.scrollY < 150) {
             currentSectionId = '';
         }
-
         // Actualizar clase active en los enlaces
         navLinks.forEach(link => {
             if(!(currentSectionId == "" && window.scrollY > 800)) 
@@ -291,7 +290,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const linkHref = link.getAttribute('href');
             // Enlace de inicio
-            if ((currentSectionId === '' || window.scrollY < 800) && 
+            if (currentSectionId === '' && window.scrollY < 800 && 
                 (linkHref === 'index.html' || linkHref === '/')) {
                 link.classList.add('active');
             }
