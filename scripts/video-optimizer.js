@@ -121,10 +121,8 @@ class VideoOptimizer {
             }
         });
         
-        // Set video src as fallback
-        if (videoSrc) {
-            this.video.src = videoSrc;
-        }
+        // Rely solely on <source> elements for video loading
+        // Removed fallback to video.src to prevent redundant network requests
         
         // Setup event listeners
         this.video.addEventListener('loadeddata', () => {
