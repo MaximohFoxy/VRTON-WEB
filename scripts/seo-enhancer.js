@@ -220,7 +220,41 @@ class SEOEnhancer {
                     console.warn('SEO Warning: CLS is above 0.1:', clsScore);
                 }
             }).observe({ entryTypes: ['layout-shift'] });
+            
+            // Monitor font loading performance
+            this.monitorFontLoading();
         }
+    }
+    
+    monitorFontLoading() {
+        // Monitor font loading with font-display: swap
+        if ('fonts' in document) {
+            // Check if fonts are loaded
+            document.fonts.ready.then(() => {
+                console.log('✅ All fonts loaded successfully with font-display: swap');
+            });
+            
+            // Monitor individual font loads
+            document.fonts.addEventListener('loadingdone', (event) => {
+                console.log(`🔤 Font loaded: ${event.fontface.family}`);
+            });
+            
+            document.fonts.addEventListener('loadingerror', (event) => {
+                console.warn(`⚠️ Font loading error: ${event.fontface.family}`);
+            });
+        }
+        
+        // Check for FOIT (Flash of Invisible Text) issues
+        const textElements = document.querySelectorAll('h1, h2, h3, p, span, div');
+        textElements.forEach(element => {
+            const computedStyle = window.getComputedStyle(element);
+            if (computedStyle.fontFamily.includes('Font Awesome')) {
+                // Ensure icons have fallback content
+                if (!element.textContent.trim() && !element.getAttribute('aria-label')) {
+                    element.setAttribute('aria-label', 'Icono');
+                }
+            }
+        });
     }
 
     enhanceAccessibility() {

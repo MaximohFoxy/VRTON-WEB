@@ -46,7 +46,7 @@
      */
     function initCSSFallbacks() {
         // Main stylesheet fallback
-        createCSSFallback('styles.css');
+        createCSSFallback('styles.min.css');
         
         // Font Awesome fallback
         createCSSFallback('font-awesome');
