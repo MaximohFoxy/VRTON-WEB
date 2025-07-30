@@ -33,29 +33,49 @@
     <link rel="canonical" href="https://vrton.org/colaboradores.html">
     
     <!-- Favicons -->
-    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+    <link rel="icon" type="image/x-icon" href="/assets/icons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
+    <link rel="manifest" href="/assets/site.webmanifest">
     <meta name="theme-color" content="#e30613">
     
     <!-- Preconnect -->
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="preconnect" href="https://flagcdn.com" crossorigin>
     
-    <!-- Preload critical resources -->
-    <link rel="preload" href="data/equipos.json" as="fetch" crossorigin>
-    <link rel="preload" href="includes/header.html" as="fetch">
-    <link rel="preload" href="includes/footer.html" as="fetch">
-    <link rel="preload" href="assets/logo.png" as="image">
-    
     <title>Nuestro Equipo - Colaboradores VRTon | Profesionales en Realidad Virtual</title>
     
     <!-- Critical CSS (inline) -->
     <style>
         /* Critical above-the-fold styles */
-        :root{--primary-color:#e30613;--secondary-color:#fd5c63;--white:#ffffff;--header-height:80px}
+        :root{--primary-color:#e30613;--secondary-color:#fd5c63;--white:#ffffff;--header-height:80px;--dark-color:#2c3e50;--text-color:#333333;--light-color:#f4f7f9;--border-radius:10px;--transition-normal:all 0.3s ease;--shadow-card:0 10px 20px rgba(0,0,0,0.1);--font-size-medium:1.1rem}
         *{margin:0;padding:0;box-sizing:border-box}
-        body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;color:#333;background:#f4f7f9}
+        body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;color:var(--text-color);background:var(--light-color)}
+        
+        /* Header Critical Styles */
         header{position:fixed;top:0;left:0;width:100%;background:var(--white);box-shadow:0 2px 10px rgba(0,0,0,0.1);z-index:1000;height:var(--header-height)}
+        .container{width:85%;max-width:1200px;margin:0 auto;padding:0 20px}
+        header .container{display:flex;justify-content:space-between;align-items:center;height:100%;flex-wrap:wrap}
+        .logo{height:50px;width:auto}
+        .nav{display:flex;list-style:none;gap:2rem;align-items:center}
+        .nav a{text-decoration:none;color:var(--text-color);font-weight:500;transition:color 0.3s ease}
+        .nav a:hover{color:var(--primary-color)}
+        .language-selector{position:relative}
+        .language-btn{background:none;border:none;cursor:pointer;display:flex;align-items:center;gap:5px;padding:8px;border-radius:5px;transition:background 0.3s ease}
+        .language-btn:hover{background:var(--light-color)}
+        .mobile-menu-toggle{display:none;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--text-color)}
+        
+        /* Hero Section Critical Styles */
+        .furality-hero{padding:120px 0 60px;background:linear-gradient(135deg,var(--primary-color) 0%,var(--secondary-color) 100%);color:var(--white);text-align:center}
+        .furality-hero h1{font-size:3rem;margin-bottom:15px;font-weight:700;text-shadow:2px 2px 4px rgba(0,0,0,0.3)}
+        .furality-hero p{font-size:1.2rem;max-width:800px;margin:0 auto;line-height:1.5;opacity:0.95}
+        
+        /* Navigation Critical Styles */
+        .furality-nav{background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);padding:20px 0;position:sticky;top:var(--header-height);z-index:100}
+        
+        /* Main Container Critical Styles */
+        .furality-container{min-height:60vh;padding:40px 0}
         
         /* Loading Screen Styles */
         .loading-screen{position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,var(--primary-color) 0%,var(--secondary-color) 100%);display:flex;flex-direction:column;justify-content:center;align-items:center;z-index:9999;transition:opacity 0.8s ease,visibility 0.8s ease}
@@ -70,11 +90,45 @@
         /* Hide main content while loading */
         body.loading main,body.loading .furality-hero{opacity:0;transition:opacity 0.5s ease}
         body.loaded main,body.loaded .furality-hero{opacity:1}
+        
+        /* Mobile Critical Styles */
+        @media (max-width: 768px) {
+            .nav{display:none}
+            .mobile-menu-toggle{display:block}
+            .furality-hero{padding:100px 20px 40px}
+            .furality-hero h1{font-size:2.5rem}
+            .furality-hero p{font-size:1.1rem}
+            header .container{justify-content:space-between}
+        }
     </style>
     
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="styles.css" media="all">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="all" crossorigin="anonymous" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==">
+    <!-- Non-critical CSS - Load asynchronously -->
+    <link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'" media="all">
+    <noscript><link rel="stylesheet" href="styles.css"></noscript>
+    
+    <!-- Font Awesome - Load asynchronously -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" crossorigin="anonymous">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" crossorigin="anonymous"></noscript>
+    
+    <!-- CSS Loading Fallback -->
+    <script>
+        // Fallback for CSS loading
+        (function() {
+            var cssLoaded = false;
+            var link = document.querySelector('link[href*="styles.css"]');
+            if (link) {
+                link.addEventListener('load', function() { cssLoaded = true; });
+                setTimeout(function() {
+                    if (!cssLoaded) {
+                        var fallback = document.createElement('link');
+                        fallback.rel = 'stylesheet';
+                        fallback.href = 'styles.css';
+                        document.head.appendChild(fallback);
+                    }
+                }, 3000);
+            }
+        })();
+    </script>
     
     <!-- Structured Data -->
     <!-- <script type="application/ld+json">
@@ -172,20 +226,5 @@
     <script src="scripts/script.js" defer></script>
     <script src="scripts/menu.js" defer></script>
     <script src="scripts/equipos.js" defer></script>
-    
-    <!-- Service Worker para cache offline -->
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function() {
-                navigator.serviceWorker.register('/sw.js')
-                    .then(function(registration) {
-                        console.log('✅ ServiceWorker registered');
-                    })
-                    .catch(function(err) {
-                        console.log('❌ ServiceWorker registration failed');
-                    });
-            });
-        }
-    </script>
 </body>
 </html>
