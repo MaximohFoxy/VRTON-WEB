@@ -170,22 +170,142 @@ class I18n {
     updateMetaTags() {
         const titleElement = document.querySelector('title');
         const descriptionMeta = document.querySelector('meta[name="description"]');
+        const keywordsMeta = document.querySelector('meta[name="keywords"]');
+        const ogTitle = document.querySelector('meta[property="og:title"]');
+        const ogDescription = document.querySelector('meta[property="og:description"]');
+        const twitterTitle = document.querySelector('meta[property="twitter:title"]');
+        const twitterDescription = document.querySelector('meta[property="twitter:description"]');
+        const htmlLang = document.querySelector('html');
         
         if (this.currentLanguage === 'en') {
-            if (titleElement) {
-                titleElement.textContent = 'VRTon - Virtual Reality for Social Causes | Non-Profit Organization';
+            // Update main page meta tags for English
+            if (titleElement && window.location.pathname === '/' || window.location.pathname.includes('index.html')) {
+                titleElement.textContent = 'VRTon - Virtual Reality for Social Causes | Teletón Chile 2025 | Non-Profit Organization';
+            } else if (titleElement && window.location.pathname.includes('colaboradores')) {
+                titleElement.textContent = 'Our Multidisciplinary Team - VRTon Collaborators | Virtual Reality Professionals for Social Causes';
             }
-            if (descriptionMeta) {
-                descriptionMeta.setAttribute('content', 'VRTon - Non-profit organization that uses virtual reality to create positive social impact. Immersive education, innovative therapies and social change through VR technology.');
+            
+            if (descriptionMeta && window.location.pathname === '/' || window.location.pathname.includes('index.html')) {
+                descriptionMeta.setAttribute('content', 'VRTon - Non-profit organization using virtual reality to create positive social impact. Supporting Teletón Chile 2025. Join our VR solidarity community.');
+            } else if (descriptionMeta && window.location.pathname.includes('colaboradores')) {
+                descriptionMeta.setAttribute('content', 'Meet VRTon\'s incredible multidisciplinary team: developers, 2D/3D designers, audiovisuals, marketing, moderators and professionals committed to virtual reality for social causes.');
+            }
+            
+            if (keywordsMeta && window.location.pathname === '/' || window.location.pathname.includes('index.html')) {
+                keywordsMeta.setAttribute('content', 'virtual reality, VR, non-profit organization, social change, immersive education, VR therapies, social technology, positive impact, social causes, Teletón Chile, VRChat, charity events, fundraising, disability, rehabilitation, VRTon 2025');
+            }
+            
+            // Update Open Graph
+            if (ogTitle) {
+                ogTitle.setAttribute('content', window.location.pathname.includes('colaboradores') ? 
+                'Our Multidisciplinary Team - VRTon Collaborators | Virtual Reality Professionals' : 
+                'VRTon - Virtual Reality for Social Causes | Supporting Teletón Chile 2025');
+            }
+            
+            if (ogDescription) {
+                ogDescription.setAttribute('content', window.location.pathname.includes('colaboradores') ? 
+                'Meet the professionals who make VRTon possible: developers, designers, audiovisuals and moderators committed to social change through virtual reality.' : 
+                'Non-profit organization transforming virtual reality into social change. Join VRTon 2025 and help raise funds for Teletón Chile through immersive VR events.');
+            }
+            
+            // Update Twitter Cards
+            if (twitterTitle) {
+                twitterTitle.setAttribute('content', window.location.pathname.includes('colaboradores') ? 
+                'Our Multidisciplinary Team - VRTon Collaborators | Virtual Reality Professionals' : 
+                'VRTon - Virtual Reality for Social Causes | Supporting Teletón Chile 2025');
+            }
+            
+            if (twitterDescription) {
+                twitterDescription.setAttribute('content', window.location.pathname.includes('colaboradores') ? 
+                'Meet the professionals who make VRTon possible: developers, designers, audiovisuals and moderators committed to social change.' : 
+                'Non-profit organization transforming virtual reality into social change. Join VRTon 2025 and help raise funds for Teletón Chile.');
+            }
+            
+            if (htmlLang) {
+                htmlLang.setAttribute('lang', 'en');
             }
         } else {
-            if (titleElement) {
-                titleElement.textContent = 'VRTon - Realidad Virtual para Causas Sociales | Organización Sin Ánimo de Lucro';
+            // Update main page meta tags for Spanish
+            if (titleElement && window.location.pathname === '/' || window.location.pathname.includes('index.html')) {
+                titleElement.textContent = 'VRTon - Realidad Virtual para Causas Sociales | Teletón Chile 2025 | Organización Sin Ánimo de Lucro';
+            } else if (titleElement && window.location.pathname.includes('colaboradores')) {
+                titleElement.textContent = 'Nuestro Equipo Multidisciplinario - Colaboradores VRTon | Profesionales en Realidad Virtual para Causas Sociales';
             }
-            if (descriptionMeta) {
-                descriptionMeta.setAttribute('content', 'VRTon - Organización sin ánimo de lucro que utiliza realidad virtual para crear impacto social positivo. Educación inmersiva, terapias innovadoras y cambio social a través de la tecnología VR.');
+            
+            if (descriptionMeta && window.location.pathname === '/' || window.location.pathname.includes('index.html')) {
+                descriptionMeta.setAttribute('content', 'VRTon - Organización sin ánimo de lucro que utiliza realidad virtual para crear impacto social positivo. Apoyamos la Teletón Chile 2025. Únete a nuestra comunidad VR solidaria.');
+            } else if (descriptionMeta && window.location.pathname.includes('colaboradores')) {
+                descriptionMeta.setAttribute('content', 'Conoce al increíble equipo multidisciplinario de VRTon: desarrolladores, diseñadores 2D/3D, audiovisuales, marketing, moderadores y más profesionales comprometidos con la realidad virtual para causas sociales.');
+            }
+            
+            if (keywordsMeta && window.location.pathname === '/' || window.location.pathname.includes('index.html')) {
+                keywordsMeta.setAttribute('content', 'realidad virtual, VR, organización sin lucro, cambio social, educación inmersiva, terapias VR, tecnología social, impacto positivo, causas sociales, Teletón Chile, VRChat, eventos solidarios, recaudación fondos, discapacidad, rehabilitación, VRTon 2025');
+            }
+            
+            // Update Open Graph
+            if (ogTitle) {
+                ogTitle.setAttribute('content', window.location.pathname.includes('colaboradores') ? 
+                'Nuestro Equipo Multidisciplinario - Colaboradores VRTon | Profesionales en Realidad Virtual' : 
+                'VRTon - Realidad Virtual para Causas Sociales | Apoyamos Teletón Chile 2025');
+            }
+            
+            if (ogDescription) {
+                ogDescription.setAttribute('content', window.location.pathname.includes('colaboradores') ? 
+                'Conoce a los profesionales que hacen posible VRTon: desarrolladores, diseñadores, audiovisuales y moderadores comprometidos con el cambio social a través de la realidad virtual.' : 
+                'Organización sin ánimo de lucro que transforma la realidad virtual en cambio social. Únete a VRTon 2025 y ayuda a recaudar fondos para la Teletón Chile a través de eventos inmersivos en VR.');
+            }
+            
+            // Update Twitter Cards
+            if (twitterTitle) {
+                twitterTitle.setAttribute('content', window.location.pathname.includes('colaboradores') ? 
+                'Nuestro Equipo Multidisciplinario - Colaboradores VRTon | Profesionales en Realidad Virtual' : 
+                'VRTon - Realidad Virtual para Causas Sociales | Apoyamos Teletón Chile 2025');
+            }
+            
+            if (twitterDescription) {
+                twitterDescription.setAttribute('content', window.location.pathname.includes('colaboradores') ? 
+                'Conoce a los profesionales que hacen posible VRTon: desarrolladores, diseñadores, audiovisuales y moderadores comprometidos con el cambio social.' : 
+                'Organización sin ánimo de lucro que transforma la realidad virtual en cambio social. Únete a VRTon 2025 y ayuda a recaudar fondos para la Teletón Chile.');
+            }
+            
+            if (htmlLang) {
+                htmlLang.setAttribute('lang', 'es');
             }
         }
+        
+        // Update hreflang attributes
+        this.updateHreflangTags();
+    }
+    
+    updateHreflangTags() {
+        // Remove existing hreflang tags
+        document.querySelectorAll('link[hreflang]').forEach(link => link.remove());
+        
+        // Add new hreflang tags
+        const head = document.head;
+        const currentPath = window.location.pathname;
+        const baseUrl = 'https://vrton.org';
+        
+        // Spanish version
+        const esLink = document.createElement('link');
+        esLink.rel = 'alternate';
+        esLink.hreflang = 'es';
+        esLink.href = baseUrl + currentPath;
+        head.appendChild(esLink);
+        
+        // English version  
+        const enLink = document.createElement('link');
+        enLink.rel = 'alternate';
+        enLink.hreflang = 'en';
+        enLink.href = baseUrl + currentPath + (currentPath.includes('?') ? '&' : '?') + 'lang=en';
+        head.appendChild(enLink);
+        
+        // x-default (fallback)
+        const defaultLink = document.createElement('link');
+        defaultLink.rel = 'alternate';
+        defaultLink.hreflang = 'x-default';
+        defaultLink.href = baseUrl + currentPath;
+        head.appendChild(defaultLink);
     }
 }
 

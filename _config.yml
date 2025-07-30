@@ -1,0 +1,47 @@
+# Jekyll Configuration for GitHub Pages
+# This enables clean URLs without .html extensions
+
+# Site settings
+title: "VRTon - Realidad Virtual para Causas Sociales"
+description: "Organización sin ánimo de lucro que utiliza realidad virtual para crear impacto social positivo"
+url: "https://vrton.org"
+baseurl: ""
+
+# Permalink structure (removes .html)
+permalink: pretty
+
+# Enable clean URLs
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Exclude files from processing
+exclude:
+  - README.md
+  - LICENSE
+  - CONTRIBUTING.md
+  - node_modules/
+  - .git/
+  - .vscode/
+  - package.json
+  - package-lock.json
+  - "*.ps1"
+
+# Include files
+include:
+  - .htaccess
+
+# Collections (if needed for blog posts later)
+collections_dir: collections
+
+# SEO settings
+lang: es
+author: VRTon
+social:
+  name: VRTon
+  links:
+    - https://x.com/vrtonof
+    - https://www.instagram.com/vrtonof/
+    - https://www.youtube.com/@VRTonOficial
+    - https://discord.gg/gSCsPKTsVJ
+    - https://www.tiktok.com/@vrtonoficial
