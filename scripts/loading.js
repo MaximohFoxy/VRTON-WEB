@@ -23,7 +23,11 @@ class LoadingManager {
         
         this.currentLang = localStorage.getItem('vrton-language') || 'es';
         this.translations = null; // Will be loaded from i18n
-        this.debug = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+        // Only enable debug logging in development
+        this.debug = location.hostname === 'localhost' || 
+                    location.hostname === '127.0.0.1' ||
+                    location.hostname.includes('localhost') ||
+                    location.protocol === 'file:';
         
         this.fallbackMessages = {
             es: {

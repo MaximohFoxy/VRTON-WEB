@@ -1,9 +1,13 @@
-// Performance Monitor for VRTon - Tracks loading times and metrics
+// Performance Monitor for VRTon - Only runs in development
 class PerformanceMonitor {
     constructor() {
         this.metrics = {};
         this.startTime = performance.now();
-        this.debug = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+        // Only run in development environments
+        this.debug = location.hostname === 'localhost' || 
+                    location.hostname === '127.0.0.1' ||
+                    location.hostname.includes('localhost') ||
+                    location.protocol === 'file:';
         
         if (this.debug) {
             this.init();
