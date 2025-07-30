@@ -113,8 +113,8 @@ ErrorDocument 404 /404.html
     Header always set X-XSS-Protection "1; mode=block"
     Header always set Referrer-Policy "strict-origin-when-cross-origin"
     
-    # CSP básico
-    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' cdnjs.cloudflare.com; img-src 'self' data: via.placeholder.com; font-src 'self' cdnjs.cloudflare.com; connect-src 'self'; media-src 'self';"
+    # CSP básico - removed via.placeholder.com as we now use local placeholders
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' cdnjs.cloudflare.com; img-src 'self' data: flagcdn.com; font-src 'self' cdnjs.cloudflare.com; connect-src 'self'; media-src 'self';"
 </IfModule>
 
 # Redirecciones y URLs amigables

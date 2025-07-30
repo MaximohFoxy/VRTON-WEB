@@ -348,4 +348,5 @@ if (document.readyState === 'loading') {
     window.seoEnhancer = new SEOEnhancer();
 }
 
-export default SEOEnhancer;
+// Export for use in other scripts (browser compatible)
+window.SEOEnhancer = SEOEnhancer;

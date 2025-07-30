@@ -203,14 +203,14 @@ const VRTon = {
             
             const imageUrl = collaborator.imagen ? 
                 `assets/colaboradores/${collaborator.imagen}` : 
-                'https://via.placeholder.com/300x300/e30613/ffffff?text=VRTon';
+                'assets/colaboradores/placeholder.webp';
             
             card.innerHTML = `
                 <div class="colaborador-image">
                     <img src="${imageUrl}" 
                          alt="${collaborator.nombre}" 
                          loading="lazy"
-                         onerror="this.src='https://via.placeholder.com/300x300/e30613/ffffff?text=VRTon'">
+                         onerror="this.style.display='none'; this.parentNode.classList.add('placeholder-fallback');">
                 </div>
                 <div class="colaborador-info">
                     <h3>${collaborator.nombre}</h3>

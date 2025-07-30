@@ -239,4 +239,5 @@ if (typeof window !== 'undefined') {
     });
 }
 
-export default CriticalPathOptimizer;
+// Export for use in other scripts (browser compatible)
+window.CriticalPathOptimizer = CriticalPathOptimizer;

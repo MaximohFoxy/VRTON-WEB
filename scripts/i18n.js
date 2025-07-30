@@ -111,7 +111,7 @@ class I18n {
         const faqContainer = document.querySelector('.faq-container');
         if (faqContainer) {
             const faqs = this.getText('faqs.questions');
-            if (Array.isArray(faqs)) {
+            if (Array.isArray(faqs) && faqs.length > 0) {
                 faqContainer.innerHTML = faqs.map((faq, index) => `
                     <div class="faq-item" itemscope itemtype="https://schema.org/Question">
                         <div class="faq-question" role="button" tabindex="0" aria-expanded="false" aria-controls="faq${index + 1}">
@@ -128,7 +128,11 @@ class I18n {
                 
                 // Reinicializar funcionalidad de FAQs
                 this.initializeFAQs();
+            } else {
+                console.warn('No FAQ questions found in translations');
             }
+        } else {
+            console.warn('FAQ container not found in page');
         }
     }
 
