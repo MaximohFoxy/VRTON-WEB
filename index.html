@@ -77,7 +77,9 @@
         
         /* Hero Section Critical Styles */
         .hero-video{height:100vh;position:relative;overflow:hidden;margin-top:0;display:flex;align-items:center;justify-content:center}
-        #background-video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+        #background-video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:opacity 0.5s ease}
+        #background-video[poster]{background-size:cover;background-position:center;background-repeat:no-repeat}
+        .static-bg{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,var(--primary-color) 0%,var(--secondary-color) 100%);z-index:-2}
         .hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(227,6,19,0.8) 0%,rgba(253,92,99,0.8) 100%);z-index:-1}
         .hero-content{text-align:center;color:var(--white);z-index:1;width:90%;max-width:800px;padding:2rem}
         .hero-content h1{font-size:4rem;font-weight:700;margin-bottom:1rem;text-shadow:2px 2px 4px rgba(0,0,0,0.3)}
@@ -142,7 +144,7 @@
       "name": "VRTon",
       "alternateName": "VRTon - Realidad Virtual para Causas Sociales",
       "url": "https://vrton.org",
-      "logo": "https://vrton.org/assets/logo.png",
+      "logo": "https://vrton.org/assets/icons/logo.webp",
       "description": "Organización sin ánimo de lucro que utiliza realidad virtual para crear impacto social positivo",
       "foundingDate": "2023",
       "sameAs": [
@@ -170,7 +172,7 @@
     <!-- Loading Screen -->
     <div class="loading-screen" id="loading-screen">
         <div class="loading-logo">
-            <img src="assets/logo.png" alt="VRTon Logo" style="width: 100%; height: 100%; object-fit: contain;">
+            <img src="assets/icons/logo.webp" alt="VRTon Logo" style="width: 100%; height: 100%; object-fit: contain;">
         </div>
         <div class="loading-spinner"></div>
         <div class="loading-text">Cargando VRTon</div>
@@ -183,9 +185,20 @@
 
     <!-- Sección Hero con Video de Fondo -->
     <section class="hero-video">
-        <video autoplay loop muted playsinline preload="metadata" aria-label="Video de fondo de VRTon" id="background-video">
-            <source src="assets/fondo.mp4" type="video/mp4">
+        <video 
+            autoplay 
+            loop 
+            muted 
+            playsinline 
+            preload="none" 
+            poster="assets/icons/icon-512x512.webp"
+            aria-label="Video de fondo de VRTon" 
+            id="background-video"
+            data-src-webm="assets/fondo.webm"
+            data-src-mp4="assets/fondo-optimized.mp4"
+            data-src-mobile="assets/fondo-mobile.mp4">
             <source src="assets/fondo.webm" type="video/webm">
+            <source src="assets/fondo-optimized.mp4" type="video/mp4">
             Tu navegador no soporta el elemento de video.
         </video>
         <div class="hero-overlay"></div>
@@ -291,6 +304,7 @@
     <!-- Critical JavaScript - Load immediately -->
     <script src="scripts/performance.js"></script>
     <script src="scripts/loading.js"></script>
+    <script src="scripts/video-optimizer.js"></script>
     
     <!-- Non-critical JavaScript - Load deferred -->
     <script src="scripts/i18n.js" defer></script>
