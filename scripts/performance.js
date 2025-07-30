@@ -39,20 +39,46 @@ class PerformanceMonitor {
     }
     
     trackResourceLoading() {
-        // Track critical resources
+        // Track critical resources and request chains
         const observer = new PerformanceObserver((list) => {
             list.getEntries().forEach((entry) => {
+                // Track critical path resources
                 if (entry.name.includes('.css') || entry.name.includes('.js')) {
-                    this.metrics[`resource-${entry.name.split('/').pop()}`] = {
+                    const resourceName = entry.name.split('/').pop();
+                    this.metrics[`resource-${resourceName}`] = {
                         duration: entry.duration,
                         size: entry.transferSize || entry.encodedBodySize,
-                        startTime: entry.startTime
+                        startTime: entry.startTime,
+                        // New: Track critical chain metrics
+                        domainLookupTime: entry.domainLookupEnd - entry.domainLookupStart,
+                        connectTime: entry.connectEnd - entry.connectStart,
+                        requestTime: entry.responseStart - entry.requestStart,
+                        responseTime: entry.responseEnd - entry.responseStart,
+                        renderBlockingStatus: this.isRenderBlocking(entry.name)
                     };
+                    
+                    // Warn about long critical chain resources
+                    if (this.isRenderBlocking(entry.name) && entry.duration > 200) {
+                        console.warn(`⚠️ Critical resource taking too long: ${resourceName} (${entry.duration.toFixed(2)}ms)`);
+                    }
+                }
+                
+                // Track Cloudflare scripts specifically
+                if (entry.name.includes('cloudflare')) {
+                    console.log(`📊 Cloudflare script: ${entry.name} - ${entry.duration.toFixed(2)}ms`);
                 }
             });
         });
         
         observer.observe({ entryTypes: ['resource'] });
+    }
+    
+    isRenderBlocking(url) {
+        // Identify render-blocking resources
+        return url.includes('css-loader.js') || 
+               url.includes('styles.css') || 
+               url.includes('font-awesome') ||
+               (url.includes('.js') && !url.includes('defer') && !url.includes('async'));
     }
     
     trackInteractionMetrics() {
