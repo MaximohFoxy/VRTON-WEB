@@ -99,14 +99,36 @@ document.addEventListener('DOMContentLoaded', async function() {
         console.log('No header container or placeholder found');
     }
 
-    // Cargar footer después del último section
-    const lastSection = document.querySelector('section:last-of-type');
-    if (lastSection) {
-        console.log('Loading footer after last section');
-        await loadComponentAfter('includes/footer.html', 'section:last-of-type');
-        console.log('Footer loaded successfully');
+    // Cargar footer - primero intentar con placeholder, luego con fallback
+    const footerPlaceholder = document.getElementById('footer-placeholder');
+    if (footerPlaceholder) {
+        console.log('Loading footer using footer placeholder');
+        try {
+            const response = await fetch('includes/footer.html');
+            if (response.ok) {
+                const footerContent = await response.text();
+                footerPlaceholder.outerHTML = footerContent;
+                console.log('Footer loaded successfully using placeholder');
+            } else {
+                console.error('Failed to fetch footer:', response.status);
+            }
+        } catch (error) {
+            console.error('Error loading footer via placeholder:', error);
+        }
     } else {
-        console.log('No last section found for footer');
+        // Fallback: cargar footer después del último section o main
+        const lastSection = document.querySelector('section:last-of-type');
+        const lastMain = document.querySelector('main:last-of-type');
+        const targetElement = lastMain || lastSection;
+        
+        if (targetElement) {
+            console.log('Loading footer after last element (fallback method)');
+            const selector = lastMain ? 'main:last-of-type' : 'section:last-of-type';
+            await loadComponentAfter('includes/footer.html', selector);
+            console.log('Footer loaded successfully using fallback');
+        } else {
+            console.log('No suitable element found for footer placement');
+        }
     }
 
     // Inicializar componentes después de cargar
