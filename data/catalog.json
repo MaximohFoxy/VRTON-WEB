@@ -1,0 +1,28 @@
+{
+  "assets": [
+    {
+      "name": "Lapizera",
+      "description": "Una lapizera para dibujar.",
+      "version": "1.0.0",
+      "downloadUrl": "https://example.com/asset.unitypackage",
+      "imageUrl": "https://example.com/preview.png",
+      "category": "Juguetes"
+    },
+    {
+      "name": "Gorra",
+      "description": "Gorra promocional de VRTon",
+      "version": "1.0.0",
+      "downloadUrl": "https://example.com/asset.unitypackage",
+      "imageUrl": "https://example.com/preview.png",
+      "category": "Ropa"
+    },
+    {
+      "name": "Pulsera",
+      "description": "Pulsera promocional de VRTon con efecto de particulas al chocarla.",
+      "version": "1.0.0",
+      "downloadUrl": "https://example.com/asset.unitypackage",
+      "imageUrl": "https://example.com/preview.png",
+      "category": "Ropa"
+    }
+  ]
+}
