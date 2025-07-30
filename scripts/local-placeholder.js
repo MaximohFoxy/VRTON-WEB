@@ -51,16 +51,13 @@ class LocalPlaceholder {
     // Helper to replace failed images with local placeholders
     static setupImageFallbacks() {
         document.addEventListener('error', (e) => {
-            if (e.target.tagName === 'IMG' && e.target.src.includes('via.placeholder.com')) {
+            if (e.target.tagName === 'IMG' && e.target.complete === false) {
                 e.preventDefault();
                 
-                // Extract dimensions and text from the failed URL
-                const url = new URL(e.target.src);
-                const pathParts = url.pathname.split('/');
-                const dimensions = pathParts[1] ? pathParts[1].split('x') : ['300', '300'];
-                const width = parseInt(dimensions[0]) || 300;
-                const height = parseInt(dimensions[1]) || 300;
-                const text = url.searchParams.get('text') || 'VRTon';
+                // Extract dimensions and text from data attributes
+                const width = parseInt(e.target.getAttribute('data-width')) || 300;
+                const height = parseInt(e.target.getAttribute('data-height')) || 300;
+                const text = e.target.getAttribute('data-text') || 'VRTon';
                 
                 // Create local placeholder
                 const placeholder = LocalPlaceholder.createPlaceholderElement(width, height, '#e30613', '#ffffff', text);
