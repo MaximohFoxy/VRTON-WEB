@@ -31,8 +31,19 @@ class CriticalPathOptimizer {
         // Defer Cloudflare Rocket Loader and email decode to prevent critical path blocking
         if (typeof window !== 'undefined') {
             // Disable automatic Cloudflare optimizations that interfere with critical path
-            window.CloudflareApps = window.CloudflareApps || {};
-            window.CloudflareApps.deferRocketLoader = true;
+            if (window.CloudflareApps && typeof window.CloudflareApps.deferRocketLoader !== 'undefined') {
+                window.CloudflareApps.deferRocketLoader = true;
+            } else {
+                // Fallback: defer Cloudflare scripts manually
+                document.addEventListener('DOMContentLoaded', () => {
+                    const cfScripts = document.querySelectorAll('script[src*="cloudflare"]');
+                    cfScripts.forEach(script => {
+                        if (!script.hasAttribute('async') && !script.hasAttribute('defer')) {
+                            script.setAttribute('defer', '');
+                        }
+                    });
+                });
+            }
             
             // Mark Cloudflare scripts as non-critical
             document.addEventListener('DOMContentLoaded', () => {
