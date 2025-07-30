@@ -234,13 +234,31 @@ class SEOEnhancer {
                 console.log('✅ All fonts loaded successfully with font-display: swap');
             });
             
-            // Monitor individual font loads
+            // Monitor individual font loads with proper error handling
             document.fonts.addEventListener('loadingdone', (event) => {
-                console.log(`🔤 Font loaded: ${event.fontface.family}`);
+                try {
+                    // Check if the event has the expected structure
+                    if (event && event.fontface && event.fontface.family) {
+                        console.log(`🔤 Font loaded: ${event.fontface.family}`);
+                    } else if (event && event.target) {
+                        console.log('🔤 Font loading completed');
+                    }
+                } catch (error) {
+                    console.log('🔤 Font loading event completed (structure unknown)');
+                }
             });
             
             document.fonts.addEventListener('loadingerror', (event) => {
-                console.warn(`⚠️ Font loading error: ${event.fontface.family}`);
+                try {
+                    // Check if the event has the expected structure
+                    if (event && event.fontface && event.fontface.family) {
+                        console.warn(`⚠️ Font loading error: ${event.fontface.family}`);
+                    } else {
+                        console.warn('⚠️ Font loading error occurred');
+                    }
+                } catch (error) {
+                    console.warn('⚠️ Font loading error (details unavailable)');
+                }
             });
         }
         
