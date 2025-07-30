@@ -219,7 +219,7 @@ function initializeHeaderFooterComponents() {
     
     navLinks.forEach(link => {
         const href = link.getAttribute('href');
-        if (href && currentPage.includes(href)) {
+        if (href && currentPage === href) {
             link.classList.add('active');
         }
     });

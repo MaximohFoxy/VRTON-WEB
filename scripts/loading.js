@@ -350,7 +350,7 @@ class LoadingManager {
             // Use i18n translations if available, otherwise fallback
             const messages = (this.translations && this.translations[this.currentLang] && this.translations[this.currentLang].loading) 
                 ? this.translations[this.currentLang].loading 
-                : this.fallbackMessages[this.currentLang] || this.fallbackMessages[DEFAULT_LANGUAGE];
+                : this.fallbackMessages[this.currentLang] || (this.fallbackMessages[DEFAULT_LANGUAGE] || {});
                 
             let text = this.isTeamPage ? 
                 (messages.loadingTeam || messages.loading) : 
