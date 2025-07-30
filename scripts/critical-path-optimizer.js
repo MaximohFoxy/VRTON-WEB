@@ -218,7 +218,7 @@ class CriticalPathOptimizer {
         }
 
         // Send metrics to analytics if available
-        if (typeof gtag !== 'undefined') {
+        if (typeof gtag === 'function') {
             gtag('event', 'critical_path_timing', {
                 'custom_map': {
                     'metric1': 'critical_path_duration'
