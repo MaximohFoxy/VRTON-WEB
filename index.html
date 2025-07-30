@@ -209,12 +209,6 @@
     
     <!-- Inline CSS Loading Fallback (eliminates external request) -->
     <script>
-        // Disable Cloudflare Rocket Loader for critical scripts to prevent blocking
-        if (typeof window !== 'undefined') {
-            window.CloudflareApps = window.CloudflareApps || {};
-            window.CloudflareApps.siteId = '';
-        }
-        
         // Inline CSS fallback to eliminate critical path dependency
         (function(){
             function checkCSS(href, timeout = 3000) {
