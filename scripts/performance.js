@@ -77,6 +77,7 @@ class PerformanceMonitor {
         // Identify render-blocking resources
         return url.includes('css-loader.js') || 
                url.includes('styles.css') || 
+               url.includes('styles.min.css') ||
                url.includes('font-awesome') ||
                (url.includes('.js') && !url.includes('defer') && !url.includes('async'));
     }

@@ -216,7 +216,7 @@ RedirectMatch 404 /node_modules
 # Preload crítico
 <IfModule mod_headers.c>
     <FilesMatch "11-index\.html$">
-        Header add Link "</styles.css>; rel=preload; as=style"
+        Header add Link "</styles.min.css>; rel=preload; as=style"
         Header add Link "</assets/logo.png>; rel=preload; as=image"
     </FilesMatch>
 </IfModule>

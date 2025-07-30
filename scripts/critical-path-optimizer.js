@@ -19,7 +19,7 @@ class CriticalPathOptimizer {
     identifyCriticalResources() {
         // Define critical resources for VRTon
         this.criticalResources = new Set([
-            'styles.css',
+            'styles.min.css',
             'logo.webp',
             'loading.js',
             'performance.js',
@@ -59,12 +59,12 @@ class CriticalPathOptimizer {
                 { href: 'assets/icons/logo.webp', as: 'image', type: 'image/webp', fetchpriority: 'high' },
                 { href: 'https://flagcdn.com/w20/es.png', as: 'image', type: 'image/png' },
                 { href: 'https://flagcdn.com/w20/us.png', as: 'image', type: 'image/png' },
-                { href: 'styles.css', as: 'style' },
+                { href: 'styles.min.css', as: 'style' },
                 { href: 'scripts/loading.js', as: 'script' }
             ],
             // Prefetch non-critical but important assets
             prefetch: [
-                { href: 'assets/fondo-optimized.mp4', as: 'video' },
+                // Video prefetch removed - handled by video-optimizer.js for smart loading
                 { href: 'scripts/components.js', as: 'script' },
                 { href: 'scripts/i18n.js', as: 'script' }
             ]

@@ -22,3 +22,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 optimize-video.ps1
+verify-minification.ps1
+verify-video-optimization.ps1
+minify-css.ps1

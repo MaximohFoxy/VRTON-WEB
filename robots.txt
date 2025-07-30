@@ -9,6 +9,7 @@ Allow: /colaboradores.html
 # Assets y recursos permitidos
 Allow: /assets/
 Allow: /styles.css
+Allow: /styles.min.css
 Allow: /scripts/
 Allow: /*.js
 Allow: /*.css

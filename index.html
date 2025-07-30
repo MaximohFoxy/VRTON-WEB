@@ -58,7 +58,7 @@
     <link rel="preload" href="assets/icons/logo.webp" as="image" type="image/webp" fetchpriority="high">
     <link rel="preload" href="https://flagcdn.com/w20/es.png" as="image" type="image/png">
     <link rel="preload" href="https://flagcdn.com/w20/us.png" as="image" type="image/png">
-    <link rel="preload" href="assets/fondo-optimized.mp4" as="video" type="video/mp4" fetchpriority="low">
+    <!-- Video preload removed - handled by video-optimizer.js for smart loading -->
     
     <!-- DNS prefetch for social media links -->
     <link rel="dns-prefetch" href="//discord.gg">
@@ -140,8 +140,8 @@
     </style>
     
     <!-- Non-critical CSS - Load asynchronously -->
-    <link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'" media="all">
-    <noscript><link rel="stylesheet" href="styles.css"></noscript>
+    <link rel="preload" href="styles.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" media="all">
+    <noscript><link rel="stylesheet" href="styles.min.css"></noscript>
     
     <!-- Font Awesome - Load asynchronously with font-display optimization -->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" crossorigin="anonymous">
@@ -205,11 +205,11 @@
             }
             if (document.readyState === 'loading') {
                 document.addEventListener('DOMContentLoaded', () => {
-                    checkCSS('styles.css');
+                    checkCSS('styles.min.css');
                     checkCSS('font-awesome');
                 });
             } else {
-                checkCSS('styles.css');
+                checkCSS('styles.min.css');
                 checkCSS('font-awesome');
             }
         })();
@@ -290,8 +290,9 @@
             data-src-webm="assets/fondo.webm"
             data-src-mp4="assets/fondo-optimized.mp4"
             data-src-mobile="assets/fondo-mobile.mp4">
-            <source src="assets/fondo.webm" type="video/webm">
-            <source src="assets/fondo-optimized.mp4" type="video/mp4">
+            <!-- Sources will be dynamically added by video-optimizer.js -->
+            <source type="video/webm">
+            <source type="video/mp4">
             Tu navegador no soporta el elemento de video.
         </video>
         <div class="hero-overlay"></div>
