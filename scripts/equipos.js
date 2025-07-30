@@ -67,11 +67,29 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!img.src.includes('placeholder.webp')) {
             img.src = 'assets/colaboradores/placeholder.webp';
             img.onerror = function() {
-                // Si el placeholder local falla, usar iniciales
+                // Si el placeholder local falla, crear un elemento de texto
                 const iniciales = nombre.split(' ').map(n => n[0]).join('');
-                const color = isLeader ? 'e30613' : 'fd5c63';
-                const size = isLeader ? '60x60' : '50x50';
-                this.src = `https://via.placeholder.com/${size}/${color}/ffffff?text=${encodeURIComponent(iniciales)}`;
+                const color = isLeader ? '#e30613' : '#fd5c63';
+                const size = isLeader ? 60 : 50;
+                
+                // Create a canvas-based fallback
+                if (window.LocalPlaceholder) {
+                    const dataURL = window.LocalPlaceholder.generateDataURL(size, size, color, '#ffffff', iniciales);
+                    this.src = dataURL;
+                } else {
+                    // Fallback: hide image and show initials in parent
+                    this.style.display = 'none';
+                    const initialsDiv = document.createElement('div');
+                    initialsDiv.style.cssText = `
+                        width: ${size}px; height: ${size}px; 
+                        background: ${color}; color: white; 
+                        border-radius: 50%; display: flex; 
+                        align-items: center; justify-content: center; 
+                        font-weight: bold; font-size: ${size * 0.4}px;
+                    `;
+                    initialsDiv.textContent = iniciales;
+                    this.parentNode.appendChild(initialsDiv);
+                }
                 this.onerror = null; // Evitar bucle infinito
             };
         }

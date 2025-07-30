@@ -125,6 +125,11 @@
         body.loading main,body.loading .hero-video{opacity:0;transition:opacity 0.5s ease}
         body.loaded main,body.loaded .hero-video{opacity:1}
         
+        /* Placeholder fallback styles */
+        .image-fallback{width:600px;height:400px;background:linear-gradient(135deg,#e30613,#fd5c63);color:white;display:none;align-items:center;justify-content:center;text-align:center;border-radius:10px;font-weight:bold;font-size:1.5rem}
+        .colaborador-image.placeholder-fallback{background:linear-gradient(135deg,#e30613,#fd5c63);color:white;display:flex;align-items:center;justify-content:center;text-align:center;border-radius:10px;font-weight:bold;font-size:1.2rem}
+        .colaborador-image.placeholder-fallback::after{content:'VRTon';}
+        
         /* Mobile Critical Styles */
         @media (max-width: 768px) {
             .nav{display:none}
@@ -144,8 +149,8 @@
     <noscript><link rel="stylesheet" href="styles.min.css"></noscript>
     
     <!-- Font Awesome - Load asynchronously with font-display optimization -->
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" crossorigin="anonymous">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" crossorigin="anonymous"></noscript>
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"></noscript>
     
     <!-- Font Display Optimization for Font Awesome -->
     <style>
@@ -155,7 +160,7 @@
             font-style: normal;
             font-weight: 900;
             font-display: swap;
-            src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/webfonts/fa-solid-900.woff2") format("woff2");
+            src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-solid-900.woff2") format("woff2");
         }
         
         @font-face {
@@ -163,12 +168,20 @@
             font-style: normal;
             font-weight: 400;
             font-display: swap;
-            src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/webfonts/fa-brands-400.woff2") format("woff2");
+            src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-brands-400.woff2") format("woff2");
+        }
+        
+        @font-face {
+            font-family: "Font Awesome 6 Regular";
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-regular-400.woff2") format("woff2");
         }
         
         /* Fallback for icons while loading */
         .fas, .fab, .far {
-            font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands", Arial, sans-serif;
+            font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands", "Font Awesome 6 Regular", Arial, sans-serif;
         }
         
         /* Prevent layout shift with consistent sizing */
@@ -176,6 +189,21 @@
             display: inline-block;
             width: 1em;
             text-align: center;
+        }
+        
+        /* CSS-only fallback icons for critical icons */
+        .fa-discord::before { content: "💬"; }
+        .fa-envelope::before { content: "📧"; }
+        .fa-handshake::before { content: "🤝"; }
+        .fa-vr-cardboard::before { content: "🥽"; }
+        
+        /* Enhanced fallback when Font Awesome completely fails */
+        .fa-fallback .fa-discord::before { content: "💬"; font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", serif; }
+        .fa-fallback .fa-envelope::before { content: "📧"; font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", serif; }
+        .fa-fallback .fa-handshake::before { content: "🤝"; font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", serif; }
+        .fa-fallback .fa-vr-cardboard::before { content: "🥽"; font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", serif; }
+        .fa-fallback .fas::before, .fa-fallback .fab::before, .fa-fallback .far::before { 
+            font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", serif; 
         }
     </style>
     
@@ -185,18 +213,52 @@
         (function(){
             function checkCSS(href, timeout = 3000) {
                 const link = document.querySelector(`link[href*="${href}"]`);
-                if (!link) return;
+                if (!link) {
+                    console.warn(`CSS fallback: No link found for ${href}`);
+                    return;
+                }
                 let loaded = false;
-                link.onload = () => loaded = true;
+                link.onload = () => {
+                    loaded = true;
+                    console.log(`CSS loaded successfully: ${href}`);
+                };
+                link.onerror = () => {
+                    console.warn(`CSS failed to load: ${href}`);
+                    createCSSFallback(href);
+                };
                 setTimeout(() => {
                     if (!loaded) {
-                        const fallback = document.createElement('link');
-                        fallback.rel = 'stylesheet';
-                        fallback.href = href;
-                        document.head.appendChild(fallback);
+                        console.warn(`CSS timeout: ${href}`);
+                        createCSSFallback(href);
                     }
                 }, timeout);
             }
+            
+            function createCSSFallback(href) {
+                // Special handling for Font Awesome
+                if (href.includes('font-awesome')) {
+                    // Try alternative CDN
+                    const fallback = document.createElement('link');
+                    fallback.rel = 'stylesheet';
+                    fallback.href = 'https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css';
+                    fallback.crossOrigin = 'anonymous';
+                    fallback.onerror = () => {
+                        console.error('Font Awesome fallback also failed, using emoji fallbacks');
+                        // Apply CSS class to use emoji fallbacks
+                        document.documentElement.classList.add('fa-fallback');
+                    };
+                    document.head.appendChild(fallback);
+                } else {
+                    const fallback = document.createElement('link');
+                    fallback.rel = 'stylesheet';
+                    fallback.href = href;
+                    fallback.onerror = () => {
+                        console.error(`CSS fallback also failed for: ${href}`);
+                    };
+                    document.head.appendChild(fallback);
+                }
+            }
+            
             if (document.readyState === 'loading') {
                 document.addEventListener('DOMContentLoaded', () => {
                     checkCSS('styles.min.css');
@@ -267,7 +329,7 @@
     </div>
 
     <!-- Header placeholder for Live Server - will be replaced by components.js -->
-    <header id="header-placeholder" style="display: none;"></header>
+    <header id="header-placeholder"></header>
     <!-- Header se carga automáticamente vía JavaScript -->
 
     <!-- Sección Hero con Video de Fondo -->
@@ -338,7 +400,14 @@
                          loading="lazy"
                          width="600" 
                          height="400"
-                         onerror="this.src='https://via.placeholder.com/600x400/e30613/ffffff?text=VR+Impact'">
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="image-fallback" style="display:none; width:600px; height:400px; background:linear-gradient(135deg, #e30613, #fd5c63); color:white; align-items:center; justify-content:center; text-align:center; border-radius:10px;">
+                        <div>
+                            <i class="fas fa-vr-cardboard" style="font-size:3rem; margin-bottom:1rem;"></i>
+                            <br>
+                            <strong>VR Impact</strong>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -390,6 +459,8 @@
     <!-- Footer se carga automáticamente vía JavaScript -->
 
     <!-- Critical JavaScript - Load immediately (optimized chain) -->
+    <script src="scripts/unregister-sw.js"></script>
+    <script src="scripts/local-placeholder.js"></script>
     <script src="scripts/performance.js"></script>
     <script src="scripts/critical-path-optimizer.js"></script>
     <script src="scripts/seo-enhancer.js"></script>
@@ -397,8 +468,8 @@
     <script src="scripts/video-optimizer.js"></script>
     
     <!-- Non-critical JavaScript - Load deferred -->
-    <script src="scripts/i18n.js" defer></script>
     <script src="scripts/components.js" defer></script>
+    <script src="scripts/i18n.js" defer></script>
     <script src="scripts/countdown.js" defer></script>
     <script src="scripts/script.js" defer></script>
     <script src="scripts/faq.js" defer></script>
