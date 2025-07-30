@@ -96,6 +96,14 @@ class LoadingManager {
     }
     
     setupVideoLoading() {
+        // Check if VideoOptimizer is handling video loading
+        if (window.VideoOptimizer || window.videoOptimizer) {
+            // VideoOptimizer will handle video loading and notify us
+            if (this.debug) console.log('Video loading delegated to VideoOptimizer');
+            return;
+        }
+        
+        // Fallback to original video loading logic
         const video = document.getElementById('background-video');
         if (video) {
             const checkVideo = () => {

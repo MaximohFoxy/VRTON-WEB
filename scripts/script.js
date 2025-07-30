@@ -274,6 +274,28 @@ const VRTon = {
     
     // Optimización de video
     initVideoOptimization: function() {
+        // Check if VideoOptimizer is already handling video optimization
+        if (window.videoOptimizer) {
+            if (window.videoOptimizer.video) {
+                // Use VideoOptimizer's methods for pausing/resuming
+                if ('IntersectionObserver' in window) {
+                    const videoObserver = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                window.videoOptimizer.resumeVideo();
+                            } else {
+                                window.videoOptimizer.pauseVideo();
+                            }
+                        });
+                    });
+                    
+                    videoObserver.observe(window.videoOptimizer.video.closest('.hero-video'));
+                }
+            }
+            return;
+        }
+        
+        // Fallback to original video optimization
         const video = document.getElementById('background-video');
         if (!video) return;
         
