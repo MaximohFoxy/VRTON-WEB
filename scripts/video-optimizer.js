@@ -95,7 +95,7 @@ class VideoOptimizer {
         if (this.isLoaded || !this.video) return;
         
         // Set loading state
-        this.isLoaded = true;
+        // this.isLoaded = true; // Moved to onVideoLoaded()
         
         // Choose appropriate video source based on device and bandwidth
         let videoSrc, webmSrc;
