@@ -316,14 +316,6 @@ class LoadingManager {
             if (this.debug) console.log(`Loading: ${component} ready`);
             this.loadingStates[component] = true;
             
-            // Log current state for debugging
-            if (this.isTeamPage && this.debug) {
-                const readyComponents = Object.entries(this.loadingStates)
-                    .filter(([key, value]) => value)
-                    .map(([key]) => key);
-                console.log(`Team page - Ready components: ${readyComponents.join(', ')}`);
-            }
-            
             if (this.isAllReady()) {
                 this.completeLoading();
             }
@@ -462,7 +454,7 @@ class LoadingManager {
                         }
                     }, LOADING_TIMEOUTS.SCREEN_REMOVAL_DELAY);
                     
-                    console.log('🚀 VRTon loading completed successfully!');
+                    if (this.debug) console.log('🚀 VRTon loading completed successfully!');
                 } catch (error) {
                     console.error('Error completing loading transition:', error);
                     // Still remove loading class to show content
@@ -527,8 +519,6 @@ try {
             if (loadingScreen) {
                 loadingScreen.style.display = 'none';
             }
-            
-            console.log('Emergency loading completion activated');
         } catch (emergencyError) {
             console.error('Emergency loading completion failed:', emergencyError);
         }

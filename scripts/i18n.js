@@ -19,8 +19,6 @@ class I18n {
             if (window.onI18nReady) {
                 window.onI18nReady();
             }
-            
-            console.log('i18n fully initialized with translations');
         } catch (error) {
             console.error('Error loading translations:', error);
             // Still notify even on error to prevent infinite loading
@@ -28,13 +26,14 @@ class I18n {
                 window.onI18nReady();
             }
         }
+        
+        // Initialize language selector if components are already loaded
+        if (window.initializeLanguageSelector) {
+            window.initializeLanguageSelector();
+        }
     }
 
     setLanguage(lang) {
-        console.log('setLanguage called with:', lang);
-        console.log('Available translations:', Object.keys(this.translations));
-        console.log('Is initialized:', this.isInitialized);
-        
         if (this.translations[lang]) {
             this.currentLanguage = lang;
             localStorage.setItem('vrton-language', lang);
@@ -43,8 +42,6 @@ class I18n {
             
             // Actualizar el atributo lang del documento
             document.documentElement.lang = lang === 'es' ? 'es' : 'en';
-            
-            console.log('Language successfully changed to:', lang);
         } else {
             console.error('Language not found in translations:', lang);
         }
@@ -169,6 +166,11 @@ class I18n {
                 btn.classList.add('active');
             }
         });
+        
+        // Initialize language selector if it exists
+        if (window.initializeLanguageSelector) {
+            window.initializeLanguageSelector();
+        }
     }
 
     updateMetaTags() {
@@ -318,10 +320,16 @@ let i18n;
 
 document.addEventListener('DOMContentLoaded', () => {
     i18n = new I18n();
-    // Hacer disponible globalmente inmediatamente
+    // Hacer disponible globalmente
     window.i18n = i18n;
-    console.log('i18n initialized and exposed globally');
+    
+    // Función global para cambiar idioma (compatibilidad con código existente)
+    window.switchLanguage = function(lang) {
+        if (i18n && typeof i18n.setLanguage === 'function') {
+            i18n.setLanguage(lang);
+        } else {
+            console.warn('i18n not ready yet, storing language preference');
+            localStorage.setItem('vrton-language', lang);
+        }
+    };
 });
-
-// Exportar para uso global
-window.i18n = i18n;

@@ -209,21 +209,17 @@
             function checkCSS(href, timeout = 3000) {
                 const link = document.querySelector(`link[href*="${href}"]`);
                 if (!link) {
-                    console.warn(`CSS fallback: No link found for ${href}`);
                     return;
                 }
                 let loaded = false;
                 link.onload = () => {
                     loaded = true;
-                    console.log(`CSS loaded successfully: ${href}`);
                 };
                 link.onerror = () => {
-                    console.warn(`CSS failed to load: ${href}`);
                     createCSSFallback(href);
                 };
                 setTimeout(() => {
                     if (!loaded) {
-                        console.warn(`CSS timeout: ${href}`);
                         createCSSFallback(href);
                     }
                 }, timeout);
@@ -238,7 +234,6 @@
                     fallback.href = 'https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css';
                     fallback.crossOrigin = 'anonymous';
                     fallback.onerror = () => {
-                        console.error('Font Awesome fallback also failed, using emoji fallbacks');
                         // Apply CSS class to use emoji fallbacks
                         document.documentElement.classList.add('fa-fallback');
                     };
@@ -247,9 +242,6 @@
                     const fallback = document.createElement('link');
                     fallback.rel = 'stylesheet';
                     fallback.href = href;
-                    fallback.onerror = () => {
-                        console.error(`CSS fallback also failed for: ${href}`);
-                    };
                     document.head.appendChild(fallback);
                 }
             }

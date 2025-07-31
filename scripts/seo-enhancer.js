@@ -284,34 +284,16 @@ class SEOEnhancer {
         if ('fonts' in document) {
             // Check if fonts are loaded
             document.fonts.ready.then(() => {
-                console.log('✅ All fonts loaded successfully with font-display: swap');
+                // Fonts loaded successfully
             });
             
             // Monitor individual font loads with proper error handling
             document.fonts.addEventListener('loadingdone', (event) => {
-                try {
-                    // Check if the event has the expected structure
-                    if (event && event.fontface && event.fontface.family) {
-                        console.log(`🔤 Font loaded: ${event.fontface.family}`);
-                    } else if (event && event.target) {
-                        console.log('🔤 Font loading completed');
-                    }
-                } catch (error) {
-                    console.log('🔤 Font loading event completed (structure unknown)');
-                }
+                // Font loading completed
             });
             
             document.fonts.addEventListener('loadingerror', (event) => {
-                try {
-                    // Check if the event has the expected structure
-                    if (event && event.fontface && event.fontface.family) {
-                        console.warn(`⚠️ Font loading error: ${event.fontface.family}`);
-                    } else {
-                        console.warn('⚠️ Font loading error occurred');
-                    }
-                } catch (error) {
-                    console.warn('⚠️ Font loading error (details unavailable)');
-                }
+                // Font loading error handled
             });
         }
         

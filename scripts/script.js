@@ -272,57 +272,6 @@ const VRTon = {
         }
     },
     
-    // Optimización de video
-    initVideoOptimization: function() {
-        // Check if VideoOptimizer is already handling video optimization
-        if (window.videoOptimizer) {
-            if (window.videoOptimizer.video) {
-                // Use VideoOptimizer's methods for pausing/resuming
-                if ('IntersectionObserver' in window) {
-                    const videoObserver = new IntersectionObserver((entries) => {
-                        entries.forEach(entry => {
-                            if (entry.isIntersecting) {
-                                window.videoOptimizer.resumeVideo();
-                            } else {
-                                window.videoOptimizer.pauseVideo();
-                            }
-                        });
-                    });
-                    
-                    videoObserver.observe(window.videoOptimizer.video.closest('.hero-video'));
-                }
-            }
-            return;
-        }
-        
-        // Fallback to original video optimization
-        const video = document.getElementById('background-video');
-        if (!video) return;
-        
-        // Pausar video cuando no esté visible
-        if ('IntersectionObserver' in window) {
-            const videoObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        video.play().catch(e => console.log('Error playing video:', e));
-                    } else {
-                        video.pause();
-                    }
-                });
-            });
-            
-            videoObserver.observe(video);
-        }
-        
-        // Reducir calidad en conexiones lentas
-        if ('connection' in navigator) {
-            const connection = navigator.connection;
-            if (connection.effectiveType === 'slow-2g' || connection.effectiveType === '2g') {
-                video.style.display = 'none';
-            }
-        }
-    },
-    
     // Inicialización principal
     init: function() {
         // Marcar inicio de inicialización
@@ -335,15 +284,12 @@ const VRTon = {
         this.initSmoothScrolling();
         this.initScrollAnimations();
         this.initContactForm();
-        this.initVideoOptimization();
         
         // Marcar fin de inicialización
         if (window.PerformanceMonitor) {
             window.PerformanceMonitor.mark('vrton-script-init-end');
             window.PerformanceMonitor.measure('VRTon Script Initialization', 'vrton-script-init-start', 'vrton-script-init-end');
         }
-        
-        console.log('VRTon script inicializado correctamente');
     }
 };
 
