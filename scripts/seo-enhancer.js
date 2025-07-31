@@ -190,7 +190,13 @@ class SEOEnhancer {
                         
                         if (!hasStyleDimensions) {
                             // Set placeholder dimensions to prevent CLS
-                            element.style.aspectRatio = 'auto';
+                            // Set a default aspect ratio to prevent CLS
+                            const defaultAspectRatio = 16 / 9; // Placeholder ratio
+                            if (element.naturalWidth && element.naturalHeight) {
+                                element.style.aspectRatio = (element.naturalWidth / element.naturalHeight).toString();
+                            } else {
+                                element.style.aspectRatio = defaultAspectRatio.toString();
+                            }
                             
                             // Only set dimensions after load if not already set
                             const handleImageLoad = function() {
