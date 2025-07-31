@@ -316,13 +316,9 @@ class SEOEnhancer {
         // Batch DOM reads first - avoid getComputedStyle in loops for performance
         iconElements.forEach(element => {
             // Check if element likely contains a Font Awesome icon based on classes
-            const classList = element.classList;
-            const isFontAwesome = classList.contains('fas') || 
-                                classList.contains('fab') || 
-                                classList.contains('far') || 
-                                classList.contains('fa');
-            
-            if (isFontAwesome && !element.textContent.trim() && !element.getAttribute('aria-label')) {
+            if (this.isFontAwesomeElement(element.classList) && 
+                !element.textContent.trim() && 
+                !element.getAttribute('aria-label')) {
                 elementsToUpdate.push(element);
             }
         });
