@@ -69,14 +69,11 @@ async function loadComponentReplace(url, placeholderSelector) {
 }
 
 document.addEventListener('DOMContentLoaded', async function() {
-    console.log('Components.js: DOMContentLoaded event fired');
     
     // Cargar header si hay un contenedor específico para él
     if (document.getElementById('header-container')) {
-        console.log('Loading header into header-container');
         await loadComponent('includes/header.html', 'header-container');
     } else if (document.getElementById('header-placeholder')) {
-        console.log('Loading header by replacing placeholder');
         // Reemplazar el placeholder del header
         try {
             const response = await fetch('includes/header.html');
@@ -85,7 +82,6 @@ document.addEventListener('DOMContentLoaded', async function() {
                 const placeholder = document.getElementById('header-placeholder');
                 if (placeholder) {
                     placeholder.outerHTML = html;
-                    console.log('Header loaded successfully');
                 } else {
                     console.error('Header placeholder not found');
                 }
@@ -95,20 +91,16 @@ document.addEventListener('DOMContentLoaded', async function() {
         } catch (error) {
             console.error('Error loading header:', error);
         }
-    } else {
-        console.log('No header container or placeholder found');
     }
 
     // Cargar footer - primero intentar con placeholder, luego con fallback
     const footerPlaceholder = document.getElementById('footer-placeholder');
     if (footerPlaceholder) {
-        console.log('Loading footer using footer placeholder');
         try {
             const response = await fetch('includes/footer.html');
             if (response.ok) {
                 const footerContent = await response.text();
                 footerPlaceholder.outerHTML = footerContent;
-                console.log('Footer loaded successfully using placeholder');
             } else {
                 console.error('Failed to fetch footer:', response.status);
             }
@@ -122,19 +114,17 @@ document.addEventListener('DOMContentLoaded', async function() {
         const targetElement = lastMain || lastSection;
         
         if (targetElement) {
-            console.log('Loading footer after last element (fallback method)');
             const selector = lastMain ? 'main:last-of-type' : 'section:last-of-type';
             await loadComponentAfter('includes/footer.html', selector);
-            console.log('Footer loaded successfully using fallback');
-        } else {
-            console.log('No suitable element found for footer placement');
         }
     }
 
     // Inicializar componentes después de cargar
     setTimeout(() => {
-        console.log('Initializing header/footer components');
         initializeHeaderFooterComponents();
+        
+        // Asegurar que los eventos de idioma están configurados
+        initializeLanguageSelector();
     }, 100);
 
     // Llamar a onComponentsReady si existe (callback para cuando los componentes están listos)
@@ -179,40 +169,6 @@ function initializeHeaderFooterComponents() {
         });
     }
 
-    // Reinicializar el selector de idioma si existe
-    const languageBtn = document.getElementById('language-btn');
-    const languageOptions = document.getElementById('language-options');
-    
-    if (languageBtn && languageOptions) {
-        // Eliminar event listeners existentes si los hay
-        languageBtn.replaceWith(languageBtn.cloneNode(true));
-        const newLanguageBtn = document.getElementById('language-btn');
-        
-        newLanguageBtn.addEventListener('click', function() {
-            languageOptions.classList.toggle('show');
-        });
-
-        // Cerrar selector al hacer clic fuera
-        document.addEventListener('click', function(event) {
-            if (!event.target.closest('.language-selector')) {
-                languageOptions.classList.remove('show');
-            }
-        });
-
-        // Manejar clicks en las opciones de idioma
-        const languageOptionsItems = languageOptions.querySelectorAll('a');
-        languageOptionsItems.forEach(option => {
-            option.addEventListener('click', function(e) {
-                e.preventDefault();
-                const lang = this.getAttribute('data-lang');
-                if (typeof window.switchLanguage === 'function') {
-                    window.switchLanguage(lang);
-                }
-                languageOptions.classList.remove('show');
-            });
-        });
-    }
-
     // Actualizar navegación activa
     const currentPage = window.location.pathname;
     const navLinks = document.querySelectorAll('.nav a');
@@ -225,9 +181,42 @@ function initializeHeaderFooterComponents() {
     });
 }
 
+// Función separada para inicializar el selector de idioma
+function initializeLanguageSelector() {
+    const languageSelector = document.querySelector('.language-selector');
+    if (languageSelector) {
+        const langButtons = languageSelector.querySelectorAll('.lang-btn');
+        
+        langButtons.forEach(button => {
+            // Remove any existing event listeners by cloning
+            const newButton = button.cloneNode(true);
+            button.parentNode.replaceChild(newButton, button);
+            
+            // Add new event listener
+            newButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                const lang = this.getAttribute('data-lang');
+                
+                // Try multiple methods to change language
+                if (window.i18n && typeof window.i18n.setLanguage === 'function') {
+                    window.i18n.setLanguage(lang);
+                } else if (typeof window.switchLanguage === 'function') {
+                    window.switchLanguage(lang);
+                } else {
+                    console.warn('Language system not available, storing preference');
+                    localStorage.setItem('vrton-language', lang);
+                    // Try to reload the page with the new language
+                    location.reload();
+                }
+            });
+        });
+    }
+}
+
 // Exportar funciones para uso global si es necesario
 window.loadComponent = loadComponent;
 window.loadComponentBefore = loadComponentBefore;
 window.loadComponentAfter = loadComponentAfter;
 window.loadComponentReplace = loadComponentReplace;
 window.initializeHeaderFooterComponents = initializeHeaderFooterComponents;
+window.initializeLanguageSelector = initializeLanguageSelector;

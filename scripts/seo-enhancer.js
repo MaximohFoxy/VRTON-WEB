@@ -1,5 +1,12 @@
 // SEO Enhancement Script for VRTon
 // This script provides additional SEO optimizations and monitoring
+// 
+// PERFORMANCE OPTIMIZATIONS:
+// - Batched DOM reads/writes to prevent forced reflows
+// - Uses requestAnimationFrame for DOM modifications
+// - Avoids getComputedStyle() calls in loops
+// - Throttled resize event handlers
+// - Specific selectors to reduce DOM queries
 
 class SEOEnhancer {
     constructor() {
@@ -143,30 +150,82 @@ class SEOEnhancer {
     }
 
     optimizeImages() {
-        // Add loading="lazy" to images below the fold
+        // Add loading="lazy" to images below the fold and improve CLS prevention
         const images = document.querySelectorAll('img');
+        const imagesToProcess = [];
+        
+        // Batch DOM reads first
         images.forEach((img, index) => {
-            // Skip first 2 images (likely above the fold)
-            if (index > 1 && !img.hasAttribute('loading')) {
-                img.setAttribute('loading', 'lazy');
-            }
+            const needsLazy = index > 1 && !img.hasAttribute('loading');
+            const needsAlt = !img.hasAttribute('alt');
+            const needsDimensions = !img.hasAttribute('width') && !img.hasAttribute('height');
             
-            // Add alt text if missing
-            if (!img.hasAttribute('alt')) {
-                img.setAttribute('alt', 'Imagen de VRTon - Realidad Virtual para Causas Sociales');
-            }
-            
-            // Add width and height if missing (prevents CLS)
-            if (!img.hasAttribute('width') && !img.hasAttribute('height')) {
-                // Get natural dimensions when image loads
-                img.onload = function() {
-                    if (!this.hasAttribute('width')) {
-                        this.setAttribute('width', this.naturalWidth);
-                        this.setAttribute('height', this.naturalHeight);
-                    }
-                };
+            if (needsLazy || needsAlt || needsDimensions) {
+                imagesToProcess.push({
+                    element: img,
+                    needsLazy,
+                    needsAlt,
+                    needsDimensions
+                });
             }
         });
+        
+        // Batch DOM writes to prevent layout thrashing
+        if (imagesToProcess.length > 0) {
+            requestAnimationFrame(() => {
+                imagesToProcess.forEach(({ element, needsLazy, needsAlt, needsDimensions }) => {
+                    if (needsLazy) {
+                        element.setAttribute('loading', 'lazy');
+                    }
+                    
+                    if (needsAlt) {
+                        element.setAttribute('alt', 'Imagen de VRTon - Realidad Virtual para Causas Sociales');
+                    }
+                    
+                    // Prevent CLS by setting dimensions immediately if possible
+                    if (needsDimensions) {
+                        // Try to get dimensions from CSS or existing styles first
+                        const style = element.style;
+                        const hasStyleDimensions = style.width || style.height;
+                        
+                        if (!hasStyleDimensions) {
+                            // Set placeholder dimensions to prevent CLS
+                            // Set a default aspect ratio to prevent CLS
+                            const defaultAspectRatio = 16 / 9; // Placeholder ratio
+                            if (element.naturalWidth && element.naturalHeight) {
+                                element.style.aspectRatio = (element.naturalWidth / element.naturalHeight).toString();
+                            } else {
+                                element.style.aspectRatio = defaultAspectRatio.toString();
+                            }
+                            
+                            // Only set dimensions after load if not already set
+                            const handleImageLoad = function() {
+                                // Check again if dimensions were set elsewhere
+                                if (!this.hasAttribute('width') && !this.hasAttribute('height')) {
+                                    // Use requestAnimationFrame to avoid layout thrashing
+                                    requestAnimationFrame(() => {
+                                        if (this.naturalWidth && this.naturalHeight) {
+                                            this.setAttribute('width', this.naturalWidth);
+                                            this.setAttribute('height', this.naturalHeight);
+                                        }
+                                    });
+                                }
+                                // Clean up event listener
+                                this.removeEventListener('load', handleImageLoad);
+                            };
+                            
+                            if (element.complete && element.naturalWidth) {
+                                // Image already loaded
+                                handleImageLoad.call(element);
+                            } else {
+                                // Image still loading
+                                element.addEventListener('load', handleImageLoad, { once: true });
+                            }
+                        }
+                    }
+                });
+            });
+        }
     }
 
     addBreadcrumbs() {
@@ -231,73 +290,94 @@ class SEOEnhancer {
         if ('fonts' in document) {
             // Check if fonts are loaded
             document.fonts.ready.then(() => {
-                console.log('✅ All fonts loaded successfully with font-display: swap');
+                // Fonts loaded successfully
             });
             
             // Monitor individual font loads with proper error handling
             document.fonts.addEventListener('loadingdone', (event) => {
-                try {
-                    // Check if the event has the expected structure
-                    if (event && event.fontface && event.fontface.family) {
-                        console.log(`🔤 Font loaded: ${event.fontface.family}`);
-                    } else if (event && event.target) {
-                        console.log('🔤 Font loading completed');
-                    }
-                } catch (error) {
-                    console.log('🔤 Font loading event completed (structure unknown)');
-                }
+                // Font loading completed
             });
             
             document.fonts.addEventListener('loadingerror', (event) => {
-                try {
-                    // Check if the event has the expected structure
-                    if (event && event.fontface && event.fontface.family) {
-                        console.warn(`⚠️ Font loading error: ${event.fontface.family}`);
-                    } else {
-                        console.warn('⚠️ Font loading error occurred');
-                    }
-                } catch (error) {
-                    console.warn('⚠️ Font loading error (details unavailable)');
-                }
+                // Font loading error handled
             });
         }
         
-        // Check for FOIT (Flash of Invisible Text) issues
-        const textElements = document.querySelectorAll('h1, h2, h3, p, span, div');
-        textElements.forEach(element => {
-            const computedStyle = window.getComputedStyle(element);
-            if (computedStyle.fontFamily.includes('Font Awesome')) {
-                // Ensure icons have fallback content
-                if (!element.textContent.trim() && !element.getAttribute('aria-label')) {
-                    element.setAttribute('aria-label', 'Icono');
-                }
+        // Check for FOIT (Flash of Invisible Text) issues - optimized to prevent forced reflows
+        this.checkFontAwesomeElements();
+    }
+
+    checkFontAwesomeElements() {
+        // Use more specific selectors to reduce the number of elements to check
+        // This avoids expensive getComputedStyle calls in loops
+        const iconElements = document.querySelectorAll('.fas, .fab, .far, .fa');
+        const elementsToUpdate = [];
+        
+        // Batch DOM reads first - avoid getComputedStyle in loops for performance
+        iconElements.forEach(element => {
+            // Check if element likely contains a Font Awesome icon based on classes
+            if (this.isFontAwesomeElement(element.classList) && 
+                !element.textContent.trim() && 
+                !element.getAttribute('aria-label')) {
+                elementsToUpdate.push(element);
             }
         });
+        
+        // Batch DOM writes to prevent layout thrashing
+        if (elementsToUpdate.length > 0) {
+            requestAnimationFrame(() => {
+                elementsToUpdate.forEach(element => {
+                    element.setAttribute('aria-label', 'Icono');
+                });
+            });
+        }
     }
 
     enhanceAccessibility() {
-        // Add ARIA labels to interactive elements without them
+        // Batch accessibility improvements to prevent layout thrashing
+        const elementsToUpdate = {
+            buttons: [],
+            navs: [],
+            links: []
+        };
+        
+        // Batch DOM reads first
         const buttons = document.querySelectorAll('button:not([aria-label]):not([aria-labelledby])');
         buttons.forEach(button => {
             if (!button.textContent.trim()) {
-                button.setAttribute('aria-label', 'Botón interactivo');
+                elementsToUpdate.buttons.push(button);
             }
         });
 
-        // Add roles to navigation elements
         const navs = document.querySelectorAll('nav:not([role])');
         navs.forEach(nav => {
-            nav.setAttribute('role', 'navigation');
+            elementsToUpdate.navs.push(nav);
         });
 
-        // Ensure all links have meaningful text
         const links = document.querySelectorAll('a');
         links.forEach(link => {
             const linkText = link.textContent.trim();
             if (!linkText && !link.getAttribute('aria-label')) {
-                link.setAttribute('aria-label', 'Enlace de VRTon');
+                elementsToUpdate.links.push(link);
             }
         });
+        
+        // Batch DOM writes to prevent forced reflows
+        if (elementsToUpdate.buttons.length > 0 || elementsToUpdate.navs.length > 0 || elementsToUpdate.links.length > 0) {
+            requestAnimationFrame(() => {
+                elementsToUpdate.buttons.forEach(button => {
+                    button.setAttribute('aria-label', 'Botón interactivo');
+                });
+                
+                elementsToUpdate.navs.forEach(nav => {
+                    nav.setAttribute('role', 'navigation');
+                });
+                
+                elementsToUpdate.links.forEach(link => {
+                    link.setAttribute('aria-label', 'Enlace de VRTon');
+                });
+            });
+        }
     }
 
     setupSocialMediaTracking() {

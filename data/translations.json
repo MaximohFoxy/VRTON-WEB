@@ -75,6 +75,14 @@
       "quickLinks": "Enlaces Rápidos",
       "follow": "Síguenos"
     },
+    "colaboradores": {
+      "title": "Nuestro Equipo",
+      "description": "Conoce a las personas que hacen posible VRTon. Un equipo multidisciplinario de profesionales voluntarios comprometidos con transformar la realidad virtual en una herramienta de cambio social positivo.",
+      "meta": {
+        "title": "Nuestro Equipo Multidisciplinario - Colaboradores VRTon | Profesionales en Realidad Virtual",
+        "description": "Conoce al increíble equipo multidisciplinario de VRTon: desarrolladores, diseñadores 2D/3D, audiovisuales, marketing, moderadores y más profesionales comprometidos con la realidad virtual para causas sociales y la Teletón Chile."
+      }
+    },
     "teams": {
       "direccion": {
         "name": "Dirección",
@@ -193,6 +201,14 @@
       "description": "Transforming virtual reality into social change. Non-profit organization.",
       "quickLinks": "Quick Links",
       "follow": "Follow us"
+    },
+    "colaboradores": {
+      "title": "Our Team",
+      "description": "Meet the people who make VRTon possible. A multidisciplinary team of volunteer professionals committed to transforming virtual reality into a tool for positive social change.",
+      "meta": {
+        "title": "Our Multidisciplinary Team - VRTon Collaborators | Virtual Reality Professionals",
+        "description": "Meet the incredible multidisciplinary team of VRTon: developers, 2D/3D designers, audiovisuals, marketing, moderators and more professionals committed to virtual reality for social causes and Teletón Chile."
+      }
     },
     "teams": {
       "direccion": {

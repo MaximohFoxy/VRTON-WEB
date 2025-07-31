@@ -74,13 +74,27 @@ document.addEventListener('DOMContentLoaded', function() {
     // Asegurar que el contenido principal no quede oculto bajo el menú desplegable
     function adjustContentPadding() {
         const header = document.querySelector('header');
-        const headerHeight = header.offsetHeight;
-        document.documentElement.style.setProperty('--header-height', `${headerHeight}px`);
+        if (header) {
+            // Use requestAnimationFrame to batch layout reads
+            requestAnimationFrame(() => {
+                const headerHeight = header.offsetHeight;
+                // Batch the style write in the same frame
+                requestAnimationFrame(() => {
+                    document.documentElement.style.setProperty('--header-height', `${headerHeight}px`);
+                });
+            });
+        }
     }
 
     // Ejecutar al cargar y cuando cambie el tamaño de la ventana
     adjustContentPadding();
-    window.addEventListener('resize', adjustContentPadding);
+    
+    // Throttle resize events to prevent excessive layout calculations
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(adjustContentPadding, 150);
+    });
 
     // Ajustar también cuando se despliega/pliega el menú
     menuToggle.addEventListener('click', () => {

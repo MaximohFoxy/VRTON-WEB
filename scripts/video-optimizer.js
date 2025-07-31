@@ -145,7 +145,6 @@ class VideoOptimizer {
         // Play video if autoplay is desired
         if (this.shouldPlayVideo) {
             this.video.play().catch(e => {
-                console.log('Video autoplay prevented:', e);
                 this.showStaticFallback();
             });
         }
@@ -155,7 +154,6 @@ class VideoOptimizer {
     
     // Handle video loading error
     onVideoError() {
-        console.warn('Video failed to load, showing static fallback');
         this.showStaticFallback();
         this.notifyVideoReady();
     }

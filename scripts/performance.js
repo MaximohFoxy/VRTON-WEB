@@ -62,11 +62,6 @@ class PerformanceMonitor {
                         console.warn(`⚠️ Critical resource taking too long: ${resourceName} (${entry.duration.toFixed(2)}ms)`);
                     }
                 }
-                
-                // Track Cloudflare scripts specifically
-                if (entry.name.includes('cloudflare')) {
-                    console.log(`📊 Cloudflare script: ${entry.name} - ${entry.duration.toFixed(2)}ms`);
-                }
             });
         });
         
