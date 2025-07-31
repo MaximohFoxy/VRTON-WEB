@@ -265,19 +265,27 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Scroll suave a equipo específico
+    // Scroll suave a equipo específico - optimized to prevent forced reflows
     function scrollToTeam(teamId) {
         const targetSection = document.getElementById(`team-${teamId}`);
         if (targetSection) {
-            const headerHeight = document.querySelector('header').offsetHeight;
-            const navHeight = document.querySelector('.furality-nav').offsetHeight;
-            const offset = headerHeight + navHeight + 20;
-            
-            const targetPosition = targetSection.offsetTop - offset;
-            
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
+            // Batch all layout reads in a single requestAnimationFrame
+            requestAnimationFrame(() => {
+                const header = document.querySelector('header');
+                const nav = document.querySelector('.furality-nav');
+                
+                const headerHeight = header ? header.offsetHeight : 80; // fallback value
+                const navHeight = nav ? nav.offsetHeight : 60; // fallback value
+                const targetPosition = targetSection.offsetTop;
+                
+                // Calculate offset and scroll in the same frame to prevent multiple layouts
+                const offset = headerHeight + navHeight + 20;
+                const scrollPosition = targetPosition - offset;
+                
+                window.scrollTo({
+                    top: scrollPosition,
+                    behavior: 'smooth'
+                });
             });
         }
     }

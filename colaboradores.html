@@ -65,7 +65,28 @@
         /* Critical above-the-fold styles */
         :root{--primary-color:#e30613;--secondary-color:#fd5c63;--white:#ffffff;--header-height:80px;--dark-color:#2c3e50;--text-color:#333333;--light-color:#f4f7f9;--border-radius:10px;--transition-normal:all 0.3s ease;--shadow-card:0 10px 20px rgba(0,0,0,0.1);--font-size-medium:1.1rem}
         *{margin:0;padding:0;box-sizing:border-box}
-        body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;color:var(--text-color);background:var(--light-color)}
+        body{
+            font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+            color:var(--text-color);
+            background:var(--light-color);
+            /* Enhanced font rendering for better performance */
+            font-display: swap;
+            text-rendering: optimizeSpeed;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-synthesis: none;
+        }
+        
+        /* FOIT prevention - ensure text is always visible */
+        body.fonts-loading {
+            font-display: swap;
+        }
+        
+        /* Font Awesome specific optimizations */
+        .fas, .fab, .far {
+            /* Prevent FOIT for icons */
+            font-display: swap;
+        }
         
         /* Header Critical Styles */
         header{position:fixed;top:0;left:0;width:100%;background:var(--white);box-shadow:0 2px 10px rgba(0,0,0,0.1);z-index:1000;height:var(--header-height)}
@@ -120,49 +141,14 @@
     <link rel="preload" href="styles.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" media="all">
     <noscript><link rel="stylesheet" href="styles.min.css"></noscript>
     
-    <!-- Font Awesome - Load asynchronously with font-display optimization -->
+    <!-- Font Awesome - Optimized loading with critical font preloading -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" crossorigin="anonymous" referrerpolicy="no-referrer">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"></noscript>
     
-    <!-- Font Display Optimization for Font Awesome -->
+    <!-- Font Awesome performance optimizations -->
     <style>
-        /* Font Awesome font-display optimization */
-        @font-face {
-            font-family: "Font Awesome 6 Free";
-            font-style: normal;
-            font-weight: 900;
-            font-display: swap;
-            src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-solid-900.woff2") format("woff2");
-        }
-        
-        @font-face {
-            font-family: "Font Awesome 6 Brands";
-            font-style: normal;
-            font-weight: 400;
-            font-display: swap;
-            src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-brands-400.woff2") format("woff2");
-        }
-        
-        @font-face {
-            font-family: "Font Awesome 6 Regular";
-            font-style: normal;
-            font-weight: 400;
-            font-display: swap;
-            src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-regular-400.woff2") format("woff2");
-        }
-        
-        /* Fallback for icons while loading */
-        .fas, .fab, .far {
-            font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands", "Font Awesome 6 Regular", Arial, sans-serif;
-        }
-        
-        /* Prevent layout shift with consistent sizing */
-        .fas, .fab, .far {
-            display: inline-block;
-            width: 1em;
-            text-align: center;
-        }
-        
         /* CSS-only fallback icons for critical icons */
         .fa-discord::before { content: "💬"; }
         .fa-envelope::before { content: "📧"; }
@@ -399,6 +385,7 @@
 
     <!-- Scripts -->
     <script src="scripts/performance.js"></script>
+    <script src="scripts/icon-optimizer.js"></script>
     <script src="scripts/seo-enhancer.js"></script>
     <script src="scripts/loading.js"></script>
     <script src="scripts/i18n.js" defer></script>
