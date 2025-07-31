@@ -10,8 +10,10 @@ if ('serviceWorker' in navigator) {
 // Clear all caches
 if ('caches' in window) {
     caches.keys().then(function(names) {
-        names.forEach(function(name) {
-            caches.delete(name);
+        Promise.all(names.map(function(name) {
+            return caches.delete(name);
+        })).catch(function(error) {
+            console.error("Error deleting caches:", error);
         });
     });
 }
