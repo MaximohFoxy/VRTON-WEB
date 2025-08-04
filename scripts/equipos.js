@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // Renderizar toda la página
     function renderizarPagina() {
         if (!equiposData) return;
-        
+
         const loadingScreen = document.getElementById('loading-screen');
         if (loadingScreen) {
             loadingScreen.classList.add('hidden');
@@ -145,9 +145,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 <h2 data-i18n="colaboradores.departments_title">Departamentos</h2>
                 <div class="furality-departments">
                     ${equiposData.equipos.map(equipo => `
-                        <a href="#team-${equipo.id}" class="furality-dept-btn" data-team="${equipo.id}" data-i18n="teams.${equipo.id}.name">
+                        <a href="#team-${equipo.id}" class="furality-dept-btn" data-team="${equipo.id}">
                             <i class="${iconosDepartamentos[equipo.id] || 'fas fa-users'}"></i>
-                            ${equipo.nombre}
+                            <span data-i18n="teams.${equipo.id}.name">${equipo.nombre}</span>
                         </a>
                     `).join('')}
                 </div>
