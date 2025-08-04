@@ -4,24 +4,48 @@
       "name": "Lapizera",
       "description": "Una lapizera para dibujar.",
       "version": "1.0.0",
-      "downloadUrl": "https://example.com/asset.unitypackage",
-      "imageUrl": "https://example.com/preview.png",
+      "downloadUrl": "https://github.com/VRTon/org.vrton.lapicera/releases/download/1.1.1/VrtonPen.unitypackage",
+      "imageUrl": "https://raw.githubusercontent.com/VRTon/org.vrton.lapicera/refs/heads/main/Lapicera%20Jef.png",
       "category": "Juguetes"
     },
     {
-      "name": "Gorra",
-      "description": "Gorra promocional de VRTon",
+      "name": "Cadena",
+      "description": "Cadena promocional de VRTon",
       "version": "1.0.0",
-      "downloadUrl": "https://example.com/asset.unitypackage",
-      "imageUrl": "https://example.com/preview.png",
+      "downloadUrl": "https://github.com/VRTon/org.vrton.chain/releases/download/1.0.0/VRTONChain.unitypackage",
+      "imageUrl": "https://raw.githubusercontent.com/VRTon/org.vrton.chain/refs/heads/main/VRTonChain.png",
       "category": "Ropa"
     },
     {
       "name": "Pulsera",
       "description": "Pulsera promocional de VRTon con efecto de particulas al chocarla.",
       "version": "1.0.0",
-      "downloadUrl": "https://example.com/asset.unitypackage",
-      "imageUrl": "https://example.com/preview.png",
+      "downloadUrl": "https://github.com/VRTon/org.vrton.pulsera/releases/download/1.0.0/VRTONBand.unitypackage",
+      "imageUrl": "https://raw.githubusercontent.com/VRTon/org.vrton.pulsera/refs/heads/main/Pulsera%20VRTon.png",
+      "category": "Ropa"
+    },
+    {
+      "name": "Banderin",
+      "description": "Banderin promocional de VRTon con efecto de particulas al chocarla.",
+      "version": "1.0.0",
+      "downloadUrl": "https://github.com/VRTon/org.vrton.banderin/releases/download/1.0.0/VRTONBand.unitypackage",
+      "imageUrl": "https://raw.githubusercontent.com/VRTon/org.vrton.banderin/refs/heads/main/Banderin%20VRTon.png",
+      "category": "Juguetes"
+    },
+    {
+      "name": "Chocker",
+      "description": "Chocker promocional de VRTon con efecto de particulas al chocarla.",
+      "version": "1.0.0",
+      "downloadUrl": "https://github.com/VRTon/org.vrton.chocker/releases/download/1.0.0/VRTONBand.unitypackage",
+      "imageUrl": "https://raw.githubusercontent.com/VRTon/org.vrton.chocker/refs/heads/main/Chocker%20VRTon.png",
+      "category": "Ropa"
+    },
+    {
+      "name": "Diadema",
+      "description": "Diadema promocional de VRTon con efecto de particulas al chocarla.",
+      "version": "1.0.0",
+      "downloadUrl": "https://github.com/VRTon/org.vrton.diadema/releases/download/1.0.0/VRTONBand.unitypackage",
+      "imageUrl": "https://raw.githubusercontent.com/VRTon/org.vrton.diadema/refs/heads/main/Diadema%20VRTon.png",
       "category": "Ropa"
     }
   ]
