@@ -2465,3 +2465,24 @@ body.loaded section {
         text-align: center;
     }
 }
+
+/* == Arreglo para Subtítulo Header en Móviles == */
+/* Regla general para todos los móviles (basada en la original) */
+@media (max-width: 768px) {
+    .hero-content h2 {
+        font-size: 1.2rem;
+        /* Este es el tamaño base para móviles */
+        line-height: 1.4;
+    }
+}
+/* Regla específica para móviles estrechos */
+@media (max-width: 400px) {
+    .hero-content {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+
+    .hero-content h2 {
+        font-size: 1.1rem;
+    }
+}
