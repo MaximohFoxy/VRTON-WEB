@@ -147,6 +147,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             </div>
         `;
+        //Logica boton filtro departamentos
+        const toggleBtn = document.getElementById('toggle-filters-btn');
+        const departmentsWrapper = navegacionContainer.querySelector('.furality-departments-wrapper');
+
+        // Evento para mostrar/ocultar el menú de filtros en móvil
+        toggleBtn.addEventListener('click', () => {
+            departmentsWrapper.classList.toggle('active');
+            // Actualiza el estado ARIA para accesibilidad
+            const isExpanded = departmentsWrapper.classList.contains('active');
+            toggleBtn.setAttribute('aria-expanded', isExpanded);
+        });
 
         // Agregar eventos de click
         document.querySelectorAll('.furality-dept-btn').forEach(btn => {
@@ -154,6 +165,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 e.preventDefault();
                 const teamId = btn.getAttribute('data-team');
                 scrollToTeam(teamId);
+                // En movil, ocultar el menú después de seleccionar una opción
+                if (window.innerWidth <= 768) {
+                    departmentsWrapper.classList.remove('active');
+                    toggleBtn.setAttribute('aria-expanded', 'false');
+                }
             });
         });
     }
