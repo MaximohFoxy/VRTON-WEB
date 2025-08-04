@@ -131,14 +131,20 @@ document.addEventListener('DOMContentLoaded', () => {
         navegacionContainer.className = 'furality-nav';
         
         navegacionContainer.innerHTML = `
-            <h2>Departamentos</h2>
-            <div class="furality-departments">
-                ${equiposData.equipos.map(equipo => `
-                    <a href="#team-${equipo.id}" class="furality-dept-btn" data-team="${equipo.id}">
-                        <i class="${iconosDepartamentos[equipo.id] || 'fas fa-users'}"></i>
-                        ${equipo.nombre}
-                    </a>
-                `).join('')}
+            <button id="toggle-filters-btn" class="furality-filter-toggle">
+                <i class="fas fa-filter"></i>
+                <span data-i18n="colaboradores.filter_button">Filtrar Departamentos</span>
+            </button>
+            <div class="furality-departments-wrapper">
+                <h2 data-i18n="colaboradores.departments_title">Departamentos</h2>
+                <div class="furality-departments">
+                    ${equiposData.equipos.map(equipo => `
+                        <a href="#team-${equipo.id}" class="furality-dept-btn" data-team="${equipo.id}" data-i18n="teams.${equipo.id}.name">
+                            <i class="${iconosDepartamentos[equipo.id] || 'fas fa-users'}"></i>
+                            ${equipo.nombre}
+                        </a>
+                    `).join('')}
+                </div>
             </div>
         `;
 
@@ -171,17 +177,16 @@ document.addEventListener('DOMContentLoaded', () => {
         section.id = `team-${equipo.id}`;
 
         section.innerHTML = `
-            <h2 class="furality-dept-title">${equipo.nombre}</h2>
+            <h2 class="furality-dept-title" data-i18n="teams.${equipo.id}.name">${equipo.nombre}</h2>
             
-            <!-- Descripción del departamento -->
-            <p class="furality-dept-description">${equipo.descripcion}</p>
+            <p class="furality-dept-description" data-i18n="teams.${equipo.id}.description">${equipo.descripcion}</p>
             
-            <!-- Líderes del departamento -->
+            
             <div class="furality-leaders">
                 ${equipo.lideres.map(lider => crearLiderFurality(lider)).join('')}
             </div>
 
-            <!-- Miembros del equipo -->
+            
             <div class="furality-members">
                 ${equipo.miembros.map(miembro => crearMiembroFurality(miembro)).join('')}
             </div>
