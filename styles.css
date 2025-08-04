@@ -2363,3 +2363,59 @@ body.loaded section {
         font-size: 12px;
     }
 }
+
+/* == Estilos para Filtro de Colaboradores Móvil == */
+.furality-filter-toggle {
+    display: none;
+    width: 100%;
+    padding: 12px 20px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 15px;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.furality-filter-toggle i {
+    margin-right: 10px;
+}
+
+.furality-filter-toggle:hover {
+    background-color: #c00511;
+    
+}
+
+@media (max-width: 768px) {
+
+    
+    .furality-filter-toggle {
+        display: block;
+    }
+
+    
+    .furality-departments-wrapper {
+        display: none;
+        padding: 20px;
+        background-color: rgba(0, 0, 0, 0.1);
+        border-radius: var(--border-radius);
+    }
+
+    .furality-departments-wrapper.active {
+        display: block;
+    }
+
+    .furality-nav h2 {
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    .furality-departments {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
