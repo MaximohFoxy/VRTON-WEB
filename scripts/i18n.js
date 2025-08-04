@@ -68,8 +68,12 @@ class I18n {
             const key = element.getAttribute('data-i18n');
             if (key) {
                 const text = this.getText(key);
-                if (text !== key) { // Solo actualizar si encontramos la traducción
-                    element.textContent = text;
+                if (text !== key) {
+                    if (element.hasAttribute('data-i18n-html')) {
+                        element.innerHTML = text;
+                    } else {
+                        element.textContent = text; 
+                    }
                 }
             }
         });
