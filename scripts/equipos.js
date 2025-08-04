@@ -5,11 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Aplicar estilo Furality al body
     document.body.classList.add('furality-body');
     
-    // Notificar inmediatamente que los equipos están "listos" para el loading manager
-    // Esto evita que el usuario espere mucho tiempo viendo "Cargando información del equipo..."
-    if (window.onTeamsReady) {
-        window.onTeamsReady();
-    }
 
     // Cargar datos de equipos desde JSON
     async function cargarEquipos() {
@@ -36,17 +31,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Renderizar toda la página
+// Renderizar toda la página
     function renderizarPagina() {
         if (!equiposData) return;
+        
+        const loadingScreen = document.getElementById('loading-screen');
+        if (loadingScreen) {
+            loadingScreen.classList.add('hidden');
+        }
+        document.body.classList.remove('loading');
+        document.body.classList.add('loaded');
+
+        if (window.onTeamsReady) {
+            window.onTeamsReady();
+        }
 
         renderizarNavegacion();
         renderizarEquipos();
         configurarNavegacion();
         
-        if (window.i18n) {
-            window.i18n.updateContent();
-        }
         // Track rendering completion
         if (window.performanceMonitor) {
             window.performanceMonitor.mark('teams-rendered');
@@ -183,10 +186,19 @@ document.addEventListener('DOMContentLoaded', () => {
         container.className = 'furality-container';
         container.innerHTML = '';
 
-        equiposData.equipos.forEach(equipo => {
+        function renderizarSiguienteEquipo(index) {
+            if (index >= equiposData.equipos.length) {
+                if (window.i18n) {
+                    window.i18n.updateContent();
+                }
+                return;
+            }
+            const equipo = equiposData.equipos[index];
             const teamSection = crearSeccionEquipo(equipo);
             container.appendChild(teamSection);
-        });
+            requestAnimationFrame(() => renderizarSiguienteEquipo(index + 1));
+        }
+        renderizarSiguienteEquipo(0);
     }
 
     // Crear sección individual de equipo estilo Furality
