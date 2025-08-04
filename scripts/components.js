@@ -187,6 +187,18 @@ function initializeLanguageSelector() {
     if (languageSelector) {
         const langButtons = languageSelector.querySelectorAll('.lang-btn');
         
+        // 1. Leemos el idioma actual guardado en el navegador.
+        const currentLanguage = localStorage.getItem('vrton-language') || 'es';
+
+        // 2. Nos aseguramos de que ningún botón esté marcado como activo.
+        langButtons.forEach(btn => btn.classList.remove('active'));
+
+        // 3. Buscamos el botón correcto y lo marcamos como activo.
+        const activeButton = languageSelector.querySelector(`.lang-btn[data-lang="${currentLanguage}"]`);
+        if (activeButton) {
+            activeButton.classList.add('active');
+        }
+
         langButtons.forEach(button => {
             // Remove any existing event listeners by cloning
             const newButton = button.cloneNode(true);
