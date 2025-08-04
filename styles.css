@@ -1398,8 +1398,11 @@ footer p {
     
     /* Countdown móvil */
     .countdown-timer {
-        gap: 10px;
-        justify-content: center;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        max-width: 250px;
+        margin: 0 auto;
     }
     
     .countdown-item {
