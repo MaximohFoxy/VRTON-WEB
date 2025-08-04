@@ -306,6 +306,10 @@ class SEOEnhancer {
         // Check for FOIT (Flash of Invisible Text) issues - optimized to prevent forced reflows
         this.checkFontAwesomeElements();
     }
+    isFontAwesomeElement(classList) {
+        // Returns true if any of the common Font Awesome classes are present
+        return classList.contains('fa') || classList.contains('fas') || classList.contains('fab') || classList.contains('far');
+    }
 
     checkFontAwesomeElements() {
         // Use more specific selectors to reduce the number of elements to check

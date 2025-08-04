@@ -47,6 +47,7 @@
           "nombre": "ValenVRC",
           "foto": "valenvrc.webp",
           "rol": "Development Lead, BackEnd Developer",
+          "rol_key": "dev_lead_backend",
           "descripcion": "",
           "social": {
             "discord": "",
@@ -60,6 +61,7 @@
           "nombre": "FoxyCTG21",
           "foto": "foxyctg21.webp",
           "rol": "FullStack Developer",
+          "rol_key": "fullstack_dev",
           "social": {
             "discord": "",
             "twitter": "https://x.com/FoxyCTG",
@@ -70,6 +72,7 @@
           "nombre": "PichuJeff",
           "foto": "pichujef.webp",
           "rol": "FullStack Developer",
+          "rol_key": "fullstack_dev",
           "social": {
             "discord": "",
             "twitter": "",
@@ -87,6 +90,7 @@
           "nombre": "FoxyCTG21",
           "foto": "foxyctg21.webp",
           "rol": "Lider de AudioVisuales",
+          "rol_key": "audiovisual_lead",
           "descripcion": "",
           "social": {
             "discord": "",
@@ -100,6 +104,7 @@
           "nombre": "Dantalion",
           "foto": "dantalion.webp",
           "rol": "Editor de Video",
+          "rol_key": "video_editor",
           "social": {
             "discord": "",
             "twitter": "",
@@ -110,6 +115,7 @@
           "nombre": "Lian Ro",
           "foto": "lian.webp",
           "rol": "Fotografa",
+          "rol_key": "photographer",
           "social": {
             "discord": "",
             "twitter": "",
@@ -128,6 +134,7 @@
           "nombre": "JeffryTheKiller",
           "foto": "jeffrythekiller.webp",
           "rol": "Artista 2D",
+          "rol_key": "artist_2d",
           "social": {
             "discord": "",
             "twitter": "",
@@ -138,6 +145,7 @@
           "nombre": "DannyLasagna",
           "foto": "danny-lasagna.webp",
           "rol": "Diseñador Gráfico",
+          "rol_key": "graphic_designer",
           "social": {
             "discord": "",
             "twitter": "",
@@ -155,6 +163,7 @@
           "nombre": "Nantrop",
           "foto": "nantrop.webp",
           "rol": "Lead 3D Artist, Avatar Creator, Asset Creator",
+          "rol_key": "lead_3d_artist",
           "descripcion": "",
           "social": {
             "discord": "",
@@ -168,6 +177,7 @@
           "nombre": "PichuJeff",
           "foto": "pichujef.webp",
           "rol": "Asset Creator",
+          "rol_key": "asset_creator",
           "social": {
             "discord": "",
             "twitter": "",
@@ -178,6 +188,7 @@
           "nombre": "JeffryTheKiller",
           "foto": "jeffrythekiller.webp",
           "rol": "Avatar Creator",
+          "rol_key": "avatar_creator",
           "social": {
             "discord": "",
             "twitter": "",
@@ -188,6 +199,7 @@
           "nombre": "Lexter",
           "foto": "lexter.webp",
           "rol": "Asset Creator",
+          "rol_key": "asset_creator",
           "social": {
             "discord": "",
             "twitter": "",
@@ -205,6 +217,7 @@
           "nombre": "Lian Ro",
           "foto": "lian.webp",
           "rol": "Lead Marketing & Community Manager",
+          "rol_key": "lead_marketing",
           "social": {
             "discord": "",
             "twitter": "",
@@ -215,6 +228,7 @@
           "nombre": "JamirDG",
           "foto": "jamirdg.webp",
           "rol": "Lead Networking Logistics",
+          "rol_key": "lead_networking",
           "social": {
             "discord": "",
             "twitter": "",
@@ -233,6 +247,7 @@
           "nombre": "ValenVRC",
           "foto": "valenvrc.webp",
           "rol": "Lead World Designer",
+          "rol_key": "lead_world_designer",
           "social": {
             "discord": "",
             "twitter": "https://x.com/ValenVRC943",
@@ -243,6 +258,7 @@
           "nombre": "3D Master",
           "foto": "master.webp",
           "rol": "Second World Designer",
+          "rol_key": "second_world_designer",
           "social": {
             "discord": "",
             "twitter": "",
@@ -255,6 +271,7 @@
           "nombre": "DannyLasagna",
           "foto": "danny-lasagna.webp",
           "rol": "3D Modeler",
+          "rol_key": "modeler_3d",
           "social": {
             "discord": "",
             "twitter": "",
@@ -272,6 +289,7 @@
           "nombre": "Zulay",
           "foto": "placeholder.webp",
           "rol": "Lead Host Logistics",
+          "rol_key": "lead_host",
           "social": {
             "discord": "",
             "twitter": "",
@@ -284,6 +302,7 @@
           "nombre": "Dantalion",
           "foto": "dantalion.webp",
           "rol": "Host",
+          "rol_key": "host",
           "social": {
             "discord": "",
             "twitter": "",
@@ -294,6 +313,7 @@
           "nombre": "DannyLasagna",
           "foto": "danny-lasagna.webp",
           "rol": "Host",
+          "rol_key": "host",
           "social": {
             "discord": "",
             "twitter": "",
@@ -304,6 +324,7 @@
           "nombre": "Lexter",
           "foto": "lexter.webp",
           "rol": "Host",
+          "rol_key": "host",
           "social": {
             "discord": "",
             "twitter": "",
@@ -314,6 +335,7 @@
           "nombre": "Ryu Aotsuki",
           "foto": "ryu-aotsuki.webp",
           "rol": "Host",
+          "rol_key": "host",
           "social": {
             "discord": "",
             "twitter": "",
@@ -332,6 +354,7 @@
           "nombre": "DannyLasagna",
           "foto": "danny-lasagna.webp",
           "rol": "DJ",
+          "rol_key": "dj",
           "social": {
             "discord": "",
             "twitter": "",
@@ -342,6 +365,7 @@
           "nombre": "JamirDG",
           "foto": "jamirdg.webp",
           "rol": "DJ",
+          "rol_key": "dj",
           "social": {
             "discord": "",
             "twitter": "",
@@ -360,6 +384,7 @@
           "nombre": "ValenVRC",
           "foto": "valenvrc.webp",
           "rol": "Moderador InGame y Discord",
+          "rol_key": "ingame_moderator",
           "social": {
             "discord": "",
             "twitter": "https://x.com/ValenVRC943",

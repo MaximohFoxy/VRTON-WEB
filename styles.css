@@ -417,7 +417,7 @@ nav ul li a.active:after {
 }
 
 /* Responsive para selector de idioma */
-@media (max-width: 768px) {
+@media (max-width: 992px) {
     .navbar-right {
         gap: 10px;
     }
@@ -2053,7 +2053,7 @@ textarea:focus-visible {
 }
 
 /* Responsive para miembros */
-@media (max-width: 768px) {
+@media (max-width: 992px) {
     .furality-members {
         grid-template-columns: repeat(2, 1fr);
         gap: 12px;
@@ -2154,13 +2154,15 @@ textarea:focus-visible {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 992px) {
     .furality-nav {
         top: var(--header-height-mobile);
         padding: 8px 0;
     }
     
     .furality-departments {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
         gap: 12px;
     }
     
@@ -2317,7 +2319,7 @@ body.loaded section {
 }
 
 /* Responsive Loading Screen */
-@media (max-width: 768px) {
+@media (max-width: 992px) {
     .loading-logo {
         width: 80px;
         height: 80px;
@@ -2387,17 +2389,16 @@ body.loaded section {
 
 .furality-filter-toggle:hover {
     background-color: #c00511;
-    
 }
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
 
-    
+
+
     .furality-filter-toggle {
         display: block;
     }
 
-    
     .furality-departments-wrapper {
         display: none;
         padding: 20px;
@@ -2417,5 +2418,47 @@ body.loaded section {
     .furality-departments {
         flex-direction: column;
         gap: 10px;
+    }
+}
+
+
+/* == Arreglo para Header en Tablets y Pantallas == */
+/* ======================================================= */
+
+.nav {
+    display: flex;
+}
+
+.menu-toggle {
+    display: none;
+}
+
+@media (max-width: 1024px) or (orientation: portrait) {
+    
+    .nav {
+        display: none;
+    }
+
+    body {
+        padding-top: var(--header-height);
+    }
+    
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: var(--header-height);
+        left: 0;
+        width: 100%;
+        background-color: white;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 1rem 0;
+        gap: 1rem;
+        text-align: center;
     }
 }

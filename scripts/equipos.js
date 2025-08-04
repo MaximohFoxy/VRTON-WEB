@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <h2 data-i18n="colaboradores.departments_title">Departamentos</h2>
                 <div class="furality-departments">
                     ${equiposData.equipos.map(equipo => `
-                        <a href="#team-${equipo.id}" class="furality-dept-btn" data-team="${equipo.id}">
+                        <a href="#team-${equipo.id}" class="furality-dept-btn" data-team="${equipo.id}" data-i18n="teams.${equipo.id}.name">
                             <i class="${iconosDepartamentos[equipo.id] || 'fas fa-users'}"></i>
                             ${equipo.nombre}
                         </a>
@@ -197,16 +197,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         section.innerHTML = `
             <h2 class="furality-dept-title" data-i18n="teams.${equipo.id}.name">${equipo.nombre}</h2>
-            
-            <!-- Descripción del departamento -->
+    
             <p class="furality-dept-description" data-i18n="teams.${equipo.id}.description">${equipo.descripcion}</p>
             
-            <!-- Líderes del departamento -->
             <div class="furality-leaders">
                 ${equipo.lideres.map(lider => crearLiderFurality(lider)).join('')}
             </div>
 
-            <!-- Miembros del equipo -->
+            
             <div class="furality-members">
                 ${equipo.miembros.map(miembro => crearMiembroFurality(miembro)).join('')}
             </div>
@@ -218,17 +216,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // Crear líder estilo Furality
     function crearLiderFurality(lider) {
         const iniciales = lider.nombre.split(' ').map(n => n[0]).join('');
+        // Si el líder tiene una 'rol_key', crea el atributo data-i18n.
+        const rolTraducible = lider.rol_key ? `data-i18n="roles.${lider.rol_key}"` : '';
+        
         return `
             <div class="furality-leader">
                 <div class="furality-leader-photo">
                     <img src="assets/colaboradores/${lider.foto}" 
-                         alt="${lider.nombre}"
-                         onload="this.style.opacity='1'"
-                         onerror="handleImageError(this, '${lider.nombre}', true)">
+                        alt="${lider.nombre}"
+                        onload="this.style.opacity='1'"
+                        onerror="handleImageError(this, '${lider.nombre}', true)">
                 </div>
                 <div class="furality-leader-info">
                     <div class="furality-leader-name">${lider.nombre}</div>
-                    <div class="furality-leader-role">${lider.rol}</div>
+                    <div class="furality-leader-role" ${rolTraducible}>${lider.rol}</div>
                 </div>
                 <div class="furality-leader-social">
                     ${generarBotonesSociales(lider.social)}
@@ -240,17 +241,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // Crear miembro estilo Furality
     function crearMiembroFurality(miembro) {
         const iniciales = miembro.nombre.split(' ').map(n => n[0]).join('');
+        const rolTraducible = miembro.rol_key ? `data-i18n="roles.${miembro.rol_key}"` : '';
+
         return `
             <div class="furality-member">
                 <div class="furality-member-photo">
                     <img src="assets/colaboradores/${miembro.foto}" 
-                         alt="${miembro.nombre}"
-                         onload="this.style.opacity='1'"
-                         onerror="handleImageError(this, '${miembro.nombre}', false)">
+                        alt="${miembro.nombre}"
+                        onload="this.style.opacity='1'"
+                        onerror="handleImageError(this, '${miembro.nombre}', false)">
                 </div>
                 <div class="furality-member-info">
                     <div class="furality-member-name">${miembro.nombre}</div>
-                    <div class="furality-member-role">${miembro.rol}</div>
+                    <div class="furality-member-role" ${rolTraducible}>${miembro.rol}</div>
                 </div>
                 <div class="furality-member-social">
                     ${generarBotonesSociales(miembro.social)}
