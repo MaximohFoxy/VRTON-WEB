@@ -44,6 +44,9 @@ document.addEventListener('DOMContentLoaded', () => {
         renderizarEquipos();
         configurarNavegacion();
         
+        if (window.i18n) {
+            window.i18n.updateContent();
+        }
         // Track rendering completion
         if (window.performanceMonitor) {
             window.performanceMonitor.mark('teams-rendered');
@@ -193,10 +196,10 @@ document.addEventListener('DOMContentLoaded', () => {
         section.id = `team-${equipo.id}`;
 
         section.innerHTML = `
-            <h2 class="furality-dept-title">${equipo.nombre}</h2>
+            <h2 class="furality-dept-title" data-i18n="teams.${equipo.id}.name">${equipo.nombre}</h2>
             
             <!-- Descripción del departamento -->
-            <p class="furality-dept-description">${equipo.descripcion}</p>
+            <p class="furality-dept-description" data-i18n="teams.${equipo.id}.description">${equipo.descripcion}</p>
             
             <!-- Líderes del departamento -->
             <div class="furality-leaders">

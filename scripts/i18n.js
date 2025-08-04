@@ -185,7 +185,7 @@ class I18n {
         const metaElements = document.querySelectorAll('[data-i18n-content]');
         metaElements.forEach(element => {
             const key = element.getAttribute('data-i18n-content');
-            const text = this.getTranslatedText(key);
+            const text = this.getText(key);
             if (text) {
                 element.setAttribute('content', text);
             }
@@ -195,7 +195,7 @@ class I18n {
         const titleElements = document.querySelectorAll('title[data-i18n]');
         titleElements.forEach(element => {
             const key = element.getAttribute('data-i18n');
-            const text = this.getTranslatedText(key);
+            const text = this.getText(key);
             if (text) {
                 element.textContent = text;
             }
