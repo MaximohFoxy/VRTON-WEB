@@ -131,16 +131,33 @@ document.addEventListener('DOMContentLoaded', () => {
         navegacionContainer.className = 'furality-nav';
         
         navegacionContainer.innerHTML = `
-            <h2>Departamentos</h2>
-            <div class="furality-departments">
-                ${equiposData.equipos.map(equipo => `
-                    <a href="#team-${equipo.id}" class="furality-dept-btn" data-team="${equipo.id}">
-                        <i class="${iconosDepartamentos[equipo.id] || 'fas fa-users'}"></i>
-                        ${equipo.nombre}
-                    </a>
-                `).join('')}
+            <button id="toggle-filters-btn" class="furality-filter-toggle">
+                <i class="fas fa-filter"></i>
+                <span data-i18n="colaboradores.filter_button">Filtrar Departamentos</span>
+            </button>
+            <div class="furality-departments-wrapper">
+                <h2 data-i18n="colaboradores.departments_title">Departamentos</h2>
+                <div class="furality-departments">
+                    ${equiposData.equipos.map(equipo => `
+                        <a href="#team-${equipo.id}" class="furality-dept-btn" data-team="${equipo.id}">
+                            <i class="${iconosDepartamentos[equipo.id] || 'fas fa-users'}"></i>
+                            ${equipo.nombre}
+                        </a>
+                    `).join('')}
+                </div>
             </div>
         `;
+        //Logica boton filtro departamentos
+        const toggleBtn = document.getElementById('toggle-filters-btn');
+        const departmentsWrapper = navegacionContainer.querySelector('.furality-departments-wrapper');
+
+        // Evento para mostrar/ocultar el menú de filtros en móvil
+        toggleBtn.addEventListener('click', () => {
+            departmentsWrapper.classList.toggle('active');
+            // Actualiza el estado ARIA para accesibilidad
+            const isExpanded = departmentsWrapper.classList.contains('active');
+            toggleBtn.setAttribute('aria-expanded', isExpanded);
+        });
 
         // Agregar eventos de click
         document.querySelectorAll('.furality-dept-btn').forEach(btn => {
@@ -148,6 +165,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 e.preventDefault();
                 const teamId = btn.getAttribute('data-team');
                 scrollToTeam(teamId);
+                // En movil, ocultar el menú después de seleccionar una opción
+                if (window.innerWidth <= 768) {
+                    departmentsWrapper.classList.remove('active');
+                    toggleBtn.setAttribute('aria-expanded', 'false');
+                }
             });
         });
     }
