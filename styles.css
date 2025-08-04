@@ -2389,16 +2389,15 @@ body.loaded section {
 
 .furality-filter-toggle:hover {
     background-color: #c00511;
-
 }
 
 @media (max-width: 992px) {
 
 
+
     .furality-filter-toggle {
         display: block;
     }
-
 
     .furality-departments-wrapper {
         display: none;
@@ -2435,7 +2434,6 @@ body.loaded section {
 }
 
 @media (max-width: 1024px) or (orientation: portrait) {
-
     
     .nav {
         display: none;
