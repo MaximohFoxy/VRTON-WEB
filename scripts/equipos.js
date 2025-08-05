@@ -42,13 +42,14 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.classList.remove('loading');
         document.body.classList.add('loaded');
 
+        renderizarNavegacion();
+        renderizarEquipos();
+        configurarNavegacion();
+        
         if (window.onTeamsReady) {
             window.onTeamsReady();
         }
 
-        renderizarNavegacion();
-        renderizarEquipos();
-        configurarNavegacion();
         
         // Track rendering completion
         if (window.performanceMonitor) {
