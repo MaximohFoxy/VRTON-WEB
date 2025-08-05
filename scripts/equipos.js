@@ -122,6 +122,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 <i class="fab fa-twitter"></i>
             </a>`);
         }
+
+        if (social.telegram && social.telegram.trim() !== '') {
+            redes.push(`<a href="${social.telegram}" class="furality-social-btn" title="Telegram" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-telegram"></i>
+            </a>`);
+        }
+
+        if (social.vrchat && social.vrchat.trim() !== '') {
+            redes.push(`<a href="${social.vrchat}" class="furality-social-btn" title="VRChat" target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-vr-cardboard"></i>
+            </a>`);
+        }
         
         if (social.instagram && social.instagram.trim() !== '') {
             redes.push(`<a href="${social.instagram}" class="furality-social-btn" title="Instagram" target="_blank" rel="noopener noreferrer">

@@ -130,6 +130,7 @@
     },
     "roles": {
       "dev_lead_backend": "Líder de Desarrollo, Desarrollador BackEnd",
+      "dev_lead_fullstack": "Líder de Desarrollo, Desarrollador FullStack",
       "fullstack_dev": "Desarrollador FullStack",
       "audiovisual_lead": "Líder de AudioVisuales",
       "video_editor": "Editor de Vídeo",
@@ -281,6 +282,7 @@
     },
     "roles": {
       "dev_lead_backend": "Development Lead, BackEnd Developer",
+      "dev_lead_fullstack": "Development Lead, FullStack Developer",
       "fullstack_dev": "FullStack Developer",
       "audiovisual_lead": "Audiovisual Lead",
       "video_editor": "Video Editor",
