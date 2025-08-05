@@ -2487,3 +2487,14 @@ body.loaded section {
         font-size: 1.1rem;
     }
 }
+
+/* == Estilos para el Panel de Co-Líderes == */
+.furality-leaders {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+.furality-leaders .furality-leader {
+    width: 100%;
+
+}

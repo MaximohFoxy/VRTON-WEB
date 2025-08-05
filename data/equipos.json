@@ -54,6 +54,18 @@
             "twitter": "https://x.com/ValenVRC943",
             "instagram": "https://www.instagram.com/valenn.vrc/"
           }
+        },
+        {
+          "nombre": "MaximohFoxy",
+          "foto": "maximohfoxy.webp",
+          "rol": "Development Lead, FullStack Developer",
+          "rol_key": "dev_lead_fullstack",
+          "descripcion": "",
+          "social": {
+            "discord": "https://discordapp.com/users/299845802426105857",
+            "telegram": "https://t.me/maximoh",
+            "vrchat": "https://vrchat.com/home/user/usr_adaa2bcd-dcb5-499b-ac7a-fc9ad1412a59"
+          }
         }
       ],
       "miembros": [
