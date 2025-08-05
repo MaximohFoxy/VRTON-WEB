@@ -10,10 +10,10 @@
   "pages": {
     "index": {
       "es": {
-        "title": "VRTon - Realidad Virtual para Causas Sociales | Teletón Chile 2025 | Organización Sin Ánimo de Lucro",
+        "title": "VRTon - Realidad Virtual para Causas Solidarias | Teletón Chile 2025 | Organización Sin Ánimo de Lucro",
         "description": "VRTon - Organización sin ánimo de lucro que utiliza realidad virtual para crear impacto social positivo. Apoyamos la Teletón Chile 2025. Únete a nuestra comunidad VR solidaria.",
-        "keywords": "realidad virtual, VR, organización sin lucro, cambio social, educación inmersiva, terapias VR, tecnología social, impacto positivo, causas sociales, Teletón Chile, VRChat, eventos solidarios, recaudación fondos, discapacidad, rehabilitación, VRTon 2025",
-        "ogTitle": "VRTon - Realidad Virtual para Causas Sociales | Apoyamos Teletón Chile 2025",
+        "keywords": "realidad virtual, VR, organización sin lucro, cambio social, educación inmersiva, terapias VR, tecnología social, impacto positivo, causas solidarias, Teletón Chile, VRChat, eventos solidarios, recaudación fondos, discapacidad, rehabilitación, VRTon 2025",
+        "ogTitle": "VRTon - Realidad Virtual para Causas Solidarias | Apoyamos Teletón Chile 2025",
         "ogDescription": "Organización sin ánimo de lucro que transforma la realidad virtual en cambio social. Únete a VRTon 2025 y ayuda a recaudar fondos para la Teletón Chile a través de eventos inmersivos en VR."
       },
       "en": {
@@ -26,8 +26,8 @@
     },
     "colaboradores": {
       "es": {
-        "title": "Nuestro Equipo Multidisciplinario - Colaboradores VRTon | Profesionales en Realidad Virtual para Causas Sociales",
-        "description": "Conoce al increíble equipo multidisciplinario de VRTon: desarrolladores, diseñadores 2D/3D, audiovisuales, marketing, moderadores y más profesionales comprometidos con la realidad virtual para causas sociales y la Teletón Chile.",
+        "title": "Nuestro Equipo Multidisciplinario - Colaboradores VRTon | Profesionales en Realidad Virtual para Causas Solidarias",
+        "description": "Conoce al increíble equipo multidisciplinario de VRTon: desarrolladores, diseñadores 2D/3D, audiovisuales, marketing, moderadores y más profesionales comprometidos con la realidad virtual para causas solidarias y la Teletón Chile.",
         "keywords": "equipo VRTon, colaboradores VR, profesionales realidad virtual, desarrolladores VR, diseñadores 3D, moderadores VRChat, audiovisuales VR, marketing digital, community managers, Teletón Chile, voluntarios, organizadores eventos VR",
         "ogTitle": "Nuestro Equipo Multidisciplinario - Colaboradores VRTon | Profesionales en Realidad Virtual",
         "ogDescription": "Conoce a los profesionales que hacen posible VRTon: desarrolladores, diseñadores, audiovisuales, marketing y moderadores comprometidos con el cambio social a través de la realidad virtual."
@@ -46,7 +46,7 @@
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "VRTon",
-      "alternateName": "VRTon - Realidad Virtual para Causas Sociales",
+      "alternateName": "VRTon - Realidad Virtual para Causas Solidarias",
       "url": "https://vrton.org",
       "logo": "https://vrton.org/assets/icons/logo.webp",
       "description": "Organización sin ánimo de lucro que utiliza realidad virtual para crear impacto social positivo, apoyando causas como la Teletón Chile",

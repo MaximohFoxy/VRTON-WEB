@@ -2,7 +2,7 @@
 # This enables clean URLs without .html extensions
 
 # Site settings
-title: "VRTon - Realidad Virtual para Causas Sociales"
+title: "VRTon - Realidad Virtual para Causas Solidarias"
 description: "Organización sin ánimo de lucro que utiliza realidad virtual para crear impacto social positivo"
 url: "https://vrton.org"
 baseurl: ""

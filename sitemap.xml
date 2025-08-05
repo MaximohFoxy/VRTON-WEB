@@ -14,12 +14,12 @@
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://vrton.org/assets/icons/icon-512x512.webp</image:loc>
-      <image:caption>Logo de VRTon - Organización de Realidad Virtual para Causas Sociales</image:caption>
+      <image:caption>Logo de VRTon - Organización de Realidad Virtual para Causas Solidarias</image:caption>
       <image:title>VRTon Logo</image:title>
     </image:image>
     <video:video>
       <video:thumbnail_loc>https://vrton.org/assets/icons/icon-512x512.webp</video:thumbnail_loc>
-      <video:title>VRTon - Realidad Virtual para Causas Sociales</video:title>
+      <video:title>VRTon - Realidad Virtual para Causas Solidarias</video:title>
       <video:description>Video promocional de VRTon, organización sin ánimo de lucro</video:description>
       <video:content_loc>https://vrton.org/assets/fondo-optimized.mp4</video:content_loc>
     </video:video>

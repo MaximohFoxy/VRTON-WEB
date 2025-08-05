@@ -103,7 +103,7 @@
 ## 🔍 SEO Keywords Strategy
 
 ### 🎯 **Primary Keywords**
-- "realidad virtual causas sociales"
+- "realidad virtual causas solidarias"
 - "VR organización sin ánimo de lucro"
 - "Teletón Chile 2025"
 - "eventos VR beneficos"
@@ -119,7 +119,7 @@
 ### 🎯 **Long-tail Keywords**
 - "cómo participar en eventos VR solidarios"
 - "realidad virtual para ayudar discapacidad"
-- "organización chilena VR causas sociales"
+- "organización chilena VR causas solidarias"
 - "eventos VRChat para la Teletón"
 
 ## 📈 Performance Metrics to Monitor
