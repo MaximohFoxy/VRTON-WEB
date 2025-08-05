@@ -388,69 +388,71 @@
       },
       "filter_button": "Filtrar Departamentos",
       "departments_title": "Departamentos"
+    },
+
+    "teams": {
+      "direccion": {
+        "name": "Gestão",
+        "description": "Equipe responsável pela tomada de decisões estratégicas, planejamento e supervisão geral das operações do VRTon."
+      },
+      "desarrollo": {
+        "name": "Desenvolvimento",
+        "description": "Responsável pela criação de sites, aplicativos, bots e outras ferramentas usadas pelo VRTon."
+      },
+      "audiovisuales": {
+        "name": "Audiovisuais",
+        "description": "Fotógrafos, videomakers e criadores de conteúdo que dão vida às nossas visões através de efeitos visuais, áudio espacial e produções multimídia."
+      },
+      "diseno": {
+        "name": "Design 2D",
+        "description": "Nossa equipe criativa usa design 2D para criar interfaces, personagens, ambientes e elementos visuais que comunicam efetivamente nossa missão social."
+      },
+      "3d": {
+        "name": "Design 3D",
+        "description": "Nossa equipe criativa usa design 3D para criar modelos, personagens e ambientes que comunicam efetivamente nossa missão social."
+      },
+      "marketing": {
+        "name": "Marketing e Comunicação",
+        "description": "Equipe responsável por divulgar nossa missão, gerir nossas redes sociais e criar estratégias de comunicação que ampliam o impacto de nossos projetos sociais."
+      },
+      "mapmaking": {
+        "name": "Criação de Mapas",
+        "description": "Criadores dos nossos mundos virtuais. Esta equipe é responsável pelo design e construção de mapas e ambientes nas plataformas de realidade virtual, criando experiências imersivas para nossas causas sociais."
+      },
+      "eventos": {
+        "name": "Anfitriões e Atividades",
+        "description": "Arquitetos das nossas experiências virtuais. Esta equipe projeta, organiza e executa eventos, shows e experiências interativas que conectam nossa comunidade."
+      },
+      "dj": {
+        "name": "DJs e Shows",
+        "description": "Artistas que levam música e espetáculo às nossas experiências virtuais. Esta equipe é responsável pela criação de eventos musicais e shows ao vivo que entretêm e conectam a comunidade."
+      },
+      "moderacion": {
+        "name": "Moderação",
+        "description": "Nossa equipe de moderação é responsável por manter um ambiente seguro, inclusivo e respeitoso em todas as nossas plataformas e experiências em realidade virtual. Eles são os guardiões da comunidade."
+      }
+    },
+    "roles": {
+      "dev_lead_backend": "Líder de Desenvolvimento, Desenvolvedor BackEnd",
+      "dev_lead_fullstack": "Líder de Desenvolvimento, Desenvolvedor FullStack",
+      "fullstack_dev": "Desenvolvedor FullStack",
+      "audiovisual_lead": "Líder Audiovisual",
+      "video_editor": "Editor de Vídeo",
+      "photographer": "Fotógrafo",
+      "artist_2d": "Artista 2D",
+      "graphic_designer": "Designer Gráfico",
+      "lead_3d_artist": "Líder Artista 3D, Criador de Avatares, Criador de Recursos",
+      "asset_creator": "Criador de Recursos",
+      "avatar_creator": "Criador de Avatares",
+      "lead_marketing": "Líder de Marketing e Gerente de Comunidade",
+      "lead_networking": "Líder de Logística de Networking",
+      "lead_world_designer": "Líder de Design de Mundo",
+      "second_world_designer": "Segundo Designer de Mundo",
+      "modeler_3d": "Modelador 3D",
+      "lead_host": "Líder de Logística de Anfitriões",
+      "host": "Anfitrião",
+      "dj": "DJ",
+      "ingame_moderator": "Moderador InGame e Discord"
+      }
     }
-  },
-  "teams": {
-    "direccion": {
-      "name": "Gestão",
-      "description": "Equipe responsável pela tomada de decisões estratégicas, planejamento e supervisão geral das operações do VRTon."
-    },
-    "desarrollo": {
-      "name": "Desenvolvimento",
-      "description": "Responsável pela criação de sites, aplicativos, bots e outras ferramentas usadas pelo VRTon."
-    },
-    "audiovisuales": {
-      "name": "Audiovisuais",
-      "description": "Fotógrafos, videomakers e criadores de conteúdo que dão vida às nossas visões através de efeitos visuais, áudio espacial e produções multimídia."
-    },
-    "diseno": {
-      "name": "Design 2D",
-      "description": "Nossa equipe criativa usa design 2D para criar interfaces, personagens, ambientes e elementos visuais que comunicam efetivamente nossa missão social."
-    },
-    "3d": {
-      "name": "Design 3D",
-      "description": "Nossa equipe criativa usa design 3D para criar modelos, personagens e ambientes que comunicam efetivamente nossa missão social."
-    },
-    "marketing": {
-      "name": "Marketing e Comunicação",
-      "description": "Equipe responsável por divulgar nossa missão, gerir nossas redes sociais e criar estratégias de comunicação que ampliam o impacto de nossos projetos sociais."
-    },
-    "mapmaking": {
-      "name": "Criação de Mapas",
-      "description": "Criadores dos nossos mundos virtuais. Esta equipe é responsável pelo design e construção de mapas e ambientes nas plataformas de realidade virtual, criando experiências imersivas para nossas causas sociais."
-    },
-    "eventos": {
-      "name": "Anfitriões e Atividades",
-      "description": "Arquitetos das nossas experiências virtuais. Esta equipe projeta, organiza e executa eventos, shows e experiências interativas que conectam nossa comunidade."
-    },
-    "dj": {
-      "name": "DJs e Shows",
-      "description": "Artistas que levam música e espetáculo às nossas experiências virtuais. Esta equipe é responsável pela criação de eventos musicais e shows ao vivo que entretêm e conectam a comunidade."
-    },
-    "moderacion": {
-      "name": "Moderação",
-      "description": "Nossa equipe de moderação é responsável por manter um ambiente seguro, inclusivo e respeitoso em todas as nossas plataformas e experiências em realidade virtual. Eles são os guardiões da comunidade."
-    }
-  },
-  "roles": {
-    "dev_lead_backend": "Líder de Desenvolvimento, Desenvolvedor BackEnd",
-    "fullstack_dev": "Desenvolvedor FullStack",
-    "audiovisual_lead": "Líder Audiovisual",
-    "video_editor": "Editor de Vídeo",
-    "photographer": "Fotógrafo",
-    "artist_2d": "Artista 2D",
-    "graphic_designer": "Designer Gráfico",
-    "lead_3d_artist": "Líder Artista 3D, Criador de Avatares, Criador de Recursos",
-    "asset_creator": "Criador de Recursos",
-    "avatar_creator": "Criador de Avatares",
-    "lead_marketing": "Líder de Marketing e Gerente de Comunidade",
-    "lead_networking": "Líder de Logística de Networking",
-    "lead_world_designer": "Líder de Design de Mundo",
-    "second_world_designer": "Segundo Designer de Mundo",
-    "modeler_3d": "Modelador 3D",
-    "lead_host": "Líder de Logística de Anfitriões",
-    "host": "Anfitrião",
-    "dj": "DJ",
-    "ingame_moderator": "Moderador InGame e Discord"
-  }
 }
