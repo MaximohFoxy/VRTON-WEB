@@ -179,7 +179,7 @@ class SEOEnhancer {
                     }
                     
                     if (needsAlt) {
-                        element.setAttribute('alt', 'Imagen de VRTon - Realidad Virtual para Causas Sociales');
+                        element.setAttribute('alt', 'Imagen de VRTon - Realidad Virtual para Causas Solidarias');
                     }
                     
                     // Prevent CLS by setting dimensions immediately if possible
