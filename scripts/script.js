@@ -295,6 +295,40 @@ const VRTon = {
     }
 };
 
+// --- Lógica para el Modal "En Construcción" ---
+
+function initializeConstructionModal() {
+    const modal = document.getElementById('construction-modal');
+    if (!modal) return;
+
+    const closeModalBtn = modal.querySelector('.modal-close');
+    const openModalLinks = document.querySelectorAll('a[href="#maintenance"]');
+
+    let modalTimeout;
+    const openModal = (e) => {
+        e.preventDefault();
+        modal.classList.add('visible');
+
+        modalTimeout = setTimeout(() => {
+            closeModal();
+        }, 10000); // 10000 milisegundos = 10 segundos
+    };
+
+    const closeModal = () => {
+        clearTimeout(modalTimeout);
+        modal.classList.remove('visible');
+    };
+
+    openModalLinks.forEach(link => link.addEventListener('click', openModal));
+    closeModalBtn.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+}
+
 // Inicializar cuando el DOM esté listo
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => VRTon.init());

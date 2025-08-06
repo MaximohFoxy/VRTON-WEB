@@ -168,7 +168,9 @@ function initializeHeaderFooterComponents() {
             });
         });
     }
-
+    if (typeof initializeConstructionModal === 'function') {
+        initializeConstructionModal();
+    }
     // Actualizar navegación activa
     const currentPage = window.location.pathname;
     const navLinks = document.querySelectorAll('.nav a');

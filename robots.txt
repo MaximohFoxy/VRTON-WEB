@@ -27,7 +27,7 @@ Allow: /robots.txt
 Allow: /CNAME
 
 # Bloquear archivos no públicos
-Disallow: /maintance.html
+Disallow: /maintenance.html
 Disallow: /*.tmp
 Disallow: /.*
 Disallow: /node_modules/

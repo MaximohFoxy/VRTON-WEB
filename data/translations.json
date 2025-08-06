@@ -155,7 +155,13 @@
       "ingame_moderator": "Moderador InGame y Discord"
     },
     "terms": "Términos del Voluntariado",
-    "rules": "Reglas del Evento"
+    "rules": "Reglas del Evento",
+    "maintenance": {
+    "logo_title": "VRTon",
+    "title": "Página en Construcción",
+    "text1": "Estamos trabajando arduamente para crear una experiencia increíble.",
+    "text2": "¡Gracias por tu paciencia! Regresa pronto para descubrir cómo estamos transformando vidas a través de la tecnología."
+    }
   },
   "en": {
     "loading": {
