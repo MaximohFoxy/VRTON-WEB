@@ -1173,14 +1173,40 @@ footer {
 
 footer .container {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    
+    justify-content: center;
+    
     align-items: center;
-    flex-wrap: wrap;
+    gap: 15px;
+    
 }
 
 footer p {
     margin: 0;
     color: #bdc3c7;
+}
+
+.social-media {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-links a {
+    color: #bdc3c7;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+.footer-links span {
+    color: #555;
 }
 
 /* ========================================
