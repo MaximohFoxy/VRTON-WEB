@@ -171,6 +171,9 @@ function initializeHeaderFooterComponents() {
     if (typeof initializeConstructionModal === 'function') {
         initializeConstructionModal();
     }
+    if (window.i18n && typeof window.i18n.updateContent === 'function') {
+        window.i18n.updateContent();
+    }
     // Actualizar navegación activa
     const currentPage = window.location.pathname;
     const navLinks = document.querySelectorAll('.nav a');
