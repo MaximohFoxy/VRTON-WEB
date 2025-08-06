@@ -75,10 +75,8 @@
       "quickLinks": "Enlaces Rápidos",
       "follow": "Síguenos",
       "copyright": "© 2025 VRTon - Todos los derechos reservados",
-      "placeholder": {
-        "title": "Página en Construcción",
-        "text": "Estamos trabajando en esta sección. ¡Vuelve pronto para más información!"
-      }
+      "terms": "Términos del Voluntariado",
+      "rules": "Reglas del Evento"
     },
     "colaboradores": {
       "title": "Nuestro Equipo",
@@ -154,13 +152,11 @@
       "dj": "DJ",
       "ingame_moderator": "Moderador InGame y Discord"
     },
-    "terms": "Términos del Voluntariado",
-    "rules": "Reglas del Evento",
     "maintenance": {
-    "logo_title": "VRTon",
-    "title": "Página en Construcción",
-    "text1": "Estamos trabajando arduamente para crear una experiencia increíble.",
-    "text2": "¡Gracias por tu paciencia! Regresa pronto para descubrir cómo estamos transformando vidas a través de la tecnología."
+      "logo_title": "VRTon",
+      "title": "Página en Construcción",
+      "text1": "Estamos trabajando arduamente para crear una experiencia increíble.",
+      "text2": "¡Gracias por tu paciencia! Regresa pronto para descubrir cómo estamos transformando vidas a través de la tecnología."
     }
   },
   "en": {
@@ -239,11 +235,8 @@
       "quickLinks": "Quick Links",
       "follow": "Follow us",
       "copyright": "© 2025 VRTon - All rights reserved",
-      "placeholder": {
-        "title": "Page Under Construction",
-        "text": "We are working on this section. Come back soon for more information!"
-      }
-      
+      "terms": "Volunteer Terms",
+      "rules": "Event Rules"
     },
     "colaboradores": {
       "title": "Our Team",
@@ -254,6 +247,12 @@
       },
       "filter_button": "Filter Departments",
       "departments_title": "Departments"
+    },
+    "maintenance": {
+      "logo_title": "VRTon",
+      "title": "Page Under Construction",
+      "text1": "We are working hard to create an amazing experience.",
+      "text2": "Thank you for your patience! Check back soon to discover how we are transforming lives through technology."
     },
     "teams": {
       "direccion": {
@@ -318,9 +317,7 @@
       "host": "Host",
       "dj": "DJ",
       "ingame_moderator": "InGame & Discord Moderator"
-    },
-    "terms": "Volunteering Terms",
-    "rules": "Event Rules"
+    }
   },
   "pt": {
     "loading": {
@@ -397,12 +394,9 @@
       "description": "Transformando a realidade virtual em mudança social. Organização sem fins lucrativos.",
       "quickLinks": "Links Rápidos",
       "follow": "Siga-nos",
-      "placeholder": {
-        "title": "Página em Construção",
-        "text": "Estamos trabalhando nesta seção. Volte em breve para mais informações!"
-      },
-      "copyright": "© 2025 VRTon - Todos os direitos reservados"
-
+      "copyright": "© 2025 VRTon - Todos os direitos reservados",
+      "terms": "Termos do Voluntariado",
+      "rules": "Regras do Evento"
     },
     "colaboradores": {
       "title": "Nossa Equipe",
@@ -414,7 +408,6 @@
       "filter_button": "Filtrar Departamentos",
       "departments_title": "Departamentos"
     },
-
     "teams": {
       "direccion": {
         "name": "Gestão",
@@ -478,8 +471,12 @@
       "host": "Anfitrião",
       "dj": "DJ",
       "ingame_moderator": "Moderador InGame e Discord"
-      },
-      "terms": "Termos do Voluntariado",
-      "rules": "Regras do Evento"
+    },
+    "maintenance": {
+      "logo_title": "VRTon",
+      "title": "Página em Construção",
+      "text1": "Estamos trabalhando arduamente para criar uma experiência incrível.",
+      "text2": "Obrigado pela sua paciência! Volte em breve para descobrir como estamos transformando vidas através da tecnologia."
     }
+  }
 }
