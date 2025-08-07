@@ -1,4 +1,120 @@
 {
+  "colaboradores": {
+    "valenvrc": {
+      "nombre": "ValenVRC",
+      "foto": "valenvrc.webp",
+      "social": {
+        "twitter": "https://x.com/ValenVRC943",
+        "instagram": "https://www.instagram.com/valenn.vrc/"
+      }
+    },
+    "maximohfoxy": {
+      "nombre": "MaximohFoxy",
+      "foto": "maximohfoxy.webp",
+      "social": {
+        "discord": "https://discordapp.com/users/299845802426105857",
+        "telegram": "https://t.me/maximoh",
+        "vrchat": "https://vrchat.com/home/user/usr_adaa2bcd-dcb5-499b-ac7a-fc9ad1412a59"
+      }
+    },
+    "dantalion": {
+      "nombre": "Dantalion",
+      "foto": "dantalion.webp",
+      "social": {}
+    },
+    "3dmaster": {
+      "nombre": "3D Master",
+      "foto": "master.webp",
+      "social": {
+        "instagram": "https://www.instagram.com/3dmasterreal/"
+      }
+    },
+    "foxyctg21": {
+      "nombre": "FoxyCTG21",
+      "foto": "foxyctg21.webp",
+      "social": {
+        "twitter": "https://x.com/FoxyCTG",
+        "instagram": "https://www.instagram.com/foxyctg21"
+      }
+    },
+    "pichujeff": {
+      "nombre": "PichuJeff",
+      "foto": "pichujef.webp",
+      "social": {}
+    },
+    "avadez": {
+      "nombre": "Avadez",
+      "foto": "avadez.webp",
+      "social": {
+        "twitter": "https://x.com/avadez_s",
+        "instagram": "https://instagram.com/avadez_arts_official",
+        "vrchat": "https://vrchat.com/home/user/usr_d82ddde3-e179-4de7-9758-8d62d8fd9f51"
+      }
+    },
+    "lianro": {
+      "nombre": "Lian Ro",
+      "foto": "lian.webp",
+      "social": {
+        "instagram": "https://www.instagram.com/lian.vr/"
+      }
+    },
+    "jeffrythekiller": {
+      "nombre": "JeffryTheKiller",
+      "foto": "jeffrythekiller.webp",
+      "social": {}
+    },
+    "dannylasagna": {
+      "nombre": "DannyLasagna",
+      "foto": "danny-lasagna.webp",
+      "social": {
+        "instagram": "https://www.instagram.com/danny.lasagna/"
+      }
+    },
+    "bonnieck": {
+      "nombre": "BonnieCk",
+      "foto": "bonieck.webp",
+      "social": {
+        "twitter": "https://x.com/BonnieCk?t=T0528AgmHLX-qq7RqkQH0w&s=09",
+        "instagram": "https://www.instagram.com/_bonnieck_?igsh=MWU4OXloMGowcDY3dw=="
+      }
+    },
+    "nantrop": {
+      "nombre": "Nantrop",
+      "foto": "nantrop.webp",
+      "social": {
+        "instagram": "https://www.instagram.com/nantrop_onjy/"
+      }
+    },
+    "lexter": {
+      "nombre": "Lexter",
+      "foto": "lexter.webp",
+      "social": {}
+    },
+    "slime": {
+      "nombre": "slime",
+      "foto": "slime.webp",
+      "social": {}
+    },
+    "jamirdg": {
+      "nombre": "JamirDG",
+      "foto": "jamirdg.webp",
+      "social": {
+        "instagram": "https://www.instagram.com/jamirdg96/"
+      }
+    },
+    "zulay": {
+      "nombre": "Zulay",
+      "foto": "zulay.webp",
+      "social": {
+        "instagram": "https://www.instagram.com/zulay.vr/"
+      }
+    },
+    "ryuaotsuki": {
+      "nombre": "Ryu Aotsuki",
+      "foto": "ryu-aotsuki.webp",
+      "social": {}
+    }
+  },
   "equipos": [
     {
       "id": "direccion",
@@ -6,36 +122,9 @@
       "descripcion": "Equipo encargado de la toma de decisiones estratégicas, planificación y supervisión general de las operaciones de VRTon.",
       "lideres": [],
       "miembros": [
-        {
-          "nombre": "Dantalion",
-          "foto": "dantalion.webp",
-          "rol": "",
-          "social": {
-            "discord": "",
-            "twitter": "",
-            "instagram": ""
-          }
-        },
-        {
-          "nombre": "ValenVRC",
-          "foto": "valenvrc.webp",
-          "rol": "",
-          "social": {
-            "discord": "",
-            "twitter": "https://x.com/ValenVRC943",
-            "instagram": "https://www.instagram.com/valenn.vrc/"
-          }
-        },
-        {
-          "nombre": "3D Master",
-          "foto": "master.webp",
-          "rol": "",
-          "social": {
-            "discord": "",
-            "twitter": "",
-            "instagram": "https://www.instagram.com/3dmasterreal/"
-          }
-        }
+        { "id": "dantalion", "rol": "" },
+        { "id": "valenvrc", "rol": "" },
+        { "id": "3dmaster", "rol": "" }
       ]
     },
     {
@@ -43,66 +132,13 @@
       "nombre": "Desarrollo",
       "descripcion": "Encargados de la creación de webs, aplicaciones bots y demás herramientas utilizadas por VRTon.",
       "lideres": [
-        {
-          "nombre": "ValenVRC",
-          "foto": "valenvrc.webp",
-          "rol": "Development Lead, BackEnd Developer",
-          "rol_key": "dev_lead_backend",
-          "descripcion": "",
-          "social": {
-            "discord": "",
-            "twitter": "https://x.com/ValenVRC943",
-            "instagram": "https://www.instagram.com/valenn.vrc/"
-          }
-        },
-        {
-          "nombre": "MaximohFoxy",
-          "foto": "maximohfoxy.webp",
-          "rol": "Development Lead, FullStack Developer",
-          "rol_key": "dev_lead_fullstack",
-          "descripcion": "",
-          "social": {
-            "discord": "https://discordapp.com/users/299845802426105857",
-            "telegram": "https://t.me/maximoh",
-            "vrchat": "https://vrchat.com/home/user/usr_adaa2bcd-dcb5-499b-ac7a-fc9ad1412a59"
-          }
-        }
+        { "id": "valenvrc", "rol": "Development Lead, BackEnd Developer", "rol_key": "dev_lead_backend" },
+        { "id": "maximohfoxy", "rol": "Development Lead, FullStack Developer", "rol_key": "dev_lead_fullstack" }
       ],
       "miembros": [
-        {
-          "nombre": "FoxyCTG21",
-          "foto": "foxyctg21.webp",
-          "rol": "FullStack Developer",
-          "rol_key": "fullstack_dev",
-          "social": {
-            "discord": "",
-            "twitter": "https://x.com/FoxyCTG",
-            "instagram": "https://www.instagram.com/foxyctg21"
-          }
-        },
-        {
-          "nombre": "PichuJeff",
-          "foto": "pichujef.webp",
-          "rol": "FullStack Developer",
-          "rol_key": "fullstack_dev",
-          "social": {
-            "discord": "",
-            "twitter": "",
-            "instagram": ""
-          }
-        },
-        {
-          "nombre": "Avadez",
-          "foto": "avadez.webp",
-          "rol": "FullStack Developer",
-          "rol_key": "fullstack_dev",
-          "social": {
-            "discord": "",
-            "twitter": "https://x.com/avadez_s",
-            "instagram": "https://instagram.com/avadez_arts_official",
-            "vrchat": "https://vrchat.com/home/user/usr_d82ddde3-e179-4de7-9758-8d62d8fd9f51"
-          }
-        }
+        { "id": "foxyctg21", "rol": "FullStack Developer", "rol_key": "fullstack_dev" },
+        { "id": "pichujeff", "rol": "FullStack Developer", "rol_key": "fullstack_dev" },
+        { "id": "avadez", "rol": "FullStack Developer", "rol_key": "fullstack_dev" }
       ]
     },
     {
@@ -110,42 +146,11 @@
       "nombre": "AudioVisuales",
       "descripcion": "Fotografos, Videografos y creadores de contenido que dan vida a nuestras visiones mediante efectos visuales, audio espacial y producciones multimedia.",
       "lideres": [
-        {
-          "nombre": "FoxyCTG21",
-          "foto": "foxyctg21.webp",
-          "rol": "Lider de AudioVisuales",
-          "rol_key": "audiovisual_lead",
-          "descripcion": "",
-          "social": {
-            "discord": "",
-            "twitter": "https://x.com/FoxyCTG",
-            "instagram": "https://www.instagram.com/foxyctg21"
-          }
-        }
+        { "id": "foxyctg21", "rol": "Lider de AudioVisuales", "rol_key": "audiovisual_lead" }
       ],
       "miembros": [
-        {
-          "nombre": "Dantalion",
-          "foto": "dantalion.webp",
-          "rol": "Editor de Video",
-          "rol_key": "video_editor",
-          "social": {
-            "discord": "",
-            "twitter": "",
-            "instagram": ""
-          }
-        },
-        {
-          "nombre": "Lian Ro",
-          "foto": "lian.webp",
-          "rol": "Fotografa",
-          "rol_key": "photographer",
-          "social": {
-            "discord": "",
-            "twitter": "",
-            "instagram": "https://www.instagram.com/lian.vr/"
-          }
-        }
+        { "id": "dantalion", "rol": "Editor de Video", "rol_key": "video_editor" },
+        { "id": "lianro", "rol": "Fotografa", "rol_key": "photographer" }
       ]
     },
     {
@@ -154,39 +159,9 @@
       "descripcion": "Nuestro equipo creativo utiliza diseño 2D para crear interfaces, personajes, entornos y elementos visuales que comunican efectivamente nuestra misión social.",
       "lideres": [],
       "miembros": [
-        {
-          "nombre": "JeffryTheKiller",
-          "foto": "jeffrythekiller.webp",
-          "rol": "Artista 2D",
-          "rol_key": "artist_2d",
-          "social": {
-            "discord": "",
-            "twitter": "",
-            "instagram": ""
-          }
-        },
-        {
-          "nombre": "DannyLasagna",
-          "foto": "danny-lasagna.webp",
-          "rol": "Diseñador Gráfico",
-          "rol_key": "graphic_designer",
-          "social": {
-            "discord": "",
-            "twitter": "",
-            "instagram": ""
-          }
-        },
-        {
-          "nombre": "BonnieCk",
-          "foto": "bonieck.webp",
-          "rol": "Diseñador Gráfico",
-          "rol_key": "graphic_designer",
-          "social": {
-            "discord": "",
-            "twitter": "https://x.com/BonnieCk?t=T0528AgmHLX-qq7RqkQH0w&s=09",
-            "instagram": "https://www.instagram.com/_bonnieck_?igsh=MWU4OXloMGowcDY3dw=="
-          }
-        }
+        { "id": "jeffrythekiller", "rol": "Artista 2D", "rol_key": "artist_2d" },
+        { "id": "dannylasagna", "rol": "Diseñador Gráfico", "rol_key": "graphic_designer" },
+        { "id": "bonnieck", "rol": "Diseñador Gráfico", "rol_key": "graphic_designer" }
       ]
     },
     {
@@ -194,64 +169,13 @@
       "nombre": "Diseño 3D",
       "descripcion": "Nuestro equipo creativo utiliza diseño 3D para crear modelos, personajes y entornos que comunican efectivamente nuestra misión social.",
       "lideres": [
-        {
-          "nombre": "Nantrop",
-          "foto": "nantrop.webp",
-          "rol": "Lead 3D Artist, Avatar Creator, Asset Creator",
-          "rol_key": "lead_3d_artist",
-          "descripcion": "",
-          "social": {
-            "discord": "",
-            "twitter": "",
-            "instagram": "https://www.instagram.com/nantrop_onjy/"
-          }
-        }
+        { "id": "nantrop", "rol": "Lead 3D Artist, Avatar Creator, Asset Creator", "rol_key": "lead_3d_artist" }
       ],
       "miembros": [
-        {
-          "nombre": "PichuJeff",
-          "foto": "pichujef.webp",
-          "rol": "Asset Creator",
-          "rol_key": "asset_creator",
-          "social": {
-            "discord": "",
-            "twitter": "",
-            "instagram": ""
-          }
-        },
-        {
-          "nombre": "JeffryTheKiller",
-          "foto": "jeffrythekiller.webp",
-          "rol": "Avatar Creator",
-          "rol_key": "avatar_creator",
-          "social": {
-            "discord": "",
-            "twitter": "",
-            "instagram": ""
-          }
-        },
-        {
-          "nombre": "Lexter",
-          "foto": "lexter.webp",
-          "rol": "Asset Creator",
-          "rol_key": "asset_creator",
-          "social": {
-            "discord": "",
-            "twitter": "",
-            "instagram": ""
-          }
-        },
-        {
-          "nombre": "slime",
-          "foto": "slime.webp",
-          "rol": "Asset Creator",
-          "rol_key": "asset_creator",
-          "social": {
-            "discord": "",
-            "twitter": "",
-            "instagram": ""
-          }
-        }
+        { "id": "pichujeff", "rol": "Asset Creator", "rol_key": "asset_creator" },
+        { "id": "jeffrythekiller", "rol": "Avatar Creator", "rol_key": "avatar_creator" },
+        { "id": "lexter", "rol": "Asset Creator", "rol_key": "asset_creator" },
+        { "id": "slime", "rol": "Asset Creator", "rol_key": "asset_creator" }
       ]
     },
     {
@@ -259,42 +183,11 @@
       "nombre": "Marketing y Comunicación",
       "descripcion": "El equipo encargado de difundir nuestra misión, gestionar nuestras redes sociales y crear estrategias de comunicación que amplíen el impacto de nuestros proyectos sociales.",
       "lideres": [
-        {
-          "nombre": "Lian Ro",
-          "foto": "lian.webp",
-          "rol": "Lead Marketing & Community Manager",
-          "rol_key": "lead_marketing",
-          "social": {
-            "discord": "",
-            "twitter": "",
-            "instagram": "https://www.instagram.com/lian.vr/"
-          }
-        },
-        {
-          "nombre": "JamirDG",
-          "foto": "jamirdg.webp",
-          "rol": "Lead Networking Logistics",
-          "rol_key": "lead_networking",
-          "social": {
-            "discord": "",
-            "twitter": "",
-            "instagram": "https://www.instagram.com/jamirdg96/"
-          }
-        }
+        { "id": "lianro", "rol": "Lead Marketing & Community Manager", "rol_key": "lead_marketing" },
+        { "id": "jamirdg", "rol": "Lead Networking Logistics", "rol_key": "lead_networking" }
       ],
       "miembros": [
-        {
-          "nombre": "Avadez",
-          "foto": "avadez.webp",
-          "rol": "Marketing & Assistant",
-          "rol_key": "marketing",
-          "social": {
-            "discord": "",
-            "twitter": "https://x.com/avadez_s",
-            "instagram": "https://instagram.com/avadez_arts_official",
-            "vrchat": "https://vrchat.com/home/user/usr_d82ddde3-e179-4de7-9758-8d62d8fd9f51"
-          }
-        }
+        { "id": "avadez", "rol": "Marketing & Assistant", "rol_key": "marketing" }
       ]
     },
     {
@@ -302,41 +195,11 @@
       "nombre": "Map Making",
       "descripcion": "Los creadores de nuestros mundos virtuales. Este equipo se encarga de diseñar y construir mapas y entornos en plataformas VR, creando experiencias inmersivas para nuestras causas sociales.",
       "lideres": [
-        {
-          "nombre": "ValenVRC",
-          "foto": "valenvrc.webp",
-          "rol": "Lead World Designer",
-          "rol_key": "lead_world_designer",
-          "social": {
-            "discord": "",
-            "twitter": "https://x.com/ValenVRC943",
-            "instagram": "https://www.instagram.com/valenn.vrc/"
-          }
-        },
-        {
-          "nombre": "3D Master",
-          "foto": "master.webp",
-          "rol": "Second World Designer",
-          "rol_key": "second_world_designer",
-          "social": {
-            "discord": "",
-            "twitter": "",
-            "instagram": "https://www.instagram.com/3dmasterreal/"
-          }
-        }
+        { "id": "valenvrc", "rol": "Lead World Designer", "rol_key": "lead_world_designer" },
+        { "id": "3dmaster", "rol": "Second World Designer", "rol_key": "second_world_designer" }
       ],
       "miembros": [
-        {
-          "nombre": "DannyLasagna",
-          "foto": "danny-lasagna.webp",
-          "rol": "3D Modeler",
-          "rol_key": "modeler_3d",
-          "social": {
-            "discord": "",
-            "twitter": "",
-            "instagram": "https://www.instagram.com/danny.lasagna/"
-          }
-        }
+        { "id": "dannylasagna", "rol": "3D Modeler", "rol_key": "modeler_3d" }
       ]
     },
     {
@@ -344,63 +207,13 @@
       "nombre": "Host y Actividades",
       "descripcion": "Los arquitectos de nuestras experiencias virtuales. Este equipo diseña, organiza y ejecuta eventos, shows y experiencias interactivas que conectan a nuestra comunidad.",
       "lideres": [
-        {
-          "nombre": "Zulay",
-          "foto": "zulay.webp",
-          "rol": "Lead Host Logistics",
-          "rol_key": "lead_host",
-          "social": {
-            "discord": "",
-            "twitter": "",
-            "instagram": "https://www.instagram.com/zulay.vr/"
-          }
-        }
+        { "id": "zulay", "rol": "Lead Host Logistics", "rol_key": "lead_host" }
       ],
       "miembros": [
-        {
-          "nombre": "Dantalion",
-          "foto": "dantalion.webp",
-          "rol": "Host",
-          "rol_key": "host",
-          "social": {
-            "discord": "",
-            "twitter": "",
-            "instagram": ""
-          }
-        },
-        {
-          "nombre": "DannyLasagna",
-          "foto": "danny-lasagna.webp",
-          "rol": "Host",
-          "rol_key": "host",
-          "social": {
-            "discord": "",
-            "twitter": "",
-            "instagram": "https://www.instagram.com/danny.lasagna/"
-          }
-        },
-        {
-          "nombre": "Lexter",
-          "foto": "lexter.webp",
-          "rol": "Host",
-          "rol_key": "host",
-          "social": {
-            "discord": "",
-            "twitter": "",
-            "instagram": ""
-          }
-        },
-        {
-          "nombre": "Ryu Aotsuki",
-          "foto": "ryu-aotsuki.webp",
-          "rol": "Host",
-          "rol_key": "host",
-          "social": {
-            "discord": "",
-            "twitter": "",
-            "instagram": ""
-          }
-        }
+        { "id": "dantalion", "rol": "Host", "rol_key": "host" },
+        { "id": "dannylasagna", "rol": "Host", "rol_key": "host" },
+        { "id": "lexter", "rol": "Host", "rol_key": "host" },
+        { "id": "ryuaotsuki", "rol": "Host", "rol_key": "host" }
       ]
     },
     {
@@ -409,28 +222,8 @@
       "descripcion": "Los artistas que traen la música y el espectáculo a nuestras experiencias virtuales. Este equipo se encarga de crear eventos musicales y shows en vivo que entretienen y conectan a nuestra comunidad.",
       "lideres": [],
       "miembros": [
-        {
-          "nombre": "DannyLasagna",
-          "foto": "danny-lasagna.webp",
-          "rol": "DJ",
-          "rol_key": "dj",
-          "social": {
-            "discord": "",
-            "twitter": "",
-            "instagram": "https://www.instagram.com/danny.lasagna/"
-          }
-        },
-        {
-          "nombre": "JamirDG",
-          "foto": "jamirdg.webp",
-          "rol": "DJ",
-          "rol_key": "dj",
-          "social": {
-            "discord": "",
-            "twitter": "",
-            "instagram": "https://www.instagram.com/jamirdg96/"
-          }
-        }
+        { "id": "dannylasagna", "rol": "DJ", "rol_key": "dj" },
+        { "id": "jamirdg", "rol": "DJ", "rol_key": "dj" }
       ]
     },
     {
@@ -439,17 +232,7 @@
       "descripcion": "Nuestro equipo de moderación se encarga de mantener un ambiente seguro, inclusivo y respetuoso en todas nuestras plataformas y experiencias VR. Son los guardianes de nuestra comunidad.",
       "lideres": [],
       "miembros": [
-        {
-          "nombre": "ValenVRC",
-          "foto": "valenvrc.webp",
-          "rol": "Moderador InGame y Discord",
-          "rol_key": "ingame_moderator",
-          "social": {
-            "discord": "",
-            "twitter": "https://x.com/ValenVRC943",
-            "instagram": "https://www.instagram.com/valenn.vrc/"
-          }
-        }
+        { "id": "valenvrc", "rol": "Moderador InGame y Discord", "rol_key": "ingame_moderator" }
       ]
     }
   ]
