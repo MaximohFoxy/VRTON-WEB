@@ -1729,6 +1729,8 @@ button:focus-visible {
 .furality-member-social {
     display: flex;
     gap: 6px;
+    position: relative;
+    z-index: 2;
     justify-content: center;
 }
 
