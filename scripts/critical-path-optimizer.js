@@ -67,17 +67,16 @@ class CriticalPathOptimizer {
             ],
             // Preload critical assets
             preload: [
-                { href: 'assets/icons/logo.webp', as: 'image', type: 'image/webp', fetchpriority: 'high' },
+                { href: '/assets/icons/logo.webp', as: 'image', type: 'image/webp', fetchpriority: 'high' },
                 { href: 'https://flagcdn.com/w20/es.png', as: 'image', type: 'image/png' },
                 { href: 'https://flagcdn.com/w20/us.png', as: 'image', type: 'image/png' },
-                { href: 'styles.min.css', as: 'style' },
-                { href: 'scripts/loading.js', as: 'script' }
+                { href: '/styles.min.css', as: 'style' },
+                { href: '/scripts/loading.js', as: 'script' }
             ],
             // Prefetch non-critical but important assets
             prefetch: [
                 // Video prefetch removed - handled by video-optimizer.js for smart loading
-                { href: 'scripts/components.js', as: 'script' },
-                { href: 'scripts/i18n.js', as: 'script' }
+                { href: '/scripts/i18n.js', as: 'script' }
             ]
         };
 

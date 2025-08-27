@@ -33,7 +33,7 @@
       "seconds": "Segundos"
     },
     "causa": {
-      "title": "¿Qué es VRTon?",
+      "title": "Sobre nosotros",
       "description1": "VRTon es una iniciativa colaborativa que reúne a personas y comunidades apasionadas por la realidad virtual para transformar la manera en que ayudamos a los demás. Nuestro objetivo es crear experiencias inmersivas que eduquen, inspiren y despierten empatía, conectando corazones a través de la tecnología.",
       "description2": "Además de desarrollar estas vivencias, organizamos eventos y actividades solidarias que buscan recaudar fondos y generar un impacto real en diversas causas benéficas, llevando la innovación al servicio de quienes más lo necesitan.",
       "projects": []
@@ -157,6 +157,10 @@
       "title": "Página en Construcción",
       "text1": "Estamos trabajando arduamente para crear una experiencia increíble.",
       "text2": "¡Gracias por tu paciencia! Regresa pronto para descubrir cómo estamos transformando vidas a través de la tecnología."
+    },
+    "links": {
+      "title": "VRTon",
+      "description": "Serie de actividades y eventos para recaudar fondos en apoyo a la Teletón Chile.<br>¡Accede a nuestros enlaces oficiales!"
     }
   },
   "en": {
@@ -193,7 +197,7 @@
       "seconds": "Seconds"
     },
     "causa": {
-      "title": "What is VRTon",
+      "title": "About us",
       "description1": "At VRTon, we believe that virtual reality technology has the potential to transform the way we address social challenges. We work to develop immersive experiences that educate, inspire, and generate empathy.",
       "description2": "",
       "projects": []
@@ -253,6 +257,10 @@
       "title": "Page Under Construction",
       "text1": "We are working hard to create an amazing experience.",
       "text2": "Thank you for your patience! Check back soon to discover how we are transforming lives through technology."
+    },
+    "links": {
+      "title": "VRTon",
+      "description": "Series of activities and events to raise funds in support of Teletón Chile.<br>Access our official links!"
     },
     "teams": {
       "direccion": {
@@ -353,7 +361,7 @@
       "seconds": "Segundos"
     },
     "causa": {
-      "title": "O que é o VRTon",
+      "title": "Nossa Causa",
       "description1": "No VRTon, acreditamos que a tecnologia de realidade virtual tem o potencial de transformar a forma como enfrentamos os desafios sociais. Trabalhamos para desenvolver experiências imersivas que educam, inspiram e geram empatia.",
       "description2": "",
       "projects": []
@@ -477,6 +485,10 @@
       "title": "Página em Construção",
       "text1": "Estamos trabalhando arduamente para criar uma experiência incrível.",
       "text2": "Obrigado pela sua paciência! Volte em breve para descobrir como estamos transformando vidas através da tecnologia."
+    },
+    "links": {
+      "title": "VRTon",
+      "description": "Série de atividades e eventos para arrecadar fundos em apoio ao Teletão Chile.<br>Acesse nossos links oficiais!"
     }
   }
 }

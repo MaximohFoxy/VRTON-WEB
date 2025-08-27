@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 window.performanceMonitor.mark('teams-data-start');
             }
             
-            const response = await fetch('data/equipos.json');
+            const response = await fetch('/data/equipos.json');
             if (!response.ok) {
                 throw new Error('No se pudo cargar el archivo de equipos');
             }
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Función para manejar errores de imágenes con placeholder local
     function handleImageError(img, nombre, isLeader = false) {
         if (!img.src.includes('placeholder.webp')) {
-            img.src = 'assets/colaboradores/placeholder.webp';
+            img.src = '/assets/colaboradores/placeholder.webp';
             img.onerror = function() {
                 const iniciales = nombre.split(' ').map(n => n[0]).join('');
                 const color = isLeader ? '#e30613' : '#fd5c63';
@@ -157,7 +157,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const teamSection = crearSeccionEquipo(equipo);
             container.appendChild(teamSection);
         });
-        if (window.i18n) {
+        if (window.i18n && typeof window.i18n.forceUpdateContent === 'function') {
+            // Forzar actualización ya que se generaron nuevos elementos dinámicamente
+            window.i18n.forceUpdateContent();
+        } else if (window.i18n && typeof window.i18n.updateContent === 'function') {
+            // Fallback para compatibilidad
             window.i18n.updateContent();
         }
     }
@@ -201,7 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return `
             <div class="${cardClass}">
                 <div class="${photoClass}">
-                    <img src="assets/colaboradores/${personaData.foto}" 
+                    <img src="/assets/colaboradores/${personaData.foto}" 
                          alt="${personaData.nombre}"
                          onload="this.style.opacity='1'"
                          onerror="handleImageError(this, '${personaData.nombre}', ${isLeader})">
