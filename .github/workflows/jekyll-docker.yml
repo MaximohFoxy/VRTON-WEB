@@ -2,14 +2,19 @@ name: Jekyll site CI
 
 on:
   push:
-    branches: [ "Translation-rework" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "Translation-rework" ]
+    branches: [ "main" ]
 
 jobs:
   build:
 
     runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
 
     steps:
     - uses: actions/checkout@v4
@@ -18,3 +23,10 @@ jobs:
         docker run \
         -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
         jekyll/builder:latest /bin/bash -c "chmod -R 777 /srv/jekyll && jekyll build --future"
+    - name: Deploy to production branch
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: _site
+        publish_branch: production
+        force_orphan: true
