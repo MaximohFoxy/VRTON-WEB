@@ -1,0 +1,105 @@
+{
+  "title": "Itinerario del Evento",
+  "description": "Consulta el programa completo de actividades de VRTon. Descubre talleres, demostraciones de realidad virtual, charlas técnicas y eventos especiales para la Teletón Chile.",
+  "current_time": "Hora actual",
+  "main_activity": "Actividad Principal",
+  "second_activity": "Actividad Secundaria", 
+  "time": "Hora",
+  "section": "Sección",
+  "no_activities": "Sin actividades programadas",
+  "special_event": "Evento Especial",
+  "duration": "Duración: {{minutes}} minutos",
+  "sections": {
+    "day1": "Día 1 - Jueves 28 de Noviembre",
+    "day2": "Día 2 - Viernes 29 de Noviembre",
+    "opening": "Apertura",
+    "djs": "DJs",
+    "spain": "España",
+    "latam": "Latam",
+    "closing": "Cierre",
+    "after": "After"
+  },
+  "activities": {
+    "opening": {
+      "name": "Ceremonia de Apertura",
+      "description": "Bienvenida oficial al evento VRTon con presentaciones de los organizadores y visión general del programa."
+    },
+    "conteo1": {
+      "name": "Conteo 1",
+      "description": "Primera sesión de conteo de fondos recaudados durante el evento."
+    },
+    "djset1": {
+      "name": "DJ Set 1",
+      "description": "Sesión musical con DJ para mantener el ambiente festivo durante la madrugada."
+    },
+    "djset2": {
+      "name": "DJ Set 2", 
+      "description": "Segunda sesión musical con DJ para acompañar a los participantes nocturnos."
+    },
+    "djset3": {
+      "name": "DJ Set 3",
+      "description": "Tercera sesión musical para mantener la energía durante las primeras horas del día."
+    },
+    "djset4": {
+      "name": "DJ Set 4",
+      "description": "Cuarta sesión musical para acompañar el despertar de los participantes."
+    },
+    "conteo2": {
+      "name": "Conteo 2",
+      "description": "Segunda sesión de conteo de fondos recaudados durante la noche."
+    },
+    "conteo3": {
+      "name": "Conteo 3",
+      "description": "Tercera sesión de conteo de fondos, actualización del mediodía."
+    },
+    "games1": {
+      "name": "Juegos Comunitarios 1",
+      "description": "Primera sesión de juegos y actividades interactivas con la comunidad."
+    },
+    "workshop1": {
+      "name": "Taller de Desarrollo VR",
+      "description": "Aprende los fundamentos del desarrollo en realidad virtual con Unity y herramientas profesionales."
+    },
+    "games2": {
+      "name": "Juegos Comunitarios 2",
+      "description": "Segunda sesión de juegos y competencias divertidas entre participantes."
+    },
+    "games3": {
+      "name": "Juegos Comunitarios 3",
+      "description": "Tercera sesión de juegos grupales y actividades de participación."
+    },
+    "games4": {
+      "name": "Juegos Comunitarios 4",
+      "description": "Cuarta y última sesión de juegos antes del conteo final."
+    },
+    "conteo4": {
+      "name": "Conteo 4",
+      "description": "Cuarto conteo de fondos, preparación para la recta final."
+    },
+    "shows1": {
+      "name": "Espectáculos 1",
+      "description": "Primera sesión de espectáculos y presentaciones artísticas de la comunidad."
+    },
+    "conteo5": {
+      "name": "Conteo 5",
+      "description": "Quinto conteo de fondos, penúltima actualización antes del cierre."
+    },
+    "shows2": {
+      "name": "Espectáculos Finales",
+      "description": "Espectáculos especiales de cierre con las mejores presentaciones del evento."
+    },
+    "closing_ceremony": {
+      "name": "Ceremonia de Clausura",
+      "description": "Cierre oficial del evento con agradecimientos, resultados finales de recaudación y próximos pasos."
+    },
+    "maid_cafe": {
+      "name": "Maid Café",
+      "description": "Experiencia temática de café con servicio estilo maid para relajarse durante el evento."
+    },
+    "charity_stream": {
+      "name": "Stream Benéfico",
+      "description": "Transmisión en vivo especial con actividades y donaciones para la Teletón Chile."
+    }
+  },
+  "loading": "Cargando itinerario..."
+}

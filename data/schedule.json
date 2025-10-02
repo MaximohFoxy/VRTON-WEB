@@ -1,0 +1,195 @@
+{
+  "schedule": {
+    "event_start": "2025-11-28T22:00:00-03:00",
+    "event_end": "2025-11-30T00:00:00-03:00",
+    "timezone": "America/Santiago",
+    "sections": [
+      {
+        "id": "1",
+        "name_key": "schedule.sections.opening",
+        "start_datetime": "2025-11-28T22:00:00-03:00",
+        "end_datetime": "2025-11-29T01:59:59-03:00",
+        "background_color": "#aa0000"
+      },
+      {
+        "id": "2",
+        "name_key": "schedule.sections.djs",
+        "start_datetime": "2025-11-29T02:00:00-03:00",
+        "end_datetime": "2025-11-29T06:59:59-03:00",
+        "background_color": "#0000aa"
+      },
+      {
+        "id": "3",
+        "name_key": "schedule.sections.spain",
+        "start_datetime": "2025-11-29T07:00:00-03:00",
+        "end_datetime": "2025-11-29T12:59:59-03:00",
+        "background_color": "#aaaa00"
+      },
+      {
+        "id": "4",
+        "name_key": "schedule.sections.latam",
+        "start_datetime": "2025-11-29T13:00:00-03:00",
+        "end_datetime": "2025-11-29T22:59:59-03:00",
+        "background_color": "#00aa00"
+      },
+      {
+        "id": "5", 
+        "name_key": "schedule.sections.closing",
+        "start_datetime": "2025-11-29T23:00:00-03:00",
+        "end_datetime": "2025-11-29T23:59:59-03:00",
+        "background_color": "#aa0000"
+      },
+      {
+        "id": "6",
+        "name_key": "schedule.sections.after",
+        "start_datetime": "2025-11-30T00:00:00-03:00",
+        "end_datetime": "2025-11-30T05:59:59-03:00",
+        "background_color": "#0000aa"
+      }
+    ],
+    "main_activities": [
+      {
+        "id": "opening",
+        "time": "22:00",
+        "date": "2025-11-28",
+        "duration": 60,
+        "is_special": true
+      },
+      {
+        "id": "conteo1",
+        "time": "01:00",
+        "date": "2025-11-29",
+        "duration": 60,
+        "is_special": false
+      },
+      {
+        "id": "djset1",
+        "time": "02:00",
+        "date": "2025-11-29",
+        "duration": 120,
+        "is_special": false
+      },
+      {
+        "id": "djset2",
+        "time": "04:00",
+        "date": "2025-11-29",
+        "duration": 60,
+        "is_special": false
+      },
+      {
+        "id": "djset3",
+        "time": "05:00",
+        "date": "2025-11-29",
+        "duration": 60,
+        "is_special": false
+      },
+      {
+        "id": "djset4",
+        "time": "06:00",
+        "date": "2025-11-29",
+        "duration": 60,
+        "is_special": false
+      },
+      {
+        "id": "conteo2",
+        "time": "07:00",
+        "date": "2025-11-29",
+        "duration": 60,
+        "is_special": false
+      },
+      {
+        "id": "conteo3",
+        "time": "13:00",
+        "date": "2025-11-29",
+        "duration": 60,
+        "is_special": false
+      },
+      {
+        "id": "games1",
+        "time": "14:00",
+        "date": "2025-11-29",
+        "duration": 60,
+        "is_special": false
+      },
+      {
+        "id": "workshop1",
+        "time": "15:00",
+        "date": "2025-11-29",
+        "duration": 60,
+        "is_special": false
+      },
+      {
+        "id": "games2",
+        "time": "16:00",
+        "date": "2025-11-29",
+        "duration": 60,
+        "is_special": false
+      },
+      {
+        "id": "games3",
+        "time": "17:00",
+        "date": "2025-11-29",
+        "duration": 60,
+        "is_special": false
+      },
+      {
+        "id": "games4",
+        "time": "18:00",
+        "date": "2025-11-29",
+        "duration": 30,
+        "is_special": false
+      },
+      {
+        "id": "conteo4",
+        "time": "18:30",
+        "date": "2025-11-29",
+        "duration": 30,
+        "is_special": false
+      },
+      {
+        "id": "shows1",
+        "time": "19:00",
+        "date": "2025-11-29",
+        "duration": 60,
+        "is_special": false
+      },
+      {
+        "id": "conteo5",
+        "time": "21:00",
+        "date": "2025-11-29",
+        "duration": 60,
+        "is_special": false
+      },
+      {
+        "id": "shows2",
+        "time": "22:00",
+        "date": "2025-11-29",
+        "duration": 60,
+        "is_special": true
+      },
+      {
+        "id": "closing_ceremony",
+        "time": "23:00",
+        "date": "2025-11-29",
+        "duration": 60,
+        "is_special": true
+      }
+    ],
+    "secondary_activities": [
+      {
+        "id": "maid_cafe",
+        "time": "16:00",
+        "date": "2025-11-29",
+        "duration": 120,
+        "is_special": false
+      },
+      {
+        "id": "charity_stream",
+        "time": "19:00",
+        "date": "2025-11-29",
+        "duration": 180,
+        "is_special": false
+      }
+    ]
+  }
+}
