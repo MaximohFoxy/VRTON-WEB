@@ -21,6 +21,9 @@ plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
 
+# Custom plugins directory
+plugins_dir: _plugins
+
 # Exclude files from processing
 exclude:
   - README.md
@@ -32,6 +35,7 @@ exclude:
   - package.json
   - package-lock.json
   - "*.ps1"
+  - data/vpm-listing.json
 
 # Include files
 include:
