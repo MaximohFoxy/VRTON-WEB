@@ -4063,7 +4063,7 @@ body.loaded section {
     position: relative;
 }
 
-.section-title {
+.section-header .section-title {
     font-size: 2rem;
     margin-bottom: 10px;
     font-weight: 700;
