@@ -492,20 +492,7 @@ const additionalStyles = `
         transform: translateY(-2px);
     }
 
-    .special-badge {
-        background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-        color: white;
-        padding: 4px 8px;
-        border-radius: 12px;
-        font-size: 0.75rem;
-        font-weight: bold;
-        margin-top: 8px;
-        display: inline-block;
-    }
 
-    .special-badge i {
-        margin-right: 4px;
-    }
 `;
 
 // Inject additional styles

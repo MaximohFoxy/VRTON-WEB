@@ -225,18 +225,16 @@ translation_modules: ["common", "pages/schedule"]
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
+.activity-card:hover .special-badge {
+    transform: none;
+}
+
 .activity-card.special {
     border-left-color: var(--primary-color);
     background: linear-gradient(135deg, rgba(227, 6, 19, 0.05), var(--card-background));
 }
 
-.activity-card.special::before {
-    content: '⭐';
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 1.2rem;
-}
+
 
 .activity-card h4 {
     margin: 0 0 10px 0;
@@ -343,6 +341,24 @@ translation_modules: ["common", "pages/schedule"]
 .activity-card.special {
     border-left-color: var(--primary-color);
     background: linear-gradient(135deg, rgba(227, 6, 19, 0.05), var(--card-background));
+    position: relative;
+}
+
+.special-badge {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: white;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin-top: 8px;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+}
+
+.special-badge i {
+    margin-right: 4px;
 }
 
 /* Ensure proper spacing for long activities */
