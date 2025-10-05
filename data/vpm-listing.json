@@ -21,7 +21,7 @@
             "url": "https://vrton.org/"
           },
           "hideInEditor": false,
-          "zipSHA256": "235f08b04c19fa547fb72946adda7de31dead212e293d2128d1032219729b604",
+          "zipSHA256": "cb931f95e61f623131c54f367f4a5c634cf2ff2f4eb1e661e79de0beef128c30",
           "url": "https://github.com/VRTon/ASSETS2025/releases/download/2.0.1/ASSETS2025.zip"
         },
         "2.0.2": {
@@ -39,7 +39,7 @@
             "url": "https://vrton.org/"
           },
           "hideInEditor": false,
-          "zipSHA256": "d22826a781be5ee65424ba2fbd45e4c24f8a5b4f44e5585066242e01362022b7",
+          "zipSHA256": "6c0f6387e56d5115899e335d71fb27efae577a7b2ee8fabc53ff78ab67615b6b",
           "url": "https://github.com/VRTon/ASSETS2025/releases/download/2.0.2/org.vrton.assets2025.zip"
         }
       }
