@@ -7,30 +7,126 @@ image: "/assets/icons/icon-512x512.webp"
 translation_modules: ["common", "pages/colaboradores", "components/teams"]
 ---
 
-<!-- Hero Section -->
-<section class="vrton-hero">
+<div class="colaboradores-page">
     <div class="container">
-        <h1 data-i18n="colaboradores.title">Nuestro Equipo</h1>
-        <p data-i18n="colaboradores.description">
-            Conoce a las personas que hacen posible VRTon. Un equipo multidisciplinario de profesionales voluntarios comprometidos con transformar la realidad virtual en una herramienta de mejore la calidad de vida de muchos.
-        </p>
-    </div>
-</section>
 
-<!-- Navegación de Equipos -->
-<nav class="vrton-nav" id="team-navigation">
-    <!-- El contenido se genera dinámicamente -->
-</nav>
-
-<!-- Contenedor de Equipos -->
-<main class="vrton-container" id="teams-container">
-    <!-- Las secciones de equipos se generan dinámicamente -->
-    <div style="text-align: center; padding: 60px 20px;">
-        <div style="display: inline-block; padding: 20px;">
-            <i class="fas fa-spinner fa-spin" style="font-size: 2rem; color: var(--primary-color); margin-bottom: 20px;"></i>
-            <p style="color: var(--text-color); font-size: 1.1rem;" data-i18n="loading.teams">Cargando información del equipo...</p>
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1 class="page-title" data-i18n="colaboradores.title">Nuestro Equipo</h1>
+            <p class="page-description" data-i18n="colaboradores.description">
+                Conoce a las personas que hacen posible VRTon. Un equipo multidisciplinario de profesionales voluntarios comprometidos con transformar la realidad virtual en una herramienta de mejore la calidad de vida de muchos.
+            </p>
         </div>
+
+        <!-- Navegación de Equipos -->
+        <nav class="team-navigation" id="team-navigation">
+            <!-- El contenido se genera dinámicamente -->
+        </nav>
+
+        <!-- Contenedor de Equipos -->
+        <div class="teams-container" id="teams-container">
+            <!-- Las secciones de equipos se generan dinámicamente -->
+            <div class="teams-loading">
+                <i class="fas fa-spinner fa-spin"></i>
+                <p data-i18n="loading.teams">Cargando información del equipo...</p>
+            </div>
+        </div>
+
     </div>
-</main>
+</div>
+
+<style>
+.colaboradores-page {
+    padding-top: calc(var(--header-height) + 40px);
+    min-height: 100vh;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+}
+
+.colaboradores-page .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.page-header {
+    text-align: center;
+    padding: 40px 0 60px;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin: 0 0 20px;
+}
+
+.page-description {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.team-navigation {
+    margin-bottom: 40px;
+}
+
+.teams-container {
+    margin-bottom: 40px;
+}
+
+.teams-loading {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-color);
+}
+
+.teams-loading i {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    display: block;
+}
+
+.teams-loading p {
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .colaboradores-page {
+        padding-top: calc(var(--header-height-mobile) + 20px);
+    }
+    
+    .page-header {
+        padding: 30px 0 40px;
+    }
+    
+    .page-title {
+        font-size: 2rem;
+    }
+    
+    .page-description {
+        font-size: 1rem;
+    }
+    
+    .colaboradores-page .container {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-title {
+        font-size: 1.8rem;
+    }
+    
+    .page-description {
+        font-size: 0.95rem;
+    }
+}
+</style>
 
 <script src="/scripts/equipos.min.js" defer></script>

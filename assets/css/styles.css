@@ -3748,7 +3748,8 @@ body.loaded section {
    ================================ */
 
 .avatars-page {
-    padding: 60px 0;
+    padding-top: calc(var(--header-height) + 40px);
+    padding-bottom: 60px;
     background: var(--background-color);
     min-height: 100vh;
 }
@@ -3981,7 +3982,8 @@ body.loaded section {
 /* Responsive Design */
 @media (max-width: 768px) {
     .avatars-page {
-        padding: 40px 0;
+        padding-top: calc(var(--header-height-mobile) + 20px);
+        padding-bottom: 40px;
     }
     
     .page-title {
@@ -4063,7 +4065,7 @@ body.loaded section {
     position: relative;
 }
 
-.section-title {
+.section-header .section-title {
     font-size: 2rem;
     margin-bottom: 10px;
     font-weight: 700;

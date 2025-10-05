@@ -1,0 +1,107 @@
+{
+  "schedule": {
+    "title": "Event Schedule",
+    "description": "Check out the complete VRTon activities program. Discover workshops, virtual reality demonstrations, technical talks and special events for Teletón Chile.",
+    "current_time": "Current Time",
+    "main_activity": "Main Activity",
+    "second_activity": "Secondary Activity",
+    "time": "Time",
+    "section": "Section",
+    "no_activities": "No scheduled activities",
+    "special_event": "Special Event",
+    "duration": "Duration: {{minutes}} minutes",
+    "sections": {
+      "day1": "Day 1 - Thursday, November 28th",
+      "day2": "Day 2 - Friday, November 29th",
+      "opening": "Opening",
+      "djs": "DJs",
+      "spain": "Spain",
+      "latam": "Latam",
+      "closing": "Closing",
+      "after": "After"
+    },
+    "activities": {
+      "opening": {
+        "name": "Opening Ceremony",
+        "description": "Official welcome to VRTon event with organizer presentations and program overview."
+      },
+      "conteo1": {
+        "name": "Count 1",
+        "description": "First session of counting funds raised during the event."
+      },
+      "djset1": {
+        "name": "DJ Set 1",
+        "description": "Musical session with DJ to maintain the festive atmosphere during the early morning."
+      },
+      "djset2": {
+        "name": "DJ Set 2",
+        "description": "Second musical session with DJ to accompany night participants."
+      },
+      "djset3": {
+        "name": "DJ Set 3",
+        "description": "Third musical session to keep energy up during the early hours of the day."
+      },
+      "djset4": {
+        "name": "DJ Set 4",
+        "description": "Fourth musical session to accompany participants as they wake up."
+      },
+      "conteo2": {
+        "name": "Count 2",
+        "description": "Second session of counting funds raised during the night."
+      },
+      "conteo3": {
+        "name": "Count 3",
+        "description": "Third counting session, midday fundraising update."
+      },
+      "games1": {
+        "name": "Community Games 1",
+        "description": "First session of games and interactive activities with the community."
+      },
+      "workshop1": {
+        "name": "VR Development Workshop",
+        "description": "Learn the fundamentals of virtual reality development with Unity and professional tools."
+      },
+      "games2": {
+        "name": "Community Games 2",
+        "description": "Second session of games and fun competitions among participants."
+      },
+      "games3": {
+        "name": "Community Games 3",
+        "description": "Third session of group games and participation activities."
+      },
+      "games4": {
+        "name": "Community Games 4",
+        "description": "Fourth and final games session before the final count."
+      },
+      "conteo4": {
+        "name": "Count 4",
+        "description": "Fourth fund count, preparation for the final stretch."
+      },
+      "shows1": {
+        "name": "Shows 1",
+        "description": "First session of shows and artistic presentations from the community."
+      },
+      "conteo5": {
+        "name": "Count 5",
+        "description": "Fifth fund count, penultimate update before closing."
+      },
+      "shows2": {
+        "name": "Final Shows",
+        "description": "Special closing shows with the best presentations of the event."
+      },
+      "closing_ceremony": {
+        "name": "Closing Ceremony",
+        "description": "Official event closure with acknowledgments, final fundraising results and next steps."
+      },
+      "maid_cafe": {
+        "name": "Maid Cafe",
+        "description": "Themed cafe experience with maid-style service to relax during the event."
+      },
+      "charity_stream": {
+        "name": "Charity Stream",
+        "description": "Special live streaming with activities and donations for Teletón Chile."
+      }
+    },
+    "loading": "Loading schedule..."
+  }
+}
