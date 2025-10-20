@@ -53,7 +53,7 @@
       "description": "Mesa promocional de VRTon usada para exponer articulos",
       "version": "1.0.0",
       "downloadUrl": "https://github.com/VRTon/org.vrton.MesaVrton2025/releases/download/1.0.1/mesa.VRTON.unitypackage",
-      "imageUrl": "https://github.com/VRTon/org.vrton.MesaVrton2025/blob/main/mesa.png",
+      "imageUrl": "https://raw.githubusercontent.com/VRTon/org.vrton.MesaVrton2025/refs/heads/main/mesa.png",
       "category": "Objetos"
     },
     {
@@ -61,7 +61,7 @@
       "description": "Taza promocional de la VRTon 2025, con sistema de liquidos",
       "version": "1.0.0",
       "downloadUrl": "https://github.com/VRTon/org.vrton.Taza/releases/download/1.0.1/TazaVRTON.unitypackage",
-      "imageUrl": "https://github.com/VRTon/org.vrton.Taza/blob/main/taza.png",
+      "imageUrl": "https://raw.githubusercontent.com/VRTon/org.vrton.Taza/refs/heads/main/taza.png",
       "category": "Objetos"
     },
     {
@@ -69,7 +69,7 @@
       "description": "Cartel promocional de VRTon",
       "version": "1.0.0",
       "downloadUrl": "https://github.com/VRTon/org.vrton.CartelVrton/releases/download/1.0.1/VRTON.cartel.unitypackage",
-      "imageUrl": "https://github.com/VRTon/org.vrton.CartelVrton/blob/main/cartel.png",
+      "imageUrl": "https://raw.githubusercontent.com/VRTon/org.vrton.CartelVrton/refs/heads/main/cartel.png",
       "category": "Objetos"
     },
     {
@@ -77,7 +77,7 @@
       "description": "Gorra promocional de VRTon",
       "version": "1.0.0",
       "downloadUrl": "https://github.com/VRTon/org.vrton.hat/releases/download/1.0.1/GorraVRTON.unitypackage",
-      "imageUrl": "https://github.com/VRTon/org.vrton.hat/blob/main/gorra.png",
+      "imageUrl": "https://raw.githubusercontent.com/VRTon/org.vrton.hat/refs/heads/main/gorra.png",
       "category": "Objetos"
     }
   ]
