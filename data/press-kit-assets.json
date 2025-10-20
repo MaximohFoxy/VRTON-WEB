@@ -71,7 +71,7 @@
             "title": "Horizontal Poster 2",
             "image": "/assets/press-kit/posters/VrtonHorizontal.png",
             "downloadUrl": "/assets/press-kit/posters/VrtonHorizontal.png",
-            "dimensions": "1024x1024",
+            "dimensions": "2048x1024",
             "format": "PNG"
         },
         {
@@ -79,7 +79,7 @@
             "title": "Vertical Poster 2",
             "image": "/assets/press-kit/posters/VrtonVertical.png",
             "downloadUrl": "/assets/press-kit/posters/VrtonVertical.png",
-            "dimensions": "1024x1024",
+            "dimensions": "1024x2048",
             "format": "PNG"
         }
     ],
