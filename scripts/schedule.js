@@ -1,20 +1,22 @@
-// Schedule page JavaScript - VRTon Style
+
 document.addEventListener('DOMContentLoaded', () => {
     let scheduleData = null;
     let translations = null;
     let currentTimeInterval = null;
 
-    // Apply VRTon body style
+    const SLOT_MINUTES = 30; // cada fila = 30 minutos
+    let activeSectionId = 'all';
+    let activeViewMode = 'full'; // full | main | secondary
+
+    // Estilo de fondo VRTon
     document.body.classList.add('vrton-body');
 
-    // Load schedule data and translations
     async function loadData() {
         try {
             if (window.performanceMonitor) {
                 window.performanceMonitor.mark('schedule-data-start');
             }
 
-            // Load schedule data
             const scheduleResponse = await fetch('/data/schedule.json');
             if (!scheduleResponse.ok) {
                 throw new Error('No se pudo cargar el archivo de itinerario');
@@ -27,357 +29,502 @@ document.addEventListener('DOMContentLoaded', () => {
                 window.performanceMonitor.mark('schedule-data-loaded');
             }
 
+            setupLanguageChangeListener();
+            setupFiltersUI();
             renderSchedule();
+
         } catch (error) {
             console.error('Error al cargar datos del itinerario:', error);
             showError();
         }
     }
 
-    // Load or reload translations
     async function loadTranslations() {
-        // Use global translation system if available
         if (window.ModularTranslations) {
             translations = await window.ModularTranslations.loadTranslations(['common', 'pages/schedule']);
         } else if (window.translationSystem) {
             translations = await window.translationSystem.loadTranslations(['common', 'pages/schedule']);
         } else {
-            console.warn('Global translation system not available, translations may not work');
+            console.warn('Sistema de traducciones no disponible');
             translations = {};
         }
     }
 
-    // Listen for language changes
     function setupLanguageChangeListener() {
         const translationSystem = window.ModularTranslations || window.translationSystem;
         if (translationSystem && translationSystem.onLanguageChange) {
-            translationSystem.onLanguageChange(async (newLanguage) => {
-                console.log(`Language changed to ${newLanguage}, reloading schedule...`);
+            translationSystem.onLanguageChange(async () => {
                 await loadTranslations();
+                setupFiltersUI();
                 renderSchedule();
             });
         }
 
-        // Also listen for custom language change events
-        window.addEventListener('languageChanged', async (event) => {
-            console.log(`Language changed event received: ${event.detail?.language}`);
+        window.addEventListener('languageChanged', async () => {
             await loadTranslations();
+            setupFiltersUI();
             renderSchedule();
         });
     }
 
-    // Render the complete schedule
-    function renderSchedule() {
-        if (!scheduleData || !translations) return;
-
-        hideLoading();
-        showCurrentTime();
-        generateTimeBlocks();
-        startCurrentTimeTracking();
-        scrollToCurrentTime();
-
-        if (window.performanceMonitor) {
-            window.performanceMonitor.mark('schedule-rendered');
-        }
-    }
-
-    // Hide loading screen
     function hideLoading() {
         const loadingElement = document.getElementById('schedule-loading');
         const tableElement = document.getElementById('schedule-table');
-        
-        if (loadingElement) {
-            loadingElement.style.display = 'none';
-        }
-        if (tableElement) {
-            tableElement.style.display = 'block';
-        }
+        const toolbar = document.getElementById('schedule-toolbar');
+
+        if (loadingElement) loadingElement.style.display = 'none';
+        if (tableElement) tableElement.style.display = 'block';
+        if (toolbar) toolbar.style.display = 'flex';
 
         document.body.classList.remove('loading');
         document.body.classList.add('loaded');
     }
 
-    // Show current time indicator
     function showCurrentTime() {
         const currentTimeElement = document.getElementById('current-time-indicator');
         const currentTimeDisplay = document.getElementById('current-time-display');
-        
-        if (currentTimeElement && currentTimeDisplay) {
+
+        if (currentTimeElement && currentTimeDisplay && scheduleData?.schedule?.timezone) {
             currentTimeElement.style.display = 'block';
             updateCurrentTimeDisplay();
         }
     }
 
-    // Update current time display
     function updateCurrentTimeDisplay() {
         const now = new Date();
+        const timeZone = scheduleData?.schedule?.timezone || 'America/Santiago';
+
         const timeString = now.toLocaleTimeString('es-CL', {
             hour: '2-digit',
             minute: '2-digit',
-            timeZone: scheduleData.schedule.timezone
+            timeZone
         });
-        
+
         const currentTimeDisplay = document.getElementById('current-time-display');
         if (currentTimeDisplay) {
             currentTimeDisplay.textContent = timeString;
         }
     }
 
-    // Generate time blocks and activities
-    function generateTimeBlocks() {
-        const scheduleContent = document.getElementById('schedule-content');
-        if (!scheduleContent) return;
+    function setupFiltersUI() {
+        if (!scheduleData?.schedule) return;
 
-        const { event_start, event_end, main_activities, secondary_activities, sections } = scheduleData.schedule;
-        
-        // Parse start and end times
-        const startTime = new Date(event_start);
-        const endTime = new Date(event_end);
-        
-        // Generate hourly time blocks
-        const timeBlocks = [];
-        let currentTime = new Date(startTime);
-        currentTime.setMinutes(0, 0, 0); // Round to nearest hour
-        
-        console.log('Event start:', startTime);
-        console.log('Event end:', endTime);
-        
-        while (currentTime <= endTime) {
-            timeBlocks.push(new Date(currentTime));
-            console.log('Generated time block:', currentTime.toISOString());
-            currentTime.setHours(currentTime.getHours() + 1);
-        }
+        const { sections } = scheduleData.schedule;
+        const sectionFilter = document.getElementById('section-filter');
 
-        // Create simple activity placement maps
-        const mainActivityPlacements = new Map(); // key: "date_time", value: activity
-        const secondaryActivityPlacements = new Map(); // key: "date_time", value: activity
-        
-        // Process main activities
-        if (main_activities) {
-            main_activities.forEach(activity => {
-                // Create activity date with proper timezone consideration
-                const activityStart = new Date(`${activity.date}T${activity.time}:00-03:00`);
-                
-                // Find the matching time block
-                const matchingBlock = timeBlocks.find(block => {
-                    const blockDate = block.toISOString().split('T')[0];
-                    const activityDate = activityStart.toISOString().split('T')[0];
-                    const blockHour = block.getHours();
-                    const activityHour = activityStart.getHours();
-                    
-                    return blockDate === activityDate && blockHour === activityHour;
-                });
-                
-                if (matchingBlock) {
-                    const slotDate = matchingBlock.toISOString().split('T')[0];
-                    const slotTime = String(matchingBlock.getHours()).padStart(2, '0') + ':' + 
-                                   String(matchingBlock.getMinutes()).padStart(2, '0');
-                    const slotKey = `${slotDate}_${slotTime}`;
-                    
-                    mainActivityPlacements.set(slotKey, activity);
-                    console.log(`Placed main activity ${activity.id} at ${slotKey}`);
-                } else {
-                    console.log(`No matching time block found for main activity ${activity.id}`);
-                }
-            });
-        }
-        
-        // Process secondary activities
-        if (secondary_activities) {
-            secondary_activities.forEach(activity => {
-                // Create activity date with proper timezone consideration
-                const activityStart = new Date(`${activity.date}T${activity.time}:00-03:00`);
-                
-                // Find the matching time block
-                const matchingBlock = timeBlocks.find(block => {
-                    const blockDate = block.toISOString().split('T')[0];
-                    const activityDate = activityStart.toISOString().split('T')[0];
-                    const blockHour = block.getHours();
-                    const activityHour = activityStart.getHours();
-                    
-                    return blockDate === activityDate && blockHour === activityHour;
-                });
-                
-                if (matchingBlock) {
-                    const slotDate = matchingBlock.toISOString().split('T')[0];
-                    const slotTime = String(matchingBlock.getHours()).padStart(2, '0') + ':' + 
-                                   String(matchingBlock.getMinutes()).padStart(2, '0');
-                    const slotKey = `${slotDate}_${slotTime}`;
-                    
-                    secondaryActivityPlacements.set(slotKey, activity);
-                    console.log(`Placed secondary activity ${activity.id} at ${slotKey}`);
-                } else {
-                    console.log(`No matching time block found for secondary activity ${activity.id}`);
-                }
-            });
-        }
+        if (!sectionFilter) return;
 
-        console.log('Main activity placements:', Array.from(mainActivityPlacements.keys()));
-        console.log('Secondary activity placements:', Array.from(secondaryActivityPlacements.keys()));
+        const allLabel =
+            getTranslation('schedule.filters.all_sections') ||
+            'Todas las secciones';
 
-        // Calculate section spans
-        const sectionSpans = new Map();
+        let optionsHtml = `<option value="all">${allLabel}</option>`;
+
         sections.forEach(section => {
-            const sectionStart = new Date(section.start_datetime);
-            const sectionEnd = new Date(section.end_datetime);
-            
-            let startIndex = -1;
-            let endIndex = -1;
-            
-            timeBlocks.forEach((block, index) => {
-                if (block >= sectionStart && startIndex === -1) {
-                    startIndex = index;
-                }
-                if (block <= sectionEnd) {
-                    endIndex = index;
-                }
-            });
-            
-            if (startIndex !== -1 && endIndex !== -1) {
-                const span = endIndex - startIndex + 1;
-                sectionSpans.set(section.id, {
-                    startIndex,
-                    span,
-                    section
-                });
-                console.log(`Section ${section.id} spans ${span} rows starting at index ${startIndex}`);
-            }
+            const name = getTranslation(section.name_key) || section.name_key;
+            optionsHtml += `<option value="${section.id}">${name}</option>`;
         });
 
-        // Generate HTML for time blocks
-        let html = '';
+        sectionFilter.innerHTML = optionsHtml;
+        sectionFilter.value = activeSectionId;
+
+        sectionFilter.onchange = () => {
+            activeSectionId = sectionFilter.value || 'all';
+            renderSchedule(true);
+        };
+
+        // Botones de vista
+        const chipButtons = document.querySelectorAll('.chip-button');
+        chipButtons.forEach(btn => {
+            btn.onclick = () => {
+                const mode = btn.getAttribute('data-view-mode');
+                if (!mode) return;
+                activeViewMode = mode;
+
+                chipButtons.forEach(b => b.classList.remove('chip-button-active'));
+                btn.classList.add('chip-button-active');
+
+                renderSchedule(true);
+            };
+        });
+    }
+
+    function renderSchedule(fromFilter = false) {
+        if (!scheduleData || !translations) return;
+
+        hideLoading();
+        showCurrentTime();
+        renderScheduleGrid();
+        startCurrentTimeTracking();
+
+        if (!fromFilter) {
+            scrollToCurrentTime();
+        }
+    }
+
+    function getTimeSlots() {
+        const { event_start, event_end, sections } = scheduleData.schedule;
+
+        let startTime = new Date(event_start);
+        let endTime = new Date(event_end);
+
         
-        timeBlocks.forEach((timeBlock, index) => {
-            const dateStr = timeBlock.toISOString().split('T')[0];
-            // Use consistent time formatting
-            const timeStr = String(timeBlock.getHours()).padStart(2, '0') + ':' + 
-                           String(timeBlock.getMinutes()).padStart(2, '0');
-            
-            console.log(`Processing time block: ${dateStr} ${timeStr}`);
-            
-            // Check if this is the current time block
-            const now = new Date();
-            const isCurrentTime = isNearCurrentTime(timeBlock, now);
-            
-            // Find which section this block belongs to
-            let currentSection = null;
-            let isFirstRowOfSection = false;
-            let sectionRowSpan = 1;
-            
-            for (const [sectionId, sectionData] of sectionSpans) {
-                if (index >= sectionData.startIndex && index < sectionData.startIndex + sectionData.span) {
-                    currentSection = sectionData.section;
-                    isFirstRowOfSection = index === sectionData.startIndex;
-                    sectionRowSpan = sectionData.span;
-                    break;
+        if (activeSectionId !== 'all') {
+            const section = sections.find(s => s.id === activeSectionId);
+            if (section) {
+                startTime = new Date(section.start_datetime);
+                endTime = new Date(section.end_datetime);
+
+                
+                if (section.name_key === "schedule.sections.closing") {
+                    startTime.setHours(startTime.getHours() - 1);  
+                    endTime.setHours(endTime.getHours() + 1);      
                 }
             }
+        }
+
+        
+        startTime.setSeconds(0, 0);
+        endTime.setSeconds(0, 0);
+
+    
+        const slots = [];
+        const current = new Date(startTime);
+
+        
+        while (current <= endTime) {
+            slots.push(new Date(current));
+            current.setMinutes(current.getMinutes() + SLOT_MINUTES);
+        }
+
+        return { slots, startTime, endTime };
+    }
+
+
+    function renderScheduleGrid() {
+    const grid = document.getElementById('schedule-grid');
+    if (!grid || !scheduleData?.schedule) return;
+
+    const { main_activities, secondary_activities, sections } = scheduleData.schedule;
+    const { slots, startTime, endTime } = getTimeSlots();
+    const firstSlot = slots[0];
+
+    let html = '';
+
+    // Fondo de filas
+    slots.forEach((slot, index) => {
+        const row = index + 1;
+        html += `<div class="time-row-bg" data-row="${row}" style="grid-row:${row};"></div>`;
+    });
+
+    // Secciones (columna 1)
+    let activeSections = sections;
+
+    if (activeSectionId !== 'all') {
+        activeSections = sections.filter(s => s.id === activeSectionId);
+
+        
+        const section = sections.find(s => s.id === activeSectionId);
+        if (section && section.name_key === "schedule.sections.closing") {
             
-            // Get activities for this time slot
-            const slotKey = `${dateStr}_${timeStr}`;
+            const prevSection = sections.find(s => s.end_datetime === section.start_datetime);
             
-            console.log(`Looking for activities with key: ${slotKey}`);
+            const nextSection = sections.find(s => s.start_datetime === section.end_datetime);
+
             
-            const mainActivity = mainActivityPlacements.get(slotKey);
-            const secondaryActivity = secondaryActivityPlacements.get(slotKey);
+            if (prevSection) activeSections.unshift(prevSection);
+            if (nextSection) activeSections.push(nextSection);
+        }
+    }
+
+    let lastEndIndex = 0; 
+
+    activeSections.forEach(section => {
+        const sectionStart = new Date(section.start_datetime);
+        const sectionEnd = new Date(section.end_datetime);
+
+        if (sectionEnd < startTime || sectionStart > endTime) return;  
+
+        
+        let startIndex = Math.floor((sectionStart - firstSlot) / (SLOT_MINUTES * 60000));
+        if (startIndex < 0) startIndex = 0;
+
+        
+        if (startIndex < lastEndIndex) {
+            startIndex = lastEndIndex;
+        }
+
+        
+        let endIndex = Math.ceil((sectionEnd - firstSlot) / (SLOT_MINUTES * 60000));
+        if (endIndex > slots.length - 1) endIndex = slots.length - 1;
+
+        const span = Math.max(1, endIndex - startIndex);
+        const row = startIndex + 1;
+
+        const name = getTranslation(section.name_key) || section.name_key;
+        const bg = section.background_color || '#e30613';
+
+        lastEndIndex = endIndex; 
+
+        html += `
+            <div class="section-cell"
+                 style="grid-row:${row} / span ${span}; background:${bg};">
+                <span class="section-label-text">${name}</span>
+            </div>
+        `;
+    });
+
+    // Función para añadir las actividades principales y secundarias
+    function addActivities(list, isMainColumn) {
+        if (!list) return;
+
+        list.forEach(activity => {
+            const activityStart = new Date(`${activity.date}T${activity.time}:00-03:00`);
+            const activityEnd = new Date(activityStart.getTime() + (activity.duration || 60) * 60000);
+
+            if (activityEnd < startTime || activityStart > endTime) return; 
+
+            // Filtro por vista
+            if (activeViewMode === 'main' && !isMainColumn) return;
+            if (activeViewMode === 'secondary' && isMainColumn) return;
+
             
+            const diffStartMin = (activityStart - firstSlot) / 60000;
+
+           
+            let startIndex = Math.floor(diffStartMin / SLOT_MINUTES);
+            if (startIndex < 0) startIndex = 0;
+
+          
+            if (startIndex < lastEndIndex) {
+                startIndex = lastEndIndex; 
+            }
+
+            const rawDuration = activity.duration || 60;
+            let durationSlots = Math.max(1, Math.ceil(rawDuration / SLOT_MINUTES) + 1);  
+
+            
+            const maxPossibleSpan = slots.length - startIndex;
+            const span = Math.min(durationSlots, maxPossibleSpan);
+
+           
+            const row = startIndex + 1;
+
+            const columnClass = isMainColumn ? 'activity-slot-main' : 'activity-slot-secondary';
+            const columnIndex = isMainColumn ? 3 : 4;
+
+            const cardHtml = generateActivityCard(activity);
+
             html += `
-                <div class="time-block ${isCurrentTime ? 'current-time' : ''}" 
-                     data-time="${timeBlock.toISOString()}" 
-                     data-section="${currentSection?.id || ''}"
-                     data-section-start="${isFirstRowOfSection}"
-                     data-section-span="${sectionRowSpan}"
-                     ${currentSection ? `style="background-color: ${currentSection.background_color}15"` : ''}>
-                    
-                    <div class="section-cell" ${currentSection ? `style="background-color: ${currentSection.background_color}"` : ''}>
-                        ${isFirstRowOfSection && currentSection ? 
-                            `<div class="section-label-content" style="position: absolute; top: 0; left: 0; width: 100%; height: ${sectionRowSpan * 81}px;">
-                                <span>${getTranslation(currentSection.name_key) || currentSection.name_key}</span>
-                            </div>` : ''
-                        }
-                    </div>
-                    
-                    <div class="time-cell">
-                        ${timeStr}
-                    </div>
-                    
-                    <div class="activity-cell">
-                        ${mainActivity ? generateActivityCard(mainActivity) : generateEmptyActivity()}
-                    </div>
-                    
-                    <div class="activity-cell">
-                        ${secondaryActivity ? generateActivityCard(secondaryActivity) : generateEmptyActivity()}
-                    </div>
+                <div class="activity-slot ${columnClass}"
+                     style="grid-row:${row} / span ${span}; grid-column:${columnIndex};">
+                    ${cardHtml}
                 </div>
             `;
         });
-        
-        scheduleContent.innerHTML = html;
     }
 
-    // Check if time block is near current time (within 30 minutes)
-    function isNearCurrentTime(timeBlock, now) {
-        const diffMs = Math.abs(timeBlock.getTime() - now.getTime());
+        // Función para añadir las actividades principales y secundarias
+        function addActivities(list, isMainColumn) {
+            if (!list) return;
+
+            list.forEach(activity => {
+                const activityStart = new Date(`${activity.date}T${activity.time}:00-03:00`);
+                const activityEnd = new Date(activityStart.getTime() + (activity.duration || 60) * 60000);
+
+                if (activityEnd < startTime || activityStart > endTime) return;  
+
+                // Filtro por vista
+                if (activeViewMode === 'main' && !isMainColumn) return;
+                if (activeViewMode === 'secondary' && isMainColumn) return;
+
+                
+                const diffStartMin = (activityStart - firstSlot) / 60000;
+
+                let startIndex = Math.floor(diffStartMin / SLOT_MINUTES);
+                if (startIndex < 0) startIndex = 0;
+
+                if (startIndex < lastEndIndex) {
+                    startIndex = lastEndIndex;  
+                }
+
+                const rawDuration = activity.duration || 60;
+                let durationSlots = Math.max(1, Math.ceil(rawDuration / SLOT_MINUTES) + 1);
+
+            
+                const maxPossibleSpan = slots.length - startIndex;
+                const span = Math.min(durationSlots, maxPossibleSpan);
+
+            
+                const row = startIndex + 1;
+
+                const columnClass = isMainColumn ? 'activity-slot-main' : 'activity-slot-secondary';
+                const columnIndex = isMainColumn ? 3 : 4;
+
+                const cardHtml = generateActivityCard(activity);
+
+                html += `
+                    <div class="activity-slot ${columnClass}"
+                        style="grid-row:${row} / span ${span}; grid-column:${columnIndex};">
+                        ${cardHtml}
+                    </div>
+                `;
+            });
+        }
+
+
+        // Columna de horas (columna 2)
+        slots.forEach((slot, index) => {
+            const row = index + 1;
+            const timeStr = slot.toLocaleTimeString('es-CL', {
+                hour: '2-digit',
+                minute: '2-digit',
+                timeZone: scheduleData.schedule.timezone || 'America/Santiago'
+            });
+
+            html += `
+                <div class="time-cell"
+                     data-row="${row}"
+                     data-time="${slot.toISOString()}"
+                     style="grid-row:${row};">
+                    ${timeStr}
+                </div>
+            `;
+        });
+
+        // Función para preparar actividades
+        function addActivities(list, isMainColumn) {
+            if (!list) return;
+
+            list.forEach(activity => {
+                const activityStart = new Date(`${activity.date}T${activity.time}:00-03:00`);
+                const activityEnd = new Date(activityStart.getTime() + (activity.duration || 60) * 60000);
+
+                if (activityEnd < startTime || activityStart > endTime) return;
+
+                // Filtro por vista
+                if (activeViewMode === 'main' && !isMainColumn) return;
+                if (activeViewMode === 'secondary' && isMainColumn) return;
+
+                const diffStartMin = (activityStart - firstSlot) / 60000;
+
+                let startIndex = Math.floor(diffStartMin / SLOT_MINUTES);
+                if (startIndex < 0) startIndex = 0;
+
+
+                const rawDuration = activity.duration || 60;
+                let durationSlots = Math.max(1, Math.ceil(rawDuration / SLOT_MINUTES) + 1);
+
+                const maxPossibleSpan = slots.length - startIndex;
+                const span = Math.min(durationSlots, maxPossibleSpan);
+
+
+                const row = startIndex + 1;
+
+                const columnClass = isMainColumn ? 'activity-slot-main' : 'activity-slot-secondary';
+                const columnIndex = isMainColumn ? 3 : 4;
+
+                const cardHtml = generateActivityCard(activity);
+
+                html += `
+                    <div class="activity-slot ${columnClass}"
+                        style="grid-row:${row} / span ${span}; grid-column:${columnIndex};">
+                        ${cardHtml}
+                    </div>
+                `;
+            });
+        }
+
+        let currentTimeLineElement = document.getElementById('current-time-line');
+
+        function updateCurrentTimeLine() {
+
+            const now = new Date();
+
+
+            const firstSlotTime = new Date(scheduleData.schedule.event_start);
+
+
+            const timeDiffInMinutes = (now - firstSlotTime) / (1000 * 60);
+
+
+            if (timeDiffInMinutes < 0) {
+                currentTimeLineElement.style.transform = 'translateY(0)';
+                return;
+            }
+
+            const totalEventDuration = (new Date(scheduleData.schedule.event_end) - firstSlotTime) / (1000 * 60);
+            const percentageOfTimePassed = (timeDiffInMinutes / totalEventDuration) * 100;
+
+            currentTimeLineElement.style.transform = `translateY(${percentageOfTimePassed}%)`;
+        }
+
+
+        setInterval(updateCurrentTimeLine, 60000);
+
+        updateCurrentTimeLine();
+
+        addActivities(main_activities, true);
+        addActivities(secondary_activities, false);
+
+        grid.innerHTML = html;
+
+        updateCurrentTimeHighlight();
+    }
+
+    function isNearCurrentTime(slotTime, now) {
+        const diffMs = Math.abs(slotTime.getTime() - now.getTime());
         const diffMinutes = diffMs / (1000 * 60);
-        return diffMinutes <= 30;
+        return diffMinutes <= SLOT_MINUTES / 2;
     }
 
-    // Generate activity card HTML
     function generateActivityCard(activity) {
-        // Calculate name and description keys based on activity ID
         const nameKey = `schedule.activities.${activity.id}.name`;
         const descriptionKey = `schedule.activities.${activity.id}.description`;
-        
-        const name = getTranslation(nameKey);
-        const description = getTranslation(descriptionKey);
-        
-        const displayName = name || activity.id;
-        const displayDescription = description || '';
-        const duration = activity.duration;
+
+        const name = getTranslation(nameKey) || activity.id;
+        const description = getTranslation(descriptionKey) || '';
+        const duration = activity.duration || 60;
         const isSpecial = activity.is_special || false;
-        
-        const durationText = getTranslation('schedule.duration')?.replace('{{minutes}}', duration) || `Duración: ${duration} minutos`;
-        const specialEventText = getTranslation('schedule.special_event') || 'Evento Especial';
-        
+
+        const durationText =
+            getTranslation('schedule.duration')?.replace('{{minutes}}', duration) ||
+            `Duración: ${duration} minutos`;
+
+        const specialEventText =
+            getTranslation('schedule.special_event') ||
+            'Evento Especial';
+
         return `
-            <div class="activity-card ${isSpecial ? 'special' : ''}" 
-                 data-activity-id="${activity.id}" 
+            <div class="activity-card ${isSpecial ? 'special' : ''}"
+                 data-activity-id="${activity.id}"
                  data-duration="${duration}">
-                <h4>${displayName}</h4>
-                <p>${displayDescription}</p>
-                <div class="activity-duration">${durationText}</div>
-                ${isSpecial ? '<div class="special-badge"><i class="fas fa-star"></i> ' + specialEventText + '</div>' : ''}
+                <h4>${name}</h4>
+                ${description ? `<p>${description}</p>` : ''}
+                <div class="activity-meta">
+                    <div class="activity-duration">${durationText}</div>
+                    ${isSpecial ? `
+                        <span class="special-badge">
+                            <i class="fas fa-star"></i> ${specialEventText}
+                        </span>` : ''
+                    }
+                </div>
             </div>
         `;
     }
 
-    // Generate empty activity cell
-    function generateEmptyActivity() {
-        const noActivitiesText = getTranslation('schedule.no_activities') || 'Sin actividades programadas';
-        return `
-            <div class="no-activity">
-                ${noActivitiesText}
-            </div>
-        `;
-    }
-
-    // Get translation by key
     function getTranslation(key) {
-        if (!translations || !key) {
-            return null;
-        }
-        
-        // Use global translation system's getNestedValue if available
+        if (!translations || !key) return null;
+
         const translationSystem = window.ModularTranslations || window.translationSystem;
         if (translationSystem && translationSystem.getNestedValue) {
             const value = translationSystem.getNestedValue(translations, key);
             return value || null;
         }
-        
-        // Fallback to manual navigation
+
         const keys = key.split('.');
         let value = translations;
-        
+
         for (const k of keys) {
             if (value && typeof value === 'object' && k in value) {
                 value = value[k];
@@ -385,126 +532,132 @@ document.addEventListener('DOMContentLoaded', () => {
                 return null;
             }
         }
-        
+
         return typeof value === 'string' ? value : null;
     }
 
-    // Start tracking current time
     function startCurrentTimeTracking() {
-        // Update every minute
+        if (currentTimeInterval) {
+            clearInterval(currentTimeInterval);
+        }
+
         currentTimeInterval = setInterval(() => {
             updateCurrentTimeDisplay();
             updateCurrentTimeHighlight();
         }, 60000);
     }
 
-    // Update current time highlight in table
     function updateCurrentTimeHighlight() {
-        const timeBlocks = document.querySelectorAll('.time-block');
+        const timeCells = document.querySelectorAll('.time-cell');
+        const rowBgs = document.querySelectorAll('.time-row-bg');
         const now = new Date();
-        
-        timeBlocks.forEach(block => {
-            const timeStr = block.dataset.time;
-            if (timeStr) {
-                const blockTime = new Date(timeStr);
-                const isNear = isNearCurrentTime(blockTime, now);
-                
-                if (isNear) {
-                    block.classList.add('current-time');
-                } else {
-                    block.classList.remove('current-time');
-                }
+
+        timeCells.forEach(cell => {
+            const timeStr = cell.dataset.time;
+            const row = cell.dataset.row;
+            if (!timeStr || !row) return;
+
+            const slotTime = new Date(timeStr);
+            const near = isNearCurrentTime(slotTime, now);
+
+            if (near) {
+                cell.classList.add('current-time');
+                const bg = document.querySelector(`.time-row-bg[data-row="${row}"]`);
+                if (bg) bg.classList.add('current-time-row');
+            } else {
+                cell.classList.remove('current-time');
+                const bg = document.querySelector(`.time-row-bg[data-row="${row}"]`);
+                if (bg) bg.classList.remove('current-time-row');
             }
         });
     }
 
-    // Scroll to current time on page load
     function scrollToCurrentTime() {
         setTimeout(() => {
-            const currentTimeBlock = document.querySelector('.time-block.current-time');
-            if (currentTimeBlock) {
-                currentTimeBlock.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'center'
+            const wrapper = document.querySelector('.schedule-grid-wrapper');
+            const currentCell = document.querySelector('.time-cell.current-time');
+
+            if (wrapper && currentCell) {
+                const wrapperRect = wrapper.getBoundingClientRect();
+                const cellRect = currentCell.getBoundingClientRect();
+
+                const offset = cellRect.top - wrapperRect.top - wrapperRect.height / 2 + cellRect.height / 2;
+                wrapper.scrollTo({
+                    top: wrapper.scrollTop + offset,
+                    behavior: 'smooth'
                 });
             }
-        }, 1000);
+        }, 800);
     }
 
-    // Show error message
     function showError() {
         const container = document.getElementById('schedule-container');
-        if (container) {
-            container.innerHTML = `
-                <div class="error-message">
-                    <i class="fas fa-exclamation-triangle"></i>
-                    <h3>Error al cargar el itinerario</h3>
-                    <p>No se pudo cargar la información del evento. Por favor, recarga la página o inténtalo más tarde.</p>
-                    <button onclick="location.reload()" class="reload-button">
-                        <i class="fas fa-redo"></i> Recargar página
-                    </button>
-                </div>
-            `;
-        }
+        if (!container) return;
+
+        container.innerHTML = `
+            <div class="error-message">
+                <i class="fas fa-exclamation-triangle"></i>
+                <h3>Error al cargar el itinerario</h3>
+                <p>No se pudo cargar la información del evento. Por favor, recarga la página o inténtalo más tarde.</p>
+                <button onclick="location.reload()" class="reload-button">
+                    <i class="fas fa-redo"></i> Recargar página
+                </button>
+            </div>
+        `;
     }
 
-    // Clean up intervals when page unloads
     window.addEventListener('beforeunload', () => {
         if (currentTimeInterval) {
             clearInterval(currentTimeInterval);
         }
     });
 
-    // Initialize
+    // Estilos extra para error
+    const additionalStyles = `
+        .error-message {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-color);
+        }
+
+        .error-message i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .error-message h3 {
+            margin: 20px 0;
+            color: var(--text-color);
+        }
+
+        .error-message p {
+            margin: 20px 0;
+            color: var(--text-muted);
+        }
+
+        .reload-button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .reload-button:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+    `;
+
+    const styleSheet = document.createElement('style');
+    styleSheet.textContent = additionalStyles;
+    document.head.appendChild(styleSheet);
+
+    // Init
     loadData();
-    setupLanguageChangeListener();
 });
-
-// CSS for error message and special badge
-const additionalStyles = `
-    .error-message {
-        text-align: center;
-        padding: 60px 20px;
-        color: var(--text-color);
-    }
-
-    .error-message i {
-        font-size: 3rem;
-        color: var(--primary-color);
-        margin-bottom: 20px;
-        display: block;
-    }
-
-    .error-message h3 {
-        margin: 20px 0;
-        color: var(--text-color);
-    }
-
-    .error-message p {
-        margin: 20px 0;
-        color: var(--text-muted);
-    }
-
-    .reload-button {
-        background: var(--primary-color);
-        color: white;
-        border: none;
-        padding: 12px 24px;
-        border-radius: 8px;
-        cursor: pointer;
-        font-size: 1rem;
-        transition: all 0.3s ease;
-    }
-
-    .reload-button:hover {
-        background: var(--accent-color);
-        transform: translateY(-2px);
-    }
-
-
-`;
-
-// Inject additional styles
-const styleSheet = document.createElement('style');
-styleSheet.textContent = additionalStyles;
-document.head.appendChild(styleSheet);

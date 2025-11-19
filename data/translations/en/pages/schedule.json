@@ -10,6 +10,14 @@
     "no_activities": "No scheduled activities",
     "special_event": "Special Event",
     "duration": "Duration: {{minutes}} minutes",
+    "filters": {
+      "section": "Section",
+      "all_sections": "All sections",
+      "view_mode": "View mode",
+      "view_full": "Full",
+      "view_main": "Main",
+      "view_secondary": "Secondary"
+    },
     "sections": {
       "day1": "Day 1 - Thursday, November 28",
       "day2": "Day 2 - Friday, November 29",
