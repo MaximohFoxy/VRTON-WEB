@@ -77,7 +77,7 @@ class SimpleLoadingManager {
     constructor() {
         this.loadingScreen = document.getElementById('loading-screen');
         this.isTeamPage = this.detectTeamPage();
-        this.loadingTimeout = this.isTeamPage ? 2000 : 3000; // Shorter timeout for team page
+        this.loadingTimeout = this.isTeamPage ? 500 : 800;
         
         console.log('🚀 Simple Loading Manager initialized');
         this.init();

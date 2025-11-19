@@ -10,6 +10,14 @@
     "no_activities": "Sin actividades programadas",
     "special_event": "Evento Especial",
     "duration": "Duración: {{minutes}} minutos",
+    "filters": {
+      "section": "Sección",
+      "all_sections": "Todas las secciones",
+      "view_mode": "Modo de vista",
+      "view_full": "Completo",
+      "view_main": "Principal",
+      "view_secondary": "Secundaria"
+    },
     "sections": {
       "day1": "Día 1 - Jueves 28 de Noviembre",
       "day2": "Día 2 - Viernes 29 de Noviembre",
