@@ -77,7 +77,15 @@ class SimpleLoadingManager {
     constructor() {
         this.loadingScreen = document.getElementById('loading-screen');
         this.isTeamPage = this.detectTeamPage();
-        this.loadingTimeout = this.isTeamPage ? 500 : 800;
+        
+        const path = window.location.pathname || '';
+        
+        // Página de itinerario: loading ultra rápido
+        if (path.includes('schedule')) {
+            this.loadingTimeout = 150; // o incluso 0 si quieres que sea instantáneo
+        } else {
+            this.loadingTimeout = this.isTeamPage ? 500 : 800; // Establece el timeout según la página
+        }
         
         console.log('🚀 Simple Loading Manager initialized');
         this.init();
@@ -101,7 +109,15 @@ class SimpleLoadingManager {
         // Update loading text based on page
         this.updateLoadingText();
         
-        // For index page, wait for video if it exists
+        const path = window.location.pathname || '';
+
+        // Página de "schedule": quitar loading inmediatamente
+        if (path.includes('schedule')) {
+            this.completeLoading();
+            return;
+        }
+
+        // Para la página de inicio, espera vídeo si existe
         if (!this.isTeamPage && this.hasVideo()) {
             this.waitForVideo();
         } else {
