@@ -83,7 +83,7 @@ class SimpleLoadingManager {
 
         // Página de itinerario: loading ultra rápido
         if (path.includes('schedule')) {
-            this.loadingTimeout = 150; // pon 0 si la quieres totalmente instantánea
+            this.loadingTimeout = 150; // o 0 si la quieres totalmente instantánea
         } else {
             // resto de páginas
             this.loadingTimeout = this.isTeamPage ? 500 : 800;
@@ -92,6 +92,7 @@ class SimpleLoadingManager {
         console.log('🚀 Simple Loading Manager initialized');
         this.init();
     }
+
 
     detectTeamPage() {
         return (
